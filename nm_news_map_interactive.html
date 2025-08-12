@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>New Mexico News Media Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100vw; height:100vh; }
+    .mapboxgl-popup {
+      max-width: 350px;
+      font: 13px/1.5 'Open Sans', Arial, sans-serif;
+      z-index: 9999 !important;
+    }
+    .mapboxgl-popup-content { font-family: Arial, sans-serif; font-size: 14px; }
+    .legend {
+      background: rgba(255, 255, 255, 0.5); padding: 10px; border-radius: 5px;
+      position: absolute; top: 10px; right: 10px; z-index: 1000; font-size: 12px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3); width: 220px; backdrop-filter: blur(5px);
+    }
+    .legend-dot {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+    }
+    .legend-item {
+      transition: background-color 0.2s ease;
+      user-select: none;
+    }
+    .legend-item:hover {
+      background-color: #f0f0f0 !important;
+    }
+    .legend-item.active {
+      background-color: rgba(227, 242, 253, 0.8) !important;
+      border-left: 3px solid #2196f3;
+      padding-left: 5px;
+    }
+    
+    /* Cohesive panel styling */
+    .control-panel {
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(5px);
+      border-radius: 5px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      padding: 10px;
+      width: 220px;
+      z-index: 1000;
+      font-size: 12px;
+    }
+    
+    .legend-item:hover {
+      background-color: rgba(245, 245, 245, 0.8) !important;
+    }
+    .marker {
+      display: block;
+      position: absolute;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script src="outlets_geojson.js"></script>
+
+<div id="legend" class="legend"></div>
+
+<!-- Census Overlay Controls -->
+<div id="census-controls" style="position: absolute; top: 280px; right: 10px; background: rgba(255, 255, 255, 0.5); padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px rgba(0,0,0,0.3); font-size: 12px; width: 220px; z-index: 1000; backdrop-filter: blur(5px);">
+  <div style="font-weight: bold; margin-bottom: 8px; color: #333;">Census Data Overlays</div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="none" checked style="margin-right: 5px;">
+      No Overlay
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="population" style="margin-right: 5px;">
+      Population Size
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="income" style="margin-right: 5px;">
+      Median Household Income
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="business" style="margin-right: 5px;">
+      Private Business
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="education" style="margin-right: 5px;">
+      College Education
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="age" style="margin-right: 5px;">
+      Median Age
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="nonwhite" style="margin-right: 5px;">
+      Nonwhite Population
+    </label>
+  </div>
+  <div style="margin-bottom: 5px;">
+    <label style="cursor: pointer; display: block; padding: 2px 0;">
+      <input type="radio" name="census-layer" value="broadband" style="margin-right: 5px;">
+      Homes with Broadband
+    </label>
+  </div>
+  <div id="census-legend" style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 10px;">
+    <!-- Dynamic legend will appear here -->
+  </div>
+  <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 9px; color: #666; line-height: 1.3;">
+    <strong>Data Source:</strong><br>
+    U.S. Census Bureau<br>
+    2022 American Community Survey<br>
+    5-Year Estimates
+  </div>
+</div>
+
+<script>
+  (function() {
+    const mediaTypes = [
+      {name: "Digital", color: "#2196f3"},      // Bright blue - excellent contrast
+      {name: "Print", color: "#4caf50"},        // Green - good contrast  
+      {name: "Radio", color: "#ff9800"},        // Orange - vibrant contrast
+      {name: "Television", color: "#f44336"},   // Red - strong contrast
+      {name: "Multiplatform", color: "#9c27b0"} // Purple - excellent distinction
+    ];
+    const counts = {};
+    mediaTypes.forEach(type => counts[type.name] = 0);
+    window.outletsGeojsonFeatures.forEach(f => {
+      const t = f.properties["Primary Medium"];
+      if (counts.hasOwnProperty(t)) counts[t]++;
+    });
+    
+    // Create legend HTML with map title and filtering
+    let legendHtml = '<div style="font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: center;">New Mexico Local News Map</div>';
+    legendHtml += '<div style="border-bottom: 2px solid #ddd; margin-bottom: 10px;"></div>';
+    legendHtml += '<div style="font-weight: bold; margin-bottom: 8px; color: #333;">Interactive Legend (Click to Filter)</div>';
+    legendHtml += '<div style="margin-bottom: 8px;">';
+    legendHtml += '<div class="legend-item" data-type="all" style="cursor: pointer; padding: 3px 0; font-weight: bold;">';
+    legendHtml += `<span class="legend-dot" style="background:#666;"></span> Show All (${Object.values(counts).reduce((a, b) => a + b, 0)})`;
+    legendHtml += '</div>';
+    legendHtml += '</div>';
+    
+    mediaTypes.forEach(type => {
+      legendHtml += `<div class="legend-item" data-type="${type.name}" style="cursor: pointer; padding: 2px 0; border-radius: 3px; margin: 1px 0;">`;
+      legendHtml += `<span class="legend-dot" style="background:${type.color};"></span> ${type.name} (${counts[type.name]})`;
+      legendHtml += '</div>';
+    });
+    legendHtml += '<br><small>* = outlet did not provide</small>';
+    document.getElementById('legend').innerHTML = legendHtml;
+    
+    // Store media types globally for filtering
+    window.mediaTypes = mediaTypes;
+    window.activeFilter = 'all'; // Track current filter
+  })();
+</script>
+<script>
+  // Initialize map
+  mapboxgl.accessToken = 'pk.eyJ1IjoibWljaHZpbm1hciIsImEiOiJjbWRpMDdjZnEwN3RyMmtxM3A2M2lnbnZpIn0.q95N3Xkfyn5UTowpvxeD-Q';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/light-v11',
+    center: [-106.2485, 34.5199],
+    zoom: 7.1,
+    minZoom: 6.2,
+    maxZoom: 13,
+    attributionControl: true
+  });
+
+  // Global variables for census data
+  let censusData = null;
+  let currentCensusLayer = 'none';
+
+  map.addControl(new mapboxgl.NavigationControl());
+
+  // Add major highways and cities layers (if using Mapbox vector tiles)
+  map.on('load', function() {
+    // Embed the geocoded outlet data as a GeoJSON FeatureCollection
+    const outletData = {
+      "type": "FeatureCollection",
+      "features": []
+    };
+    // Load features from external JS file for maintainability and portability
+    outletData.features = window.outletsGeojsonFeatures;
+
+    // Add city labels (if desired)
+    map.addLayer({
+      'id': 'nm-cities',
+      'type': 'symbol',
+      'source': 'places',
+      'source-layer': 'place_label',
+      'layout': {
+        'text-field': ['get', 'name_en'],
+        'text-size': 14,
+        'icon-image': '',
+        'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold']
+      },
+      'paint': {
+        'text-color': '#222',
+        'text-halo-color': '#fff',
+        'text-halo-width': 1.2
+      },
+      'filter': ['all', ['==', ['get', 'iso_3166_2'], 'US-NM'], ["==", ["get", "class"], "city"]]
+    });
+
+    // Add NM counties boundaries from GeoJSON and put on top
+    console.log('Adding county source...');
+    map.addSource('counties', {
+      type: 'geojson',
+      data: 'nm_counties_wgs84.geojson'
+    });
+
+    // Add census-enhanced counties source for overlays
+    console.log('Adding census data source...');
+    map.addSource('census-counties', {
+      type: 'geojson',
+      data: 'nm_counties_with_census.geojson'
+    });
+    
+    // Debug county source loading
+    map.on('sourcedata', function(e) {
+      if (e.sourceId === 'counties') {
+        console.log('County source event:', e.type, 'isSourceLoaded:', e.isSourceLoaded);
+        if (e.isSourceLoaded) {
+          const source = map.getSource('counties');
+          console.log('County source loaded:', source);
+        }
+      }
+    });
+
+    // Store all county names from GeoJSON for "all" handling
+    let allNMCountyNames = [];
+    // Flag to track if counties have been loaded
+    let countiesLoaded = false;
+
+    // Directly fetch the counties GeoJSON to ensure we have access to county names
+    fetch('nm_counties_wgs84.geojson')
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.features && data.features.length > 0) {
+          // Extract all county names from the GeoJSON
+          allNMCountyNames = data.features
+            .map(feature => feature.properties.NAME)
+            .filter(name => name);
+          
+          console.log(`Direct fetch: Loaded ${allNMCountyNames.length} NM county names:`, allNMCountyNames);
+          countiesLoaded = true;
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching county GeoJSON directly:', error);
+      });
+
+    // Helper function to get all county names (even if not loaded yet)
+    function getAllCountyNames() {
+      // If already loaded, return the cached list
+      if (countiesLoaded && allNMCountyNames.length > 0) {
+        return [...allNMCountyNames];
+      }
+      
+      console.log("Counties not loaded yet via direct fetch");
+      return []; // Return empty array if we can't get the names yet
+    }
+
+    // Once the county GeoJSON is loaded, store all county names
+    map.on('sourcedata', function(e) {
+      if (e.sourceId === 'counties' && e.isSourceLoaded && !countiesLoaded) {
+        console.log('County GeoJSON loaded successfully');
+        console.log('County source data:', map.getSource('counties'));
+        
+        // Extract all county names when source is loaded
+        try {
+          const source = map.getSource('counties');
+          if (source._data && source._data.features) {
+            allNMCountyNames = source._data.features
+              .map(feature => feature.properties.NAME)
+              .filter(name => name); // filter out any undefined/null
+            console.log(`Loaded ${allNMCountyNames.length} NM county names:`, allNMCountyNames);
+            
+            // Mark counties as loaded
+            countiesLoaded = true;
+          }
+        } catch (err) {
+          console.error('Error extracting county names:', err);
+        }
+      }
+    });
+
+    // --- ADD COUNTY HIGHLIGHT LAYER ---
+    map.addLayer({
+      id: 'county-highlight',
+      type: 'fill',
+      source: 'counties',
+      paint: {
+        'fill-color': '#b3d8f6', // default light blue
+        'fill-opacity': 0.35
+      },
+      filter: ['in', 'NAME', ''] // no counties highlighted initially
+    });
+
+    // --- ADD CENSUS OVERLAY LAYER ---
+    map.addLayer({
+      id: 'census-overlay',
+      type: 'fill',
+      source: 'census-counties',
+      paint: {
+        'fill-color': [
+          'case',
+          ['==', ['get', 'Population Size'], null], '#f0f0f0', // Default for missing data
+          '#f0f0f0' // Default color when no overlay is active
+        ],
+        'fill-opacity': 0.7
+      },
+      layout: {
+        'visibility': 'none' // Hidden by default
+      }
+    });
+
+    // Add error handling for the county source
+    map.on('error', function(e) {
+      console.error('Map error:', e);
+    });
+
+    // County boundary outlines - make sure they're visible
+    console.log('Adding county boundary layer...');
+    try {
+      map.addLayer({
+        'id': 'nm-counties',
+        'type': 'line',
+        'source': 'counties',
+        'paint': {
+          'line-color': '#333',
+          'line-width': 3,
+          'line-opacity': 0.8
+        }
+      });
+      console.log('County boundary layer added successfully');
+    } catch (error) {
+      console.error('Error adding county boundary layer:', error);
+    }
+
+    // County labels
+    console.log('Adding county labels layer...');
+    try {
+      map.addLayer({
+        'id': 'nm-county-labels',
+        'type': 'symbol',
+        'source': 'counties',
+        'layout': {
+          'text-field': ['get', 'NAME'],
+          'text-size': 13
+        },
+        'paint': {
+          'text-color': '#333',
+          'text-halo-color': '#fff',
+          'text-halo-width': 1.5
+        }
+      });
+      console.log('County labels layer added successfully');
+    } catch (error) {
+      console.error('Error adding county labels layer:', error);
+    }
+
+    // Zoom-adaptive marker system with dynamic clustering and sizing
+    let allMarkers = []; // Store all markers for zoom-based updates
+    
+    function createMarkersWithDynamicOffset() {
+      console.log('🎯 createMarkersWithDynamicOffset() called');
+      
+      // Clear existing markers
+      console.log(`Clearing ${allMarkers.length} existing markers`);
+      allMarkers.forEach(marker => marker.remove());
+      allMarkers = [];
+      
+      // Get current zoom level for adaptive behavior
+      const currentZoom = map.getZoom();
+      console.log(`Current zoom level: ${currentZoom}`);
+      
+      // Dynamic proximity threshold based on zoom level
+      // Higher zoom = smaller threshold (less clustering)
+      // Lower zoom = larger threshold (more clustering)
+      const baseThreshold = 0.003;
+      const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
+      
+      // Dynamic marker size based on zoom level
+      const baseSize = 18;
+      const markerSize = Math.max(12, Math.min(28, baseSize + (currentZoom - 7) * 2));
+      
+      // Dynamic offset distance with minimum threshold for visibility
+      const baseOffset = 0.004; // ~440m base offset
+      const dynamicOffset = baseOffset * Math.pow(0.75, currentZoom - 7);
+      const minimumOffset = 0.002; // Minimum 220m offset for visibility
+      const offsetDistance = Math.max(dynamicOffset, minimumOffset);
+      
+      console.log(`🔧 Zoom: ${currentZoom.toFixed(1)}, Threshold: ${proximityThreshold.toFixed(4)}, Size: ${markerSize}px, Offset: ${offsetDistance.toFixed(4)}`);
+      
+      // Check if outletData exists
+      if (!outletData || !outletData.features) {
+        console.error('❌ outletData not available or has no features');
+        return;
+      }
+      console.log(`📊 Processing ${outletData.features.length} outlet features`);
+      
+      const clusters = [];
+      
+      // Group nearby outlets into clusters (with filtering)
+      outletData.features.forEach(function(feature) {
+        if (!feature.geometry || !feature.geometry.coordinates) return;
+        
+        // Apply media type filter
+        const mediumType = (feature.properties["Primary Medium"] || '').trim();
+        if (window.activeFilter !== 'all' && mediumType !== window.activeFilter) {
+          return; // Skip this outlet if it doesn't match the filter
+        }
+        
+        const lng = feature.geometry.coordinates[0];
+        const lat = feature.geometry.coordinates[1];
+        
+        // Find existing cluster within proximity threshold
+        let foundCluster = null;
+        for (let cluster of clusters) {
+          const distance = Math.sqrt(
+            Math.pow(lng - cluster.centerLng, 2) + 
+            Math.pow(lat - cluster.centerLat, 2)
+          );
+          if (distance < proximityThreshold) {
+            foundCluster = cluster;
+            break;
+          }
+        }
+        
+        if (foundCluster) {
+          // Add to existing cluster
+          foundCluster.outlets.push(feature);
+          // Update cluster center to be more central
+          const totalOutlets = foundCluster.outlets.length;
+          foundCluster.centerLng = foundCluster.outlets.reduce((sum, o) => sum + o.geometry.coordinates[0], 0) / totalOutlets;
+          foundCluster.centerLat = foundCluster.outlets.reduce((sum, o) => sum + o.geometry.coordinates[1], 0) / totalOutlets;
+        } else {
+          // Create new cluster
+          clusters.push({
+            centerLng: lng,
+            centerLat: lat,
+            outlets: [feature]
+          });
+        }
+      });
+      
+      // Create markers with zoom-adaptive offsets
+      let clusteredCount = 0;
+      clusters.forEach(function(cluster, clusterIndex) {
+        if (cluster.outlets.length > 1) {
+          clusteredCount += cluster.outlets.length;
+          console.log(`🔗 Cluster ${clusterIndex + 1}: ${cluster.outlets.length} outlets at [${cluster.centerLng.toFixed(4)}, ${cluster.centerLat.toFixed(4)}]`);
+          cluster.outlets.forEach((outlet, idx) => {
+            console.log(`   - ${outlet.properties["Outlet Name"]}`);
+          });
+        }
+        
+        cluster.outlets.forEach(function(feature, index) {
+          // Get original coordinates
+          const originalLng = feature.geometry.coordinates[0];
+          const originalLat = feature.geometry.coordinates[1];
+          
+          // Calculate offset for clustered markers
+          let offsetLng = originalLng;
+          let offsetLat = originalLat;
+          
+          if (cluster.outlets.length > 1) {
+            // Check if outlets have identical coordinates (same address)
+            const hasIdenticalCoords = cluster.outlets.every(outlet => 
+              Math.abs(outlet.geometry.coordinates[0] - cluster.outlets[0].geometry.coordinates[0]) < 0.0001 &&
+              Math.abs(outlet.geometry.coordinates[1] - cluster.outlets[0].geometry.coordinates[1]) < 0.0001
+            );
+            
+            // Use larger offset for identical coordinates
+            const actualOffset = hasIdenticalCoords ? Math.max(offsetDistance, 0.003) : offsetDistance; // Minimum 330m for identical coords
+            
+            if (index === 0) {
+              // First outlet stays at cluster center
+              offsetLng = cluster.centerLng;
+              offsetLat = cluster.centerLat;
+              console.log(`   📍 ${feature.properties["Outlet Name"]}: CENTER [${offsetLng.toFixed(4)}, ${offsetLat.toFixed(4)}]`);
+            } else {
+              // Smart urban clustering: Use different patterns based on cluster size
+              let finalOffsetLng, finalOffsetLat, patternInfo;
+              
+              if (cluster.outlets.length <= 4) {
+                // Small clusters: Simple circular pattern
+                const angle = ((index - 1) * (360 / (cluster.outlets.length - 1))) * (Math.PI / 180);
+                finalOffsetLng = cluster.centerLng + (actualOffset * Math.cos(angle));
+                finalOffsetLat = cluster.centerLat + (actualOffset * Math.sin(angle));
+                patternInfo = `circular-${((index - 1) * (360 / (cluster.outlets.length - 1))).toFixed(0)}°`;
+              } else {
+                // Large clusters: Multi-ring spiral pattern for better separation
+                const ringSize = 3; // Outlets per ring
+                const ringNumber = Math.floor((index - 1) / ringSize);
+                const positionInRing = (index - 1) % ringSize;
+                const ringRadius = actualOffset * (1 + ringNumber * 0.7); // Each ring 70% larger
+                const angleStep = 360 / Math.min(ringSize, cluster.outlets.length - 1 - (ringNumber * ringSize));
+                const angle = (positionInRing * angleStep) * (Math.PI / 180);
+                
+                finalOffsetLng = cluster.centerLng + (ringRadius * Math.cos(angle));
+                finalOffsetLat = cluster.centerLat + (ringRadius * Math.sin(angle));
+                patternInfo = `ring-${ringNumber + 1}-pos-${positionInRing + 1}`;
+              }
+              
+              offsetLng = finalOffsetLng;
+              offsetLat = finalOffsetLat;
+              console.log(`   📍 ${feature.properties["Outlet Name"]}: OFFSET [${offsetLng.toFixed(4)}, ${offsetLat.toFixed(4)}] (${patternInfo}, ${hasIdenticalCoords ? 'IDENTICAL COORDS' : 'NEARBY'})`);
+            }
+          }
+          
+          createSingleMarker(feature, offsetLng, offsetLat, markerSize);
+        });
+      });
+      
+      console.log(`✅ Created ${allMarkers.length} markers (${clusteredCount} in clusters, ${allMarkers.length - clusteredCount} standalone)`);
+    }
+    
+    function createSingleMarker(feature, offsetLng, offsetLat, markerSize) {
+      // Create a marker
+      const el = document.createElement('div');
+      el.className = 'marker';
+      
+      // Color by Primary Medium with optimized contrast colors
+      let color = '#9c27b0'; // Default purple for multiplatform
+      const medium = (feature.properties["Primary Medium"] || '').toLowerCase();
+      if (medium.includes('digital')) color = '#2196f3';      // Bright blue
+      else if (medium.includes('print')) color = '#4caf50';   // Green
+      else if (medium.includes('radio')) color = '#ff9800';   // Orange
+      else if (medium.includes('television') || medium.includes('tv')) color = '#f44336'; // Red
+      else if (medium.includes('multiplatform')) color = '#9c27b0'; // Purple
+      
+      // Dynamic marker styling based on zoom level
+      el.style.background = color;
+      el.style.width = `${markerSize}px`;
+      el.style.height = `${markerSize}px`;
+      el.style.borderRadius = '50%';
+      el.style.boxShadow = '0 0 2px #333';
+      el.style.border = '2px solid #fff';
+      el.style.cursor = 'pointer';
+
+      // --- ADD COUNTY HIGHLIGHT ON MARKER CLICK ---
+      const highlightColors = {
+        digital: '#b3d8f6',      // light blue
+        print: '#b8e6c1',        // light green
+        radio: '#ffe0b3',        // light orange
+        television: '#f8bbbb',   // light red
+        multiplatform: '#e0e0e0' // light gray
+      };
+
+      // County name normalization mapping
+      const countyNameMap = {
+        "dona ana": "Doña Ana",
+        "doña ana": "Doña Ana",
+        "dona ana ": "Doña Ana",
+        "do\u00f1a ana": "Doña Ana",
+        "de baca": "De Baca",
+        "guadelupe": "Guadalupe" // Common misspelling
+      };
+      
+      // County name normalization function
+      function normalizeCountyName(name) {
+        name = name.trim().toLowerCase();
+        
+        // Check special cases first
+        if (countyNameMap[name]) {
+          return countyNameMap[name];
+        }
+        
+        // Title case for normal county names (first letter of each word capitalized)
+        return name.split(' ').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+      }
+
+      // Comprehensive popup content matching user specifications
+      // Primary label: Outlet Name
+      let popupHtml = `<strong>${feature.properties["Outlet Name"]}</strong><br>`;
+      
+      // Website (active link)
+      if (feature.properties["Website"] && feature.properties["Website"].trim() !== "" && feature.properties["Website"].trim() !== "*") {
+        let urls = feature.properties["Website"].split(',').map(u => u.trim()).filter(u => u !== '');
+        if (urls.length > 0) {
+          popupHtml += `<b>Website:</b> `;
+          popupHtml += urls.map(u => `<a href="${/^https?:\/\//.test(u) ? u : 'http://' + u}" target="_blank">${u}</a>`).join(' | ');
+          popupHtml += `<br>`;
+        }
+      }
+      
+      // Primary Medium (revised category label)
+      if (feature.properties["Primary Medium"] && feature.properties["Primary Medium"].trim() !== "") {
+        popupHtml += `<b>Primary Medium:</b> ${feature.properties["Primary Medium"]}<br>`;
+      }
+      
+      // City Based
+      if (feature.properties["City Based"] && feature.properties["City Based"].trim() !== "") {
+        popupHtml += `<b>City Based:</b> ${feature.properties["City Based"]}<br>`;
+      }
+      
+      // Frequency
+      if (feature.properties["Frequency"] && feature.properties["Frequency"].trim() !== "") {
+        popupHtml += `<b>Frequency:</b> ${feature.properties["Frequency"]}<br>`;
+      }
+      
+      // Monthly Users
+      if (feature.properties["Monthly Users"] && feature.properties["Monthly Users"].toString().trim() !== "" && feature.properties["Monthly Users"].toString().trim() !== "*") {
+        popupHtml += `<b>Monthly Users:</b> ${feature.properties["Monthly Users"]}<br>`;
+      }
+      
+      // News Staffing
+      if (feature.properties["News Staff (FTEs)"] && feature.properties["News Staff (FTEs)"].toString().trim() !== "" && feature.properties["News Staff (FTEs)"].toString().trim() !== "*") {
+        popupHtml += `<b>News Staff (FTEs):</b> ${feature.properties["News Staff (FTEs)"]}<br>`;
+      }
+      
+      // Language
+      if (feature.properties["Language"] && feature.properties["Language"].trim() !== "" && feature.properties["Language"].trim() !== "*") {
+        popupHtml += `<b>Language:</b> ${feature.properties["Language"]}<br>`;
+      }
+      
+      // Year Founded
+      if (feature.properties["Year Founded"] && feature.properties["Year Founded"].toString().trim() !== "" && feature.properties["Year Founded"].toString().trim() !== "*") {
+        let yearFounded = feature.properties["Year Founded"];
+        // Convert to integer to remove any decimal places
+        if (!isNaN(yearFounded)) {
+          yearFounded = Math.round(parseFloat(yearFounded));
+        }
+        popupHtml += `<b>Year Founded:</b> ${yearFounded}<br>`;
+      }
+      
+      // Owner Name (revised category label)
+      if (feature.properties["Owner"] && feature.properties["Owner"].trim() !== "" && feature.properties["Owner"].trim() !== "*") {
+        popupHtml += `<b>Owner Name:</b> ${feature.properties["Owner"]}<br>`;
+      }
+      
+      // Owner Type (revised category label)
+      if (feature.properties["Owner Type"] && feature.properties["Owner Type"].trim() !== "" && feature.properties["Owner Type"].trim() !== "*") {
+        popupHtml += `<b>Owner Type:</b> ${feature.properties["Owner Type"]}<br>`;
+      }
+      
+      // Social Media (grouped under one category with active links)
+      const social = [];
+      if (feature.properties["Facebook"] && feature.properties["Facebook"].trim() !== "*" && feature.properties["Facebook"].trim() !== "") {
+        social.push(`<a href='${feature.properties["Facebook"]}' target='_blank'>Facebook</a>`);
+      }
+      if (feature.properties["Instagram"] && feature.properties["Instagram"].trim() !== "*" && feature.properties["Instagram"].trim() !== "") {
+        social.push(`<a href='${feature.properties["Instagram"]}' target='_blank'>Instagram</a>`);
+      }
+      if (feature.properties["YouTube"] && feature.properties["YouTube"].trim() !== "*" && feature.properties["YouTube"].trim() !== "") {
+        social.push(`<a href='${feature.properties["YouTube"]}' target='_blank'>YouTube</a>`);
+      }
+      if (feature.properties["X"] && feature.properties["X"].trim() !== "*" && feature.properties["X"].trim() !== "") {
+        social.push(`<a href='${feature.properties["X"]}' target='_blank'>X</a>`);
+      }
+      if (feature.properties["TikTok"] && feature.properties["TikTok"].trim() !== "*" && feature.properties["TikTok"].trim() !== "") {
+        social.push(`<a href='${feature.properties["TikTok"]}' target='_blank'>TikTok</a>`);
+      }
+      if (feature.properties["Other"] && feature.properties["Other"].trim() !== "*" && feature.properties["Other"].trim() !== "") {
+        social.push(`<a href='${feature.properties["Other"]}' target='_blank'>Other</a>`);
+      }
+      if (social.length > 0) {
+        popupHtml += `<b>Social:</b> ${social.join(' | ')}<br>`;
+      }
+      
+      // Content Index
+      if (feature.properties["Content Index"] && feature.properties["Content Index"].toString().trim() !== "" && feature.properties["Content Index"].toString().trim() !== "*") {
+        let ci = parseFloat(feature.properties["Content Index"]);
+        if (!isNaN(ci)) ci = ci.toFixed(2);
+        else ci = feature.properties["Content Index"];
+        popupHtml += `<b>Content Index:</b> ${ci}<br>`;
+      }
+      
+      // Summary
+      if (feature.properties["Summary"] && feature.properties["Summary"].toString().trim() !== "" && feature.properties["Summary"].toString().trim() !== "*") {
+        popupHtml += `<b>Summary:</b> ${feature.properties["Summary"]}<br>`;
+      }
+      
+      // Last Update (always last)
+      if (feature.properties["Last Update"] && feature.properties["Last Update"].toString().trim() !== "" && feature.properties["Last Update"].toString().trim() !== "*") {
+        let lastUpdate = feature.properties["Last Update"].toString();
+        // Fix any decimal years in the date string (e.g., "2024.0" → "2024")
+        lastUpdate = lastUpdate.replace(/(\d{4})\.0+\b/g, '$1');
+        popupHtml += `<b>Last Update:</b> ${lastUpdate}<br>`;
+      }
+
+      const popup = new mapboxgl.Popup({ 
+        offset: 18,
+        closeButton: true,
+        closeOnClick: false,
+        closeOnMove: false
+      }).setHTML(popupHtml);
+      
+      // Track popup state
+      let isPopupOpen = false;
+      let popupTimeout = null;
+      
+      // Highlight counties and show popup on mouseover
+      function handleMarkerMouseEnter() {
+        // Clear any pending popup close timeout
+        if (popupTimeout) {
+          clearTimeout(popupTimeout);
+          popupTimeout = null;
+        }
+        
+        // Close all other popups first (only one popup at a time)
+        document.querySelectorAll('.mapboxgl-popup').forEach(popupEl => {
+          if (popupEl !== popup.getElement()) {
+            popupEl.remove();
+          }
+        });
+        
+        console.log("Counties served raw:", feature.properties["Counties Served"]);
+        
+        // Check if outlet serves all counties
+        const servesAll = (feature.properties["Counties Served"] || "").toLowerCase().includes("all");
+        console.log("Serves all counties?", servesAll);
+        
+        let countiesServed = [];
+        
+        if (servesAll) {
+          // Get all county names (this will try to load them if not loaded yet)
+          countiesServed = getAllCountyNames();
+          console.log("Outlet serves ALL counties:", countiesServed.length, "counties found");
+        } else {
+          // Normal processing for specific counties
+          countiesServed = (feature.properties["Counties Served"] || "")
+            .split(',')
+            .map(s => s.trim())
+            .filter(s => s && s.toLowerCase() !== "all")
+            .map(s => normalizeCountyName(s));
+          console.log("Normal counties to highlight:", countiesServed);
+        }
+        
+        // Apply highlighting for normal counties
+        const type = (feature.properties["Primary Medium"] || '').toLowerCase();
+        map.setPaintProperty('county-highlight', 'fill-color', highlightColors[type] || '#e0e0e0');
+        map.setFilter('county-highlight', ['in', 'NAME', ...countiesServed]);
+        
+        // Open the popup if not already open
+        if (!isPopupOpen) {
+          popup.setLngLat([offsetLng, offsetLat]).addTo(map);
+          isPopupOpen = true;
+          
+          // Add popup interaction handlers
+          setTimeout(() => {
+            const popupElement = popup.getElement();
+            if (popupElement) {
+              // Keep popup open when hovering over it
+              popupElement.addEventListener('mouseenter', () => {
+                if (popupTimeout) {
+                  clearTimeout(popupTimeout);
+                  popupTimeout = null;
+                }
+              });
+              
+              // Set timeout to close when leaving popup
+              popupElement.addEventListener('mouseleave', () => {
+                popupTimeout = setTimeout(() => {
+                  handlePopupClose();
+                }, 300); // 300ms delay before closing
+              });
+            }
+          }, 50);
+        }
+      }
+
+      function handleMarkerClick() {
+        // Click toggles popup persistence
+        if (isPopupOpen) {
+          handlePopupClose();
+        } else {
+          handleMarkerMouseEnter();
+        }
+      }
+
+      function handleMarkerMouseLeave() {
+        // Set timeout to close popup after leaving marker
+        popupTimeout = setTimeout(() => {
+          handlePopupClose();
+        }, 300); // 300ms delay before closing
+      }
+      
+      function handlePopupClose() {
+        if (popupTimeout) {
+          clearTimeout(popupTimeout);
+          popupTimeout = null;
+        }
+        
+        if (isPopupOpen) {
+          popup.remove();
+          map.setFilter('county-highlight', ['in', 'NAME', '']);
+          isPopupOpen = false;
+        }
+      }
+
+      // Add event listeners
+      el.addEventListener('click', handleMarkerClick);
+      el.addEventListener('mouseenter', handleMarkerMouseEnter);
+      el.addEventListener('mouseleave', handleMarkerMouseLeave);
+
+      // Create and add marker to map, store reference for zoom updates
+      const marker = new mapboxgl.Marker(el)
+        .setLngLat([offsetLng, offsetLat])
+        .addTo(map);
+      
+      allMarkers.push(marker);
+    }
+    
+    // Filter markers by media type
+    function filterMarkersByType(filterType) {
+      console.log(`🎯 Filtering markers by: ${filterType}`);
+      window.activeFilter = filterType;
+      
+      // Update legend visual state
+      document.querySelectorAll('.legend-item').forEach(item => {
+        if (item.dataset.type === filterType) {
+          item.style.backgroundColor = '#e3f2fd';
+          item.style.fontWeight = 'bold';
+        } else {
+          item.style.backgroundColor = 'transparent';
+          item.style.fontWeight = 'normal';
+        }
+      });
+      
+      // Recreate markers with filtering applied
+      createMarkersWithDynamicOffset();
+    }
+    
+    // Add legend click event listeners
+    function setupLegendInteractivity() {
+      document.querySelectorAll('.legend-item').forEach(item => {
+        item.addEventListener('click', function() {
+          const filterType = this.dataset.type;
+          filterMarkersByType(filterType);
+        });
+        
+        // Add hover effects
+        item.addEventListener('mouseenter', function() {
+          if (this.dataset.type !== window.activeFilter) {
+            this.style.backgroundColor = '#f5f5f5';
+          }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+          if (this.dataset.type !== window.activeFilter) {
+            this.style.backgroundColor = 'transparent';
+          }
+        });
+      });
+    }
+    
+    // Initial marker creation
+    console.log('Starting dynamic marker creation...');
+    try {
+      createMarkersWithDynamicOffset();
+      console.log('Dynamic marker creation completed');
+      
+      // Setup legend interactivity after markers are created
+      setupLegendInteractivity();
+      console.log('Legend interactivity setup completed');
+    } catch (error) {
+      console.error('Error in dynamic marker creation:', error);
+    }
+    
+    // Update markers when zoom changes
+    map.on('zoom', function() {
+      // Debounce zoom updates to avoid excessive recalculation
+      clearTimeout(window.zoomUpdateTimeout);
+      window.zoomUpdateTimeout = setTimeout(() => {
+        createMarkersWithDynamicOffset();
+      }, 150);
+    });
+
+    // --- CENSUS OVERLAY FUNCTIONALITY ---
+    
+    // Census layer configurations with color schemes
+    const censusLayers = {
+      'population': {
+        property: 'Population Size',
+        title: 'Population Size',
+        colors: ['#fff5f0', '#fee0d2', '#fcbba1', '#fc9272', '#fb6a4a', '#ef3b2c', '#cb181d', '#99000d'],
+        breaks: [1000, 5000, 15000, 30000, 60000, 100000, 200000, 700000],
+        format: (val) => val ? val.toLocaleString() : 'No data'
+      },
+      'income': {
+        property: 'Median Household Income',
+        title: 'Median Household Income',
+        colors: ['#f7fcf0', '#e0f3db', '#ccebc5', '#a8ddb5', '#7bccc4', '#4eb3d3', '#2b8cbe', '#08589e'],
+        breaks: [30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000],
+        format: (val) => val ? `$${val.toLocaleString()}` : 'No data'
+      },
+      'business': {
+        property: 'Private Business',
+        title: 'Private Business (Workers)',
+        colors: ['#fff5eb', '#fee6ce', '#fdd0a2', '#fdae6b', '#fd8d3c', '#f16913', '#d94801', '#8c2d04'],
+        breaks: [500, 2000, 5000, 10000, 20000, 50000, 100000, 350000],
+        format: (val) => val ? val.toLocaleString() : 'No data'
+      },
+      'education': {
+        property: 'College Education',
+        title: 'College Education (%)',
+        colors: ['#f7fcf5', '#e5f5e0', '#c7e9c0', '#a1d99b', '#74c476', '#41ab5d', '#238b45', '#005a32'],
+        breaks: [5, 10, 15, 20, 25, 30, 35, 40],
+        format: (val) => val ? `${val}%` : 'No data'
+      },
+      'age': {
+        property: 'Median Age',
+        title: 'Median Age',
+        colors: ['#fff5f0', '#fee0d2', '#fcbba1', '#fc9272', '#fb6a4a', '#ef3b2c', '#cb181d', '#99000d'],
+        breaks: [25, 30, 35, 40, 45, 50, 55, 60],
+        format: (val) => val ? `${val} years` : 'No data'
+      },
+      'nonwhite': {
+        property: 'Nonwhite Population',
+        title: 'Nonwhite Population (%)',
+        colors: ['#f7f4f9', '#e7e1ef', '#d4b9da', '#c994c7', '#df65b0', '#e7298a', '#ce1256', '#91003f'],
+        breaks: [10, 20, 30, 40, 50, 60, 70, 80],
+        format: (val) => val ? `${val}%` : 'No data'
+      },
+      'broadband': {
+        property: 'Homes with Broadband',
+        title: 'Homes with Broadband (%)',
+        colors: ['#fff7ec', '#fee8c8', '#fdd49e', '#fdbb84', '#fc8d59', '#ef6548', '#d7301f', '#990000'],
+        breaks: [50, 60, 70, 75, 80, 85, 90, 95],
+        format: (val) => val ? `${val}%` : 'No data'
+      }
+    };
+
+    // Function to create color expression for a census layer
+    function createColorExpression(layerConfig) {
+      const expression = ['case'];
+      
+      for (let i = 0; i < layerConfig.breaks.length; i++) {
+        const condition = i === 0 
+          ? ['<', ['get', layerConfig.property], layerConfig.breaks[i]]
+          : ['<', ['get', layerConfig.property], layerConfig.breaks[i]];
+        expression.push(condition, layerConfig.colors[i]);
+      }
+      
+      // Default color for highest values
+      expression.push(layerConfig.colors[layerConfig.colors.length - 1]);
+      
+      return expression;
+    }
+
+    // Function to update census overlay
+    function updateCensusOverlay(layerType) {
+      currentCensusLayer = layerType;
+      
+      if (layerType === 'none') {
+        map.setLayoutProperty('census-overlay', 'visibility', 'none');
+        document.getElementById('census-legend').innerHTML = '';
+        return;
+      }
+      
+      const layerConfig = censusLayers[layerType];
+      if (!layerConfig) return;
+      
+      // Update layer paint properties
+      map.setPaintProperty('census-overlay', 'fill-color', createColorExpression(layerConfig));
+      map.setLayoutProperty('census-overlay', 'visibility', 'visible');
+      
+      // Update legend
+      updateCensusLegend(layerConfig);
+    }
+
+    // Function to update census legend
+    function updateCensusLegend(layerConfig) {
+      const legendDiv = document.getElementById('census-legend');
+      let legendHtml = `<div style="font-weight: bold; margin-bottom: 5px;">${layerConfig.title}</div>`;
+      
+      // Create color scale legend
+      for (let i = 0; i < layerConfig.colors.length; i++) {
+        const color = layerConfig.colors[i];
+        const minVal = i === 0 ? 0 : layerConfig.breaks[i - 1];
+        const maxVal = i < layerConfig.breaks.length ? layerConfig.breaks[i] : '∞';
+        
+        legendHtml += `
+          <div style="display: flex; align-items: center; margin-bottom: 2px;">
+            <div style="width: 12px; height: 12px; background: ${color}; margin-right: 5px; border: 1px solid #ccc;"></div>
+            <span>${layerConfig.format(minVal)} - ${maxVal === '∞' ? '∞' : layerConfig.format(maxVal)}</span>
+          </div>
+        `;
+      }
+      
+      legendDiv.innerHTML = legendHtml;
+    }
+
+    // Add event listeners to census controls
+    document.querySelectorAll('input[name="census-layer"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.checked) {
+          updateCensusOverlay(this.value);
+        }
+      });
+    });
+
+    // --- REMOVE HIGHLIGHT ON MAP CLICK ---
+    map.on('click', function() {
+      map.setFilter('county-highlight', ['in', 'NAME', '']);
+      // Close all popups when clicking on map
+      document.querySelectorAll('.mapboxgl-popup').forEach(popup => {
+        popup.remove();
+      });
+    });
+  });
+</script>
+</body>
+</html>
