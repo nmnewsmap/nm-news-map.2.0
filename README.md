@@ -3,7 +3,10 @@
 A comprehensive interactive map displaying 139 local news outlets across New Mexico with advanced demographic analysis capabilities.
 
 ## 🌐 Live Map
-**https://nm-news-outlets-map.windsurf.build**
+**https://nmnewsmap.github.io/nm-news-map.2.0/nm_news_map_interactive.html**
+
+## 📂 GitHub Repository
+**https://github.com/nmnewsmap/nm-news-map.2.0**
 
 ## ✨ Features
 
@@ -84,7 +87,24 @@ Visit **https://nm-news-outlets-map.windsurf.build**
 ### Update Data:
 1. **Place new Excel file** in project directory
 2. **Run conversion**: `python3 run_update.py`
-3. **Refresh map** to see updated data
+3. **Commit and push changes**: `git add . && git commit -m "Update data" && git push`
+4. **Live map updates automatically** via GitHub Pages
+
+## 🤝 Collaboration
+
+### Contributing to the Project:
+1. **Fork the repository** on GitHub
+2. **Clone your fork**: `git clone https://github.com/YOUR_USERNAME/nm-news-map.2.0.git`
+3. **Create a feature branch**: `git checkout -b feature-name`
+4. **Make your changes** and test locally
+5. **Commit changes**: `git add . && git commit -m "Description of changes"`
+6. **Push to your fork**: `git push origin feature-name`
+7. **Create a Pull Request** on GitHub
+
+### For Direct Collaborators:
+1. **Clone the repository**: `git clone https://github.com/nmnewsmap/nm-news-map.2.0.git`
+2. **Make changes** and test locally
+3. **Push to main branch**: Changes automatically deploy to live map
 
 ## 🔧 Technical Details
 
@@ -138,10 +158,17 @@ Visit **https://nm-news-outlets-map.windsurf.build**
 
 ## 🔄 Deployment
 
-The map is automatically deployed to Netlify at **https://nm-news-outlets-map.windsurf.build**
+The map is hosted on **GitHub Pages** at **https://nmnewsmap.github.io/nm-news-map.2.0/nm_news_map_interactive.html**
 
-### Redeploy Updates:
-Changes to local files can be redeployed using the existing Netlify configuration.
+### Automatic Updates:
+- **GitHub Pages** automatically rebuilds and deploys when changes are pushed to the `main` branch
+- **Live updates** typically appear within 1-2 minutes of pushing changes
+- **Version control** ensures all changes are tracked and reversible
+
+### Manual Deployment Options:
+- **Netlify**: Drag and drop the project folder for instant deployment
+- **Vercel**: Connect GitHub repository for automatic deployments
+- **Local hosting**: Run `python3 -m http.server 8000` for local development
 
 ## 📞 Support
 
