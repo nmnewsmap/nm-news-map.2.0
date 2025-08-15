@@ -681,9 +681,8 @@
       
       // Content Index
       if (feature.properties["Content Index"] && feature.properties["Content Index"].toString().trim() !== "" && feature.properties["Content Index"].toString().trim() !== "*") {
-        let ci = parseFloat(feature.properties["Content Index"]);
-        if (!isNaN(ci)) ci = ci.toFixed(2);
-        else ci = feature.properties["Content Index"];
+        // Use the Content Index value as-is to preserve the /3.00 format
+        let ci = feature.properties["Content Index"];
         popupHtml += `<b>Content Index:</b> ${ci}<br>`;
       }
       
