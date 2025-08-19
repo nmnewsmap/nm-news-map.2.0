@@ -238,8 +238,8 @@ window.outletsGeojsonFeatures = [
     "geometry": {
       "type": "Point",
       "coordinates": [
-        -105.6708329,
-        34.2036837
+        -108.409286,
+        34.829377
       ]
     },
     "properties": {
