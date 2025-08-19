@@ -22,7 +22,7 @@ window.outletsGeojsonFeatures = [
       "Content Index": "1.25/3.00",
       "Summary": "Licensed to Navajo Nation based in Window Rock, station airs announcements about Navajo Nation events, ceremonies, funerals, rodeos and other regional news.",
       "Last Update": "2025.0",
-      "Counties Served": "San Juan, Mckinley, Cibola"
+      "Counties Served": "San Juan, McKinley, Cibola"
     }
   },
   {
