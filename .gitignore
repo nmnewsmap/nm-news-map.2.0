@@ -57,3 +57,20 @@ build/
 # Backup files
 *.bak
 *.backup
+
+# Generated images and PDFs
+*.png
+*.pdf
+!README_images/
+
+# Backup files
+*_backup.*
+*_BACKUP.*
+
+# Excel files (use CSV instead)
+*.xlsx
+*.xls
+
+# Test files
+test_*.html
+*_test.*
