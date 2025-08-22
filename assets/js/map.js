@@ -6,7 +6,7 @@ let data = {
 };
 
 // Initialize map
-mapboxgl.accessToken = 'pk.eyJ1IjoibWljaHZpbm1hciIsImEiOiJjbWRpMDdjZnEwN3RyMmtxM3A2M2lnbnZpIn0.q95N3Xkfyn5UTowpvxeD-Q';
+mapboxgl.accessToken = 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A';
 
 const map = new mapboxgl.Map({
     container: 'map',
