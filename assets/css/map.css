@@ -100,6 +100,7 @@ padding-left: 5px;
 }
 
 /* Control Panel */
+
 .control-panel {
 background: rgba(255, 255, 255, 0.5);
 backdrop-filter: blur(5px);
@@ -115,8 +116,17 @@ font-size: 12px;
 background-color: rgba(245, 245, 245, 0.8) !important;
 }
 
+/* Marker */
+
 .marker {
 display: block;
 position: absolute;
+padding: 0;
+transition: padding ease 500ms;
 z-index: 10;
+}
+
+.marker:hover {
+padding: 10px;
+cursor: pointer !important;
 }
