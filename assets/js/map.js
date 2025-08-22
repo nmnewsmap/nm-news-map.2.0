@@ -1,179 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>New Mexico News Media Map</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-  <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
-  <style>
-    body { margin:0; padding:0; }
-    #map { position:absolute; top:0; bottom:0; width:100vw; height:100vh; }
-    .mapboxgl-popup {
-      max-width: 350px;
-      font: 13px/1.5 'Open Sans', Arial, sans-serif;
-      z-index: 9999 !important;
-    }
-    .mapboxgl-popup-content { font-family: Arial, sans-serif; font-size: 14px; }
-    .legend {
-      background: rgba(255, 255, 255, 0.5); padding: 10px; border-radius: 5px;
-      position: absolute; top: 10px; right: 10px; z-index: 1000; font-size: 12px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.3); width: 220px; backdrop-filter: blur(5px);
-    }
-    .legend-dot {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 5px;
-      border: 1px solid #ccc;
-    }
-    .legend-item {
-      transition: background-color 0.2s ease;
-      user-select: none;
-    }
-    .legend-item:hover {
-      background-color: #f0f0f0 !important;
-    }
-    .legend-item.active {
-      background-color: rgba(227, 242, 253, 0.8) !important;
-      border-left: 3px solid #2196f3;
-      padding-left: 5px;
-    }
-    
-    /* Cohesive panel styling */
-    .control-panel {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(5px);
-      border-radius: 5px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-      padding: 10px;
-      width: 220px;
-      z-index: 1000;
-      font-size: 12px;
-    }
-    
-    .legend-item:hover {
-      background-color: rgba(245, 245, 245, 0.8) !important;
-    }
-    .marker {
-      display: block;
-      position: absolute;
-      z-index: 10;
-    }
-  </style>
-</head>
-<body>
-<div id="map"></div>
-<script src="outlets_geojson.js"></script>
+// Initialize data sources
+let dir_data = 'assets/data/';
+let data = {
+    counties: dir_data + 'nm_counties_wgs84.geojson',
+    census: dir_data + 'nm_counties_with_census.geojson',
+};
 
-<div id="legend" class="legend"></div>
+// Initialize map
+mapboxgl.accessToken = 'pk.eyJ1IjoibWljaHZpbm1hciIsImEiOiJjbWRpMDdjZnEwN3RyMmtxM3A2M2lnbnZpIn0.q95N3Xkfyn5UTowpvxeD-Q';
 
-<!-- Census Overlay Controls -->
-<div id="census-controls" style="position: absolute; top: 280px; right: 10px; background: rgba(255, 255, 255, 0.5); padding: 10px; border-radius: 5px; box-shadow: 0 1px 4px rgba(0,0,0,0.3); font-size: 12px; width: 220px; z-index: 1000; backdrop-filter: blur(5px);">
-  <div style="font-weight: bold; margin-bottom: 8px; color: #333;">Census Data Overlays</div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="none" checked style="margin-right: 5px;">
-      No Overlay
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="population" style="margin-right: 5px;">
-      Population Size
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="income" style="margin-right: 5px;">
-      Median Household Income
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="business" style="margin-right: 5px;">
-      Private Business
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="education" style="margin-right: 5px;">
-      College Education
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="age" style="margin-right: 5px;">
-      Median Age
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="nonwhite" style="margin-right: 5px;">
-      Nonwhite Population
-    </label>
-  </div>
-  <div style="margin-bottom: 5px;">
-    <label style="cursor: pointer; display: block; padding: 2px 0;">
-      <input type="radio" name="census-layer" value="broadband" style="margin-right: 5px;">
-      Homes with Broadband
-    </label>
-  </div>
-  <div id="census-legend" style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 10px;">
-    <!-- Dynamic legend will appear here -->
-  </div>
-  <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 9px; color: #666; line-height: 1.3;">
-    <strong>Data Source:</strong><br>
-    U.S. Census Bureau<br>
-    2022 American Community Survey<br>
-    5-Year Estimates
-  </div>
-</div>
-
-<script>
-  (function() {
-    const mediaTypes = [
-      {name: "Digital", color: "#2196f3"},      // Bright blue - excellent contrast
-      {name: "Print", color: "#4caf50"},        // Green - good contrast  
-      {name: "Radio", color: "#ff9800"},        // Orange - vibrant contrast
-      {name: "Television", color: "#f44336"},   // Red - strong contrast
-      {name: "Multiplatform", color: "#9c27b0"} // Purple - excellent distinction
-    ];
-    const counts = {};
-    mediaTypes.forEach(type => counts[type.name] = 0);
-    window.outletsGeojsonFeatures.forEach(f => {
-      const t = f.properties["Primary Medium"];
-      if (counts.hasOwnProperty(t)) counts[t]++;
-    });
-    
-    // Create legend HTML with map title and filtering
-    let legendHtml = '<div style="font-weight: bold; font-size: 14px; margin-bottom: 8px; color: #333; text-align: center;">New Mexico Local News Map</div>';
-    legendHtml += '<div style="border-bottom: 2px solid #ddd; margin-bottom: 10px;"></div>';
-    legendHtml += '<div style="font-weight: bold; margin-bottom: 8px; color: #333;">Interactive Legend (Click to Filter)</div>';
-    legendHtml += '<div style="margin-bottom: 8px;">';
-    legendHtml += '<div class="legend-item" data-type="all" style="cursor: pointer; padding: 3px 0; font-weight: bold;">';
-    legendHtml += `<span class="legend-dot" style="background:#666;"></span> Show All (${Object.values(counts).reduce((a, b) => a + b, 0)})`;
-    legendHtml += '</div>';
-    legendHtml += '</div>';
-    
-    mediaTypes.forEach(type => {
-      legendHtml += `<div class="legend-item" data-type="${type.name}" style="cursor: pointer; padding: 2px 0; border-radius: 3px; margin: 1px 0;">`;
-      legendHtml += `<span class="legend-dot" style="background:${type.color};"></span> ${type.name} (${counts[type.name]})`;
-      legendHtml += '</div>';
-    });
-    legendHtml += '<br><small>* = outlet did not provide</small>';
-    document.getElementById('legend').innerHTML = legendHtml;
-    
-    // Store media types globally for filtering
-    window.mediaTypes = mediaTypes;
-    window.activeFilter = 'all'; // Track current filter
-  })();
-</script>
-<script>
-  // Initialize map
-  mapboxgl.accessToken = 'pk.eyJ1IjoibWljaHZpbm1hciIsImEiOiJjbWRpMDdjZnEwN3RyMmtxM3A2M2lnbnZpIn0.q95N3Xkfyn5UTowpvxeD-Q';
-  const map = new mapboxgl.Map({
+const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
     center: [-106.2485, 34.5199],
@@ -181,16 +16,16 @@
     minZoom: 6.2,
     maxZoom: 13,
     attributionControl: true
-  });
+});
 
-  // Global variables for census data
-  let censusData = null;
-  let currentCensusLayer = 'none';
+// Global variables for census data
+let censusData = null;
+let currentCensusLayer = 'none';
 
-  map.addControl(new mapboxgl.NavigationControl());
+map.addControl(new mapboxgl.NavigationControl());
 
-  // Add major highways and cities layers (if using Mapbox vector tiles)
-  map.on('load', function() {
+// Add major highways and cities layers (if using Mapbox vector tiles)
+map.on('load', function() {
     // Embed the geocoded outlet data as a GeoJSON FeatureCollection
     const outletData = {
       "type": "FeatureCollection",
@@ -199,38 +34,16 @@
     // Load features from external JS file for maintainability and portability
     outletData.features = window.outletsGeojsonFeatures;
 
-    // Add city labels (if desired)
-    map.addLayer({
-      'id': 'nm-cities',
-      'type': 'symbol',
-      'source': 'places',
-      'source-layer': 'place_label',
-      'layout': {
-        'text-field': ['get', 'name_en'],
-        'text-size': 14,
-        'icon-image': '',
-        'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold']
-      },
-      'paint': {
-        'text-color': '#222',
-        'text-halo-color': '#fff',
-        'text-halo-width': 1.2
-      },
-      'filter': ['all', ['==', ['get', 'iso_3166_2'], 'US-NM'], ["==", ["get", "class"], "city"]]
-    });
-
     // Add NM counties boundaries from GeoJSON and put on top
-    console.log('Adding county source...');
     map.addSource('counties', {
       type: 'geojson',
-      data: 'nm_counties_wgs84.geojson'
+      data: data.counties
     });
 
     // Add census-enhanced counties source for overlays
-    console.log('Adding census data source...');
     map.addSource('census-counties', {
       type: 'geojson',
-      data: 'nm_counties_with_census.geojson'
+      data: data.census
     });
     
     // Debug county source loading
@@ -250,7 +63,7 @@
     let countiesLoaded = false;
 
     // Directly fetch the counties GeoJSON to ensure we have access to county names
-    fetch('nm_counties_wgs84.geojson')
+    fetch(data.counties)
       .then(response => response.json())
       .then(data => {
         if (data && data.features && data.features.length > 0) {
@@ -1020,7 +833,4 @@
         popup.remove();
       });
     });
-  });
-</script>
-</body>
-</html>
+});
