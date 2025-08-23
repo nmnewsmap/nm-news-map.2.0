@@ -116,7 +116,13 @@ font-size: 12px;
 background-color: rgba(245, 245, 245, 0.8) !important;
 }
 
-/* Marker */
+/* Templates */
+
+#map-templates {
+display: none;
+}
+
+/* Template: Marker */
 
 .marker {
 display: block;
@@ -129,4 +135,10 @@ z-index: 10;
 .marker:hover {
 padding: 10px;
 cursor: pointer !important;
+}
+
+/* Template: Popup */
+
+.popup-wrapper {
+    
 }

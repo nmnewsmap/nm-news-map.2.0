@@ -19,6 +19,153 @@ let config = {
     }
 };
 
+/**
+ * Data Schema Definitions
+ * 
+ * Each schema is an array of sections.
+ * Each section includes:
+ * -- id: The unique ID of the section.
+ * -- title: Optional; The title for the section.
+ * -- properties: An array of properties for the section.
+ * 
+ * Each property includes:
+ * -- id: The unique ID or slug for the property.
+ * -- column: The column name of the property in the data file.
+ * -- type: Optional; The formatting type to apply to the property value; Options: "text" (default), "int", "url", "index"
+ * -- description: Optional; The explainer for the property; Displays as a tooltip.
+ */
+let schemas = {
+    popup: [
+        {
+            id: 'title',
+            properties: [
+                {
+                    id: 'outlet_name',
+                    column: 'Outlet Name',
+                },
+            ]
+        },
+        {
+            id: 'details',
+            title: 'Introduction',
+            properties: [
+                {
+                    id: 'website',
+                    column: 'Website',
+                    type: 'url',
+                    description: 'Website url for outlet',
+                },
+                {
+                    id: 'medium_primary',
+                    column: 'Primary Medium',
+                },
+                {
+                    id: 'city_based',
+                    column: 'City Based',
+                    description: "The city of the outlet's office headquarters",
+                },
+                {
+                    id: 'frequency',
+                    column: 'Frequency',
+                },
+                {
+                    id: 'users_monthly',
+                    column: 'Monthly Users',
+                },
+                {
+                    id: 'staff_fte',
+                    column: 'News Staff (FTEs)',
+                },
+                {
+                    id: 'language',
+                    column: 'Language',
+                },
+                {
+                    id: 'year_founded',
+                    column: 'Year Founded',
+                    type: 'int',
+                },
+                {
+                    id: 'owner_name',
+                    column: 'Owner Name',
+                },
+                {
+                    id: 'owner_type',
+                    column: 'Owner Type',
+                },
+            ]
+        },
+        {
+            id: 'social',
+            title: 'Social',
+            properties: [
+                {
+                    id: 'facebook',
+                    column: 'Facebook',
+                    type: 'url',
+                },
+                {
+                    id: 'instagram',
+                    column: 'Instagram',
+                    type: 'url',
+                },
+                {
+                    id: 'youtube',
+                    column: 'YouTube',
+                    type: 'url',
+                },
+                {
+                    id: 'X',
+                    column: 'X',
+                    type: 'url',
+                },
+                {
+                    id: 'tiktok',
+                    column: 'TikTok',
+                    type: 'url',
+                },
+                {
+                    id: 'other',
+                    column: 'Other',
+                    type: 'url',
+                },
+            ]
+        },
+        {
+            id: 'index',
+            title: 'Content Index',
+            properties: [
+                {
+                    id: 'index_content',
+                    column: 'Content Index',
+                    type: 'index',
+                },
+            ]
+        },
+        {
+            id: 'summary',
+            title: 'Summary',
+            properties: [
+                {
+                    id: 'summary',
+                    column: 'Summary',
+                },
+            ]
+        },
+        {
+            id: 'footer',
+            title: 'Footer',
+            properties: [
+                {
+                    id: 'updated_at',
+                    column: 'Last Update',
+                },
+            ]
+        },
+    ],
+    marker: []
+};
+
 // Initialize map
 mapboxgl.accessToken = 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A';
 
@@ -417,113 +564,8 @@ map.on('load', function() {
         ).join(' ');
       }//normalizeCountyName
 
-      // Comprehensive popup content matching user specifications
-      // Primary label: Outlet Name
-      let popupHtml = `<strong>${feature.properties["Outlet Name"]}</strong><br>`;
-      
-      // Website (active link)
-      if (feature.properties["Website"] && feature.properties["Website"].trim() !== "" && feature.properties["Website"].trim() !== "*") {
-        let urls = feature.properties["Website"].split(',').map(u => u.trim()).filter(u => u !== '');
-        if (urls.length > 0) {
-          popupHtml += `<b>Website:</b> `;
-          popupHtml += urls.map(u => `<a href="${/^https?:\/\//.test(u) ? u : 'http://' + u}" target="_blank">${u}</a>`).join(' | ');
-          popupHtml += `<br>`;
-        }
-      }
-      
-      // Primary Medium (revised category label)
-      if (feature.properties["Primary Medium"] && feature.properties["Primary Medium"].trim() !== "") {
-        popupHtml += `<b>Primary Medium:</b> ${feature.properties["Primary Medium"]}<br>`;
-      }
-      
-      // City Based
-      if (feature.properties["City Based"] && feature.properties["City Based"].trim() !== "") {
-        popupHtml += `<b>City Based:</b> ${feature.properties["City Based"]}<br>`;
-      }
-      
-      // Frequency
-      if (feature.properties["Frequency"] && feature.properties["Frequency"].trim() !== "") {
-        popupHtml += `<b>Frequency:</b> ${feature.properties["Frequency"]}<br>`;
-      }
-      
-      // Monthly Users
-      if (feature.properties["Monthly Users"] && feature.properties["Monthly Users"].toString().trim() !== "" && feature.properties["Monthly Users"].toString().trim() !== "*") {
-        popupHtml += `<b>Monthly Users:</b> ${feature.properties["Monthly Users"]}<br>`;
-      }
-      
-      // News Staffing
-      if (feature.properties["News Staff (FTEs)"] && feature.properties["News Staff (FTEs)"].toString().trim() !== "" && feature.properties["News Staff (FTEs)"].toString().trim() !== "*") {
-        popupHtml += `<b>News Staff (FTEs):</b> ${feature.properties["News Staff (FTEs)"]}<br>`;
-      }
-      
-      // Language
-      if (feature.properties["Language"] && feature.properties["Language"].trim() !== "" && feature.properties["Language"].trim() !== "*") {
-        popupHtml += `<b>Language:</b> ${feature.properties["Language"]}<br>`;
-      }
-      
-      // Year Founded
-      if (feature.properties["Year Founded"] && feature.properties["Year Founded"].toString().trim() !== "" && feature.properties["Year Founded"].toString().trim() !== "*") {
-        let yearFounded = feature.properties["Year Founded"];
-        // Convert to integer to remove any decimal places
-        if (!isNaN(yearFounded)) {
-          yearFounded = Math.round(parseFloat(yearFounded));
-        }
-        popupHtml += `<b>Year Founded:</b> ${yearFounded}<br>`;
-      }
-      
-      // Owner Name (revised category label)
-      if (feature.properties["Owner"] && feature.properties["Owner"].trim() !== "" && feature.properties["Owner"].trim() !== "*") {
-        popupHtml += `<b>Owner Name:</b> ${feature.properties["Owner"]}<br>`;
-      }
-      
-      // Owner Type (revised category label)
-      if (feature.properties["Owner Type"] && feature.properties["Owner Type"].trim() !== "" && feature.properties["Owner Type"].trim() !== "*") {
-        popupHtml += `<b>Owner Type:</b> ${feature.properties["Owner Type"]}<br>`;
-      }
-      
-      // Social Media (grouped under one category with active links)
-      const social = [];
-      if (feature.properties["Facebook"] && feature.properties["Facebook"].trim() !== "*" && feature.properties["Facebook"].trim() !== "") {
-        social.push(`<a href='${feature.properties["Facebook"]}' target='_blank'>Facebook</a>`);
-      }
-      if (feature.properties["Instagram"] && feature.properties["Instagram"].trim() !== "*" && feature.properties["Instagram"].trim() !== "") {
-        social.push(`<a href='${feature.properties["Instagram"]}' target='_blank'>Instagram</a>`);
-      }
-      if (feature.properties["YouTube"] && feature.properties["YouTube"].trim() !== "*" && feature.properties["YouTube"].trim() !== "") {
-        social.push(`<a href='${feature.properties["YouTube"]}' target='_blank'>YouTube</a>`);
-      }
-      if (feature.properties["X"] && feature.properties["X"].trim() !== "*" && feature.properties["X"].trim() !== "") {
-        social.push(`<a href='${feature.properties["X"]}' target='_blank'>X</a>`);
-      }
-      if (feature.properties["TikTok"] && feature.properties["TikTok"].trim() !== "*" && feature.properties["TikTok"].trim() !== "") {
-        social.push(`<a href='${feature.properties["TikTok"]}' target='_blank'>TikTok</a>`);
-      }
-      if (feature.properties["Other"] && feature.properties["Other"].trim() !== "*" && feature.properties["Other"].trim() !== "") {
-        social.push(`<a href='${feature.properties["Other"]}' target='_blank'>Other</a>`);
-      }
-      if (social.length > 0) {
-        popupHtml += `<b>Social:</b> ${social.join(' | ')}<br>`;
-      }
-      
-      // Content Index
-      if (feature.properties["Content Index"] && feature.properties["Content Index"].toString().trim() !== "" && feature.properties["Content Index"].toString().trim() !== "*") {
-        // Use the Content Index value as-is to preserve the /3.00 format
-        let ci = feature.properties["Content Index"];
-        popupHtml += `<b>Content Index:</b> ${ci}<br>`;
-      }
-      
-      // Summary
-      if (feature.properties["Summary"] && feature.properties["Summary"].toString().trim() !== "" && feature.properties["Summary"].toString().trim() !== "*") {
-        popupHtml += `<b>Summary:</b> ${feature.properties["Summary"]}<br>`;
-      }
-      
-      // Last Update (always last)
-      if (feature.properties["Last Update"] && feature.properties["Last Update"].toString().trim() !== "" && feature.properties["Last Update"].toString().trim() !== "*") {
-        let lastUpdate = feature.properties["Last Update"].toString();
-        // Fix any decimal years in the date string (e.g., "2024.0" → "2024")
-        lastUpdate = lastUpdate.replace(/(\d{4})\.0+\b/g, '$1');
-        popupHtml += `<b>Last Update:</b> ${lastUpdate}<br>`;
-      }
+      // Generate popup HTML
+      let popupHtml = fillPopup(feature.properties);
 
       const popup = new mapboxgl.Popup({ 
         offset: 18,
@@ -702,7 +744,138 @@ map.on('load', function() {
       // Recreate markers with filtering applied
       createMarkersWithDynamicOffset();
     }// filterMarkersByType
-    
+
+    /**
+     * fillPopup
+     * Fill the popup template with data
+     */
+    function fillPopup(data) {
+
+        // Get data schema for popups
+        let schema = schemas['popup'];
+
+        // Get HTML template for popups
+        let html = $('#map-templates div[data-template="popup"]').clone();
+
+        let propertyTitle = '';
+
+        // Popuplate the template based on the schema's definition and the given data
+        schema.forEach((section) => {
+
+            // Section Title
+            if (section.id == 'title') {
+                propertyTitle = data[section.properties[0].column];
+                html.find('[data-popup-property="title"]').text(propertyTitle);
+
+                return true;
+            }
+            
+            // Clone the generic section template
+            let htmlSection = html.find('.map-popup-section[data-type="template"]').clone().removeAttr('data-type');
+
+            // Add section ID
+            htmlSection.attr('data-popup-section', section.id);
+
+            // Add or remove section title
+            if (section.title) {
+                htmlSection.find('.map-popup-section-title').text(section.title);
+            } else {
+                htmlSection.find('.map-popup-section-title').remove();
+            }
+
+            // Add individual properties
+            section.properties.forEach((property) => {
+
+                // Get property value
+                let propertyValue = data[property.column];
+
+                // Ignore if property value not provided
+                if (! propertyValue) {
+                    return false;
+                }
+
+                // Clean property value
+                propertyValue = propertyValue.trim();
+
+                // Ignore if property value not applicable
+                if (propertyValue == '*') {
+                    return false;
+                }
+
+                // Clone the generic property template
+                let htmlProperty = htmlSection.find('.map-popup-section-property[data-type="template"]').clone().removeAttr('data-type');
+
+                // Add property ID
+                htmlProperty.attr('data-popup-property', property.id);
+
+                // Add property label
+                htmlProperty.find('label').text(property.column);
+
+                // Format property value based on type
+                if (property.type) {
+
+                    switch(property.type) {
+
+                        case 'url':
+
+                            let propertyUrls = propertyValue.split(',')
+                                .map(u => u.trim())
+                                .filter(u => u !== '');
+
+                            if (propertyUrls.length > 0) {
+                                propertyValue = propertyUrls
+                                    .map(u => `<a href="${u}" target="_blank" title="${property.column} URL${propertyTitle ? ' for ' + propertyTitle : ''}">${u}</a>`).join('');
+                            }
+        
+                            break;
+                        
+                        case 'int':
+
+                            // Convert to integer
+                            propertyValue = parseInt(propertyValue);
+
+                            break;
+
+                        case 'index':
+
+                            break;
+
+                        case 'updated_at':
+
+                            // Fix any decimal years in the date string (e.g., "2024.0" → "2024")
+                            propertyValue = propertyValue.replace(/(\d{4})\.0+\b/g, '$1');
+
+                            break;
+
+                        default:
+                            break;
+
+                    }
+                }
+
+                htmlProperty.find('.map-popup-property-value').html(propertyValue);
+
+                /*
+                property.description
+                */
+                if (property.description) {
+                    htmlProperty.find('label').attr('title', property.description);
+                }
+
+                // Append property HTML
+                htmlSection.find('.map-popup-section-data').append(htmlProperty);
+            });
+
+            // Append section HTML
+            html.find('.map-popup-wrapper').append(htmlSection);
+        });
+
+        // Remove templates
+        html.find('[data-type="template"]').remove();
+
+        return html.html();
+    }// fillPopup
+
     /** 
      * setupLegendInteractivity
      * Add legend click event listeners
