@@ -34,137 +34,116 @@ let config = {
  * -- type: Optional; The formatting type to apply to the property value; Options: "text" (default), "int", "url", "index"
  * -- description: Optional; The explainer for the property; Displays as a tooltip.
  */
-let schemas = {
-    popup: [
-        {
-            id: 'title',
-            properties: [
-                {
-                    id: 'outlet_name',
-                    column: 'Outlet Name',
-                },
-            ]
-        },
-        {
-            id: 'details',
-            title: 'Introduction',
-            properties: [
-                {
-                    id: 'website',
-                    column: 'Website',
-                    type: 'url',
-                    description: 'Website url for outlet',
-                },
-                {
-                    id: 'medium_primary',
-                    column: 'Primary Media',
-                },
-                {
-                    id: 'city_based',
-                    column: 'City Based',
-                    description: "The city of the outlet's office headquarters",
-                },
-                {
-                    id: 'frequency',
-                    column: 'Frequency',
-                },
-                {
-                    id: 'users_monthly',
-                    column: 'Monthly Users',
-                },
-                {
-                    id: 'staff_fte',
-                    column: 'News Staff (FTEs)',
-                },
-                {
-                    id: 'language',
-                    column: 'Language',
-                },
-                {
-                    id: 'year_founded',
-                    column: 'Year Founded',
-                    type: 'int',
-                },
-                {
-                    id: 'owner_name',
-                    column: 'Owner Name',
-                },
-                {
-                    id: 'owner_type',
-                    column: 'Owner Type',
-                },
-            ]
-        },
-        {
-            id: 'social',
-            title: 'Social',
-            properties: [
-                {
-                    id: 'facebook',
-                    column: 'Facebook',
-                    type: 'url',
-                },
-                {
-                    id: 'instagram',
-                    column: 'Instagram',
-                    type: 'url',
-                },
-                {
-                    id: 'youtube',
-                    column: 'YouTube',
-                    type: 'url',
-                },
-                {
-                    id: 'X',
-                    column: 'X',
-                    type: 'url',
-                },
-                {
-                    id: 'tiktok',
-                    column: 'TikTok',
-                    type: 'url',
-                },
-                {
-                    id: 'other',
-                    column: 'Other',
-                    type: 'url',
-                },
-            ]
-        },
-        {
-            id: 'index',
-            title: 'Content Index',
-            properties: [
-                {
-                    id: 'index_content',
-                    column: 'Content Index',
-                    type: 'index',
-                },
-            ]
-        },
-        {
-            id: 'summary',
-            title: 'Summary',
-            properties: [
-                {
-                    id: 'summary',
-                    column: 'Summary',
-                },
-            ]
-        },
-        {
-            id: 'footer',
-            title: 'Footer',
-            properties: [
-                {
-                    id: 'updated_at',
-                    column: 'Last Update',
-                },
-            ]
-        },
-    ],
-    marker: []
-};
+
+let schema = [
+    {
+        id: 'outlet_name',
+        column: 'OUTLET_NAME',
+        label: 'Outlet Name',
+    },
+    {
+        id: 'website',
+        column: 'WEBSITE',
+        label: 'Website',
+        type: 'website',
+    },
+    {
+        id: 'medium_primary',
+        column: 'PRIMARY_MEDIA',
+        label: 'Primary Media',
+    },
+    {
+        id: 'city_based',
+        column: 'City_Based',
+        label: 'City Based',
+        description: "The city of the outlet's office headquarters",
+    },
+    {
+        id: 'frequency',
+        column: 'FREQ',
+        label: 'Frequency',
+    },
+    {
+        id: 'language',
+        column: 'LANGUAGE',
+        label: 'Language',
+    },
+    {
+        id: 'year_founded',
+        column: 'Year_Founded',
+        label: 'Year Founded',
+    },
+    {
+        id: 'owner_name',
+        column: 'OWNER',
+        label: 'Owner',
+    },
+    {
+        id: 'owner_type',
+        county: 'OWNER_TYPE',
+        label: 'Owner Type',
+    },
+    {
+        id: 'social_facebook',
+        column: 'Social_Media_Facebook',
+        label: 'Facebook',
+        type: 'social',
+    },
+    {
+        id: 'social_instagram',
+        column: 'Social_Media_Instagram',
+        label: 'Instagram',
+        type: 'social',
+    },
+    {
+        id: 'social_youtube',
+        column: 'Social_Media_YouTube',
+        label: 'YouTube',
+        type: 'social',
+    },
+    {
+        id: 'social_x',
+        column: 'Social_Media_X',
+        label: 'X',
+        type: 'social',
+    },
+    {
+        id: 'social_tiktok',
+        column: 'Social_Media_TikTok',
+        label: 'TikTok',
+        type: 'social',
+    },
+    {
+        id: 'social_other',
+        column: 'Social_Media_Other',
+        label: 'Other',
+        type: 'social',
+    },
+    {
+        id: 'cil_number',
+        column: 'COMMUNITY_IMPACT_LVL',
+        label: 'Community Impact Level',
+    },
+    {
+        id: 'cil_description',
+        column: 'IMPACT_LVL_DESCRIPTION',
+        label: 'Community Impact Level Description',
+    },
+    {
+        id: 'summary',
+        column: 'Summary',
+    },
+    {
+        id: 'counties_served',
+        column: 'COUNTIES_SERVED',
+        label: 'Counties Served'
+    },
+    {
+        id: 'updated_at',
+        column: 'Last Update',
+        label: 'Updated:'
+    },
+];
 
 // Initialize map
 mapboxgl.accessToken = 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A';
@@ -773,120 +752,53 @@ map.on('load', function() {
         let propertyTitle = '';
 
         // Popuplate the template based on the schema's definition and the given data
-        schema.forEach((section) => {
+        schema.forEach((property) => {
 
-            // Section Title
-            if (section.id == 'title') {
-                propertyTitle = data[section.properties[0].column];
-                html.find('[data-popup-property="title"]').text(propertyTitle);
+            // Get property value
+            let propertyValue = data[property.column];
 
-                return true;
-            }
-            
-            // Clone the generic section template
-            let htmlSection = html.find('.map-popup-section[data-type="template"]').clone().removeAttr('data-type');
-
-            // Add section ID
-            htmlSection.attr('data-popup-section', section.id);
-
-            // Add or remove section title
-            if (section.title) {
-                htmlSection.find('.map-popup-section-title').text(section.title);
-            } else {
-                htmlSection.find('.map-popup-section-title').remove();
+            // Ignore if property value not provided
+            if (! propertyValue) {
+                return false;
             }
 
-            // Add individual properties
-            section.properties.forEach((property) => {
-
-                // Get property value
-                let propertyValue = data[property.column];
-
-                // Ignore if property value not provided
-                if (! propertyValue) {
-                    return false;
-                }
-
-                // Clean property value
+            // Clean property value
+            if (typeof propertyValue == 'string') {
                 propertyValue = propertyValue.trim();
+            }
 
-                // Ignore if property value not applicable
-                if (propertyValue == '*') {
-                    return false;
+            // Ignore if property value not applicable
+            if (propertyValue == '*') {
+                return false;
+            }
+
+            if (property.type) {
+
+                switch(property.type) {
+
+                    case 'website':
+
+                        html.find(`[data-mp-property="${property.id}"]`).attr('href', propertyValue);
+                        html.find(`[data-mp-property="${property.id}"]`).attr('title', property.label);
+                        html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
+
+                        break;
+                    
+                    case 'social':
+
+                        break;
+
                 }
+    
+            } else {
 
-                // Clone the generic property template
-                let htmlProperty = htmlSection.find('.map-popup-section-property[data-type="template"]').clone().removeAttr('data-type');
+                // Apply property value
+                html.find(`[data-mp-property="${property.id}"]`).text(propertyValue);
 
-                // Add property ID
-                htmlProperty.attr('data-popup-property', property.id);
+                // Apply property label
+                html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
 
-                // Add property label
-                htmlProperty.find('label').text(property.column);
-
-                // Format property value based on type
-                if (property.type) {
-
-                    switch(property.type) {
-
-                        case 'url':
-
-                            let propertyUrls = propertyValue.split(',')
-                                .map(u => u.trim())
-                                .filter(u => u !== '');
-
-                            if (propertyUrls.length > 0) {
-                                propertyValue = propertyUrls
-                                    .map(u => `<a href="${u}" target="_blank" title="${property.column} URL${propertyTitle ? ' for ' + propertyTitle : ''}">${u}</a>`).join('');
-                            }
-        
-                            break;
-                        
-                        case 'int':
-
-                            // Convert to integer
-                            propertyValue = parseInt(propertyValue);
-
-                            break;
-
-                        case 'index':
-
-                            break;
-
-                        case 'updated_at':
-
-                            // Fix any decimal years in the date string (e.g., "2024.0" → "2024")
-                            propertyValue = propertyValue.replace(/(\d{4})\.0+\b/g, '$1');
-
-                            break;
-
-                        default:
-                            break;
-
-                    }
-                }
-
-                // Ignore if property value is invalid
-                if (! propertyValue) {
-                    return false;
-                }
-
-                // Add property value to template
-                htmlProperty.find('.map-popup-property-value').html(propertyValue);
-
-                /*
-                TODO: property.description
-                */
-                if (property.description) {
-                    htmlProperty.find('label').attr('title', property.description);
-                }
-
-                // Append property HTML
-                htmlSection.find('.map-popup-section-data').append(htmlProperty);
-            });
-
-            // Append section HTML
-            html.find('.map-popup-wrapper').append(htmlSection);
+            }
         });
 
         // Remove templates

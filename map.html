@@ -15,6 +15,10 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
     <link href="assets/css/map.css" rel="stylesheet" />
 
+    <link href="assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="assets/fonts/fontawesome/css/brands.min.css" rel="stylesheet" />
+    <link href="assets/fonts/fontawesome/css/solid.min.css" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -92,18 +96,84 @@
 
     <div id="map-templates">
         <div data-template="popup">
+
             <div class="map-popup-wrapper">
-                <h4 data-popup-property="title"></h4>
-                <div class="map-popup-section" data-type="template">
-                    <div class="map-popup-section-title"></div>
-                    <div class="map-popup-section-data">
-                        <div class="map-popup-section-property" data-type="template">
-                            <label></label>
-                            <div class="map-popup-property-value"></div>
+
+                <div class="mp-container">
+
+                    <a href="javascript:;" class="mp-close" title="Close popup"><i class="fa-solid fa-xmark"></i></a>
+
+                    <div class="mp-top">
+                        <div class="mp-lvl-container">
+                            <span data-mp-property="cil_number"></span>
                         </div>
                     </div>
+
+                    <div class="mp-header">
+                        <h4 data-mp-property="outlet_name"></h4>
+                        <p data-mp-property="summary"></p>
+                    </div>
+
+                    <div class="mp-body">
+                        <div class="mp-body-column">
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="owner_name"></div>
+                                <div class="mp-column-item-value" data-mp-property="owner_name"></div>
+                            </div>
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="owner_type"></div>
+                                <div class="mp-column-item-value" data-mp-property="owner_type"></div>
+                            </div>
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="city_based"></div>
+                                <div class="mp-column-item-value" data-mp-property="city_based"></div>
+                            </div>
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="counties_served"></div>
+                                <div class="mp-column-item-value" data-mp-property="counties_served"></div>
+                            </div>
+                        </div>
+                        <div class="mp-body-column">
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="medium_primary"></div>
+                                <div class="mp-column-item-value" data-mp-property="medium_primary"></div>
+                            </div>
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="frequency"></div>
+                                <div class="mp-column-item-value" data-mp-property="frequency"></div>
+                            </div>
+                            <div class="mp-column-item">
+                                <div class="mp-column-item-label" data-mp-property-label="language"></div>
+                                <div class="mp-column-item-value" data-mp-property="language"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mp-footer">
+
+                        <div class="mp-footer-column">
+                            <a href="#" data-mp-property="website" title="#" target="_blank">
+                                <i class="fa-solid fa-globe"></i>
+                                <span data-mp-property-label="website"></span>
+                            </a>
+                        </div>
+
+                        <div class="mp-footer-column">
+                            <div class="mp-footer-date">
+                                <span data-mp-property-label="updated_at"></span>
+                                <span data-mp-property="updated_at"></span>
+                            </div>
+                            <div class="mp-footer-icons">
+                                <a href="#" data-mp-property-template="social" title="#" target="_blank"></a>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </div>
     </div>
 
