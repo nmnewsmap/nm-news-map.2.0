@@ -172,18 +172,46 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v11',
-    center: [-106.2485, 34.5199],
-    zoom: 7.1,
-    minZoom: 6.2,
-    maxZoom: 13,
-    attributionControl: true
+    center: [-106.2485, 34.5199], // New Mexico
+    zoom: 5, // State level
+    minZoom: 5,
+    maxZoom: 10,
+    attributionControl: false,
+    maxBounds: [
+        [-110.301, 29.741],
+        [-101.205, 37.828]
+    ],
 });
 
-// Global variables for census data
-let censusData = null;
-let currentCensusLayer = 'none';
+// Animate initial map view to show entire state
+map.fitBounds([[-102.999,31.415], [-108.601,36.902]], {
+    padding: {
+        top: 50,
+        bottom: 50,
+        left: 50,
+        right: 50
+    },
+});
 
-map.addControl(new mapboxgl.NavigationControl());
+// Map controls
+const nav = new mapboxgl.NavigationControl({
+    showCompass: false,
+});
+map.addControl(nav, 'top-right');
+
+// disable map rotation using right click + drag
+map.dragRotate.disable();
+
+// disable map rotation using touch rotation gesture
+map.touchZoomRotate.disableRotation();
+
+/*
+// Map attribution
+map.addControl(new mapboxgl.AttributionControl({
+    compact: true,
+    customAttribution: 'Map design by Bloom Labs'
+}));
+*/
 
 /**
  * Load Map
@@ -215,12 +243,12 @@ map.on('load', function() {
     let allCountyNames = []; // Stores all county names
     let countiesLoaded = false; // Store loaded counties
 
-    // Directly fetch the counties GeoJSON to ensure we have access to county names
+    // Fetch counties GeoJSON
     fetch(config.data.counties)
       .then(response => response.json())
       .then(data => {
         if (data && data.features && data.features.length > 0) {
-          // Extract all county names from the GeoJSON
+          // Store all county names
           allCountyNames = data.features
             .map(feature => feature.properties.NAME)
             .filter(name => name);
@@ -263,6 +291,7 @@ map.on('load', function() {
             allCountyNames = source._data.features
               .map(feature => feature.properties.NAME)
               .filter(name => name); // filter out any undefined/null
+
             console.log(`Loaded ${allCountyNames.length} NM county names:`, allCountyNames);
             
             // Mark counties as loaded
@@ -278,14 +307,14 @@ map.on('load', function() {
      * County & Census Highlights
      */
     map.addLayer({
-      id: 'county-highlight',
+      id: 'counties-fill',
       type: 'fill',
       source: 'counties',
       paint: {
-        'fill-color': '#b3d8f6', // default light blue
+        'fill-color': '#b3d8f6', // Default: light blue
         'fill-opacity': 0.35
       },
-      filter: ['in', 'NAME', ''] // no counties highlighted initially
+      filter: ['in', 'NAME', '']
     });
 
     map.addLayer({
@@ -301,7 +330,7 @@ map.on('load', function() {
         'fill-opacity': 0.7
       },
       layout: {
-        'visibility': 'none' // Hidden by default
+        'visibility': 'none'
       }
     });
 
@@ -313,30 +342,42 @@ map.on('load', function() {
     // Add county boundary outlines
     try {
       map.addLayer({
-        'id': 'nm-counties',
-        'type': 'line',
-        'source': 'counties',
-        'paint': {
+        id: 'counties-border',
+        type: 'line',
+        source: 'counties',
+        paint: {
           'line-color': '#333',
-          'line-width': 3,
-          'line-opacity': 0.8
+          'line-width': 2,
+          'line-opacity': 0.4
         }
       });
+
+      map.addLayer({
+        id: 'counties-border-highlight',
+        type: 'line',
+        source: 'counties',
+        paint: {
+          'line-color': '#333',
+          'line-width': 2,
+          'line-opacity': 0.8
+        },
+        filter: ['in', 'NAME', ''] // No counties highlighted initially
+      });
     } catch (error) {
-      console.error('Error adding county boundary layer:', error);
+      console.error('Error adding county boundary layers:', error);
     }
 
     // Add county labels
     try {
       map.addLayer({
-        'id': 'nm-county-labels',
-        'type': 'symbol',
-        'source': 'counties',
-        'layout': {
+        id: 'counties-labels',
+        type: 'symbol',
+        source: 'counties',
+        layout: {
           'text-field': ['get', 'NAME'],
           'text-size': 13
         },
-        'paint': {
+        paint: {
           'text-color': '#333',
           'text-halo-color': '#fff',
           'text-halo-width': 1.5
@@ -576,19 +617,12 @@ map.on('load', function() {
       
       // Track popup state
       let isPopupOpen = false;
-      let popupTimeout = null;
       
       /**
        * handleMarkerOpen
        * Highlight counties and show popup
        */
       function handleMarkerOpen(action) {
-        // Clear any pending popup close timeout
-        if (popupTimeout) {
-          clearTimeout(popupTimeout);
-          popupTimeout = null;
-        }
-
         // Close all other popups first (only one popup at a time)
         document.querySelectorAll('.mapboxgl-popup').forEach(popupEl => {
           if (popupEl !== popup.getElement()) {
@@ -617,11 +651,13 @@ map.on('load', function() {
             .map(s => normalizeCountyName(s));
           console.log("Normal counties to highlight:", countiesServed);
         }
-        
+
         // Apply highlighting for normal counties
         const type = (feature.properties["Primary Medium"] || '').toLowerCase();
-        map.setPaintProperty('county-highlight', 'fill-color', highlightColors[type] || '#e0e0e0');
-        map.setFilter('county-highlight', ['in', 'NAME', ...countiesServed]);
+
+        map.setPaintProperty('counties-fill', 'fill-color', highlightColors[type] || '#e0e0e0');
+        map.setFilter('counties-fill', ['in', 'NAME', ...countiesServed]);
+        map.setFilter('counties-border-highlight', ['in', 'NAME', ...countiesServed]);
 
         // Open the popup if not already open
         if (! isPopupOpen) {
@@ -630,30 +666,21 @@ map.on('load', function() {
           isPopupOpen = true;
         }
 
-        function closePopup() {
-            // Close all popups when clicking on map
-            document.querySelectorAll('.mapboxgl-popup').forEach(popup => {
-                popup.remove();
-            });
-
-            isPopupOpen = false;
-
-            map.setFilter('county-highlight', ['in', 'NAME', '']);
-        }
-
-        // Handle popup close request
-        $('.mapboxgl-popup-close-button').bind('click', closePopup);
-        $(document).on('keyup', function(e){
-            if(e.which == 27) {
-                closePopup();
-            }
-        });
       }// handleMarkerOpen
+
+      function closePopup() {
+        // Close popup
+        popup.remove();
+        isPopupOpen = false;
+
+        // Reset county filters
+        resetCountyFilters();
+      }// closePopup
 
       function handleMarkerClick() {
         // Click toggles popup persistence
         if (isPopupOpen) {
-          handlePopupClose();
+          closePopup();
         } else {
           handleMarkerOpen('click');
         }
@@ -694,20 +721,6 @@ map.on('load', function() {
         }, 300); // 300ms delay before closing
       }//handleMarkerMouseLeave
       */
-
-      function handlePopupClose() {
-        if (popupTimeout) {
-          clearTimeout(popupTimeout);
-          popupTimeout = null;
-        }
-        
-        if (isPopupOpen) {
-          popup.remove();
-          isPopupOpen = false;
-        }
-
-        map.setFilter('county-highlight', ['in', 'NAME', '']);
-      }//handlePopupClose
 
       // Add event listeners
       el.addEventListener('click', handleMarkerClick);
@@ -853,10 +866,16 @@ map.on('load', function() {
                     }
                 }
 
+                // Ignore if property value is invalid
+                if (! propertyValue) {
+                    return false;
+                }
+
+                // Add property value to template
                 htmlProperty.find('.map-popup-property-value').html(propertyValue);
 
                 /*
-                property.description
+                TODO: property.description
                 */
                 if (property.description) {
                     htmlProperty.find('label').attr('title', property.description);
@@ -910,6 +929,45 @@ map.on('load', function() {
       console.error('Error in dynamic marker creation:', error);
     }
 
+    function resetCountyFilters() {
+        // Remove county filter styles
+        map.setFilter('counties-fill', ['in', 'NAME', '']);
+        map.setFilter('counties-border-highlight', ['in', 'NAME', '']);
+    }// resetCountyFilters
+
+    function closeAllPopups() {
+        // Reset county filters
+        resetCountyFilters();
+
+        // Close all popups
+        document.querySelectorAll('.mapboxgl-popup').forEach(popup => {
+            popup.remove();
+        });
+    }// closeAllPopups
+
+    // Handle popup close request
+    $(document).on('click', '.mapboxgl-popup-close-button', closeAllPopups);
+    $('#map').on('keyup', closeAllPopups);
+
+    /**
+     * Map Zoom
+     */
+    map.on('zoom', function() {
+      // Debounce zoom updates to avoid excessive recalculation
+      clearTimeout(window.zoomUpdateTimeout);
+      window.zoomUpdateTimeout = setTimeout(() => {
+        // Update markers
+        createMarkersWithDynamicOffset();
+      }, 150);
+    });
+
+    /**
+     * Map Click
+     */
+    map.on('click', function() {
+        //
+    });
+
     // --- CENSUS OVERLAY FUNCTIONALITY ---
     
     // Function to create color expression for a census layer
@@ -929,10 +987,11 @@ map.on('load', function() {
       return expression;
     }// createColorExpression
 
-    // Function to update census overlay
-    function updateCensusOverlay(layerType) {
-      currentCensusLayer = layerType;
-      
+    /**
+     * updateCensusOverlay
+     * Function to update census overlay
+     */
+    function updateCensusOverlay(layerType) {      
       if (layerType === 'none') {
         map.setLayoutProperty('census-overlay', 'visibility', 'none');
         document.getElementById('census-legend').innerHTML = '';
@@ -979,31 +1038,5 @@ map.on('load', function() {
           updateCensusOverlay(this.value);
         }
       });
-    });
-
-    /**
-     * Map Zoom
-     */
-    map.on('zoom', function() {
-      // Debounce zoom updates to avoid excessive recalculation
-      clearTimeout(window.zoomUpdateTimeout);
-      window.zoomUpdateTimeout = setTimeout(() => {
-        // Update markers
-        createMarkersWithDynamicOffset();
-      }, 150);
-    });
-
-    /**
-     * Map Click
-     */
-    map.on('click', function() {
-        /*
-        map.setFilter('county-highlight', ['in', 'NAME', '']);
-
-        // Close all popups when clicking on map
-        document.querySelectorAll('.mapboxgl-popup').forEach(popup => {
-            //popup.remove();
-        });
-        */
     });
 });
