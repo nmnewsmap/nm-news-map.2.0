@@ -57,7 +57,7 @@ let schemas = {
                 },
                 {
                     id: 'medium_primary',
-                    column: 'Primary Medium',
+                    column: 'Primary Media',
                 },
                 {
                     id: 'city_based',
@@ -438,7 +438,7 @@ map.on('load', function() {
         if (!feature.geometry || !feature.geometry.coordinates) return;
         
         // Apply media type filter
-        const mediumType = (feature.properties["Primary Medium"] || '').trim();
+        const mediumType = (feature.properties["Primary Media"] || '').trim();
         if (window.activeFilter !== 'all' && mediumType !== window.activeFilter) {
           return; // Skip this outlet if it doesn't match the filter
         }
@@ -559,7 +559,7 @@ map.on('load', function() {
       el.className = 'marker';
 
       // Color by Primary Medium with optimized contrast colors
-      const medium = (feature.properties["Primary Medium"] || '').toLowerCase();
+      const medium = (feature.properties["Primary Media"] || '').toLowerCase();
       
       // Dynamic marker styling based on zoom level
       el.style.background = config.colors.medium[medium];
@@ -653,7 +653,7 @@ map.on('load', function() {
         }
 
         // Apply highlighting for normal counties
-        const type = (feature.properties["Primary Medium"] || '').toLowerCase();
+        const type = (feature.properties["Primary Media"] || '').toLowerCase();
 
         map.setPaintProperty('counties-fill', 'fill-color', highlightColors[type] || '#e0e0e0');
         map.setFilter('counties-fill', ['in', 'NAME', ...countiesServed]);
