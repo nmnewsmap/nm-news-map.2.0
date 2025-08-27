@@ -20,31 +20,43 @@ const config = {
     icons: {
         facebook: {
             id: 'facebook',
-            color: '#1778f2'
+            color: '#1778f2',
+            group: 'brands',
+        },
+        info: {
+            id: 'info-circle',
+            color: '#000000',
+            group: 'solid',
         },
         instagram: {
             id: 'instagram',
             color: '#e1306c',
+            group: 'brands',
         },
         pinterest: {
             id: 'pinterest',
             color: '#e60023',
+            group: 'brands',
         },
         tiktok: {
             id: 'tiktok',
             color: '#fe2c55',
+            group: 'brands',
         },
         youtube: {
             id: 'youtube',
             color: '#ff0000',
+            group: 'brands',
         },
         x: {
             id: 'x-twitter',
             color: '#000000',
+            group: 'brands',
         },
         default: {
             id: '',
             color: '#515151',
+            group: 'initial',
         }
     }
 };
@@ -181,7 +193,7 @@ const schema = [
 mapboxgl.accessToken = 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A';
 
 const map = new mapboxgl.Map({
-    container: 'map',
+    container: 'map-canvas',
     style: 'mapbox://styles/mapbox/light-v11',
     center: [-106.2485, 34.5199], // New Mexico
     zoom: 5, // State level
@@ -804,9 +816,8 @@ map.on('load', function() {
                 switch (property.format) {
 
                     case 'float':
-
+                        // Float format to two decimal places
                         propertyValue = propertyValue.toFixed(2);
-
                         break;
 
                 }
@@ -858,9 +869,16 @@ map.on('load', function() {
                     // Apply property value
                     html.find(`[data-mp-property="${property.id}"]`).text(propertyValue);
 
-                    // Appy property label and value together
+                    // Apply property label and value together
                     html.find(`[data-mp-property-pair="${property.id}"] label`).text(property.label);
                     html.find(`[data-mp-property-pair="${property.id}"] span`).text(propertyValue);
+
+                    // Apply property description tooltip
+                    if (property.description) {
+                        let info_icon = getIcon('info');
+                        html.find(`[data-mp-property-pair="${property.id}"] label`).append(info_icon.html);
+                        html.find(`[data-mp-property-pair="${property.id}"] label`).attr('title', property.description);
+                    }
                 } else {
                     html.find(`[data-mp-property-label="${property.id}"]`).remove();
                     html.find(`[data-mp-property="${property.id}"]`).remove();
@@ -890,7 +908,7 @@ map.on('load', function() {
             icon = config.icons[type];
 
             // Format HTML to Font Awesome standards
-            icon.html = `<i class="fa-brands fa-${icon.id}"></i>`;
+            icon.html = `<i class="fa-${icon.group} fa-${icon.id}"></i>`;
         } else {
             icon = config.icons.default;
             icon.html = `<span>${type.charAt(0)}</span>`;
@@ -1042,5 +1060,17 @@ map.on('load', function() {
           updateCensusOverlay(this.value);
         }
       });
+    });
+
+    /**
+     * Legend
+     */
+
+    $('#menu #menu-toggle a').on('click', function() {
+        if ($('#menu').attr('data-visible') == 'true') {
+            $('#menu').attr('data-visible', 'false');
+        } else {
+            $('#menu').attr('data-visible', 'true');
+        }
     });
 });
