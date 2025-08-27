@@ -1,7 +1,7 @@
 // Initialize map configuration
-let base_dir = 'assets/data/';
+const base_dir = 'assets/data/';
 
-let config = {
+const config = {
     data: {
         counties: base_dir + 'nm_counties_wgs84.geojson',
         census: base_dir + 'nm_counties_with_census.geojson',
@@ -14,7 +14,37 @@ let config = {
             television: '#f44336', //Red
             tv: '#f44336', //Red
             multiplatform: '#9c27b0', // Purple
-            default: '#000', //Purple
+            default: '#000000', //Black
+        }
+    },
+    icons: {
+        facebook: {
+            id: 'facebook',
+            color: '#1778f2'
+        },
+        instagram: {
+            id: 'instagram',
+            color: '#e1306c',
+        },
+        pinterest: {
+            id: 'pinterest',
+            color: '#e60023',
+        },
+        tiktok: {
+            id: 'tiktok',
+            color: '#fe2c55',
+        },
+        youtube: {
+            id: 'youtube',
+            color: '#ff0000',
+        },
+        x: {
+            id: 'x-twitter',
+            color: '#000000',
+        },
+        default: {
+            id: '',
+            color: '#515151',
         }
     }
 };
@@ -35,7 +65,7 @@ let config = {
  * -- description: Optional; The explainer for the property; Displays as a tooltip.
  */
 
-let schema = [
+const schema = [
     {
         id: 'outlet_name',
         column: 'OUTLET_NAME',
@@ -84,31 +114,31 @@ let schema = [
         label: 'Owner Type',
     },
     {
-        id: 'social_facebook',
+        id: 'facebook',
         column: 'Social_Media_Facebook',
         label: 'Facebook',
         type: 'social',
     },
     {
-        id: 'social_instagram',
+        id: 'instagram',
         column: 'Social_Media_Instagram',
         label: 'Instagram',
         type: 'social',
     },
     {
-        id: 'social_youtube',
+        id: 'youtube',
         column: 'Social_Media_YouTube',
         label: 'YouTube',
         type: 'social',
     },
     {
-        id: 'social_x',
+        id: 'x',
         column: 'Social_Media_X',
         label: 'X',
         type: 'social',
     },
     {
-        id: 'social_tiktok',
+        id: 'tiktok',
         column: 'Social_Media_TikTok',
         label: 'TikTok',
         type: 'social',
@@ -123,6 +153,7 @@ let schema = [
         id: 'cil_number',
         column: 'COMMUNITY_IMPACT_LVL',
         label: 'Community Impact Level',
+        format: 'float',
     },
     {
         id: 'cil_description',
@@ -131,7 +162,8 @@ let schema = [
     },
     {
         id: 'summary',
-        column: 'Summary',
+        column: 'SUMMARY',
+        label: 'Summary',
     },
     {
         id: 'counties_served',
@@ -140,7 +172,7 @@ let schema = [
     },
     {
         id: 'updated_at',
-        column: 'Last Update',
+        column: 'LAST_UPDATE',
         label: 'Updated:'
     },
 ];
@@ -743,9 +775,6 @@ map.on('load', function() {
      */
     function fillPopup(data) {
 
-        // Get data schema for popups
-        let schema = schemas['popup'];
-
         // Get HTML template for popups
         let html = $('#map-templates div[data-template="popup"]').clone();
 
@@ -757,34 +786,64 @@ map.on('load', function() {
             // Get property value
             let propertyValue = data[property.column];
 
-            // Ignore if property value not provided
-            if (! propertyValue) {
-                return false;
-            }
-
             // Clean property value
-            if (typeof propertyValue == 'string') {
-                propertyValue = propertyValue.trim();
+            if (propertyValue) {
+                if (typeof propertyValue == 'string') {
+                    propertyValue = propertyValue.trim();
+                }
+
+                // Ignore if property value not applicable
+                if (propertyValue == '*') {
+                    propertyValue = '';
+                }
             }
 
-            // Ignore if property value not applicable
-            if (propertyValue == '*') {
-                return false;
+            // Format-specific values
+            if (property.format) {
+
+                switch (property.format) {
+
+                    case 'float':
+
+                        propertyValue = propertyValue.toFixed(2);
+
+                        break;
+
+                }
+
             }
 
+            // Type-specific displays
             if (property.type) {
 
                 switch(property.type) {
 
                     case 'website':
 
-                        html.find(`[data-mp-property="${property.id}"]`).attr('href', propertyValue);
-                        html.find(`[data-mp-property="${property.id}"]`).attr('title', property.label);
-                        html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
+                        if (propertyValue) {
+                            html.find(`[data-mp-property="${property.id}"]`).attr('href', propertyValue);
+                            html.find(`[data-mp-property="${property.id}"]`).attr('title', property.label);
+                            html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
+                        } else {
+                            html.find(`[data-mp-property="${property.id}"]`).remove();
+                        }
 
                         break;
                     
                     case 'social':
+
+                        if (propertyValue) {
+                            let socialLink = html.find('.mp-footer-icons [data-type="template"]').clone();
+                            socialLink.removeAttr('data-type');
+                            socialLink.attr('href', propertyValue);
+                            socialLink.attr('title', property.label);
+
+                            let socialIcon = getIcon(property.id);
+                            socialLink.css('background-color', socialIcon.color);
+                            socialLink.html(socialIcon.html);
+
+                            html.find('.mp-footer-icons').append(socialLink);
+                        }
 
                         break;
 
@@ -792,11 +851,21 @@ map.on('load', function() {
     
             } else {
 
-                // Apply property value
-                html.find(`[data-mp-property="${property.id}"]`).text(propertyValue);
+                if (propertyValue) {
+                    // Apply property label
+                    html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
 
-                // Apply property label
-                html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
+                    // Apply property value
+                    html.find(`[data-mp-property="${property.id}"]`).text(propertyValue);
+
+                    // Appy property label and value together
+                    html.find(`[data-mp-property-pair="${property.id}"] label`).text(property.label);
+                    html.find(`[data-mp-property-pair="${property.id}"] span`).text(propertyValue);
+                } else {
+                    html.find(`[data-mp-property-label="${property.id}"]`).remove();
+                    html.find(`[data-mp-property="${property.id}"]`).remove();
+                    html.find(`[data-mp-property-pair="${property.id}"]`).remove();
+                }
 
             }
         });
@@ -806,6 +875,29 @@ map.on('load', function() {
 
         return html.html();
     }// fillPopup
+
+    /**
+     * getIcon
+     * Get the icon HTML for the give type
+     */
+    function getIcon (type) {
+    
+        // Initialize
+        let icon = '';
+
+
+        if (config.icons[type]) {
+            icon = config.icons[type];
+
+            // Format HTML to Font Awesome standards
+            icon.html = `<i class="fa-brands fa-${icon.id}"></i>`;
+        } else {
+            icon = config.icons.default;
+            icon.html = `<span>${type.charAt(0)}</span>`;
+        }
+
+        return icon;
+    }// getIcon
 
     /** 
      * setupLegendInteractivity
