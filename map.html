@@ -41,8 +41,35 @@
                 </div>
             </div>
 
-            <div id="menu-legend">
-
+            <div class="menu-containers">
+                <div class="menu-container" data-container="legend">
+                    <div class="mc-header">
+                        <h3>Filter Data</h3>
+                        <div class="mc-header-description">Select options for the map</div>
+                    </div>
+                    <div class="mc-filter-categories">
+                        <div class="mc-filter-category-wrapper" data-type="template">
+                            <div class="mc-filter-category">
+                                <div class="mc-filter-category-title">
+                                    <div class="mc-filter-item-input">
+                                        <button type="button"></button>
+                                    </div>
+                                    <div class="mc-filter-item-label"></div>
+                                </div>
+                                <div class="mc-filter-category-options">
+                                    <div class="mc-filter-category-option-wrapper" data-type="template">
+                                        <div class="mc-filter-category-option">
+                                            <div class="mc-filter-item-input">
+                                                <button type="button"></button>
+                                            </div>
+                                            <div class="mc-filter-item-label"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Census Overlay Controls -->
@@ -114,10 +141,15 @@
 
     <script src="assets/data/outlets_geojson.js"></script>
     <script src="assets/data/census_json.js"></script>
-    <script src="assets/js/controls.js"></script>
     <script src="assets/js/map.js"></script>
 
     <div id="map-templates">
+        <div data-template="marker">
+            <div class="map-marker">
+                <div class="map-marker-icon"></div>
+            </div>
+        </div>
+
         <div data-template="popup">
 
             <div class="map-popup-wrapper">
