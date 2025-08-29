@@ -3,8 +3,24 @@ const base_dir = 'https://nmnewsmap.github.io/nm-news-map.2.0/assets/data/'; //'
 
 const config = {
     data: {
-        counties: base_dir + 'nm_counties_wgs84.geojson',
-        census: base_dir + 'nm_counties_with_census.geojson',
+        counties: base_dir + 'nm_counties_wgs84.geojson', // General county geographic data
+        census: base_dir + 'nm_counties_with_census.geojson', // County-based census data
+    },
+    operations: {
+        county_delimiter: ',', // The delimiter for multiple counties in the county column
+        county_all_term: 'all', // The term used in marker county data for all-encompassing county coverage
+        counties_column: 'counties_served', // The column that includes the marker's county data
+        counties_color_column: 'medium_primary', // The column that controls the marker colors
+        counties_color_default: '#e0e0e0', // The default color for highlighting counties 
+        county_name_exceptions: { // County name normalization mapping
+            "dona ana": "Doña Ana",
+            "doña ana": "Doña Ana",
+            "dona ana ": "Doña Ana",
+            "do\u00f1a ana": "Doña Ana",
+            "de baca": "De Baca",
+            "guadelupe": "Guadalupe", // Common misspelling
+            "mckinley": "McKinley", // Handle lowercase variations
+        },
     },
     icons: {
         facebook: {
@@ -116,13 +132,13 @@ const schema = {
         id: 'frequency',
         column: 'FREQ',
         label: 'Frequency',
-        //filter: true,
+        filter: true,
     },
     'language': {
         id: 'language',
         column: 'LANGUAGE',
         label: 'Language',
-        //filter: true,
+        filter: true,
     },
     'year_founded': {
         id: 'year_founded',
@@ -138,7 +154,7 @@ const schema = {
         id: 'owner_type',
         county: 'OWNER_TYPE',
         label: 'Owner Type',
-        //filter: true,
+        filter: true,
     },
     'facebook': {
         id: 'facebook',
@@ -205,6 +221,9 @@ const schema = {
     },
 };
 
+// Initialize
+let allCountyNames = []; // Stores all county names
+let countiesLoaded = false; // Store loaded counties
 let activeFilters = [];
 let activeFilterCategory = '';
 
@@ -262,167 +281,219 @@ map.on('load', function() {
 
     // Initialize feature collection for outlet data
     const outletData = {
-      type: 'FeatureCollection',
-      features: window.outletsGeojsonFeatures,
+        type: 'FeatureCollection',
+        features: window.outletsGeojsonFeatures,
     };
 
     // Load counties boundary source
     map.addSource('counties', {
-      type: 'geojson',
-      data: config.data.counties
+        type: 'geojson',
+        data: config.data.counties
     });
 
     // Load census-enhanced counties source
     map.addSource('census-counties', {
-      type: 'geojson',
-      data: config.data.census
+        type: 'geojson',
+        data: config.data.census
     });
-
-    // Initialize
-    let allCountyNames = []; // Stores all county names
-    let countiesLoaded = false; // Store loaded counties
 
     // Fetch counties GeoJSON
     fetch(config.data.counties)
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.features && data.features.length > 0) {
-          // Store all county names
-          allCountyNames = data.features
-            .map(feature => feature.properties.NAME)
-            .filter(name => name);
-          
-          console.log(`Direct fetch: Loaded ${allCountyNames.length} NM county names:`, allCountyNames);
-          countiesLoaded = true;
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching county GeoJSON directly:', error);
-      });
+        .then(response => response.json())
+        .then(data => {
+            if (! data || ! data.features && data.features.length > 0) return;
 
-    /**
-     * getAllCountyNames
-     * Helper function to get all county names (even if not loaded yet)
-     */
-    function getAllCountyNames() {
-        if (! countiesLoaded || allCountyNames.length === 0) {
-            return [];
-        }
+            // Store all county names
+            allCountyNames = data.features
+                .map(feature => feature.properties.NAME)
+                .filter(name => name);
 
-        return [...allCountyNames];
-    }// getAllCountyNames
+            countiesLoaded = true;
+
+            // Begin build process
+            initializeBuildProcess();
+        })
+        .catch(error => {
+            console.error('Error loading county GeoJSON:', error);
+        });
 
     /**
      * Load Map Source Data
      * Once the county GeoJSON is loaded, store all county names
      */
     map.on('sourcedata', function(e) {
-      if (e.sourceId === 'counties' && e.isSourceLoaded && !countiesLoaded) {
-        console.log('County GeoJSON loaded successfully');
-        console.log('County source data:', map.getSource('counties'));
+        if (e.sourceId !== 'counties' || ! e.isSourceLoaded || countiesLoaded) return;
 
         // Extract all county names when source is loaded
         try {
-          const source = map.getSource('counties');
-          if (source._data && source._data.features) {
-            allCountyNames = source._data.features
-              .map(feature => feature.properties.NAME)
-              .filter(name => name); // filter out any undefined/null
+            const source = map.getSource('counties');
+            if (source._data && source._data.features) {
+                allCountyNames = source._data.features
+                    .map(feature => feature.properties.NAME)
+                    .filter(name => name); // filter out any undefined/null
 
-            console.log(`Loaded ${allCountyNames.length} NM county names:`, allCountyNames);
-            
-            // Mark counties as loaded
-            countiesLoaded = true;
-          }
+                // Mark counties as loaded
+                countiesLoaded = true;
+            }
         } catch (err) {
-          console.error('Error extracting county names:', err);
+            console.error('Error extracting county names:', err);
         }
-      }
     }); // on.sourcedata
 
     /**
      * County & Census Highlights
      */
     map.addLayer({
-      id: 'counties-fill',
-      type: 'fill',
-      source: 'counties',
-      paint: {
-        'fill-color': '#b3d8f6', // Default: light blue
-        'fill-opacity': 0.35
-      },
-      filter: ['in', 'NAME', '']
+        id: 'counties-fill',
+        type: 'fill',
+        source: 'counties',
+        paint: {
+            'fill-color': '#b3d8f6', // Default: light blue
+            'fill-opacity': 0.35
+        },
+        filter: ['in', 'NAME', '']
     });
 
     map.addLayer({
-      id: 'census-overlay',
-      type: 'fill',
-      source: 'census-counties',
-      paint: {
-        'fill-color': [
-          'case',
-          ['==', ['get', 'Population Size'], null], '#f0f0f0', // Default for missing data
-          '#f0f0f0' // Default color when no overlay is active
-        ],
-        'fill-opacity': 0.7
-      },
-      layout: {
-        'visibility': 'none'
-      }
+        id: 'census-overlay',
+        type: 'fill',
+        source: 'census-counties',
+        paint: {
+            'fill-color': [
+                'case',
+                ['==', ['get', 'Population Size'], null], '#f0f0f0', // Default for missing data
+                '#f0f0f0' // Default color when no overlay is active
+            ],
+            'fill-opacity': 0.7
+        },
+        layout: {
+            'visibility': 'none'
+        }
     });
 
     // Add error handling for the county source
     map.on('error', function(e) {
-      console.error('Map error:', e);
+        console.error('Map error:', e);
     });
 
     // Add county boundary outlines
     try {
-      map.addLayer({
-        id: 'counties-border',
-        type: 'line',
-        source: 'counties',
-        paint: {
-          'line-color': '#333',
-          'line-width': 2,
-          'line-opacity': 0.4
-        }
-      });
+        map.addLayer({
+            id: 'counties-border',
+            type: 'line',
+            source: 'counties',
+            paint: {
+                'line-color': '#333',
+                'line-width': 2,
+                'line-opacity': 0.4
+            }
+        });
 
-      map.addLayer({
-        id: 'counties-border-highlight',
-        type: 'line',
-        source: 'counties',
-        paint: {
-          'line-color': '#333',
-          'line-width': 2,
-          'line-opacity': 0.8
-        },
-        filter: ['in', 'NAME', ''] // No counties highlighted initially
-      });
+        map.addLayer({
+            id: 'counties-border-highlight',
+            type: 'line',
+            source: 'counties',
+            paint: {
+                'line-color': '#333',
+                'line-width': 2,
+                'line-opacity': 0.8
+            },
+            filter: ['in', 'NAME', ''] // No counties highlighted initially
+        });
     } catch (error) {
-      console.error('Error adding county boundary layers:', error);
+        console.error('Error adding county boundary layers:', error);
     }
 
     // Add county labels
     try {
-      map.addLayer({
-        id: 'counties-labels',
-        type: 'symbol',
-        source: 'counties',
-        layout: {
-          'text-field': ['get', 'NAME'],
-          'text-size': 13
-        },
-        paint: {
-          'text-color': '#333',
-          'text-halo-color': '#fff',
-          'text-halo-width': 1.5
-        }
-      });
+        map.addLayer({
+            id: 'counties-labels',
+            type: 'symbol',
+            source: 'counties',
+            layout: {
+                'text-field': ['get', 'NAME'],
+                'text-size': 13
+            },
+            paint: {
+                'text-color': '#333',
+                'text-halo-color': '#fff',
+                'text-halo-width': 1.5
+            }
+        });
     } catch (error) {
-      console.error('Error adding county labels layer:', error);
+        console.error('Error adding county labels layer:', error);
     }
+
+    /**
+     * initializeBuildProcess
+     * Conduct the initial build of map components
+     */
+    function initializeBuildProcess() {
+        try {
+            // Clean the data
+            cleanData();
+
+            // Add filter options
+            buildFilterOptions()
+
+            // Add markers
+            drawMarkers();
+        } catch (error) {
+            console.error('Error in initial build process:', error);
+        }
+    }// initializeBuildProcess
+
+    /**
+     * cleanData
+     * Clean up incoming data
+     */
+    function cleanData() {
+
+        // Initialize
+        let cleaned = [];
+      
+        // County name normalization function
+        function normalizeCountyName(name) {
+            name = name.trim().toLowerCase();
+
+            // Check special cases first
+            if (config.operations.county_name_exceptions[name]) {
+                return config.operations.county_name_exceptions[name];
+            }
+
+            // Title case for normal county names (first letter of each word capitalized)
+            return name.split(' ').map(word => 
+                word.charAt(0).toUpperCase() + word.slice(1)
+            ).join(' ');
+        }//normalizeCountyName
+
+        // Filter and update data
+        outletData.features.filter((feature) => 
+                // Ignore if invalid GeoJSON properties
+                (feature.geometry && feature.geometry.coordinates)
+            )
+            .map((feature) => {
+                // Get list of counties served
+                let countiesServed = feature.properties[schema[config.operations.counties_column].column];
+
+                // Turn into array and clean up
+                countiesServed = countiesServed
+                    .split(config.operations.county_delimiter)
+                    .map(s => s.trim());
+
+                if (countiesServed.map(s => s.toLowerCase()).includes(config.operations.county_all_term)) {
+                    if (! countiesLoaded || allCountyNames.length === 0) {
+                        countiesServed = [];
+                    } else {
+                        countiesServed = [...allCountyNames];
+                    }
+                } else {
+                    countiesServed = countiesServed.map(s => normalizeCountyName(s));
+                }
+
+                feature.properties[schema[config.operations.counties_column].column] = countiesServed;
+        });
+    }// cleanData
 
     /**
      * buildFilterOptions
@@ -473,9 +544,14 @@ map.on('load', function() {
                     categories[property.label].options_unique.push(propertyValue);
                     categories[property.label].options_data.push({
                         value: propertyValue,
+                        count: 1,
                         icon: property.options ? property.options[propertyValue].icon : '',
                         color: property.options ? property.options[propertyValue].color : '',
                     });
+                } else {
+                    categories[property.label].options_data.map(option => {
+                        if (option.value == propertyValue) option.count++;
+                    })
                 }
 
             });
@@ -488,6 +564,7 @@ map.on('load', function() {
             // Get filter option template
             let categoryHtml = $('.mc-filter-category-wrapper[data-type="template"]').clone();
             categoryHtml.removeAttr('data-type');
+            categoryHtml.find('.mc-filter-category').attr('data-id', category.id);
 
             // Add category title
             categoryHtml.find('.mc-filter-category-title .mc-filter-item-label').text(category.title);
@@ -499,8 +576,9 @@ map.on('load', function() {
 
                     let optionHtml = $('.mc-filter-category-option-wrapper[data-type="template"]').clone();
                     optionHtml.removeAttr('data-type');
+                    optionHtml.find('.mc-filter-category-option').attr('data-id', option.value);
 
-                    optionHtml.find('.mc-filter-item-label').text(option.value);
+                    optionHtml.find('.mc-filter-item-label').text(option.value + ' (' + option.count + ')');
                     optionHtml.find('.mc-filter-item-input button')
                         .val(option.value)
                         .css('background-color', option.color);
@@ -543,7 +621,7 @@ map.on('load', function() {
             }
 
             parent.attr('data-has-selected', 'true');
-            activeFilterCategory = $(this).find('.mc-filter-item-input button').val();
+            activeFilterCategory = parent.attr('data-id');
 
             // Update markers
             drawMarkers();
@@ -559,17 +637,18 @@ map.on('load', function() {
         });
     }//buildFilterOptions
 
-    // Zoom-adaptive marker system with dynamic clustering and sizing
-    let allMarkers = []; // Store all markers for zoom-based updates
+    // Store current, filtered markers
+    let allMarkers = [];
     
     /**
-     * createMarkerWithDynamicOffset
+     * drawMarkers
      * Update marker clusters
      */
     function drawMarkers() {
-        // Clear existing markers
+        // Clear existing markers and popups
         allMarkers.forEach(marker => marker.remove());
         allMarkers = [];
+        closeAllPopups();
 
         // Get current zoom level for adaptive behavior
         const currentZoom = map.getZoom();
@@ -591,18 +670,24 @@ map.on('load', function() {
         const offsetDistance = Math.max(dynamicOffset, minimumOffset);
 
         // Check if outletData exists
-        if (!outletData || !outletData.features) return;
+        if (! outletData || ! outletData.features) return;
 
         // Update active filters cache
-        let activeFilterOptions = $('.mc-filter-categories .mc-filter-category.active .mc-filter-category-option.active');
+        let filterCategoryActive = $('.mc-filter-categories .mc-filter-category.active');
 
-        if (activeFilterOptions.length > 0) {
-            activeFilters = [];
-            activeFilterOptions.each(function() {
-                activeFilters.push($(this).find('.mc-filter-item-input button').val());
-            });
-        } else {
+        if (filterCategoryActive.length == 0 || filterCategoryActive.find('.mc-filter-category-option').length == 0) {
             activeFilters = ['all'];
+        } else {
+            let filterOptionsActive = filterCategoryActive.find('.mc-filter-category-option.active');
+
+            if (filterOptionsActive.length > 0) {
+                activeFilters = [];
+                filterOptionsActive.each(function() {
+                    activeFilters.push($(this).attr('data-id'));
+                });
+            } else {
+                activeFilters = [''];
+            }
         }
 
         // Initialize marker clusters
@@ -723,7 +808,7 @@ map.on('load', function() {
                 addMarker(feature, offsetLng, offsetLat, markerSize);
             });
         });
-    }// createMarkerWithDynamicOffset
+    }// drawMarkers
     
     /**
      * addMarker
@@ -735,52 +820,17 @@ map.on('load', function() {
         html.attr('id', btoa(feature.geometry.coordinates[0] + '-' + feature.geometry.coordinates[1]));
         html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
 
-        // Add property: Primary Medium
-        const property = schema['medium_primary'];
-        const propertyValue = feature.properties[property.column];
+        // Get property for coloring
+        const colorProperty = schema[config.operations.counties_color_column];
+        const colorPropertyValue = feature.properties[colorProperty.column];
 
         // Add marker color
-        html.find('.map-marker').css('background-color', property.options[propertyValue].color);
+        html.find('.map-marker').css('background-color', colorProperty.options[colorPropertyValue].color);
 
         // Add marker icon
         if (markerSize > 20) {
-            html.find('.map-marker-icon').html(`<i class="fa-solid fa-${property.options[propertyValue].icon}"></i>`);
+            html.find('.map-marker-icon').html(`<i class="fa-solid fa-${colorProperty.options[colorPropertyValue].icon}"></i>`);
         }
-
-        // County highlight color
-        const highlightColors = {
-            'Digital': '#b3d8f6',      // light blue
-            'Print': '#b8e6c1',        // light green
-            'Radio': '#ffe0b3',        // light orange
-            'Television': '#f8bbbb',   // light red
-            'Multiplatform': '#e0e0e0' // light gray
-        };
-
-        // County name normalization mapping
-        const countyNameMap = {
-            "dona ana": "Doña Ana",
-            "doña ana": "Doña Ana",
-            "dona ana ": "Doña Ana",
-            "do\u00f1a ana": "Doña Ana",
-            "de baca": "De Baca",
-            "guadelupe": "Guadalupe", // Common misspelling
-            "mckinley": "McKinley"    // Handle lowercase variations
-        };
-      
-        // County name normalization function
-        function normalizeCountyName(name) {
-            name = name.trim().toLowerCase();
-
-            // Check special cases first
-            if (countyNameMap[name]) {
-                return countyNameMap[name];
-            }
-
-            // Title case for normal county names (first letter of each word capitalized)
-            return name.split(' ').map(word => 
-                word.charAt(0).toUpperCase() + word.slice(1)
-            ).join(' ');
-        }//normalizeCountyName
 
         // Generate popup HTML
         let popupHtml = fillPopup(feature.properties);
@@ -800,30 +850,16 @@ map.on('load', function() {
          * Highlight counties and show popup
          */
         function handleMarkerOpen(action) {
-            // Close all other popups first (only one popup at a time)
-            document.querySelectorAll('.mapboxgl-popup').forEach(popupEl => {
-                if (popupEl !== popup.getElement()) {
-                    popupEl.remove();
-                }
-            });
+            // Close all other popups
+            closeAllPopups()
 
-            // Check if outlet serves all counties
+            // Get list of counties served
             let countiesServed = feature.properties[schema.counties_served.column];
 
-            if (countiesServed.includes('all')) {
-                countiesServed = getAllCountyNames();
-            } else {
-                countiesServed = countiesServed
-                    .split(',')
-                    .map(s => s.trim())
-                    .filter(s => s && s.toLowerCase() !== "all")
-                    .map(s => normalizeCountyName(s));
-            }
+            // Apply county highlighting
+            const type = feature.properties[schema[config.operations.counties_color_column].column];
 
-            // Apply highlighting for normal counties
-            const type = (feature.properties[schema['medium_primary'].column] || '');
-
-            map.setPaintProperty('counties-fill', 'fill-color', highlightColors[type] || '#e0e0e0');
+            map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
             map.setFilter('counties-fill', ['in', 'NAME', ...countiesServed]);
             map.setFilter('counties-border-highlight', ['in', 'NAME', ...countiesServed]);
 
@@ -906,7 +942,6 @@ map.on('load', function() {
      * Fill the popup template with data
      */
     function fillPopup(data) {
-
         // Get HTML template for popups
         let html = $('#map-templates div[data-template="popup"]').clone();
 
@@ -1036,14 +1071,6 @@ map.on('load', function() {
         return icon;
     }// getIcon
 
-    // Initial marker and legend creation
-    try {
-      buildFilterOptions()
-      drawMarkers();
-    } catch (error) {
-      console.error('Error in dynamic marker creation:', error);
-    }
-
     function resetCountyFilters() {
         // Remove county filter styles
         map.setFilter('counties-fill', ['in', 'NAME', '']);
@@ -1055,13 +1082,17 @@ map.on('load', function() {
         resetCountyFilters();
 
         // Close all popups
-        document.querySelectorAll('.mapboxgl-popup').forEach(popup => {
-            popup.remove();
+        $('.mapboxgl-popup').each(function(){
+            $(this).remove();
         });
     }// closeAllPopups
 
+    /**
+     * Define Map Listeners
+     */
+
     // Handle popup close request
-    $(document).on('click', '.mapboxgl-popup-close-button', closeAllPopups);
+    $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', closeAllPopups);
     $('#map').on('keyup', closeAllPopups);
 
     /**
@@ -1083,6 +1114,19 @@ map.on('load', function() {
     map.on('click', function() {
         //
     });
+
+    /**
+     * Filters
+     */
+
+    $('#menu #menu-toggle a').on('click', function() {
+        if ($('#menu').attr('data-visible') == 'true') {
+            $('#menu').attr('data-visible', 'false');
+        } else {
+            $('#menu').attr('data-visible', 'true');
+        }
+    });
+
 
     // --- CENSUS OVERLAY FUNCTIONALITY ---
     
@@ -1154,17 +1198,5 @@ map.on('load', function() {
           updateCensusOverlay(this.value);
         }
       });
-    });
-
-    /**
-     * Legend
-     */
-
-    $('#menu #menu-toggle a').on('click', function() {
-        if ($('#menu').attr('data-visible') == 'true') {
-            $('#menu').attr('data-visible', 'false');
-        } else {
-            $('#menu').attr('data-visible', 'true');
-        }
     });
 });

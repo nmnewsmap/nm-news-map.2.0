@@ -233,7 +233,7 @@ margin-top: 20px;
 border-radius: 5px;
 }
 
-.menu-container[data-container="legend"] {
+.menu-container[data-container="filters"] {
 border-top: 5px solid var(--color-ocean);
 }
 

@@ -42,7 +42,7 @@
             </div>
 
             <div class="menu-containers">
-                <div class="menu-container" data-container="legend">
+                <div class="menu-container" data-container="filters">
                     <div class="mc-header">
                         <h3>Filter Data</h3>
                         <div class="mc-header-description">Select options for the map</div>
@@ -123,9 +123,7 @@
                     Homes with Broadband
                     </label>
                 </div>
-                <div id="census-legend" style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 10px;">
-                    <!-- Dynamic legend will appear here -->
-                </div>
+                <div id="census-legend"></div>
                 <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid #ddd; font-size: 9px; color: #666; line-height: 1.3;">
                     <strong>Data Source:</strong><br>
                     U.S. Census Bureau<br>
@@ -138,10 +136,6 @@
 
         <div id="map-canvas"></div>
     </div>
-
-    <script src="assets/data/outlets_geojson.js"></script>
-    <script src="assets/data/census_json.js"></script>
-    <script src="assets/js/map.js"></script>
 
     <div id="map-templates">
         <div data-template="marker">
@@ -230,6 +224,10 @@
 
         </div>
     </div>
+
+    <script src="assets/data/outlets_geojson.js"></script>
+    <script src="assets/data/census_json.js"></script>
+    <script src="assets/js/map.js"></script>
 
 </body>
 </html>
