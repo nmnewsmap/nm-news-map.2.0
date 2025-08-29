@@ -1,5 +1,5 @@
 // Initialize map configuration
-const base_dir = 'https://nmnewsmap.github.io/nm-news-map.2.0/assets/data/'; //'assets/data/';
+const base_dir = 'assets/data/';
 
 const config = {
     data: {
@@ -586,9 +586,11 @@ map.on('load', function() {
                         .val(option.value)
                         .css('background-color', option.color);
                     
+                    /*
                     if (option.icon) {
                         optionHtml.find('.mc-item-input button').html(`<i class="fa-solid fa-${option.icon}"></i>`);
                     }
+                    */
 
                     categoryHtml.find('.mc-category-options').append(optionHtml.html());
                 });
