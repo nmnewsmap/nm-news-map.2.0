@@ -434,7 +434,10 @@ map.on('load', function() {
             cleanData();
 
             // Add filter options
-            buildFilterOptions()
+            buildFilterOptions();
+
+            // Add layer options
+            buildLayerOptions();
 
             // Add markers
             drawMarkers();
@@ -562,47 +565,47 @@ map.on('load', function() {
         Object.values(categories).forEach((category) => {
 
             // Get filter option template
-            let categoryHtml = $('.mc-filter-category-wrapper[data-type="template"]').clone();
+            let categoryHtml = $('.menu-container[data-container="filters"] .mc-category-wrapper[data-type="template"]').clone();
             categoryHtml.removeAttr('data-type');
-            categoryHtml.find('.mc-filter-category').attr('data-id', category.id);
+            categoryHtml.find('.mc-category').attr('data-id', category.id);
 
             // Add category title
-            categoryHtml.find('.mc-filter-category-title .mc-filter-item-label').text(category.title);
-            categoryHtml.find('.mc-filter-category-title .mc-filter-item-input button').val(category.id);
+            categoryHtml.find('.mc-category-title .mc-item-label').text(category.title);
+            categoryHtml.find('.mc-category-title .mc-item-input button').val(category.id);
 
             // Add category options
             if (category.options_data) {
                 Object.values(category.options_data).forEach((option) => {
 
-                    let optionHtml = $('.mc-filter-category-option-wrapper[data-type="template"]').clone();
+                    let optionHtml = $('.menu-container[data-container="filters"] .mc-category-option-wrapper[data-type="template"]').clone();
                     optionHtml.removeAttr('data-type');
-                    optionHtml.find('.mc-filter-category-option').attr('data-id', option.value);
+                    optionHtml.find('.mc-category-option').attr('data-id', option.value);
 
-                    optionHtml.find('.mc-filter-item-label').text(option.value + ' (' + option.count + ')');
-                    optionHtml.find('.mc-filter-item-input button')
+                    optionHtml.find('.mc-item-label').text(option.value + ' (' + option.count + ')');
+                    optionHtml.find('.mc-item-input button')
                         .val(option.value)
                         .css('background-color', option.color);
                     
                     if (option.icon) {
-                        optionHtml.find('.mc-filter-item-input button').html(`<i class="fa-solid fa-${option.icon}"></i>`);
+                        optionHtml.find('.mc-item-input button').html(`<i class="fa-solid fa-${option.icon}"></i>`);
                     }
 
-                    categoryHtml.find('.mc-filter-category-options').append(optionHtml.html());
+                    categoryHtml.find('.mc-category-options').append(optionHtml.html());
                 });
             } else {
-                categoryHtml.find('.mc-filter-category-options').remove();
+                categoryHtml.find('.mc-category-options').remove();
             }
 
             // Add category HTML to filter section
-            $('.mc-filter-categories').append(categoryHtml.html());
+            $('.menu-container[data-container="filters"] .mc-categories').append(categoryHtml.html());
         });
 
         // Remove templates
-        $('.mc-filter-categories [data-type]').remove();
+        $('.menu-container[data-container="filters"] .mc-categories [data-type]').remove();
 
         // Filter category listener
-        $('#menu').on('click', '.mc-filter-category-title', function(){
-            let parent = $(this).parent('.mc-filter-category');
+        $('#menu').on('click', '.menu-container[data-container="filters"] .mc-category-title', function(){
+            let parent = $(this).parent('.mc-category');
 
             // Ignore if already active
             if (parent.hasClass('active')) {
@@ -610,14 +613,14 @@ map.on('load', function() {
             }
 
             // Deactivate active categories
-            $('#menu .mc-filter-category.active').removeClass('active');
+            $('.menu-container[data-container="filters"] .mc-category.active').removeClass('active');
 
             // Activate requested category
             parent.addClass('active');
 
             // Select all category options upon initial selection
             if (! parent.attr('data-has-selected')) {
-                parent.find('.mc-filter-category-option').addClass('active');
+                parent.find('.mc-category-option').addClass('active');
             }
 
             parent.attr('data-has-selected', 'true');
@@ -628,7 +631,7 @@ map.on('load', function() {
         });
 
         // Filter category listener
-        $('#menu').on('click', '.mc-filter-category-option', function(){
+        $('#menu').on('click', '.menu-container[data-container="filters"] .mc-category-option', function(){
             // Activate or deactivate requested category
             $(this).toggleClass('active');
 
@@ -636,6 +639,110 @@ map.on('load', function() {
             drawMarkers();
         });
     }//buildFilterOptions
+
+    /**
+     * buildLayerOptions
+     * Gather categories for layering
+     */
+    function buildLayerOptions() {
+        // Initialize with no layer option
+        let layers = Object.values(censusLayers);
+        layers.unshift({
+            id: 'none',
+            title: 'No Layer',
+        });
+
+        // Populate filters with each layer category
+        Object.values(layers).forEach((layer) => {
+
+            // Get filter option template
+            let categoryHtml = $('.menu-container[data-container="layers"] .mc-category-wrapper[data-type="template"]').clone();
+            categoryHtml.removeAttr('data-type');
+            categoryHtml.find('.mc-category').attr('data-id', layer.id);
+
+            // Add category title
+            categoryHtml.find('.mc-category-title .mc-item-label').text(layer.title);
+            categoryHtml.find('.mc-category-title .mc-item-input button').val(layer.id);
+
+            // Add category options
+            if (layer.breaks && layer.breaks.length > 0) {
+                for (let i = 0; i < layer.breaks.length; i++) {
+                    // Get option values
+                    const minVal = i === 0 ? 0 : layer.breaks[i - 1];
+                    const maxVal = i < layer.breaks.length ? layer.breaks[i] : '∞';
+
+                    // Populate option HTML
+                    let optionHtml = $('.menu-container[data-container="layers"] .mc-category-option-wrapper[data-type="template"]').clone();
+                    optionHtml.removeAttr('data-type');
+                    optionHtml.find('.mc-category-option').attr('data-id', i);
+
+                    optionHtml.find('.mc-item-label').text(layer.format(minVal) + ' - ' + (maxVal === '∞' ? '∞' : layer.format(maxVal)));
+                    optionHtml.find('.mc-item-input button')
+                        .val(i)
+                        .css('background-color', layer.colors[i]);
+
+                    // Add option to category HTML
+                    categoryHtml.find('.mc-category-options').append(optionHtml.html());
+                }
+            } else {
+                categoryHtml.find('.mc-category-options').remove();
+            }
+
+            // Add category HTML to filter section
+            $('.menu-container[data-container="layers"] .mc-categories').append(categoryHtml.html());
+        });
+
+        // Remove templates
+        $('.mc-categories [data-type]').remove();
+
+        // Filter category listener
+        $('#menu').on('click', '.menu-container[data-container="layers"] .mc-category-title', function(){
+            let parent = $(this).parent('.mc-category');
+
+            // Ignore if already active
+            if (parent.hasClass('active')) {
+                return false;
+            }
+
+            // Deactivate active categories
+            $('#menu .mc-category.active').removeClass('active');
+
+            // Activate requested category
+            parent.addClass('active');
+
+            // Select all category options upon initial selection
+            if (! parent.attr('data-has-selected')) {
+                parent.find('.mc-category-option').addClass('active');
+            }
+
+            parent.attr('data-has-selected', 'true');
+            activeLayerCategory = parent.attr('data-id');
+
+            // Get layer
+            const layer = censusLayers[parent.attr('data-id')];
+      
+            if (layer) {
+                // Collect layer colors
+                const expression = ['case'];
+                for (let i = 0; i < layer.breaks.length; i++) {
+                    const condition = i === 0 
+                        ? ['<', ['get', layer.property], layer.breaks[i]]
+                        : ['<', ['get', layer.property], layer.breaks[i]];
+                        expression.push(condition, layer.colors[i]);
+                }
+
+                // Default color for highest values
+                expression.push(layer.colors[layer.colors.length - 1]);
+
+                // Paint and display layer
+                map.setPaintProperty('census-overlay', 'fill-color', expression);
+                map.setLayoutProperty('census-overlay', 'visibility', 'visible');
+            } else {
+                // Hide layer
+                map.setLayoutProperty('census-overlay', 'visibility', 'none');
+            }
+        });
+    }//buildLayerOptions
 
     // Store current, filtered markers
     let allMarkers = [];
@@ -673,12 +780,12 @@ map.on('load', function() {
         if (! outletData || ! outletData.features) return;
 
         // Update active filters cache
-        let filterCategoryActive = $('.mc-filter-categories .mc-filter-category.active');
+        let filterCategoryActive = $('.menu-container[data-container="filters"]  .mc-category.active');
 
-        if (filterCategoryActive.length == 0 || filterCategoryActive.find('.mc-filter-category-option').length == 0) {
+        if (filterCategoryActive.length == 0 || filterCategoryActive.find('.mc-category-option').length == 0) {
             activeFilters = ['all'];
         } else {
-            let filterOptionsActive = filterCategoryActive.find('.mc-filter-category-option.active');
+            let filterOptionsActive = filterCategoryActive.find('.mc-category-option.active');
 
             if (filterOptionsActive.length > 0) {
                 activeFilters = [];
@@ -1116,7 +1223,7 @@ map.on('load', function() {
     });
 
     /**
-     * Filters
+     * Menu
      */
 
     $('#menu #menu-toggle a').on('click', function() {
@@ -1125,78 +1232,5 @@ map.on('load', function() {
         } else {
             $('#menu').attr('data-visible', 'true');
         }
-    });
-
-
-    // --- CENSUS OVERLAY FUNCTIONALITY ---
-    
-    // Function to create color expression for a census layer
-    function createColorExpression(layerConfig) {
-      const expression = ['case'];
-      
-      for (let i = 0; i < layerConfig.breaks.length; i++) {
-        const condition = i === 0 
-          ? ['<', ['get', layerConfig.property], layerConfig.breaks[i]]
-          : ['<', ['get', layerConfig.property], layerConfig.breaks[i]];
-        expression.push(condition, layerConfig.colors[i]);
-      }
-      
-      // Default color for highest values
-      expression.push(layerConfig.colors[layerConfig.colors.length - 1]);
-      
-      return expression;
-    }// createColorExpression
-
-    /**
-     * updateCensusOverlay
-     * Function to update census overlay
-     */
-    function updateCensusOverlay(layerType) {      
-      if (layerType === 'none') {
-        map.setLayoutProperty('census-overlay', 'visibility', 'none');
-        document.getElementById('census-legend').innerHTML = '';
-        return;
-      }
-      
-      const layerConfig = censusLayers[layerType];
-      if (!layerConfig) return;
-      
-      // Update layer paint properties
-      map.setPaintProperty('census-overlay', 'fill-color', createColorExpression(layerConfig));
-      map.setLayoutProperty('census-overlay', 'visibility', 'visible');
-      
-      // Update legend
-      updateCensusLegend(layerConfig);
-    }// updateCensusOverlay
-
-    // Function to update census legend
-    function updateCensusLegend(layerConfig) {
-      const legendDiv = document.getElementById('census-legend');
-      let legendHtml = `<div style="font-weight: bold; margin-bottom: 5px;">${layerConfig.title}</div>`;
-      
-      // Create color scale legend
-      for (let i = 0; i < layerConfig.colors.length; i++) {
-        const color = layerConfig.colors[i];
-        const minVal = i === 0 ? 0 : layerConfig.breaks[i - 1];
-        const maxVal = i < layerConfig.breaks.length ? layerConfig.breaks[i] : '∞';
-        
-        legendHtml += `
-          <div style="display: flex; align-items: center; margin-bottom: 2px;">
-            <div style="width: 12px; height: 12px; background: ${color}; margin-right: 5px; border: 1px solid #ccc;"></div>
-            <span>${layerConfig.format(minVal)} - ${maxVal === '∞' ? '∞' : layerConfig.format(maxVal)}</span>
-          </div>
-        `;
-      }
-      
-      legendDiv.innerHTML = legendHtml;
-    }// updateCensusLegend
-
-    // Add event listeners to census controls
-    document.querySelectorAll('input[name="census-layer"]').forEach(radio => {
-      radio.addEventListener('change', function() {
-        if (this.checked) {
-          updateCensusOverlay(this.value);
-        }
-      });
     });
 });
