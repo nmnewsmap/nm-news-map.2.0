@@ -1,5145 +1,5148 @@
-window.outletsGeojsonFeatures = [
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.84939,
-        35.0693961
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "A:shiwi A:wan Messenger",
-      "WEBSITE": "https://www.ashiwi.org/AshiwiAwanMessenger.html",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Zuni Pueblo",
-      "FREQ": "Occasionally or Sporadically",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Pueblo of Zuni",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "The official newsletter of the Zuni Pueblo government, mailed to member households and posted online several times per year.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "1203B State Highway 53",
-      "Address_City": "Zuni Pueblo",
-      "Address_County": "McKinley",
-      "Address_State": "NM",
-      "Address_Zip": 87327,
-      "COUNTIES_SERVED": "McKinley"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KBAC-FM",
-      "WEBSITE": "https://www.santafe.com/kbac",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Santa Fe",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Hutton Broadcasting Co, LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/SantaFeCom",
-      "Social_Media_Instagram": "https://www.instagram.com/santafedotcom/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCHyVLpNXCIcqXOZK6_McLPg",
-      "Social_Media_X": "https://x.com/kbacradiofree",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Hutton Broadcasting outlet with active events listings but limited news.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "2502 Camino Entrada, Suite C",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87507,
-      "COUNTIES_SERVED": "Bernalillo, Santa Fe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.76213,
-        32.3007573
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KGRT-FM",
-      "WEBSITE": "https://kgrt.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Las Cruces",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Adams Radio Group",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/kgrt1039/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Adams Radio Group station providing music format to Southern NM, providing a modicum of local and regional news. Sister stations include KHQT-FM.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "1355 California Ave",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM",
-      "Address_Zip": 88001,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KIVA-AM",
-      "WEBSITE": "https://abq.fm",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "ROCK OF TALK LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/rockoftalkkiva/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Talk radio station with nationally syndicated programs and live local program hosted by the Owner. ",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "2309 Renard Place SE Suite 204",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87106,
-      "COUNTIES_SERVED": "Bernalillo, Santa Fe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77713,
-        32.297721
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KMVR-FM",
-      "WEBSITE": "https://www.101gold.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Deming",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "Spanish",
-      "Year_Founded": "1985",
-      "OWNER": "Bravo Mic Communications LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/391473017387275",
-      "Social_Media_Instagram": "https://www.instagram.com/oteroentertainment/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Las Cruces Spanish music station that airs announcements and headlines, especially public safety.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "101 PERKINS DRIVE",
-      "Address_City": "LAS CRUCES",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM",
-      "Address_Zip": 88005,
-      "COUNTIES_SERVED": "Grant, Hidalgo, Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.27059,
-        32.7820178
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KNFT-AM/FM",
-      "WEBSITE": "https://silvercityradio.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Silver City",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2005",
-      "OWNER": "SkyWest Media, LLC (Ted Tucker)",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "SkyWest Media Group stations in Silver City and Bayard, air a daily 3-minute news roundup. Sister stations include KSCQ-FM.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1560 North Corbin",
-      "Address_City": "Silver City",
-      "Address_County": "Grant",
-      "Address_State": "NM",
-      "Address_Zip": 88061,
-      "COUNTIES_SERVED": "Catron, Grant, Hidalgo, Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.27096,
-        32.7815841
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KPSA-FM",
-      "WEBSITE": "https://silvercityradio.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Silver City",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2005",
-      "OWNER": "SkyWest Media, LLC (Ted Tucker)",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Lordsburg classic rock station airs a daily 3-minute news roundup from Sky West Media Group.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1561 North Corbin",
-      "Address_City": "Silver City",
-      "Address_County": "Grant",
-      "Address_State": "NM",
-      "Address_Zip": 88061,
-      "COUNTIES_SERVED": "Catron, Grant, Hidalgo, Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -107.38206,
-        35.03769
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Kukadze’eta Towncrier",
-      "WEBSITE": "https://www.bizapedia.com/nm/kukadzeeta-towncrier-community-newspaper.html",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Laguna ",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1990",
-      "OWNER": "Ramona D.and  Antonette \nThey are the only Board members left ",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "The official newspaper of Laguna Pueblo government, with no online access.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "6 Rio San Jose Rd",
-      "Address_City": "Laguna ",
-      "Address_County": "Cibola",
-      "Address_State": "NM",
-      "Address_Zip": 87026,
-      "COUNTIES_SERVED": "Cibola"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.42466,
-        35.3069101
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KUPR-FM",
-      "WEBSITE": "https://www.kupr.org",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Placitas",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2015",
-      "OWNER": "LAS PLACITAS ASSOCIATION",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KUPRplacitas",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Low-power FM community station serving Placitas with original content including some public affairs.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "652 State Highway 165",
-      "Address_City": "Placitas",
-      "Address_County": "Sandoval",
-      "Address_State": "NM",
-      "Address_Zip": 87043,
-      "COUNTIES_SERVED": "Sandoval"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.27617,
-        32.7721298
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KURU-FM",
-      "WEBSITE": "https://gmcr.org",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Silver City",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Gila Mimbres Community Radio",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/GilaMimbresCommunityRadio",
-      "Social_Media_Instagram": "https://www.instagram.com/kuru89.1/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Volunteer-driven community FM station serving Silver City with music and talk, some original content related to public affairs and community matters.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "519 B North Bullard St",
-      "Address_City": "Silver City",
-      "Address_County": "Grant",
-      "Address_State": "NM",
-      "Address_Zip": 88061,
-      "COUNTIES_SERVED": "Grant"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.64922,
-        35.0793089
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico Kids! Magazine",
-      "WEBSITE": "https://www.newmexico-kids.com/",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Albuquerque",
-      "FREQ": "Irregular/Other",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Prime Time Publishing",
-      "OWNER_TYPE": "For profit Organization",
-      "Social_Media_Facebook": "https://www.facebook.com/NewMexicoKidsMagazine/",
-      "Social_Media_Instagram": "https://www.instagram.com/newmexicokids/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Valuable listings of kids' activities and events in ABQ and Santa Fe with book reviews by kids and some reader-submitted content.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "111 Iron Ave. SW",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico Sun",
-      "WEBSITE": "https://newmexicosun.com/",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "2021",
-      "OWNER": "New Mexico Business Coalition",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A Website published by the NM Business Coalition, publishing press releases and opinion pieces by public officials.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "145 Calle Del Presidente",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87199,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.39636,
-        34.1706532
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Roosevelt Review",
-      "WEBSITE": "https://www.therooseveltreview.com/",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Portales",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2018",
-      "OWNER": "Quaylene Parkey",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/The-Roosevelt-Review-1549904531971039/",
-      "Social_Media_Instagram": "https://www.instagram.com/rooseveltreview/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A Portales-area Website posting community announcements, recipes, obituaries and recorded church sermons.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1675 S Roosevelt Road 6",
-      "Address_City": "Portales",
-      "Address_County": "Roosevelt",
-      "Address_State": "NM",
-      "Address_Zip": 88130,
-      "COUNTIES_SERVED": "Roosevelt"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Round The Roundhouse",
-      "WEBSITE": "https://roundtheroundhouse.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Santa Fe",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1989",
-      "OWNER": "Carol Hetzler",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/Roundtheroundhouse/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Free monthly paper delivered desk-to-desk in government offices in Santa Fe, with announcements, press releases and some short features.",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "320 Paseo de Peralta Suite B",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87507,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.43852,
-        36.9006521
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "The Ratonian",
-      "WEBSITE": "https://www.theratonian.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Raton",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "2023",
-      "OWNER": "Laura L Brewer",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "An online bulletin board allowing community members to upload posts. ",
-      "COMMUNITY_IMPACT_LVL": 1,
-      "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "228 S 1st St",
-      "Address_City": "Raton",
-      "Address_County": "Colfax",
-      "Address_State": "NM",
-      "Address_Zip": 87740,
-      "COUNTIES_SERVED": "Colfax"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "ABQ RAW",
-      "WEBSITE": "https://abqraw.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2016",
-      "OWNER": "Circled Wagons Management LLC",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "\nhttps://www.instagram.com/abqraw/",
-      "Social_Media_YouTube": "https://www.youtube.com/@Abqraw",
-      "Social_Media_X": "https://x.com/abqraw",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Digital video and photo content focusing on police and crime, self-described as \"unorthodox and at times irreverent.\"",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1330 San Pedro Drive Northeast, Suite 111",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87110,
-      "COUNTIES_SERVED": "Bernalillo, Sandoval"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.68994,
-        35.7723307
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "After the Thunder",
-      "WEBSITE": "https://afterthethunder.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Jemez Springs",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2021",
-      "OWNER": "After the Thunder LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/billy.ehret/grid",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small paper and Website with announcements and articles about community, arts, culture, vacation guide. ",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "080 Jemez Springs Plaza",
-      "Address_City": "Jemez Springs ",
-      "Address_County": "Sandoval",
-      "Address_State": "NM",
-      "Address_Zip": 87025,
-      "COUNTIES_SERVED": "Sandoval"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65363,
-        35.0851142
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Albuquerque Community Media",
-      "WEBSITE": "https://www.cabq.gov/artsculture/govtv",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Albuquerque",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1981",
-      "OWNER": "City of Albuquerque",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/OneABQMedia/",
-      "Social_Media_Instagram": "https://www.instagram.com/oneabqmedia/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCdpRwD5FA0g3ynJWxGk7BVQ",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://www.cabq.gov/artsculture/govtv/one-albuquerque-media-podcast|Podcast",
-      "SUMMARY": "City of ABQ public access channels programmed by vendors and citizens as public access, educational, community events and government proceedings.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "519 Central NW",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87104,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.95907,
-        32.9038746
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KALH",
-      "WEBSITE": "https://kalhradio.org/",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Alamogordo",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2003",
-      "OWNER": "Managed by 2nd Life Media Ownership by a 501C4 nonprofit Southwestern Cultural Heritage Association ",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/kalhradio",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/@KrazyKALHRadio",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Online audio stream airing local headlines and announcements with some commentary but little original reporting.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1209 New York Avenue ",
-      "Address_City": "Alamogordo",
-      "Address_County": "Otero",
-      "Address_State": "NM",
-      "Address_Zip": 88310,
-      "COUNTIES_SERVED": "Doña Ana, Lincoln, Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.13631,
-        32.7063205
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KEJL-AM",
-      "WEBSITE": "http://hobbsamerica.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Hobbs",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1973",
-      "OWNER": "Noalmark Broadcasting",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/kix103hobbs/",
-      "Social_Media_Instagram": "https://www.instagram.com/z94kzor/",
-      "Social_Media_YouTube": "https://www.youtube.com/@LovingtonSports",
-      "Social_Media_X": "https://x.com/kix103",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "NoalMark radio stations with some local news, sports, weather, and guest interviews. Other stations include KIXN-FM, KLEA-FM, KZOR-FM.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "619 N. Turner",
-      "Address_City": "Hobbs",
-      "Address_County": "Lea",
-      "Address_State": "NM",
-      "Address_Zip": 88240,
-      "COUNTIES_SERVED": "Chaves, Eddy, Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.73773,
-        35.528774
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KGAK-AM",
-      "WEBSITE": "https://lemon-ocean-08d7caf10.azurestaticapps.net",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Gallup",
-      "FREQ": "Daily",
-      "LANGUAGE": "Navajo",
-      "Year_Founded": "*",
-      "OWNER": "KRJG, INC. ",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/AllNavajoAllTheTime/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "KNDN sister station covering local sports and a strong, regular menu of community announcements, all in Navajo.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "401 East Coal Ave.",
-      "Address_City": "Gallup",
-      "Address_County": "McKinley",
-      "Address_State": "NM",
-      "Address_Zip": 87301,
-      "COUNTIES_SERVED": "McKinley"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.22974,
-        36.7316966
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KNDN-AM/FM",
-      "WEBSITE": "https://icy-tree-02d4dfa10.azurestaticapps.net, https://lemon-grass-094bc2f10.azurestaticapps.net",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Farmington",
-      "FREQ": "Daily",
-      "LANGUAGE": "Navajo",
-      "Year_Founded": "1957",
-      "OWNER": "BASIN BROADCASTING COMPANY, INC. ",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/kndnradiostation/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/watch?v=bph8Y0xJYEQ",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "\"All Navajo all the time\" programming includes music, news and popular open mic shows allow community members to make announcements.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "1515 West Main",
-      "Address_City": "Farmington",
-      "Address_County": "San Juan",
-      "Address_State": "NM",
-      "Address_Zip": 87401,
-      "COUNTIES_SERVED": "San Juan"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -107.75739,
-        32.251907
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KOTS-AM",
-      "WEBSITE": "https://www.kotsam.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Deming",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1985",
-      "OWNER": "Bravo Mic Communications LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/391473017387275",
-      "Social_Media_Instagram": "https://www.instagram.com/oteroentertainment/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Radio group offers local announcements, government and civic notices, and human interest stories important to Luna County and regional residents.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1701 S. Gold Ave.",
-      "Address_City": "Deming",
-      "Address_County": "Luna",
-      "Address_State": "NM",
-      "Address_Zip": 88030,
-      "COUNTIES_SERVED": "Grant, Hidalgo, Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.94545,
-        32.892674
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KRSY-AM",
-      "WEBSITE": "https://www.alamosportsandtalk.com/",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Alamogordo",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Exciter Media LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/AlamoSportsKRSY/",
-      "Social_Media_Instagram": "http://instagram.com/alamo_sports",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/AlamoSportsTalk",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Local sports and conservative talk station with some local guest interviews.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "119 North Canyon Rd",
-      "Address_City": "Alamogordo",
-      "Address_County": "Otero",
-      "Address_State": "NM",
-      "Address_Zip": 88310,
-      "COUNTIES_SERVED": "Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.17165,
-        36.7704193
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KSJE-FM",
-      "WEBSITE": "https://www.ksje.com",
-      "PRIMARY_MEDIA": "Multiplatform",
-      "City_Based": "Farmington",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1990",
-      "OWNER": "San Juan College",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/ksje90.9/",
-      "Social_Media_Instagram": "https://www.instagram.com/ksje90.9fm/",
-      "Social_Media_YouTube": "https://www.youtube.com/c/KSJEFM",
-      "Social_Media_X": "https://x.com/ksje",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Public radio in Farmington with a morning show including announcments and interviews with newsmakers.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4601 College Blvd.",
-      "Address_City": "Farmington",
-      "Address_County": "San Juan",
-      "Address_State": "NM",
-      "Address_Zip": 87402,
-      "COUNTIES_SERVED": "San Juan"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.40017,
-        32.8410327
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KSVP-AM",
-      "WEBSITE": "https://ksvpradio.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Artesia",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Pecos Valley Broadcasting",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/ksvpradio",
-      "Social_Media_Instagram": "https://www.instagram.com/KSVP_Pics",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCacO_Bdaabw9hepALd1FNQA",
-      "Social_Media_X": "https://x.com/990_radio",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A conservative talk radio in Artesia with religious chat, announcements and interviews; companion Website and mobile app includes prep sports and church sermons.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "317 W. Quay Ave",
-      "Address_City": "Artesia",
-      "Address_County": "Eddy",
-      "Address_State": "NM",
-      "Address_Zip": 88210,
-      "COUNTIES_SERVED": "Eddy"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.57328,
-        36.4072377
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KTAO-FM",
-      "WEBSITE": "https://www.ktao.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Taos",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Taos Communications Corp.",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KTAOS101.9FM",
-      "Social_Media_Instagram": "https://www.instagram.com/ktaossolarradio/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/ktaos",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Home-grown solar-powered local station with local programming, including announcements and interviews.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "9 State Road 150",
-      "Address_City": "Taos",
-      "Address_County": "Taos",
-      "Address_State": "NM",
-      "Address_Zip": 87529,
-      "COUNTIES_SERVED": "Taos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.409286,
-        34.829377
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KTDB-FM",
-      "WEBSITE": "https://www.rnsb.k12.nm.us/ktdb",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Pine Hill",
-      "FREQ": "Daily",
-      "LANGUAGE": "Navajo",
-      "Year_Founded": "1972",
-      "OWNER": "Ramah Navajo School Board, Inc.",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Public radio station licensed to the Ramah School Board, serving the Ramah Navajo Nation (pop. 458).",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "125 Campus Dr.",
-      "Address_City": "Pine Hill",
-      "Address_County": "Cibola",
-      "Address_State": "NM",
-      "Address_Zip": 87357,
-      "COUNTIES_SERVED": "Cibola"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -109.09744,
-        35.6611745
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KTNN-AM/FM",
-      "WEBSITE": "https://ktnnonline.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Window Rock",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Navajo Nation",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/AM660KTNN",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Licensed to Navajo Nation based in Window Rock, station airs announcements about Navajo Nation events, ceremonies, funerals, rodeos and other regional news.",
-      "COMMUNITY_IMPACT_LVL": 1.25,
-      "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "178 West Highway 264",
-      "Address_City": "St. Michaels",
-      "Address_County": " Apache",
-      "Address_State": "AZ",
-      "Address_Zip": 86515,
-      "COUNTIES_SERVED": "San Juan, McKinley, Cibola"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93877,
-        35.6877047
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "505omatic",
-      "WEBSITE": "https://www.505omatic.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Santa Fe",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2025",
-      "OWNER": "Fernando Diaz",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "https://www.instagram.com/505omatic/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Santa Fe-based collective producing social media coverage of arts and culture and community issues.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "63 Lincoln Ave.",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87504,
-      "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe "
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.32029,
-        36.2090585
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Abiquiu News",
-      "WEBSITE": "https://www.abiquiunews.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Abiquiu",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2013",
-      "OWNER": "Carol J Boney",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/AbiquiuNews/",
-      "Social_Media_Instagram": "https://www.instagram.com/abiquiunews/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A two-person hyperlocal site with some some community contributions and republished news for this area of about 1,200 people.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4 County Road 187",
-      "Address_City": "Abiquiu",
-      "Address_County": "Rio Arriba",
-      "Address_State": "NM",
-      "Address_Zip": 87510,
-      "COUNTIES_SERVED": "Rio Arriba"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.95907,
-        32.9038746
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Alamogordo Town News",
-      "WEBSITE": "https://2ndlifemediaalamogordo.town.news",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Alamogordo",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2021",
-      "OWNER": "2nd Life Media Corp",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/AlamogordoTownNews/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/alamogordotown",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Website with announcements, calendars, press releases, opinion and occasional reporting.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1209 New York Avenue ",
-      "Address_City": "Alamogordo",
-      "Address_County": "Otero",
-      "Address_State": "NM",
-      "Address_Zip": 88310,
-      "COUNTIES_SERVED": "Doña Ana, Lincoln, Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.60736,
-        35.1352579
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Albuquerque The Magazine",
-      "WEBSITE": "https://abqthemag.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Albuquerque",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2004",
-      "OWNER": "Larryl Lynch, Gena Goodson",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/abqthemag/",
-      "Social_Media_Instagram": "https://www.instagram.com/abqthemag/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/abqthemag",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Glossy city monthly with lifestyle features and events.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1550 Mercantile Ave. NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87107,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.48704,
-        31.7601164
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Camino Real Media",
-      "WEBSITE": "https://www.caminorealmedia.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "El Paso",
-      "FREQ": "Bi-Weekly (every other week)",
-      "LANGUAGE": "Spanish",
-      "Year_Founded": "2013",
-      "OWNER": "Marisela Villanueva",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/Caminorealmedia/",
-      "Social_Media_Instagram": "https://www.instagram.com/caminorealmedia/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UC6OXRCne-Y5Cz5CmEUZK4gA",
-      "Social_Media_X": "https://x.com/caminorealmedia",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Borderland print and online Spanish-Language news, annoucements, releases, commentary.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "6112 N. MESA ST, Suite 6500",
-      "Address_City": "El Paso",
-      "Address_County": "El Paso",
-      "Address_State": "TX",
-      "Address_Zip": 79912,
-      "COUNTIES_SERVED": "Doña Ana, Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Edible New Mexico",
-      "WEBSITE": "https://www.ediblenm.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Albuquerque",
-      "FREQ": "Quarterly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2006",
-      "OWNER": "Bite Size Media, LLC",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/ediblenewmexico",
-      "Social_Media_Instagram": "https://www.instagram.com/ediblenewmexico/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UC-vyS4BEUWFxX53c2lqVE1Q",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://www.pinterest.com/ediblenewmexico/|Pinterest",
-      "SUMMARY": "Print magazine with active digital presence, original reporting focused on restaurants, food and the \"foodshed.\"",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "3301-R Coors Blvd. NW #152",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM ",
-      "Address_Zip": 87120,
-      "COUNTIES_SERVED": "Bernalillo, Doña Ana, Grant, Los Alamos, Rio Arriba, San Miguel, Sandoval, Santa Fe, Socorro, Taos, Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.74424,
-        35.5274638
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Gallup Journey",
-      "WEBSITE": "https://gallupjourney.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Gallup",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2004",
-      "OWNER": "Gallup Journey",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/GallupJourney/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/glpjourney",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A free monthly magazine with light coverage of events, arts and culture around Gallup.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "105 S. 3rd Street",
-      "Address_City": "Gallup",
-      "Address_County": "McKinley",
-      "Address_State": "NM",
-      "Address_Zip": 87301,
-      "COUNTIES_SERVED": "McKinley"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.69682,
-        34.9059449
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Isleta Pueblo News",
-      "WEBSITE": "https://www.isletapueblo.com/newsletters/",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Isleta",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Pueblo of Isleta",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/PuebloOfIsleta/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "The official monthly newsletter of Isleta Pueblo, with community features, plus announcements, legals and classifieds.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "117 Tribal Road 40",
-      "Address_City": "Isleta",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87022,
-      "COUNTIES_SERVED": "Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.6252,
-        35.0749514
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KANW-FM",
-      "WEBSITE": "https://www.kanw.org ",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1983",
-      "OWNER": "ABQ Bd of Education",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/people/891-KANW-FM/100043148096795/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/kanwfm",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Albuquerque-based public radio station, licensed to school district, uses multiple channels to reach wide audience. Reads AP copy on-air; engaged with community, but no original reporting.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "2020 Coal Ave. SE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87106,
-      "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe, Torrance, Valencia, Los Alamos "
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.2653,
-        32.4422697
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KCCC-AM ",
-      "WEBSITE": "https://kccc930am.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Carlsbad",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1966",
-      "OWNER": "Chandler Broadcasting LLC/Jonathan Chandler",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/KCCC930AM/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://open.spotify.com/show/7cYk7U8gfcp4qM4OnJUNyN|Spotify",
-      "SUMMARY": "Independent community station with some coverage created in partnership with Southeast New Mexico College Workforce and Community Education.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1500 University",
-      "Address_City": "Carlsbad",
-      "Address_County": "Eddy",
-      "Address_State": "NM",
-      "Address_Zip": 88220,
-      "COUNTIES_SERVED": "Chaves, Eddy, Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.40017,
-        32.8410327
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KEND-FM",
-      "WEBSITE": "https://www.kendfm.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Artesia",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Pecos Valley Broadcasting",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/1065RoswellsTalkFM",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Roswell talk radio with nationally syndicated conservative programs plus local announcements and a morning show with local interviews.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "317 West Quay Ave.",
-      "Address_City": "Artesia",
-      "Address_County": "Eddy",
-      "Address_State": "NM",
-      "Address_Zip": 88210,
-      "COUNTIES_SERVED": "Eddy"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.19032,
-        36.7264066
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KENN-AM ",
-      "WEBSITE": "http://www.kennradio.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Farmington",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1953",
-      "OWNER": "Hutton Broadcasting Co, LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/VisitFourCorners",
-      "Social_Media_Instagram": "https://www.instagram.com/visitfourcornerscom/",
-      "Social_Media_YouTube": "https://www.youtube.com/@VisitFourCornersTV",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Farmington talk radio with announcements, nationally syndicated conservative shows and one show with a local newspaper reporter.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "200 East Broadway",
-      "Address_City": "Farmington",
-      "Address_County": "San Juan",
-      "Address_State": "NM",
-      "Address_Zip": 87401,
-      "COUNTIES_SERVED": "San Juan"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.72569,
-        35.5021124
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KGLP-FM",
-      "WEBSITE": "https://kglp.org/",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Gallup",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1993",
-      "OWNER": "GALLUP PUBLIC RADIO ",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KGLPfmGallup/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "NPR station with some local interviews and content; rebroadcasts some NM public affairs shows from other stations.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "705 Gurley Ave",
-      "Address_City": "Gallup",
-      "Address_County": "McKinley",
-      "Address_State": "NM",
-      "Address_Zip": 87301,
-      "COUNTIES_SERVED": "McKinley"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.1848,
-        36.4507836
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KLMX-AM",
-      "WEBSITE": "https://klmx.us",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Clayton",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1949",
-      "OWNER": "Melba McCollum",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/bear.killmix",
-      "Social_Media_Instagram": "https://www.instagram.com/theonlybear97.5/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCoy9A2ebG45SXnDFZsQHWbQ",
-      "Social_Media_X": "https://x.com/klmxradio",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A community radio station with local DJs, coverage of high school sports, plus interviews and announcements.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1 Fairground Rd ",
-      "Address_City": "Clayton",
-      "Address_County": "Union",
-      "Address_State": "NM",
-      "Address_Zip": 88415,
-      "COUNTIES_SERVED": "Union"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KTRC-AM",
-      "WEBSITE": "https://santafe.com/ktrc",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Santa Fe",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Hutton Broadcasting Co, LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/Talk1260KTRC/",
-      "Social_Media_Instagram": "https://www.instagram.com/santafedotcom/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCHyVLpNXCIcqXOZK6_McLPg",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Commercial talk radio station based in Santa Fe, syndicated hosts plus local, with a news emphasis.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "2505 Camino Entrada Suite C",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87507,
-      "COUNTIES_SERVED": "Santa Fe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -101.83712,
-        35.20729
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KVII-TV",
-      "WEBSITE": "https://abc7amarillo.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Amarillo",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Sinclair Broadcasting",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/ABC7Amarillo/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/pronews7",
-      "Social_Media_X": "https://x.com/abc7amarillo",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Amarillo TX broadcaster that partly serves border communities in Eastern New Mexico.",
-      "COMMUNITY_IMPACT_LVL": 1.5,
-      "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "1 Broadcast Center",
-      "Address_City": "Amarillo",
-      "Address_County": "Potter",
-      "Address_State": "TX",
-      "Address_Zip": 79101,
-      "COUNTIES_SERVED": "Union, Harding, Quay, Curry"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77981,
-        32.3140354
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Desert Exposure",
-      "WEBSITE": "https://www.desertexposure.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Las Cruces",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1996",
-      "OWNER": "Osteen Media Group",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/DesertExposure/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/desertexposure",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A beefy free monthly magazine with deep coverage of arts, entertainment, environment and wellness.",
-      "COMMUNITY_IMPACT_LVL": 1.75,
-      "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "506 S. Main Suite 250",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana ",
-      "Address_State": "NM",
-      "Address_Zip": 88001,
-      "COUNTIES_SERVED": "Doña Ana, Grant, Luna, Otero, Sierra"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KKOB-AM/FM",
-      "WEBSITE": "https://www.newsradiokkob.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1922",
-      "OWNER": "Cumulus Media",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KKOBradio",
-      "Social_Media_Instagram": "https://www.instagram.com/kkobradio/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/kkobradio",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Talk radio station with some local hosts, headlines and analysis.",
-      "COMMUNITY_IMPACT_LVL": 1.75,
-      "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "500 4th Street NW, 5th Floor",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo, Cibola, Los Alamos, Rio Arriba, Sandoval, Santa Fe, Socorro, Torrance, Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.66185,
-        33.3494954
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KRUI-AM",
-      "WEBSITE": "https://www.1490krui.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Ruidoso",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Village of Ruidoso",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Village-owned station with local chat shows, PSAs and guests.",
-      "COMMUNITY_IMPACT_LVL": 1.75,
-      "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "313 Cree Meadows Dr",
-      "Address_City": "Ruidoso",
-      "Address_County": "Lincoln",
-      "Address_State": "NM",
-      "Address_Zip": 88345,
-      "COUNTIES_SERVED": "Lincoln"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77981,
-        32.3140354
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KTAL-LPFM",
-      "WEBSITE": "https://www.lccommunityradio.org",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Las Cruces",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2015",
-      "OWNER": "Las Cruces Community Radio- this is a 501-c3 corporation.",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/ktallp",
-      "Social_Media_Instagram": "https://www.instagram.com/ktallp/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://spinitron.com/KTAL/|Spinitron",
-      "SUMMARY": "Low-power FM community station serving Las Cruces with original content including local news and public affairs.",
-      "COMMUNITY_IMPACT_LVL": 1.75,
-      "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "121 Wyatt Drive #9",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM",
-      "Address_Zip": 88005,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.57989,
-        36.9036557
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Rio Chama Reporter",
-      "WEBSITE": "https://www.riochamareporter.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Los Ojos",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2023",
-      "OWNER": "Rio Chama Reporter LLC",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/Riochamareporter",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Community news including notes from government meetings, articles about food, events and local culture.",
-      "COMMUNITY_IMPACT_LVL": 1.75,
-      "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
-      "LAST_UPDATE": null,
-      "Address_Street": "Village Hall 1512B State Hwy 17",
-      "Address_City": "Chama ",
-      "Address_County": "Arriba",
-      "Address_State": "NM",
-      "Address_Zip": 87520,
-      "COUNTIES_SERVED": "Rio Arriba"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Southwest Contemporary",
-      "WEBSITE": "https://southwestcontemporary.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Santa Fe",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2019",
-      "OWNER": "Lauren Tresp",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/swcontemporary/",
-      "Social_Media_Instagram": "https://www.instagram.com/swcontemporary/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A robust Santa Fe-based outlet with wide, newsy coverage of contemporary art in the greater Southwest.",
-      "COMMUNITY_IMPACT_LVL": 1.75,
-      "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "369 Montezuma Ave #258",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87501,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.23643,
-        32.4496624
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Carlsbad Local",
-      "WEBSITE": "https://www.carlsbadlocalnews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Carlsbad",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2010",
-      "OWNER": "Cavern City Media",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.carlsbadlocalnews.com/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A weekly print and digital outlet with some original reporting plus local announcements and press releases.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1707 North Mesa Street",
-      "Address_City": "Carlsbad",
-      "Address_County": "Eddy",
-      "Address_State": "NM",
-      "Address_Zip": 88220,
-      "COUNTIES_SERVED": "Eddy"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.27659,
-        32.7699424
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "CATS-TV",
-      "WEBSITE": "https://catsilver.org",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Silver City",
-      "FREQ": "Occasionally or Sporadically",
-      "LANGUAGE": "English",
-      "Year_Founded": "1997",
-      "OWNER": "Community Access TV for Silver City",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/people/CATS-Community-Access-Television-of-Silver/100064333080037/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Community Access Television of Silver - cable access system offers local productions, government proceedings, etc.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "213 N Bullard Street",
-      "Address_City": "Silver City",
-      "Address_County": "Grant",
-      "Address_State": "NM",
-      "Address_Zip": 88062,
-      "COUNTIES_SERVED": "Grant"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.24354,
-        34.4710446
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Clovis Livestock Market News",
-      "WEBSITE": "https://debacacountynews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Fort Sumner",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1900",
-      "OWNER": "Marshall Scot Stinnett ",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/debacanews/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly newspaper covering cattle ranching and ag news in eastern NM.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "182 E. Sumner Ave.",
-      "Address_City": "Fort Sumner",
-      "Address_County": "De Baca",
-      "Address_State": "NM",
-      "Address_Zip": 88119,
-      "COUNTIES_SERVED": "De Baca"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.60697,
-        35.2382346
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Corrales Comment",
-      "WEBSITE": "https://corralescomment.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Corrales",
-      "FREQ": "Bi-Weekly (every other week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1982",
-      "OWNER": "Ctrl+P Publishing",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/corralescomment/",
-      "Social_Media_Instagram": "https://www.instagram.com/corralescomment/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/corralesnews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Bi-weekly free paper mailed to Corrales households, updated more Frequently online, plus newsletter; news by the shared nm.news team. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4101 CORRALES RD, #1810",
-      "Address_City": "Corrales",
-      "Address_County": "Sandoval",
-      "Address_State": "NM ",
-      "Address_Zip": 87048,
-      "COUNTIES_SERVED": "Sandoval"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -107.75752,
-        32.2685019
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Deming Headlight",
-      "WEBSITE": "https://www.demingheadlight.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Deming",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1881",
-      "OWNER": "Silver City Independent Publishing Co LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/demingheadlight/",
-      "Social_Media_Instagram": "https://www.instagram.com/explore/locations/74502500/the-deming-headlight/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/demingheadlight",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Independent newspaper publishing twice weekly with coverage of local government, business, sports and events.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "122 S Silver Ave",
-      "Address_City": "Deming",
-      "Address_County": "Luna",
-      "Address_State": "NM",
-      "Address_Zip": 88030,
-      "COUNTIES_SERVED": "Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.48704,
-        31.7601164
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "El Paso Matters",
-      "WEBSITE": "https://www.elpasomatters.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "El Paso",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2019",
-      "OWNER": "El Paso Matters Inc.",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/elpasomatters",
-      "Social_Media_Instagram": "https://www.instagram.com/elpasomatters/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/elpasomatters",
-      "Social_Media_TikTok": "https://www.tiktok.com/@elpasomatters",
-      "Social_Media_Other": "https://www.reddit.com/user/elpasomatters/|Reddit",
-      "SUMMARY": "A strong team producing innovative in-depth and investigative reporting about El Paso and ocasionally New Mexico. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "500 W. Overland, Suite 200",
-      "Address_City": "El Paso",
-      "Address_County": "El Paso",
-      "Address_State": "TX",
-      "Address_Zip": 79901,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Green Fire Times",
-      "WEBSITE": "https://www.greenfiretimes.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Santa Fe",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2009",
-      "OWNER": "Green Earth Publishing / Southwest Learning Centers, Inc.",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/GreenFireSocial/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/greenfiretimes",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Bimonthly environmental magazine and Website that includes original reporting with submissions and news releases.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "120 S. Federal  Plaza., Suite 101",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87504,
-      "COUNTIES_SERVED": "Bernalillo, McKinley, Mora, Rio Arriba, San Juan, Sandoval, Santa Fe, Taos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.68613,
-        34.9405682
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Guadalupe County Communicator",
-      "WEBSITE": "https://www.route66news.com/tag/guadalupe-county-communicator/",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Santa Rosa",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Tom McDonald",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Printed newspaper serving the Guadalupe County area.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "241 S 4th St",
-      "Address_City": "Santa Rosa",
-      "Address_County": "Guadalupe",
-      "Address_State": "NM",
-      "Address_Zip": 88435,
-      "COUNTIES_SERVED": "Guadelupe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.70843,
-        32.3504143
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Hidalgo County Herald",
-      "WEBSITE": "https://hidalgoherald.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Lordsburg",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1999",
-      "OWNER": "Brenda Hood",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/hidalgocountyherald",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly newspaper with limited digital access, covers Lordsburg area with some original reporting plus press releases and announcements.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "212 E Motel Dr Ste B",
-      "Address_City": "Lordsburg",
-      "Address_County": "Hidalgo",
-      "Address_State": "NM ",
-      "Address_Zip": 88045,
-      "COUNTIES_SERVED": "Hidalgo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -101.86892,
-        33.5259887
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KAMC-TV",
-      "WEBSITE": "https://www.everythinglubbock.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Lubbock, TX",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Nextstar Media Grp",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KLBKNews/",
-      "Social_Media_Instagram": "https://www.instagram.com/klbknews/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCO8ww3uFGhQzgw9fSFi5bSQ",
-      "Social_Media_X": "https://x.com/KLBKNews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://www.pinterest.com/everythinglubbock/|Pinterest",
-      "SUMMARY": "Lubbock, Texas TV station that occasionally covers eastern New Mexico, especially weather and crime.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "7403 University Ave.",
-      "Address_City": "Lubbock, TX",
-      "Address_County": "Lubbock",
-      "Address_State": "TX",
-      "Address_Zip": 79423,
-      "COUNTIES_SERVED": "Curry, Roosevelt, Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -101.83518,
-        35.2024014
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KAMR-TV",
-      "WEBSITE": "https://www.myhighplains.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Amarillo",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Nextstar Media Grp",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KAMRLOCAL4NEWS/",
-      "Social_Media_Instagram": "https://www.instagram.com/kamrlocal4news/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCAbr42lrHfq-QzMKaVnU5mw",
-      "Social_Media_X": "https://x.com/KAMRLocal4News",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Amarillo, Texas TV station that partly serves border communities in eastern New Mexico. Also programs KCIT-TV, KCPN-TV",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "1015 Fillmore Street",
-      "Address_City": "Amarillo",
-      "Address_County": "Potter",
-      "Address_State": "TX",
-      "Address_Zip": 79101,
-      "COUNTIES_SERVED": "Union, Harding, Quay, Curry"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -101.87043,
-        33.5041896
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KCBD-TV",
-      "WEBSITE": "https://www.kcbd.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Lubbock",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1953",
-      "OWNER": "Gray Local Media",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KCBDNewsChannel11/",
-      "Social_Media_Instagram": "https://www.instagram.com/kcbd11/",
-      "Social_Media_YouTube": "https://www.youtube.com/@kcbd-newschannel11",
-      "Social_Media_X": "https://x.com/KCBD11",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Lubbock, Texas TV station that occasionally covers eastern New Mexico.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "9810 University Ave.",
-      "Address_City": "Lubbock",
-      "Address_County": "Lubbock",
-      "Address_State": "TX",
-      "Address_Zip": 79423,
-      "COUNTIES_SERVED": "Curry, Roosevelt, Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.34748,
-        34.1781462
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KENW-FM/TV",
-      "WEBSITE": "https://www.kenw.org",
-      "PRIMARY_MEDIA": "Multiplatform",
-      "City_Based": "Portales",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "ENMU",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com//kenw.enmu/",
-      "Social_Media_Instagram": "https://www.instagram.com/kenw.enmu/",
-      "Social_Media_YouTube": "https://www.youtube.com/@KENWPBS",
-      "Social_Media_X": "https://x.com/KENWPublicMedia",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "NPR and PBS stations licensed to ENMU with a student-produced newscast delivering local news, sports and weather. Also programs KMTH-FM, KNMJ-FM.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "1500 S Ave K",
-      "Address_City": "Portales",
-      "Address_County": "Roosevelt",
-      "Address_State": "NM",
-      "Address_Zip": 88130,
-      "COUNTIES_SERVED": "Roosevelt, Curry"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -101.84881,
-        35.2908072
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KFDA-TV",
-      "WEBSITE": "https://www.newschannel10.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Amarillo",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Gray Television",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Amarillo, Texas broadcaster that partly serves border communities in Eastern New Mexico.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "7900 Broadway Dr",
-      "Address_City": "Amarillo",
-      "Address_County": "Potter",
-      "Address_State": "TX",
-      "Address_Zip": 79105,
-      "COUNTIES_SERVED": "Union, Harding, Quay, Curry"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -101.84702,
-        33.5855677
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KLBK-TV",
-      "WEBSITE": "https://www.everythinglubbock.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Lubbock, TX",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Nextstar Media Grp",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KLBKNews/",
-      "Social_Media_Instagram": "https://www.instagram.com/klbknews/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCO8ww3uFGhQzgw9fSFi5bSQ",
-      "Social_Media_X": "https://x.com/KLBKNews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://www.pinterest.com/everythinglubbock/|Pinterest",
-      "SUMMARY": "Texas TV station that occasionally covers Eastern NM (in its outer coverage area)",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "7403 South University",
-      "Address_City": "Lubbock, TX",
-      "Address_County": "Lubbock",
-      "Address_State": "TX",
-      "Address_Zip": 79423,
-      "COUNTIES_SERVED": "Curry, Roosevelt, Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KSFR-FM",
-      "WEBSITE": "https://www.ksfr.org",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Santa Fe",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1984",
-      "OWNER": "Santa Fe Community College",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KSFRFM/",
-      "Social_Media_Instagram": "https://www.instagram.com/ksfrfm/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCobGUDnx-2S0DTzwz0EXDZA",
-      "Social_Media_X": "https://x.com/ksfrnews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Public radio station at Santa Fe Community College with local news coverage and talk shows.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "6401 S. Richards Ave.",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87120,
-      "COUNTIES_SERVED": "Bernalillo, Los Alamos, Rio Arriba, San Miguel, Sandoval, Santa Fe, Taos, Torrance"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.78146,
-        32.3109838
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Las Cruces Sun-News",
-      "WEBSITE": "https://lcsun-news.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Las Cruces",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1881",
-      "OWNER": "Gannet; USA TODAY NETWORK",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/LCSUNNEWS",
-      "Social_Media_Instagram": "https://www.instagram.com/crucessunnews/",
-      "Social_Media_YouTube": "https://www.youtube.com/user/CrucesSunNews",
-      "Social_Media_X": "https://x.com/CrucesSunNews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Last remaining Gannett paper in the state, serving Las Cruces with crime, sports and government coverage.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "256 W. Las Cruces Ave.",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM",
-      "Address_Zip": 88001,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.22429,
-        35.5937792
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Las Vegas Optic",
-      "WEBSITE": "https://lasvegasoptic.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Las Vegas",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "O'Rourke Media Group",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/LasVegasOptic/",
-      "Social_Media_Instagram": "https://www.instagram.com/lasvegasoptic/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/lasvegasoptic",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small newspaper serving Las Vegas NM area with local news, obituaries, weather, and community events.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "106 Bridge St",
-      "Address_City": "Las Vegas",
-      "Address_County": "San Miguel",
-      "Address_State": "NM",
-      "Address_Zip": 87701,
-      "COUNTIES_SERVED": "San Miguel"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.29727,
-        35.8810022
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Los Alamos Daily Post",
-      "WEBSITE": "https://www.ladailypost.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Los Alamos",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2012",
-      "OWNER": "Carol A. Clark",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/LADailyPost",
-      "Social_Media_Instagram": "https://www.instagram.com/losalamosdailypost/",
-      "Social_Media_YouTube": "https://www.youtube.com/ladailypost",
-      "Social_Media_X": "https://x.com/ladailypost",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Newspaper of record for Los Alamos, with some original reporting supplemented by announcements and press releases.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1247 Central Avenue",
-      "Address_City": "Los Alamos",
-      "Address_County": "Los Alamos",
-      "Address_State": "NM",
-      "Address_Zip": 87544,
-      "COUNTIES_SERVED": "Los Alamos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.34938,
-        32.9461927
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Lovington Leader",
-      "WEBSITE": "https://www.lovingtonleaderonline.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Lovington",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1984",
-      "OWNER": "John and Jeanine Graham",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/lovingtonleader/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly newspaper with no online access.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "14 W. Avenue B",
-      "Address_City": "Lovington",
-      "Address_County": "Lea",
-      "Address_State": "NM",
-      "Address_Zip": 88260,
-      "COUNTIES_SERVED": "Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.23554,
-        34.5214768
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Mountainair Dispatch",
-      "WEBSITE": "https://www.mountainairdispatch.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Mountainair",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2022",
-      "OWNER": "Todd Brogowski",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/people/Mountainair-Dispatch/100087660970272/",
-      "Social_Media_Instagram": "https://www.instagram.com/mountainairdispatch/ ",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCWxertr8vRGLS8RWTseb5Hw ",
-      "Social_Media_X": "https://x.com/mtnairdispatch",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Community news site by a former reporter with weather, events and some coverage of local government.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "221 W Broadway",
-      "Address_City": "Mountainair",
-      "Address_County": "Torrance",
-      "Address_State": "NM",
-      "Address_Zip": 87036,
-      "COUNTIES_SERVED": "Torrance"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.61911,
-        35.2211811
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico Jewish Journal",
-      "WEBSITE": "https://www.nmjewishjournal.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Corrales",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2024",
-      "OWNER": "Diane Joy Schmidt",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "An online startup covering the Jewish community with history, events, interviews, analysis, commentary and reviews. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4101 Corrales Rd.",
-      "Address_City": "Corrales",
-      "Address_County": "Sandoval",
-      "Address_State": "NM",
-      "Address_Zip": 87048,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93786,
-        35.6831158
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico Magazine",
-      "WEBSITE": "https://www.newmexicomagazine.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Santa Fe",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1923",
-      "OWNER": "New Mexico Tourism Department",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/NewMexicoMagazine",
-      "Social_Media_Instagram": "https://www.instagram.com/newmexicomag/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/NMMagazine",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Monthly state tourism magazine with strong coverage of events, outdoor recreation, history, arts and culture.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "491 Old Santa Fe Trail",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87501,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico News Port",
-      "WEBSITE": "https://newmexiconewsport.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2014",
-      "OWNER": "UNM C&J Dept",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/nmnewsport",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Student-powered digital multimedia coverage of state and local issues and events, publishing during the school year.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2101 Central Ave, 1 Univ of New Mexico",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87131,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico Political Report",
-      "WEBSITE": "https://nmpoliticalreport.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2014",
-      "OWNER": "Citizen Media Group",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/NMpoliticalReport/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Statewide political news site and newsletter; a nonprofit member of the extended nm.news family.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "317 Commercial St NE Box 2",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.63442,
-        35.0836752
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Nob Hill News",
-      "WEBSITE": "https://www.abqnobhillnews.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2025",
-      "OWNER": "Lindsay Wood",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Hyperlocal startup covering neighborhood news, city council, development, business, etc. in an Albuquerque neighborhood.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "200 Mulberry Street Northeast",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87106,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77981,
-        32.3140354
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Organ Mountain News",
-      "WEBSITE": "https://www.organmountainnews.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Las Cruces",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2024",
-      "OWNER": "Damien Willis / Organ Mountain News, LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/OrganMountainNews",
-      "Social_Media_Instagram": "https://www.instagram.com/organmountainnews/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/OrganMtnNews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Digital news startup led by a former Las Cruces Sun-News reporter, covering Doña Ana County and southern NM.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "444 East Griggs Avenue, Unit 1",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM",
-      "Address_Zip": 88001,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.5949,
-        36.7042198
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Questa del Rio News",
-      "WEBSITE": "https://questanews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Questa",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Questa Economic Development Fund",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/QuestaNews",
-      "Social_Media_Instagram": "https://www.instagram.com/questadelrionews/",
-      "Social_Media_YouTube": "https://www.youtube.com/@Qnews2015",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Monthly print newspaper and Website with community columnists and some coverage of local news.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1 Highway 38",
-      "Address_City": "Questa",
-      "Address_County": "Taos",
-      "Address_State": "NM",
-      "Address_Zip": 87556,
-      "COUNTIES_SERVED": "Taos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.65412,
-        33.3240737
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Ruidoso News",
-      "WEBSITE": "https://ruidosonews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Ruidoso",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2024",
-      "OWNER": "El Rito Media",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Former Gannett paper covering Ruidoso with El Rito Media team resources.  ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "720 Sudderth Drive",
-      "Address_City": "Ruidoso",
-      "Address_County": "Lincoln",
-      "Address_State": "NM",
-      "Address_Zip": 88345,
-      "COUNTIES_SERVED": "Lincoln"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Sandoval Signpost",
-      "WEBSITE": "https://sandovalsignpost.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1988",
-      "OWNER": "Ctrl+P Publishing",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Monthly free paper mailed to every house in Bernalillo and Placitas, updated more Frequently online, plus newsletter; news by the shared nm.news team. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "317 Commercial St NE #2",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Sandoval"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93877,
-        35.6877047
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Santa Fe Reporter",
-      "WEBSITE": "https://sfreporter.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Santa Fe",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1974",
-      "OWNER": "Ctrl+P Publishing",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/SFReporter/",
-      "Social_Media_Instagram": "https://www.instagram.com/sfreporter/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCe8tis_ntIEdDbdwT_3A0GQ",
-      "Social_Media_X": "https://x.com/SantaFeReporter/",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Free alt weekly, Website and newseltter covering the Santa Fe area with news by the shared nm.news team. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "63 Lincoln Ave.",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87502,
-      "COUNTIES_SERVED": "Santa Fe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -107.29336,
-        33.1162568
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Sierra County Citizen",
-      "WEBSITE": "https://sierracountycitizen.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Williamsburg",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2019",
-      "OWNER": "Sierra County Public-Interest Journalism Project",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A community news site with a select group of contibutors, including some newspaper veterans.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "105 S. Central St.",
-      "Address_City": "Williamsburg",
-      "Address_County": "Sierra",
-      "Address_State": "NM",
-      "Address_Zip": 87942,
-      "COUNTIES_SERVED": "Sierra"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -107.24839,
-        33.1328953
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Sierra County Sentinel",
-      "WEBSITE": "https://www.gpkmedia.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Truth or Consequences",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1967",
-      "OWNER": "GPK Media",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/SierraCountySentinel.KCHSRadio/",
-      "Social_Media_Instagram": "https://www.instagram.com/sierra_county_news/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UC0eojn0l4DaP0_lRiZfZtJQ",
-      "Social_Media_X": "https://x.com/Sierraco_News",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly paper and Website based in Truth or Consequences, covering public afairs and culture.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "217 E 3rd Ave",
-      "Address_City": "Truth or Consequences",
-      "Address_County": "Sierra",
-      "Address_State": "NM",
-      "Address_Zip": 87901,
-      "COUNTIES_SERVED": "Sierra"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.04028,
-        34.3847177
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "State Line Tribune",
-      "WEBSITE": "https://statelinetribune.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Farwell",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1912",
-      "OWNER": "Rob and Rebecca Pomper",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Print-only paper with some schools, events and government coverage of border town Texico and Curry County.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "404 3rd St",
-      "Address_City": "Farwell",
-      "Address_County": "Parmer",
-      "Address_State": "TX",
-      "Address_Zip": 79325,
-      "COUNTIES_SERVED": "Curry"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.33734,
-        34.1859636
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "The Chase",
-      "WEBSITE": "https://enmuthechaseonline.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Portales",
-      "FREQ": "Occasionally or Sporadically",
-      "LANGUAGE": "English",
-      "Year_Founded": "1934",
-      "OWNER": "Eastern New Mexico University",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/ENMUTheChase/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/BytesEnmu",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "ENMU student newspaper with reporting during the schoolyear.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1500 S. Ave. K, Station 27",
-      "Address_City": "Portales",
-      "Address_County": "Roosevelt",
-      "Address_State": "NM",
-      "Address_Zip": 88130,
-      "COUNTIES_SERVED": "Roosevelt"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "The Independent News",
-      "WEBSITE": "https://nm.news/edgewood",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1999",
-      "OWNER": "Ctrl+P Publishing",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Monthly free paper mailed to every East Mtns. household, updated more Frequently online, plus newsletter; news by the shared nm.news team. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "317 Commercial St NE Box 2",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM ",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo, Santa Fe, Torrance"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "The Paper.",
-      "WEBSITE": "https://abq.news",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2020",
-      "OWNER": "Ctrl+P Publishing Inc.",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Free alt weekly, Website and newseltter covering the ABQ metro area with news by the shared nm.news team. ",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "120 Dartmouth Dr SE 87106",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87106,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.17603,
-        36.4364797
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Union County Leader",
-      "WEBSITE": "https://www.easternnewmexiconews.com/author/union_county_leader",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Clayton",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1928",
-      "OWNER": "Terry L Martin",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/pages/Union-County-Leader/1664102353847473 ",
-      "Social_Media_Instagram": "https://www.instagram.com/sucasamagazine/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly print-only newspaper covering Clayton, with no digital presence.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "15 N. First Street",
-      "Address_City": "Clayton",
-      "Address_County": "Union",
-      "Address_State": "NM",
-      "Address_Zip": 88415,
-      "COUNTIES_SERVED": "Colfax, Harding, Quay, Roosevelt, Union"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.58415,
-        35.0598091
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "UpLift Chronicles ",
-      "WEBSITE": "https://www.upliftnewmexico.org",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Albuquerque",
-      "FREQ": "Monthly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2022",
-      "OWNER": "New Mexico Black Leadership Council ",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Project of the NM Black Leadership Council with coverage of arts and culture, food, local businesses and government.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1314 Madeira Dr SE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87108,
-      "COUNTIES_SERVED": "Bernalillo, Santa Fe, Torrance, Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.7762,
-        34.6627495
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Valencia County News-Bulletin",
-      "WEBSITE": "https://www.news-bulletin.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Belen",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1910",
-      "OWNER": "Journal Publishing Company",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/valenciacountynewsbulletin",
-      "Social_Media_Instagram": "https://www.instagram.com/vcnewsbulletin/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/VCNewsBulletin",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly paper in Belen covering community events, public safety, government and human interest stories; same Ownership as ABQ Journal.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "221 S. Main St., Suite B",
-      "Address_City": "Belen",
-      "Address_County": "Valencia",
-      "Address_State": "NM",
-      "Address_Zip": 87002,
-      "COUNTIES_SERVED": "Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.78122,
-        37.6245417
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "World Journal newspaper",
-      "WEBSITE": "https://worldjournalnewspaper.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Walsenburg",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2007",
-      "OWNER": "Animas Del Oeste, LLC",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Colorado-based weekly with some coverage of Colfax County, including local government, events and historical features.",
-      "COMMUNITY_IMPACT_LVL": 2,
-      "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "504 MAIN ST",
-      "Address_City": "WALSENBURG",
-      "Address_County": "Huerfano",
-      "Address_State": "CO",
-      "Address_Zip": 81089,
-      "COUNTIES_SERVED": "Colfax"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.96089,
-        32.9030085
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Alamogordo Daily News",
-      "WEBSITE": "https://alamogordonews.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Alamogordo ",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1898",
-      "OWNER": "El Rito Media",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/p/Alamogordo-Daily-News-100063480493287/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/alamogordonews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small paper covering local government, sports and culture, plus shared regional content from other El Rito Mediapapers.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1301 N White Sands Blvd",
-      "Address_City": "Alamogordo ",
-      "Address_County": "Otero",
-      "Address_State": "NM",
-      "Address_Zip": 88012,
-      "COUNTIES_SERVED": "Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Albuquerque Business First",
-      "WEBSITE": "https://www.bizjournals.com/albuquerque",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1982",
-      "OWNER": "American City Business Journals",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/AlbuquerqueBusinessFirst",
-      "Social_Media_Instagram": "https://www.instagram.com/abqbusinessjournal/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/ABQBizFirst",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "American City Business Journals outlet covering business, real estate and tech online and in print, with regular special issues and events.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "6565 Americas Parkway, Suite 770",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87110,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.40248,
-        32.842122
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Artesia Daily Press",
-      "WEBSITE": "https://artesianews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Artesia",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2023",
-      "OWNER": "El Rito Media, LLC",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/artesianews/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/artesianews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Local newspaper with local sports plus government and events; with shared content from other El Rito Media papers.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "503 W. Main Street",
-      "Address_City": "Artesia",
-      "Address_County": "Eddy",
-      "Address_State": "NM ",
-      "Address_Zip": 88210,
-      "COUNTIES_SERVED": "Eddy"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.30845,
-        35.9030078
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Boomtown Los Alamos",
-      "WEBSITE": "https://www.boomtownlosalamos.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Los Alamos",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2023",
-      "OWNER": "Founders/partners: Minesh Bacrania and Stephanie Nakhleh",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/p/Boomtown-Los-Alamos-61559018636903/",
-      "Social_Media_Instagram": "https://www.instagram.com/boomtownlosalamos/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://www.boomtownlosalamos.org/|Substack",
-      "SUMMARY": "A Substack startup Website and newsletter covering local government, events and culture.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2902 Woodland",
-      "Address_City": "Los Alamos",
-      "Address_County": "Los ALamos",
-      "Address_State": "NM ",
-      "Address_Zip": 87544,
-      "COUNTIES_SERVED": "Los Alamos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.23761,
-        32.4257456
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Carlsbad Current-Argus",
-      "WEBSITE": "https://www.currentargus.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Carlsbad",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1889",
-      "OWNER": "El Rito Media, LLC",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/CarlsbadCurrentArgus/",
-      "Social_Media_Instagram": "https://www.instagram.com/currentargus/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/ccurrentargus",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small paper covering local government, sports and culture, plus shared regional content from other El Rito Media papers.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "400-2 Cascades Ave., Suite 101",
-      "Address_City": "Carlsbad",
-      "Address_County": "Eddy",
-      "Address_State": "NM ",
-      "Address_Zip": 88220,
-      "COUNTIES_SERVED": "Eddy"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "City Desk ABQ",
-      "WEBSITE": "https://citydesk.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "2024",
-      "OWNER": "Citizen Media Group",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/citydeskabq/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/citydeskabq",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Albuquerque news site and newsletter; a nonprofit member of the extended nm.news family.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "317 Commercial St NE, #2",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.631,
-        35.0696042
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Daily Lobo",
-      "WEBSITE": "https://www.dailylobo.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1895",
-      "OWNER": "UNM Student Publications",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/DailyLobo/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/user/dailylobo",
-      "Social_Media_X": "https://x.com/dailylobo",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Univeristy of New Mexico's indepedent student paper, focusing on campus government,  events, arts and culture, plus some Albuquerque news.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1155 University Blvd. SE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87106,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.24355,
-        34.471049
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "De Baca County News",
-      "WEBSITE": "https://debacacountynews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Fort Sumner",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1900",
-      "OWNER": "Marshall Scot Stinnett ",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/debacanews/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Weekly newspaper with strong reporting on government, schools and industry in DeBaca County (pop. 1,600).",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "181 E. Sumner Ave.",
-      "Address_City": "Fort Sumner",
-      "Address_County": "De Baca",
-      "Address_State": "NM",
-      "Address_Zip": 88119,
-      "COUNTIES_SERVED": "De Baca"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65765,
-        35.0802164
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Downtown Albuquerque News",
-      "WEBSITE": "https://downtownalbuquerquenews.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2019",
-      "OWNER": "Peter Rice",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/downtownalbuquerquenews/",
-      "Social_Media_Instagram": "https://www.instagram.com/downtownalbuquerquenews/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Hyperlocal newsletter and site covering downtown Albuquerque neighborhoods, development, events and business.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "824 Iron Ave SW",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.20392,
-        34.4031499
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Eastern New Mexico News",
-      "WEBSITE": "https://www.easternnewmexiconews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Clovis",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1907",
-      "OWNER": "Stevenson Newspaper Group",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/@theeasternnewmexiconews/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A consolidation of the Clovis News Journal, Portales News-Tribune and Quay County Sun newspapers that covers a wide swath of Eastern NM from Clovis and Tucumcari.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "521 Pile St.",
-      "Address_City": "Clovis",
-      "Address_County": "Curry",
-      "Address_State": "NM ",
-      "Address_Zip": 88102,
-      "COUNTIES_SERVED": "Curry, De Baca, Roosevelt"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.89308,
-        34.0572858
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "El Defensor Chieftain",
-      "WEBSITE": "https://www.dchieftain.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Socorro",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1868",
-      "OWNER": "Number 9 Media",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/eldefensorchieftain",
-      "Social_Media_Instagram": "https://www.instagram.com/edchieftain/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/EDChieftain",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A small but strong weekly paper covering government, sports, crime and culture in Socorro; same Ownership as ABQ Journal.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "200 Winkler Street",
-      "Address_City": "Socorro",
-      "Address_County": "Socorro",
-      "Address_State": "NM",
-      "Address_Zip": 87801,
-      "COUNTIES_SERVED": "Catron, Sierra, Socorro, Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.74391,
-        35.5283506
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Gallup Sun",
-      "WEBSITE": "https://gallupsunweekly.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Gallup",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2015",
-      "OWNER": "Babette Herrmann",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/Gallupsun/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/gallupsun",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": " A weekly newspaper covering Gallup and the Navajo Nation, publishing some original reporting plus press releases and announcements.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1983 State Road 602",
-      "Address_City": "Gallup",
-      "Address_County": "McKinley",
-      "Address_State": "NM",
-      "Address_Zip": 87301,
-      "COUNTIES_SERVED": "McKinley, Cibola"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.27417,
-        32.7715929
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Grant County Beat",
-      "WEBSITE": "https://www.grantcountybeat.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Silver City",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2010",
-      "OWNER": "MAry Alice Murphy",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/GrantCountyBeat/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Online reporting from Silver City and environs, covering local government, environment and culture.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "500 N. Hudson St.",
-      "Address_City": "Silver City",
-      "Address_County": "Grant",
-      "Address_State": "NM",
-      "Address_Zip": 88062,
-      "COUNTIES_SERVED": "Catron, Grant, Hidalgo, Luna"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.19323,
-        32.1109772
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Jal Record",
-      "WEBSITE": "https://jalrecord.net",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Jal",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Cheryl Chance",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/JalRecordNewspaper/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A weekly paper covering schools, government, sports and crime for a town of 2,000.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "101 E Panther Ave.",
-      "Address_City": "Jal",
-      "Address_County": "Lea",
-      "Address_State": "NM",
-      "Address_Zip": 88252,
-      "COUNTIES_SERVED": "Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.59073,
-        35.105686
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KASA-TV",
-      "WEBSITE": "https://www.telemundonuevomexico.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "Spanish",
-      "Year_Founded": "*",
-      "OWNER": "NBC Telemundo License",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/TelemundoNM/",
-      "Social_Media_Instagram": "https://www.instagram.com/telemundonm",
-      "Social_Media_YouTube": "https://www.youtube.com/@TelemundoNM",
-      "Social_Media_X": "https://x.com/telemundonm",
-      "Social_Media_TikTok": "https://www.tiktok.com/@telemundonm",
-      "Social_Media_Other": "",
-      "SUMMARY": "ABQ-based Telemundo, Spanish-Language TV station producing a daily NM newscast. Also programs KTEL-TV.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2024,
-      "Address_Street": "2400 Monroe Street NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87110,
-      "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe, Torrance, Valencia, Los Alamos "
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.54249,
-        31.833286
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KFOX-TV",
-      "WEBSITE": "https://kfoxtv.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "El Paso",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Sinclair Broadcasting",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KFOXTV/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UC73LU2udy27QFNIgurlBvXg",
-      "Social_Media_X": "https://x.com/kfox14",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "El Paso TV station with sizeable newsroom that includes regular coverage of Doña Ana County and Southern New Mexico.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "200 S. Alto Mesa Dr",
-      "Address_City": "El Paso",
-      "Address_County": "El Paso",
-      "Address_State": "TX",
-      "Address_Zip": 79912,
-      "COUNTIES_SERVED": "Doña Ana, Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KLUZ-TV",
-      "WEBSITE": "https://noticiasnewmexico.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "Spanish",
-      "Year_Founded": "1998",
-      "OWNER": "Brenda Reyes ",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/UnivisionNuevoMexico/",
-      "Social_Media_Instagram": "https://www.instagram.com/noticiasnuevomexico/",
-      "Social_Media_YouTube": "http://www.youtube.com/noticiasya",
-      "Social_Media_X": "https://x.com/univisionnm",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Entravision/ Univision Spanish-Language television channel with local newscasts and digital presence.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "5411 Jefferon St NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87109,
-      "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe, Torrance, Valencia, Los Alamos "
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.44265,
-        36.8859991
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KRTN-AM/FM",
-      "WEBSITE": "https://krtnradio.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Raton",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Enchanted Air ",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KRTNEnchantedAirRadio",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCO3Nms0GxXwE_ko5ykbWyKg",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small Raton radio station with a wide variety of original reporting on community issues.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "1128 State St",
-      "Address_City": "Raton",
-      "Address_County": "Colfax",
-      "Address_State": "NM",
-      "Address_Zip": 87740,
-      "COUNTIES_SERVED": "Colfax"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77981,
-        32.3140354
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KRWG-FM/TV",
-      "WEBSITE": "https://www.krwg.org",
-      "PRIMARY_MEDIA": "Multiplatform",
-      "City_Based": "Las Cruces",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1964",
-      "OWNER": "KRWG Public Media is licensed to the Board of Regents of New Mexico State University.",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/krwg.publicmedia",
-      "Social_Media_Instagram": "https://www.instagram.com/krwg.publicmedia/",
-      "Social_Media_YouTube": "https://www.youtube.com/@krwg.publicmedia",
-      "Social_Media_X": "https://x.com/krwg",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "NPR and PBS public radio and television covering airs student-produced content and news from a small team.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2915 McFie Circle",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana ",
-      "Address_State": "NM",
-      "Address_Zip": 88003,
-      "COUNTIES_SERVED": "Doña Ana, Grant, Hidalgo, Luna, Otero, Sierra"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.61369,
-        35.0844715
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KUNM-FM",
-      "WEBSITE": "https://www.kunm.org",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1966",
-      "OWNER": "The University of New Mexico holds our broadcast license",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/KUNMRadio/",
-      "Social_Media_Instagram": "https://www.instagram.com/KUNMradio/",
-      "Social_Media_YouTube": "https://www.youtube.com/@KUNMradio/videos",
-      "Social_Media_X": "https://x.com/kunmnews",
-      "Social_Media_TikTok": "https://www.tiktok.com/@kunmnews",
-      "Social_Media_Other": "",
-      "SUMMARY": "The state's largest NPR affiliate, based at UNM, airs original news reporting and produces a call-in show.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "303 Girard Blvd. NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87106,
-      "COUNTIES_SERVED": "Bernalillo, Cibola, Colfax, Guadalupe, Harding, Los Alamos, McKinley, Mora, Rio Arriba, San Juan, San Miguel, Sandoval, Santa Fe, Sierra, Socorro, Taos, Torrance, Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.5139,
-        31.7939545
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KVIA-TV",
-      "WEBSITE": "https://kvia.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "El Paso",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1956",
-      "OWNER": "News-Press & Gazette",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "ABC affliliate in El Paso, Texas provides some daily coverage of events in Southern New Mexico.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4140 Rio Bravo",
-      "Address_City": "El Paso",
-      "Address_County": "El Paso ",
-      "Address_State": "TX",
-      "Address_Zip": 79902,
-      "COUNTIES_SERVED": "Doña Ana, Lincoln, Luna, Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.30103,
-        35.8816827
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Los Alamos Reporter",
-      "WEBSITE": "https://losalamosreporter.com/",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Los Alamos",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "2018",
-      "OWNER": "Maire O'Neill",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/LosAlamosReporter/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A digital community news site with original reporting by an experienced journalist.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "199 Central Park Square",
-      "Address_City": "Los Alamos",
-      "Address_County": "Los Alamos",
-      "Address_State": "NM",
-      "Address_Zip": 87544,
-      "COUNTIES_SERVED": "Los Alamos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.59551,
-        35.0875084
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Native America Calling / National Native News",
-      "WEBSITE": "https://nativeamericacalling.com",
-      "PRIMARY_MEDIA": "Radio",
-      "City_Based": "Albuquerque",
-      "FREQ": "Occasionally or Sporadically",
-      "LANGUAGE": "English",
-      "Year_Founded": "1995",
-      "OWNER": "Koahnic Broadcast Corporation",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/nativeamericacalling",
-      "Social_Media_Instagram": "https://www.instagram.com/nativeamericacalling/",
-      "Social_Media_YouTube": "https://www.youtube.com/@nativevoiceone",
-      "Social_Media_X": " https://x.com/180099native",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Two national radio programs produced in ABQ, with some significant coverage of New Mexico issues.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4401 Lomas Blvd NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87110,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65136,
-        35.0877578
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "New Mexico In Depth",
-      "WEBSITE": "https://nmindepth.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2012",
-      "OWNER": "New Mexico InDepth",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/NMInDepth",
-      "Social_Media_Instagram": "https://www.instagram.com/nmindepth/",
-      "Social_Media_YouTube": "https://www.youtube.com/user/NMInDepth",
-      "Social_Media_X": "https://x.com/NMInDepth",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Online outfit providing explanatory and accountability reporting around indigenous affairs, state government and politics, healthcare etc.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1 Civic Plaza",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo, Cibola, Doña Ana, McKinley, San Juan, Santa Fe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.07987,
-        35.9907734
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Rio Grande Sun",
-      "WEBSITE": "https://riograndesun.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Espanola",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1950",
-      "OWNER": "El Rito Media",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "http://www.facebook.com/Rio-Grande-Sun-116326938388116/",
-      "Social_Media_Instagram": "https://www.instagram.com/riograndesun/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/rgsun",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small weekly paper with coverage of Española Valley crime, politics, schools and sports, with some content from other El Rito Media papers.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "530 Paseo De Onate",
-      "Address_City": "Espanola",
-      "Address_County": "Rio Arriba",
-      "Address_State": "NM",
-      "Address_Zip": 87532,
-      "COUNTIES_SERVED": "Rio Arriba"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -104.52324,
-        33.4197212
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Roswell Daily Record",
-      "WEBSITE": "https://rdrnews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Roswell",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1897",
-      "OWNER": "Roswell Daily Record, Inc",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/RoswellDailyRecord/",
-      "Social_Media_Instagram": "https://www.instagram.com/rdrnews/",
-      "Social_Media_YouTube": "https://www.youtube.com/c/roswelldailyrecord/featured",
-      "Social_Media_X": "https://x.com/RDRNews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Small paper providing primary coverage for Roswell and Chaves County.",
-      "COMMUNITY_IMPACT_LVL": 2.25,
-      "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2301 N Main Street",
-      "Address_City": "Roswell",
-      "Address_County": "Chaves",
-      "Address_State": "NM",
-      "Address_Zip": 88201,
-      "COUNTIES_SERVED": "Chaves"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -107.84809,
-        35.149823
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Cibola Citizen",
-      "WEBSITE": "https://cibolacitizen.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Grants",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2017",
-      "OWNER": "Brett Wesner",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/CibolaCitizen/",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/cibolacitizen",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A weekly newspaper of notable depth for its size, with strong coverage of local schools, sports and government; includes content from Grants High School student journalists.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "200 Santa Fe Ave.",
-      "Address_City": "Grants",
-      "Address_County": "Cibola",
-      "Address_State": "NM",
-      "Address_Zip": 87020,
-      "COUNTIES_SERVED": "Cibola"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.74417,
-        32.9583425
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Cloudcroft Reader",
-      "WEBSITE": "https://www.cloudcroftreader.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Cloudcroft ",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2023",
-      "OWNER": "Sacramento Mountain News LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "https://www.instagram.com/cloudcroftreader/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://www.cloudcroftreader.com/|Substack",
-      "SUMMARY": "A small, independent startup doing original reporting on government and lifestyle issues via Substack in Cloudcroft (pop. 750).",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "20 Curlew Place",
-      "Address_City": "Cloudcroft ",
-      "Address_County": "Otero",
-      "Address_State": "NM",
-      "Address_Zip": 88317,
-      "COUNTIES_SERVED": "Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77981,
-        32.3140354
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "CrimsonWire",
-      "WEBSITE": "https://crimsonwire.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Las Cruces",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "2024",
-      "OWNER": "New Mexico State University Department of Journalism and Media Studies",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/CrimsonWireNMSU/",
-      "Social_Media_Instagram": "https://www.instagram.com/crimsonwirenmsu/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Digital, multiplatform, original reporting by student journalists at NMSU, focused on campus and Las Cruces. ",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2915 McFie Circle",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana ",
-      "Address_State": "NM",
-      "Address_Zip": 88003,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.74391,
-        35.5283506
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Gallup Independent",
-      "WEBSITE": "https://gallupindependent.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Gallup",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Gallup Independent Newspapers Inc",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/GallupIndependent",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/gallupind",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Daily paper with watchdog coverage of the Gallup area, plus arts and culture. No online presence outside of E-edition, Facebook.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "500 N. Ninth Street",
-      "Address_City": "Gallup",
-      "Address_County": "McKinley",
-      "Address_State": "NM",
-      "Address_Zip": 87301,
-      "COUNTIES_SERVED": "McKinley"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -103.13954,
-        32.7132792
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Hobbs News-Sun",
-      "WEBSITE": "https://www.hobbsnews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Hobbs",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1932",
-      "OWNER": "Sunrise Publishing",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/hobbsnewssun",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCfW8lClCfjT6o64yyhRy8pw",
-      "Social_Media_X": "https://x.com/HobbsNewsSun",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Daily newspaper with digital presence, covers Hobbs and Lea County with original reporting on government, sports, business and education.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "201 N. Thorp",
-      "Address_City": "Hobbs",
-      "Address_County": "Lea",
-      "Address_State": "NM",
-      "Address_Zip": 88240,
-      "COUNTIES_SERVED": "Lea"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.77862,
-        32.3052744
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Las Cruces Bulletin",
-      "WEBSITE": "https://www.lascrucesbulletin.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Las Cruces",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1969",
-      "OWNER": "Osteen Media Group",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/lcbulletin",
-      "Social_Media_Instagram": "https://www.instagram.com/lascrucesbulletin/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/LCBulletin/",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "https://linktr.ee/lascrucesbulletin|Linktree",
-      "SUMMARY": "Weekly newspaper and site serving Las Cruces with local coverage of issues and events.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "506 S. Main Street",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM ",
-      "Address_Zip": 88001,
-      "COUNTIES_SERVED": "Doña Ana"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -109.05815,
-        35.6763274
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Navajo Times",
-      "WEBSITE": "https://www.navajotimes.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Window Rock",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1960",
-      "OWNER": "Navajo Times Publishing Co. Inc. ",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://facebook.com/navajotimes",
-      "Social_Media_Instagram": "https://instagram.com/navajotimes",
-      "Social_Media_YouTube": "https://www.youtube.com/c/NavajotimesAZ",
-      "Social_Media_X": "https://x.com/navajotimes",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Newspaper serving Navajo Nation with original reporting independent of tribal government.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "NE Corner of State route 264 and Navajo, Route 12 Suite 13-A",
-      "Address_City": "Window Rock",
-      "Address_County": "Apache",
-      "Address_State": "AZ",
-      "Address_Zip": 86515,
-      "COUNTIES_SERVED": "McKinley"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.62454,
-        35.0943167
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "NMPBS/KNME-TV",
-      "WEBSITE": "https://www.nmpbs.org",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Albuquerque",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1958",
-      "OWNER": "Board of Regents for the University of New Mexico and the Board of Education for Albuquerque Public Schools",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/NewMexicoPBS/",
-      "Social_Media_Instagram": "https://www.instagram.com/nmpbs/",
-      "Social_Media_YouTube": "https://www.youtube.com/user/newmexicopbs",
-      "Social_Media_X": "https://x.com/NMPBS",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "PBS station with a weekly local public affairs show and other local programming on arts and culture, including indigenous issues.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "1130 University Blvd. NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87102,
-      "COUNTIES_SERVED": "Bernalillo, Catron, Chaves, Cibola, Colfax, De Baca, Grant, Guadalupe, Harding, Hidalgo, Lincoln, Los Alamos, Luna, McKinley, Mora, Otero, Rio Arriba, San Juan, San Miguel, Sandoval, Santa Fe, Sierra, Socorro, Taos, Torrance, Union, Valencia"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.63298,
-        35.2702448
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Rio Rancho Observer",
-      "WEBSITE": "https://rrobserver.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Rio Rancho",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "1926",
-      "OWNER": "Albuquerque Publishing Company",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/RioRanchoObserver/",
-      "Social_Media_Instagram": "https://www.instagram.com/rrobserver/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCzWHAWlju33r4fGN0tXvxNw",
-      "Social_Media_X": "https://x.com/rrobserver",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Suburban ABQ weekly paper covering crime, government, sports and lifestyle; same Ownership as ABQ Journal.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2316 Southern Blvd., Suite B",
-      "Address_City": "Rio  Rancho",
-      "Address_County": "Sandoval",
-      "Address_State": "NM ",
-      "Address_Zip": 87124,
-      "COUNTIES_SERVED": "Sandoval"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.27791,
-        32.7714554
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Silver City Daily Press and Independent",
-      "WEBSITE": "https://scdailypress.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Silver City",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1896",
-      "OWNER": "Silver City Independent Publishing Co LLC",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/SCDailyPress",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Strong coverage of Grant County public affairs, sports, business, arts and culture.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "300 W Market St",
-      "Address_City": "Silver City",
-      "Address_County": "Grant",
-      "Address_State": "NM",
-      "Address_Zip": 88061,
-      "COUNTIES_SERVED": "Catron, Grant"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.74716,
-        32.2847228
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "The Round Up",
-      "WEBSITE": "https://nmsuroundup.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Las Cruces",
-      "FREQ": "Semi-Daily (fewer than 7 days a week)",
-      "LANGUAGE": "English",
-      "Year_Founded": "1907",
-      "OWNER": "NMSU Journalism Department",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/NMSUroundup/",
-      "Social_Media_Instagram": "https://www.instagram.com/nmsuroundup/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UCzD7WkZZMQoGB2iG27oN7Xw",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "The Independent student newspaper at NMSU with strong coverage of campus and Las Cruces. Publishes during the school year.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "2795 S Locust St.",
-      "Address_City": "Las Cruces",
-      "Address_County": "Doña Ana",
-      "Address_State": "NM",
-      "Address_Zip": 88003,
-      "COUNTIES_SERVED": "Doña Ana, Otero"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -108.20498,
-        36.729175
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Tri-City Record",
-      "WEBSITE": "https://tricityrecordnm.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Farmington",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Ballantine Communications",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "A regional paper and Website with wide coverage of Four Corners communities and significant NM-related content from media partners.",
-      "COMMUNITY_IMPACT_LVL": 2.5,
-      "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
-      "LAST_UPDATE": 2023,
-      "Address_Street": "108 Main St",
-      "Address_City": "Farmington",
-      "Address_County": "San Juan",
-      "Address_State": "NM",
-      "Address_Zip": 87401,
-      "COUNTIES_SERVED": "San Juan"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.65099,
-        35.0841034
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KOAT-TV",
-      "WEBSITE": "https://www.koat.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Hearst Properties Inc. ",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/koat7",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "https://www.youtube.com/user/koattv",
-      "Social_Media_X": "https://x.com/koat7news",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "ABC affiliate produces strong ABQ-area news and some statewide coverage, plus app and alerts.",
-      "COMMUNITY_IMPACT_LVL": 2.75,
-      "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "3801 Carlise Blvd NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87107,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.66567,
-        35.0814625
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KOB-TV",
-      "WEBSITE": "https://kob.com",
-      "PRIMARY_MEDIA": "Multiplatform",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1948",
-      "OWNER": "Hubbard Broadcasting Inc.",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/KOBTV",
-      "Social_Media_Instagram": "https://www.instagram.com/kobtv4/",
-      "Social_Media_YouTube": "https://www.youtube.com/user/kobtv4",
-      "Social_Media_X": "https://x.com/KOB4",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "NBC affiliate produces strong ABQ-area news and some statewide coverage, plus app and alerts. Also airs on KOBF-TV.",
-      "COMMUNITY_IMPACT_LVL": 2.75,
-      "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "4 Broadcast Plz SW",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87104,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.66537,
-        35.0820751
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "KRQE-TV",
-      "WEBSITE": "https://www.krqe.com",
-      "PRIMARY_MEDIA": "Television",
-      "City_Based": "Albuquerque",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "*",
-      "OWNER": "Nextstar Media Grp",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/krqenews",
-      "Social_Media_Instagram": "https://www.instagram.com/krqe/",
-      "Social_Media_YouTube": "https://www.youtube.com/user/KRQE",
-      "Social_Media_X": "https://x.com/krqe",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "CBS affiliate's large newsroom produces strong ABQ-area news and some statewide coverage, plus app and alerts. Newscasts also air on KASY-TV, KREZ-TV, KBIM-TV and KWBQ-TV.",
-      "COMMUNITY_IMPACT_LVL": 2.75,
-      "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
-      "LAST_UPDATE": 2022,
-      "Address_Street": "13 Broadcast Pl SW",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87104,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93877,
-        35.6877047
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Source New Mexico",
-      "WEBSITE": "https://sourcenm.com",
-      "PRIMARY_MEDIA": "Multiplatform",
-      "City_Based": "Santa Fe",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "2021",
-      "OWNER": "States Newsroom",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Online-only States Newsroom member with aggressive coverage of state government and politics, environment and health.",
-      "COMMUNITY_IMPACT_LVL": 2.75,
-      "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "63 Lincoln Ave.",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87501,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.57328,
-        36.4072377
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Taos News",
-      "WEBSITE": "https://www.taosnews.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Taos",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1959",
-      "OWNER": "Robin Martin",
-      "OWNER_TYPE": "For profit organization",
-      "Social_Media_Facebook": "",
-      "Social_Media_Instagram": "",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/taosnews",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Deep coverage of arts and culture, plus government, public safety, sports and Frequent special issues.",
-      "COMMUNITY_IMPACT_LVL": 2.75,
-      "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "226 Albright Steet",
-      "Address_City": "Taos",
-      "Address_County": "Taos",
-      "Address_State": "NM",
-      "Address_Zip": 87571,
-      "COUNTIES_SERVED": "Colfax, Rio Arriba, Taos"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.59017,
-        35.1688953
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Albuquerque Journal",
-      "WEBSITE": "https://www.abqjournal.com",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1882",
-      "OWNER": "Lang family (local ABQ)",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/TheAlbuquerqueJournal",
-      "Social_Media_Instagram": "https://www.instagram.com/abqjournal/",
-      "Social_Media_YouTube": "https://www.youtube.com/channel/UClfbSj-gmJ5J02lAbMYAFkQ",
-      "Social_Media_X": "https://x.com/abqjournal",
-      "Social_Media_TikTok": "https://www.tiktok.com/@abqjournal",
-      "Social_Media_Other": "https://apps.apple.com/us/app/albuquerque-journal-newspaper/id452844819|App",
-      "SUMMARY": "The state's largest daily newspaper, now digital-first, with original reporting on crime, business, sports, government, arts and entertainment.",
-      "COMMUNITY_IMPACT_LVL": 3,
-      "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "7777 Jefferson NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87109,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -106.58893,
-        35.1674074
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Associated Press",
-      "WEBSITE": "https://apnews.com",
-      "PRIMARY_MEDIA": "Multiplatform",
-      "City_Based": "Albuquerque",
-      "FREQ": "More than once a day",
-      "LANGUAGE": "English",
-      "Year_Founded": "1846",
-      "OWNER": "Associated Press Inc",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/APNews",
-      "Social_Media_Instagram": "https://www.instagram.com/apnews/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/ap",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "An experienced team covering state government, elections, natural disasters and other local news of national interest to member outlets.",
-      "COMMUNITY_IMPACT_LVL": 3,
-      "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "5130 San Francisco Rd NE",
-      "Address_City": "Albuquerque",
-      "Address_County": "Bernalillo",
-      "Address_State": "NM",
-      "Address_Zip": 87108,
-      "COUNTIES_SERVED": "All"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93756,
-        35.6887721
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Santa Fe New Mexican",
-      "WEBSITE": "https://www.santafenewmexican.com",
-      "PRIMARY_MEDIA": "Print",
-      "City_Based": "Santa Fe",
-      "FREQ": "Daily",
-      "LANGUAGE": "English",
-      "Year_Founded": "1849",
-      "OWNER": "Robin Martin",
-      "OWNER_TYPE": "Private individual or family",
-      "Social_Media_Facebook": "https://www.facebook.com/santafenewmexican/",
-      "Social_Media_Instagram": "https://www.instagram.com/sfnewmexican/",
-      "Social_Media_YouTube": "http://www.youtube.com/user/sfnmwebed/videos",
-      "Social_Media_X": "https://x.com/thenewmexican/",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "The capital city's daily newspaper with comprehensive state and local coverage.",
-      "COMMUNITY_IMPACT_LVL": 3,
-      "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "150 Washington Ave",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87501,
-      "COUNTIES_SERVED": "Los Alamos, Rio Arriba, San Miguel, Sandoval, Santa Fe"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [
-        -105.93846,
-        35.6876096
-      ]
-    },
-    "properties": {
-      "OUTLET_NAME": "Searchlight New Mexico",
-      "WEBSITE": "https://searchlightnm.org",
-      "PRIMARY_MEDIA": "Digital",
-      "City_Based": "Santa Fe",
-      "FREQ": "Weekly",
-      "LANGUAGE": "English",
-      "Year_Founded": "2018",
-      "OWNER": "Searchlight NM News 501c3",
-      "OWNER_TYPE": "Nonprofit organization",
-      "Social_Media_Facebook": "https://www.facebook.com/SearchlightNewMexico/",
-      "Social_Media_Instagram": "https://www.instagram.com/searchlightnm/",
-      "Social_Media_YouTube": "",
-      "Social_Media_X": "https://x.com/SearchlightNM",
-      "Social_Media_TikTok": "",
-      "Social_Media_Other": "",
-      "SUMMARY": "Nonprofit investigative digital news service offering richly reported stories republished by partners.",
-      "COMMUNITY_IMPACT_LVL": 3,
-      "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
-      "LAST_UPDATE": 2025,
-      "Address_Street": "441 Greg Ave, Ste. 100",
-      "Address_City": "Santa Fe",
-      "Address_County": "Santa Fe",
-      "Address_State": "NM",
-      "Address_Zip": 87501,
-      "COUNTIES_SERVED": "All"
-    }
-  }
-]
+window.outletsGeojsonFeatures = {
+    type: 'FeatureCollection',
+    features: [
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.84939,
+            35.0693961
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "A:shiwi A:wan Messenger",
+        "WEBSITE": "https://www.ashiwi.org/AshiwiAwanMessenger.html",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Zuni Pueblo",
+        "FREQ": "Occasionally or Sporadically",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Pueblo of Zuni",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "The official newsletter of the Zuni Pueblo government, mailed to member households and posted online several times per year.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "1203B State Highway 53",
+        "Address_City": "Zuni Pueblo",
+        "Address_County": "McKinley",
+        "Address_State": "NM",
+        "Address_Zip": 87327,
+        "COUNTIES_SERVED": "McKinley"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KBAC-FM",
+        "WEBSITE": "https://www.santafe.com/kbac",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Santa Fe",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Hutton Broadcasting Co, LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/SantaFeCom",
+        "Social_Media_Instagram": "https://www.instagram.com/santafedotcom/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCHyVLpNXCIcqXOZK6_McLPg",
+        "Social_Media_X": "https://x.com/kbacradiofree",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Hutton Broadcasting outlet with active events listings but limited news.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "2502 Camino Entrada, Suite C",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87507,
+        "COUNTIES_SERVED": "Bernalillo, Santa Fe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.76213,
+            32.3007573
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KGRT-FM",
+        "WEBSITE": "https://kgrt.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Las Cruces",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Adams Radio Group",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/kgrt1039/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Adams Radio Group station providing music format to Southern NM, providing a modicum of local and regional news. Sister stations include KHQT-FM.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "1355 California Ave",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM",
+        "Address_Zip": 88001,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KIVA-AM",
+        "WEBSITE": "https://abq.fm",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "ROCK OF TALK LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/rockoftalkkiva/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Talk radio station with nationally syndicated programs and live local program hosted by the Owner. ",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "2309 Renard Place SE Suite 204",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87106,
+        "COUNTIES_SERVED": "Bernalillo, Santa Fe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77713,
+            32.297721
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KMVR-FM",
+        "WEBSITE": "https://www.101gold.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Deming",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "Spanish",
+        "Year_Founded": "1985",
+        "OWNER": "Bravo Mic Communications LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/391473017387275",
+        "Social_Media_Instagram": "https://www.instagram.com/oteroentertainment/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Las Cruces Spanish music station that airs announcements and headlines, especially public safety.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "101 PERKINS DRIVE",
+        "Address_City": "LAS CRUCES",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM",
+        "Address_Zip": 88005,
+        "COUNTIES_SERVED": "Grant, Hidalgo, Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.27059,
+            32.7820178
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KNFT-AM/FM",
+        "WEBSITE": "https://silvercityradio.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Silver City",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2005",
+        "OWNER": "SkyWest Media, LLC (Ted Tucker)",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "SkyWest Media Group stations in Silver City and Bayard, air a daily 3-minute news roundup. Sister stations include KSCQ-FM.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1560 North Corbin",
+        "Address_City": "Silver City",
+        "Address_County": "Grant",
+        "Address_State": "NM",
+        "Address_Zip": 88061,
+        "COUNTIES_SERVED": "Catron, Grant, Hidalgo, Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.27096,
+            32.7815841
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KPSA-FM",
+        "WEBSITE": "https://silvercityradio.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Silver City",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2005",
+        "OWNER": "SkyWest Media, LLC (Ted Tucker)",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Lordsburg classic rock station airs a daily 3-minute news roundup from Sky West Media Group.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1561 North Corbin",
+        "Address_City": "Silver City",
+        "Address_County": "Grant",
+        "Address_State": "NM",
+        "Address_Zip": 88061,
+        "COUNTIES_SERVED": "Catron, Grant, Hidalgo, Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -107.38206,
+            35.03769
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Kukadze’eta Towncrier",
+        "WEBSITE": "https://www.bizapedia.com/nm/kukadzeeta-towncrier-community-newspaper.html",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Laguna ",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1990",
+        "OWNER": "Ramona D.and  Antonette \nThey are the only Board members left ",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "The official newspaper of Laguna Pueblo government, with no online access.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "6 Rio San Jose Rd",
+        "Address_City": "Laguna ",
+        "Address_County": "Cibola",
+        "Address_State": "NM",
+        "Address_Zip": 87026,
+        "COUNTIES_SERVED": "Cibola"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.42466,
+            35.3069101
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KUPR-FM",
+        "WEBSITE": "https://www.kupr.org",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Placitas",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2015",
+        "OWNER": "LAS PLACITAS ASSOCIATION",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KUPRplacitas",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Low-power FM community station serving Placitas with original content including some public affairs.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "652 State Highway 165",
+        "Address_City": "Placitas",
+        "Address_County": "Sandoval",
+        "Address_State": "NM",
+        "Address_Zip": 87043,
+        "COUNTIES_SERVED": "Sandoval"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.27617,
+            32.7721298
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KURU-FM",
+        "WEBSITE": "https://gmcr.org",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Silver City",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Gila Mimbres Community Radio",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/GilaMimbresCommunityRadio",
+        "Social_Media_Instagram": "https://www.instagram.com/kuru89.1/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Volunteer-driven community FM station serving Silver City with music and talk, some original content related to public affairs and community matters.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "519 B North Bullard St",
+        "Address_City": "Silver City",
+        "Address_County": "Grant",
+        "Address_State": "NM",
+        "Address_Zip": 88061,
+        "COUNTIES_SERVED": "Grant"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.64922,
+            35.0793089
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico Kids! Magazine",
+        "WEBSITE": "https://www.newmexico-kids.com/",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Albuquerque",
+        "FREQ": "Irregular/Other",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Prime Time Publishing",
+        "OWNER_TYPE": "For profit Organization",
+        "Social_Media_Facebook": "https://www.facebook.com/NewMexicoKidsMagazine/",
+        "Social_Media_Instagram": "https://www.instagram.com/newmexicokids/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Valuable listings of kids' activities and events in ABQ and Santa Fe with book reviews by kids and some reader-submitted content.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "111 Iron Ave. SW",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico Sun",
+        "WEBSITE": "https://newmexicosun.com/",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "2021",
+        "OWNER": "New Mexico Business Coalition",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A Website published by the NM Business Coalition, publishing press releases and opinion pieces by public officials.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "145 Calle Del Presidente",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87199,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.39636,
+            34.1706532
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Roosevelt Review",
+        "WEBSITE": "https://www.therooseveltreview.com/",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Portales",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2018",
+        "OWNER": "Quaylene Parkey",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/The-Roosevelt-Review-1549904531971039/",
+        "Social_Media_Instagram": "https://www.instagram.com/rooseveltreview/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A Portales-area Website posting community announcements, recipes, obituaries and recorded church sermons.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1675 S Roosevelt Road 6",
+        "Address_City": "Portales",
+        "Address_County": "Roosevelt",
+        "Address_State": "NM",
+        "Address_Zip": 88130,
+        "COUNTIES_SERVED": "Roosevelt"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Round The Roundhouse",
+        "WEBSITE": "https://roundtheroundhouse.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Santa Fe",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1989",
+        "OWNER": "Carol Hetzler",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/Roundtheroundhouse/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Free monthly paper delivered desk-to-desk in government offices in Santa Fe, with announcements, press releases and some short features.",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "320 Paseo de Peralta Suite B",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87507,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.43852,
+            36.9006521
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "The Ratonian",
+        "WEBSITE": "https://www.theratonian.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Raton",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "2023",
+        "OWNER": "Laura L Brewer",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "An online bulletin board allowing community members to upload posts. ",
+        "COMMUNITY_IMPACT_LVL": 1,
+        "IMPACT_LVL_DESCRIPTION": "Basic Presence - Establishes an initial footprint in community coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "228 S 1st St",
+        "Address_City": "Raton",
+        "Address_County": "Colfax",
+        "Address_State": "NM",
+        "Address_Zip": 87740,
+        "COUNTIES_SERVED": "Colfax"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "ABQ RAW",
+        "WEBSITE": "https://abqraw.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2016",
+        "OWNER": "Circled Wagons Management LLC",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "\nhttps://www.instagram.com/abqraw/",
+        "Social_Media_YouTube": "https://www.youtube.com/@Abqraw",
+        "Social_Media_X": "https://x.com/abqraw",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Digital video and photo content focusing on police and crime, self-described as \"unorthodox and at times irreverent.\"",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1330 San Pedro Drive Northeast, Suite 111",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87110,
+        "COUNTIES_SERVED": "Bernalillo, Sandoval"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.68994,
+            35.7723307
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "After the Thunder",
+        "WEBSITE": "https://afterthethunder.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Jemez Springs",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2021",
+        "OWNER": "After the Thunder LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/billy.ehret/grid",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small paper and Website with announcements and articles about community, arts, culture, vacation guide. ",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "080 Jemez Springs Plaza",
+        "Address_City": "Jemez Springs ",
+        "Address_County": "Sandoval",
+        "Address_State": "NM",
+        "Address_Zip": 87025,
+        "COUNTIES_SERVED": "Sandoval"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65363,
+            35.0851142
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Albuquerque Community Media",
+        "WEBSITE": "https://www.cabq.gov/artsculture/govtv",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Albuquerque",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1981",
+        "OWNER": "City of Albuquerque",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/OneABQMedia/",
+        "Social_Media_Instagram": "https://www.instagram.com/oneabqmedia/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCdpRwD5FA0g3ynJWxGk7BVQ",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://www.cabq.gov/artsculture/govtv/one-albuquerque-media-podcast|Podcast",
+        "SUMMARY": "City of ABQ public access channels programmed by vendors and citizens as public access, educational, community events and government proceedings.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "519 Central NW",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87104,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.95907,
+            32.9038746
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KALH",
+        "WEBSITE": "https://kalhradio.org/",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Alamogordo",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2003",
+        "OWNER": "Managed by 2nd Life Media Ownership by a 501C4 nonprofit Southwestern Cultural Heritage Association ",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/kalhradio",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/@KrazyKALHRadio",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Online audio stream airing local headlines and announcements with some commentary but little original reporting.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1209 New York Avenue ",
+        "Address_City": "Alamogordo",
+        "Address_County": "Otero",
+        "Address_State": "NM",
+        "Address_Zip": 88310,
+        "COUNTIES_SERVED": "Doña Ana, Lincoln, Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.13631,
+            32.7063205
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KEJL-AM",
+        "WEBSITE": "http://hobbsamerica.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Hobbs",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1973",
+        "OWNER": "Noalmark Broadcasting",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/kix103hobbs/",
+        "Social_Media_Instagram": "https://www.instagram.com/z94kzor/",
+        "Social_Media_YouTube": "https://www.youtube.com/@LovingtonSports",
+        "Social_Media_X": "https://x.com/kix103",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "NoalMark radio stations with some local news, sports, weather, and guest interviews. Other stations include KIXN-FM, KLEA-FM, KZOR-FM.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "619 N. Turner",
+        "Address_City": "Hobbs",
+        "Address_County": "Lea",
+        "Address_State": "NM",
+        "Address_Zip": 88240,
+        "COUNTIES_SERVED": "Chaves, Eddy, Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.73773,
+            35.528774
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KGAK-AM",
+        "WEBSITE": "https://lemon-ocean-08d7caf10.azurestaticapps.net",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Gallup",
+        "FREQ": "Daily",
+        "LANGUAGE": "Navajo",
+        "Year_Founded": "*",
+        "OWNER": "KRJG, INC. ",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/AllNavajoAllTheTime/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "KNDN sister station covering local sports and a strong, regular menu of community announcements, all in Navajo.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "401 East Coal Ave.",
+        "Address_City": "Gallup",
+        "Address_County": "McKinley",
+        "Address_State": "NM",
+        "Address_Zip": 87301,
+        "COUNTIES_SERVED": "McKinley"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.22974,
+            36.7316966
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KNDN-AM/FM",
+        "WEBSITE": "https://icy-tree-02d4dfa10.azurestaticapps.net, https://lemon-grass-094bc2f10.azurestaticapps.net",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Farmington",
+        "FREQ": "Daily",
+        "LANGUAGE": "Navajo",
+        "Year_Founded": "1957",
+        "OWNER": "BASIN BROADCASTING COMPANY, INC. ",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/kndnradiostation/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/watch?v=bph8Y0xJYEQ",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "\"All Navajo all the time\" programming includes music, news and popular open mic shows allow community members to make announcements.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "1515 West Main",
+        "Address_City": "Farmington",
+        "Address_County": "San Juan",
+        "Address_State": "NM",
+        "Address_Zip": 87401,
+        "COUNTIES_SERVED": "San Juan"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -107.75739,
+            32.251907
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KOTS-AM",
+        "WEBSITE": "https://www.kotsam.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Deming",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1985",
+        "OWNER": "Bravo Mic Communications LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/391473017387275",
+        "Social_Media_Instagram": "https://www.instagram.com/oteroentertainment/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Radio group offers local announcements, government and civic notices, and human interest stories important to Luna County and regional residents.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1701 S. Gold Ave.",
+        "Address_City": "Deming",
+        "Address_County": "Luna",
+        "Address_State": "NM",
+        "Address_Zip": 88030,
+        "COUNTIES_SERVED": "Grant, Hidalgo, Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.94545,
+            32.892674
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KRSY-AM",
+        "WEBSITE": "https://www.alamosportsandtalk.com/",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Alamogordo",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Exciter Media LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/AlamoSportsKRSY/",
+        "Social_Media_Instagram": "http://instagram.com/alamo_sports",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/AlamoSportsTalk",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Local sports and conservative talk station with some local guest interviews.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "119 North Canyon Rd",
+        "Address_City": "Alamogordo",
+        "Address_County": "Otero",
+        "Address_State": "NM",
+        "Address_Zip": 88310,
+        "COUNTIES_SERVED": "Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.17165,
+            36.7704193
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KSJE-FM",
+        "WEBSITE": "https://www.ksje.com",
+        "PRIMARY_MEDIA": "Multiplatform",
+        "City_Based": "Farmington",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1990",
+        "OWNER": "San Juan College",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/ksje90.9/",
+        "Social_Media_Instagram": "https://www.instagram.com/ksje90.9fm/",
+        "Social_Media_YouTube": "https://www.youtube.com/c/KSJEFM",
+        "Social_Media_X": "https://x.com/ksje",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Public radio in Farmington with a morning show including announcments and interviews with newsmakers.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4601 College Blvd.",
+        "Address_City": "Farmington",
+        "Address_County": "San Juan",
+        "Address_State": "NM",
+        "Address_Zip": 87402,
+        "COUNTIES_SERVED": "San Juan"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.40017,
+            32.8410327
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KSVP-AM",
+        "WEBSITE": "https://ksvpradio.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Artesia",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Pecos Valley Broadcasting",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/ksvpradio",
+        "Social_Media_Instagram": "https://www.instagram.com/KSVP_Pics",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCacO_Bdaabw9hepALd1FNQA",
+        "Social_Media_X": "https://x.com/990_radio",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A conservative talk radio in Artesia with religious chat, announcements and interviews; companion Website and mobile app includes prep sports and church sermons.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "317 W. Quay Ave",
+        "Address_City": "Artesia",
+        "Address_County": "Eddy",
+        "Address_State": "NM",
+        "Address_Zip": 88210,
+        "COUNTIES_SERVED": "Eddy"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.57328,
+            36.4072377
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KTAO-FM",
+        "WEBSITE": "https://www.ktao.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Taos",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Taos Communications Corp.",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KTAOS101.9FM",
+        "Social_Media_Instagram": "https://www.instagram.com/ktaossolarradio/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/ktaos",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Home-grown solar-powered local station with local programming, including announcements and interviews.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "9 State Road 150",
+        "Address_City": "Taos",
+        "Address_County": "Taos",
+        "Address_State": "NM",
+        "Address_Zip": 87529,
+        "COUNTIES_SERVED": "Taos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.409286,
+            34.829377
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KTDB-FM",
+        "WEBSITE": "https://www.rnsb.k12.nm.us/ktdb",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Pine Hill",
+        "FREQ": "Daily",
+        "LANGUAGE": "Navajo",
+        "Year_Founded": "1972",
+        "OWNER": "Ramah Navajo School Board, Inc.",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Public radio station licensed to the Ramah School Board, serving the Ramah Navajo Nation (pop. 458).",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "125 Campus Dr.",
+        "Address_City": "Pine Hill",
+        "Address_County": "Cibola",
+        "Address_State": "NM",
+        "Address_Zip": 87357,
+        "COUNTIES_SERVED": "Cibola"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -109.09744,
+            35.6611745
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KTNN-AM/FM",
+        "WEBSITE": "https://ktnnonline.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Window Rock",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Navajo Nation",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/AM660KTNN",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Licensed to Navajo Nation based in Window Rock, station airs announcements about Navajo Nation events, ceremonies, funerals, rodeos and other regional news.",
+        "COMMUNITY_IMPACT_LVL": 1.25,
+        "IMPACT_LVL_DESCRIPTION": "Occasional Presence - Provides selective local coverage",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "178 West Highway 264",
+        "Address_City": "St. Michaels",
+        "Address_County": " Apache",
+        "Address_State": "AZ",
+        "Address_Zip": 86515,
+        "COUNTIES_SERVED": "San Juan, McKinley, Cibola"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93877,
+            35.6877047
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "505omatic",
+        "WEBSITE": "https://www.505omatic.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Santa Fe",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2025",
+        "OWNER": "Fernando Diaz",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "https://www.instagram.com/505omatic/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Santa Fe-based collective producing social media coverage of arts and culture and community issues.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "63 Lincoln Ave.",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87504,
+        "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe "
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.32029,
+            36.2090585
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Abiquiu News",
+        "WEBSITE": "https://www.abiquiunews.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Abiquiu",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2013",
+        "OWNER": "Carol J Boney",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/AbiquiuNews/",
+        "Social_Media_Instagram": "https://www.instagram.com/abiquiunews/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A two-person hyperlocal site with some some community contributions and republished news for this area of about 1,200 people.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4 County Road 187",
+        "Address_City": "Abiquiu",
+        "Address_County": "Rio Arriba",
+        "Address_State": "NM",
+        "Address_Zip": 87510,
+        "COUNTIES_SERVED": "Rio Arriba"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.95907,
+            32.9038746
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Alamogordo Town News",
+        "WEBSITE": "https://2ndlifemediaalamogordo.town.news",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Alamogordo",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2021",
+        "OWNER": "2nd Life Media Corp",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/AlamogordoTownNews/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/alamogordotown",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Website with announcements, calendars, press releases, opinion and occasional reporting.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1209 New York Avenue ",
+        "Address_City": "Alamogordo",
+        "Address_County": "Otero",
+        "Address_State": "NM",
+        "Address_Zip": 88310,
+        "COUNTIES_SERVED": "Doña Ana, Lincoln, Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.60736,
+            35.1352579
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Albuquerque The Magazine",
+        "WEBSITE": "https://abqthemag.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Albuquerque",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2004",
+        "OWNER": "Larryl Lynch, Gena Goodson",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/abqthemag/",
+        "Social_Media_Instagram": "https://www.instagram.com/abqthemag/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/abqthemag",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Glossy city monthly with lifestyle features and events.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1550 Mercantile Ave. NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87107,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.48704,
+            31.7601164
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Camino Real Media",
+        "WEBSITE": "https://www.caminorealmedia.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "El Paso",
+        "FREQ": "Bi-Weekly (every other week)",
+        "LANGUAGE": "Spanish",
+        "Year_Founded": "2013",
+        "OWNER": "Marisela Villanueva",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/Caminorealmedia/",
+        "Social_Media_Instagram": "https://www.instagram.com/caminorealmedia/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UC6OXRCne-Y5Cz5CmEUZK4gA",
+        "Social_Media_X": "https://x.com/caminorealmedia",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Borderland print and online Spanish-Language news, annoucements, releases, commentary.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "6112 N. MESA ST, Suite 6500",
+        "Address_City": "El Paso",
+        "Address_County": "El Paso",
+        "Address_State": "TX",
+        "Address_Zip": 79912,
+        "COUNTIES_SERVED": "Doña Ana, Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Edible New Mexico",
+        "WEBSITE": "https://www.ediblenm.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Albuquerque",
+        "FREQ": "Quarterly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2006",
+        "OWNER": "Bite Size Media, LLC",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/ediblenewmexico",
+        "Social_Media_Instagram": "https://www.instagram.com/ediblenewmexico/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UC-vyS4BEUWFxX53c2lqVE1Q",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://www.pinterest.com/ediblenewmexico/|Pinterest",
+        "SUMMARY": "Print magazine with active digital presence, original reporting focused on restaurants, food and the \"foodshed.\"",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "3301-R Coors Blvd. NW #152",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM ",
+        "Address_Zip": 87120,
+        "COUNTIES_SERVED": "Bernalillo, Doña Ana, Grant, Los Alamos, Rio Arriba, San Miguel, Sandoval, Santa Fe, Socorro, Taos, Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.74424,
+            35.5274638
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Gallup Journey",
+        "WEBSITE": "https://gallupjourney.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Gallup",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2004",
+        "OWNER": "Gallup Journey",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/GallupJourney/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/glpjourney",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A free monthly magazine with light coverage of events, arts and culture around Gallup.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "105 S. 3rd Street",
+        "Address_City": "Gallup",
+        "Address_County": "McKinley",
+        "Address_State": "NM",
+        "Address_Zip": 87301,
+        "COUNTIES_SERVED": "McKinley"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.69682,
+            34.9059449
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Isleta Pueblo News",
+        "WEBSITE": "https://www.isletapueblo.com/newsletters/",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Isleta",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Pueblo of Isleta",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/PuebloOfIsleta/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "The official monthly newsletter of Isleta Pueblo, with community features, plus announcements, legals and classifieds.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "117 Tribal Road 40",
+        "Address_City": "Isleta",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87022,
+        "COUNTIES_SERVED": "Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.6252,
+            35.0749514
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KANW-FM",
+        "WEBSITE": "https://www.kanw.org ",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1983",
+        "OWNER": "ABQ Bd of Education",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/people/891-KANW-FM/100043148096795/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/kanwfm",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Albuquerque-based public radio station, licensed to school district, uses multiple channels to reach wide audience. Reads AP copy on-air; engaged with community, but no original reporting.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "2020 Coal Ave. SE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87106,
+        "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe, Torrance, Valencia, Los Alamos "
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.2653,
+            32.4422697
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KCCC-AM ",
+        "WEBSITE": "https://kccc930am.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Carlsbad",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1966",
+        "OWNER": "Chandler Broadcasting LLC/Jonathan Chandler",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/KCCC930AM/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://open.spotify.com/show/7cYk7U8gfcp4qM4OnJUNyN|Spotify",
+        "SUMMARY": "Independent community station with some coverage created in partnership with Southeast New Mexico College Workforce and Community Education.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1500 University",
+        "Address_City": "Carlsbad",
+        "Address_County": "Eddy",
+        "Address_State": "NM",
+        "Address_Zip": 88220,
+        "COUNTIES_SERVED": "Chaves, Eddy, Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.40017,
+            32.8410327
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KEND-FM",
+        "WEBSITE": "https://www.kendfm.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Artesia",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Pecos Valley Broadcasting",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/1065RoswellsTalkFM",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Roswell talk radio with nationally syndicated conservative programs plus local announcements and a morning show with local interviews.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "317 West Quay Ave.",
+        "Address_City": "Artesia",
+        "Address_County": "Eddy",
+        "Address_State": "NM",
+        "Address_Zip": 88210,
+        "COUNTIES_SERVED": "Eddy"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.19032,
+            36.7264066
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KENN-AM ",
+        "WEBSITE": "http://www.kennradio.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Farmington",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1953",
+        "OWNER": "Hutton Broadcasting Co, LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/VisitFourCorners",
+        "Social_Media_Instagram": "https://www.instagram.com/visitfourcornerscom/",
+        "Social_Media_YouTube": "https://www.youtube.com/@VisitFourCornersTV",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Farmington talk radio with announcements, nationally syndicated conservative shows and one show with a local newspaper reporter.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "200 East Broadway",
+        "Address_City": "Farmington",
+        "Address_County": "San Juan",
+        "Address_State": "NM",
+        "Address_Zip": 87401,
+        "COUNTIES_SERVED": "San Juan"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.72569,
+            35.5021124
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KGLP-FM",
+        "WEBSITE": "https://kglp.org/",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Gallup",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1993",
+        "OWNER": "GALLUP PUBLIC RADIO ",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KGLPfmGallup/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "NPR station with some local interviews and content; rebroadcasts some NM public affairs shows from other stations.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "705 Gurley Ave",
+        "Address_City": "Gallup",
+        "Address_County": "McKinley",
+        "Address_State": "NM",
+        "Address_Zip": 87301,
+        "COUNTIES_SERVED": "McKinley"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.1848,
+            36.4507836
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KLMX-AM",
+        "WEBSITE": "https://klmx.us",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Clayton",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1949",
+        "OWNER": "Melba McCollum",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/bear.killmix",
+        "Social_Media_Instagram": "https://www.instagram.com/theonlybear97.5/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCoy9A2ebG45SXnDFZsQHWbQ",
+        "Social_Media_X": "https://x.com/klmxradio",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A community radio station with local DJs, coverage of high school sports, plus interviews and announcements.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1 Fairground Rd ",
+        "Address_City": "Clayton",
+        "Address_County": "Union",
+        "Address_State": "NM",
+        "Address_Zip": 88415,
+        "COUNTIES_SERVED": "Union"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KTRC-AM",
+        "WEBSITE": "https://santafe.com/ktrc",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Santa Fe",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Hutton Broadcasting Co, LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/Talk1260KTRC/",
+        "Social_Media_Instagram": "https://www.instagram.com/santafedotcom/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCHyVLpNXCIcqXOZK6_McLPg",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Commercial talk radio station based in Santa Fe, syndicated hosts plus local, with a news emphasis.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "2505 Camino Entrada Suite C",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87507,
+        "COUNTIES_SERVED": "Santa Fe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -101.83712,
+            35.20729
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KVII-TV",
+        "WEBSITE": "https://abc7amarillo.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Amarillo",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Sinclair Broadcasting",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/ABC7Amarillo/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/pronews7",
+        "Social_Media_X": "https://x.com/abc7amarillo",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Amarillo TX broadcaster that partly serves border communities in Eastern New Mexico.",
+        "COMMUNITY_IMPACT_LVL": 1.5,
+        "IMPACT_LVL_DESCRIPTION": "Limited Presence - Brings supporting coverage on select local topics.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "1 Broadcast Center",
+        "Address_City": "Amarillo",
+        "Address_County": "Potter",
+        "Address_State": "TX",
+        "Address_Zip": 79101,
+        "COUNTIES_SERVED": "Union, Harding, Quay, Curry"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77981,
+            32.3140354
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Desert Exposure",
+        "WEBSITE": "https://www.desertexposure.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Las Cruces",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1996",
+        "OWNER": "Osteen Media Group",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/DesertExposure/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/desertexposure",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A beefy free monthly magazine with deep coverage of arts, entertainment, environment and wellness.",
+        "COMMUNITY_IMPACT_LVL": 1.75,
+        "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "506 S. Main Suite 250",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana ",
+        "Address_State": "NM",
+        "Address_Zip": 88001,
+        "COUNTIES_SERVED": "Doña Ana, Grant, Luna, Otero, Sierra"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KKOB-AM/FM",
+        "WEBSITE": "https://www.newsradiokkob.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1922",
+        "OWNER": "Cumulus Media",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KKOBradio",
+        "Social_Media_Instagram": "https://www.instagram.com/kkobradio/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/kkobradio",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Talk radio station with some local hosts, headlines and analysis.",
+        "COMMUNITY_IMPACT_LVL": 1.75,
+        "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "500 4th Street NW, 5th Floor",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo, Cibola, Los Alamos, Rio Arriba, Sandoval, Santa Fe, Socorro, Torrance, Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.66185,
+            33.3494954
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KRUI-AM",
+        "WEBSITE": "https://www.1490krui.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Ruidoso",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Village of Ruidoso",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Village-owned station with local chat shows, PSAs and guests.",
+        "COMMUNITY_IMPACT_LVL": 1.75,
+        "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "313 Cree Meadows Dr",
+        "Address_City": "Ruidoso",
+        "Address_County": "Lincoln",
+        "Address_State": "NM",
+        "Address_Zip": 88345,
+        "COUNTIES_SERVED": "Lincoln"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77981,
+            32.3140354
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KTAL-LPFM",
+        "WEBSITE": "https://www.lccommunityradio.org",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Las Cruces",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2015",
+        "OWNER": "Las Cruces Community Radio- this is a 501-c3 corporation.",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/ktallp",
+        "Social_Media_Instagram": "https://www.instagram.com/ktallp/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://spinitron.com/KTAL/|Spinitron",
+        "SUMMARY": "Low-power FM community station serving Las Cruces with original content including local news and public affairs.",
+        "COMMUNITY_IMPACT_LVL": 1.75,
+        "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "121 Wyatt Drive #9",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM",
+        "Address_Zip": 88005,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.57989,
+            36.9036557
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Rio Chama Reporter",
+        "WEBSITE": "https://www.riochamareporter.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Los Ojos",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2023",
+        "OWNER": "Rio Chama Reporter LLC",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/Riochamareporter",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Community news including notes from government meetings, articles about food, events and local culture.",
+        "COMMUNITY_IMPACT_LVL": 1.75,
+        "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
+        "LAST_UPDATE": null,
+        "Address_Street": "Village Hall 1512B State Hwy 17",
+        "Address_City": "Chama ",
+        "Address_County": "Arriba",
+        "Address_State": "NM",
+        "Address_Zip": 87520,
+        "COUNTIES_SERVED": "Rio Arriba"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Southwest Contemporary",
+        "WEBSITE": "https://southwestcontemporary.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Santa Fe",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2019",
+        "OWNER": "Lauren Tresp",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/swcontemporary/",
+        "Social_Media_Instagram": "https://www.instagram.com/swcontemporary/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A robust Santa Fe-based outlet with wide, newsy coverage of contemporary art in the greater Southwest.",
+        "COMMUNITY_IMPACT_LVL": 1.75,
+        "IMPACT_LVL_DESCRIPTION": "Helpful Contributor - Focuses on local events or topics with limited depth and scope.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "369 Montezuma Ave #258",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87501,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.23643,
+            32.4496624
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Carlsbad Local",
+        "WEBSITE": "https://www.carlsbadlocalnews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Carlsbad",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2010",
+        "OWNER": "Cavern City Media",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.carlsbadlocalnews.com/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A weekly print and digital outlet with some original reporting plus local announcements and press releases.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1707 North Mesa Street",
+        "Address_City": "Carlsbad",
+        "Address_County": "Eddy",
+        "Address_State": "NM",
+        "Address_Zip": 88220,
+        "COUNTIES_SERVED": "Eddy"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.27659,
+            32.7699424
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "CATS-TV",
+        "WEBSITE": "https://catsilver.org",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Silver City",
+        "FREQ": "Occasionally or Sporadically",
+        "LANGUAGE": "English",
+        "Year_Founded": "1997",
+        "OWNER": "Community Access TV for Silver City",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/people/CATS-Community-Access-Television-of-Silver/100064333080037/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Community Access Television of Silver - cable access system offers local productions, government proceedings, etc.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "213 N Bullard Street",
+        "Address_City": "Silver City",
+        "Address_County": "Grant",
+        "Address_State": "NM",
+        "Address_Zip": 88062,
+        "COUNTIES_SERVED": "Grant"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.24354,
+            34.4710446
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Clovis Livestock Market News",
+        "WEBSITE": "https://debacacountynews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Fort Sumner",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1900",
+        "OWNER": "Marshall Scot Stinnett ",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/debacanews/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly newspaper covering cattle ranching and ag news in eastern NM.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "182 E. Sumner Ave.",
+        "Address_City": "Fort Sumner",
+        "Address_County": "De Baca",
+        "Address_State": "NM",
+        "Address_Zip": 88119,
+        "COUNTIES_SERVED": "De Baca"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.60697,
+            35.2382346
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Corrales Comment",
+        "WEBSITE": "https://corralescomment.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Corrales",
+        "FREQ": "Bi-Weekly (every other week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1982",
+        "OWNER": "Ctrl+P Publishing",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/corralescomment/",
+        "Social_Media_Instagram": "https://www.instagram.com/corralescomment/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/corralesnews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Bi-weekly free paper mailed to Corrales households, updated more Frequently online, plus newsletter; news by the shared nm.news team. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4101 CORRALES RD, #1810",
+        "Address_City": "Corrales",
+        "Address_County": "Sandoval",
+        "Address_State": "NM ",
+        "Address_Zip": 87048,
+        "COUNTIES_SERVED": "Sandoval"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -107.75752,
+            32.2685019
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Deming Headlight",
+        "WEBSITE": "https://www.demingheadlight.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Deming",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1881",
+        "OWNER": "Silver City Independent Publishing Co LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/demingheadlight/",
+        "Social_Media_Instagram": "https://www.instagram.com/explore/locations/74502500/the-deming-headlight/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/demingheadlight",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Independent newspaper publishing twice weekly with coverage of local government, business, sports and events.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "122 S Silver Ave",
+        "Address_City": "Deming",
+        "Address_County": "Luna",
+        "Address_State": "NM",
+        "Address_Zip": 88030,
+        "COUNTIES_SERVED": "Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.48704,
+            31.7601164
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "El Paso Matters",
+        "WEBSITE": "https://www.elpasomatters.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "El Paso",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2019",
+        "OWNER": "El Paso Matters Inc.",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/elpasomatters",
+        "Social_Media_Instagram": "https://www.instagram.com/elpasomatters/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/elpasomatters",
+        "Social_Media_TikTok": "https://www.tiktok.com/@elpasomatters",
+        "Social_Media_Other": "https://www.reddit.com/user/elpasomatters/|Reddit",
+        "SUMMARY": "A strong team producing innovative in-depth and investigative reporting about El Paso and ocasionally New Mexico. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "500 W. Overland, Suite 200",
+        "Address_City": "El Paso",
+        "Address_County": "El Paso",
+        "Address_State": "TX",
+        "Address_Zip": 79901,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Green Fire Times",
+        "WEBSITE": "https://www.greenfiretimes.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Santa Fe",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2009",
+        "OWNER": "Green Earth Publishing / Southwest Learning Centers, Inc.",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/GreenFireSocial/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/greenfiretimes",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Bimonthly environmental magazine and Website that includes original reporting with submissions and news releases.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "120 S. Federal  Plaza., Suite 101",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87504,
+        "COUNTIES_SERVED": "Bernalillo, McKinley, Mora, Rio Arriba, San Juan, Sandoval, Santa Fe, Taos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.68613,
+            34.9405682
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Guadalupe County Communicator",
+        "WEBSITE": "https://www.route66news.com/tag/guadalupe-county-communicator/",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Santa Rosa",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Tom McDonald",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Printed newspaper serving the Guadalupe County area.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "241 S 4th St",
+        "Address_City": "Santa Rosa",
+        "Address_County": "Guadalupe",
+        "Address_State": "NM",
+        "Address_Zip": 88435,
+        "COUNTIES_SERVED": "Guadelupe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.70843,
+            32.3504143
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Hidalgo County Herald",
+        "WEBSITE": "https://hidalgoherald.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Lordsburg",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1999",
+        "OWNER": "Brenda Hood",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/hidalgocountyherald",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly newspaper with limited digital access, covers Lordsburg area with some original reporting plus press releases and announcements.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "212 E Motel Dr Ste B",
+        "Address_City": "Lordsburg",
+        "Address_County": "Hidalgo",
+        "Address_State": "NM ",
+        "Address_Zip": 88045,
+        "COUNTIES_SERVED": "Hidalgo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -101.86892,
+            33.5259887
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KAMC-TV",
+        "WEBSITE": "https://www.everythinglubbock.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Lubbock, TX",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Nextstar Media Grp",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KLBKNews/",
+        "Social_Media_Instagram": "https://www.instagram.com/klbknews/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCO8ww3uFGhQzgw9fSFi5bSQ",
+        "Social_Media_X": "https://x.com/KLBKNews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://www.pinterest.com/everythinglubbock/|Pinterest",
+        "SUMMARY": "Lubbock, Texas TV station that occasionally covers eastern New Mexico, especially weather and crime.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "7403 University Ave.",
+        "Address_City": "Lubbock, TX",
+        "Address_County": "Lubbock",
+        "Address_State": "TX",
+        "Address_Zip": 79423,
+        "COUNTIES_SERVED": "Curry, Roosevelt, Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -101.83518,
+            35.2024014
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KAMR-TV",
+        "WEBSITE": "https://www.myhighplains.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Amarillo",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Nextstar Media Grp",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KAMRLOCAL4NEWS/",
+        "Social_Media_Instagram": "https://www.instagram.com/kamrlocal4news/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCAbr42lrHfq-QzMKaVnU5mw",
+        "Social_Media_X": "https://x.com/KAMRLocal4News",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Amarillo, Texas TV station that partly serves border communities in eastern New Mexico. Also programs KCIT-TV, KCPN-TV",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "1015 Fillmore Street",
+        "Address_City": "Amarillo",
+        "Address_County": "Potter",
+        "Address_State": "TX",
+        "Address_Zip": 79101,
+        "COUNTIES_SERVED": "Union, Harding, Quay, Curry"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -101.87043,
+            33.5041896
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KCBD-TV",
+        "WEBSITE": "https://www.kcbd.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Lubbock",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1953",
+        "OWNER": "Gray Local Media",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KCBDNewsChannel11/",
+        "Social_Media_Instagram": "https://www.instagram.com/kcbd11/",
+        "Social_Media_YouTube": "https://www.youtube.com/@kcbd-newschannel11",
+        "Social_Media_X": "https://x.com/KCBD11",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Lubbock, Texas TV station that occasionally covers eastern New Mexico.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "9810 University Ave.",
+        "Address_City": "Lubbock",
+        "Address_County": "Lubbock",
+        "Address_State": "TX",
+        "Address_Zip": 79423,
+        "COUNTIES_SERVED": "Curry, Roosevelt, Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.34748,
+            34.1781462
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KENW-FM/TV",
+        "WEBSITE": "https://www.kenw.org",
+        "PRIMARY_MEDIA": "Multiplatform",
+        "City_Based": "Portales",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "ENMU",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com//kenw.enmu/",
+        "Social_Media_Instagram": "https://www.instagram.com/kenw.enmu/",
+        "Social_Media_YouTube": "https://www.youtube.com/@KENWPBS",
+        "Social_Media_X": "https://x.com/KENWPublicMedia",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "NPR and PBS stations licensed to ENMU with a student-produced newscast delivering local news, sports and weather. Also programs KMTH-FM, KNMJ-FM.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "1500 S Ave K",
+        "Address_City": "Portales",
+        "Address_County": "Roosevelt",
+        "Address_State": "NM",
+        "Address_Zip": 88130,
+        "COUNTIES_SERVED": "Roosevelt, Curry"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -101.84881,
+            35.2908072
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KFDA-TV",
+        "WEBSITE": "https://www.newschannel10.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Amarillo",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Gray Television",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Amarillo, Texas broadcaster that partly serves border communities in Eastern New Mexico.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "7900 Broadway Dr",
+        "Address_City": "Amarillo",
+        "Address_County": "Potter",
+        "Address_State": "TX",
+        "Address_Zip": 79105,
+        "COUNTIES_SERVED": "Union, Harding, Quay, Curry"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -101.84702,
+            33.5855677
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KLBK-TV",
+        "WEBSITE": "https://www.everythinglubbock.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Lubbock, TX",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Nextstar Media Grp",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KLBKNews/",
+        "Social_Media_Instagram": "https://www.instagram.com/klbknews/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCO8ww3uFGhQzgw9fSFi5bSQ",
+        "Social_Media_X": "https://x.com/KLBKNews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://www.pinterest.com/everythinglubbock/|Pinterest",
+        "SUMMARY": "Texas TV station that occasionally covers Eastern NM (in its outer coverage area)",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "7403 South University",
+        "Address_City": "Lubbock, TX",
+        "Address_County": "Lubbock",
+        "Address_State": "TX",
+        "Address_Zip": 79423,
+        "COUNTIES_SERVED": "Curry, Roosevelt, Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KSFR-FM",
+        "WEBSITE": "https://www.ksfr.org",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Santa Fe",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1984",
+        "OWNER": "Santa Fe Community College",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KSFRFM/",
+        "Social_Media_Instagram": "https://www.instagram.com/ksfrfm/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCobGUDnx-2S0DTzwz0EXDZA",
+        "Social_Media_X": "https://x.com/ksfrnews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Public radio station at Santa Fe Community College with local news coverage and talk shows.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "6401 S. Richards Ave.",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87120,
+        "COUNTIES_SERVED": "Bernalillo, Los Alamos, Rio Arriba, San Miguel, Sandoval, Santa Fe, Taos, Torrance"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.78146,
+            32.3109838
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Las Cruces Sun-News",
+        "WEBSITE": "https://lcsun-news.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Las Cruces",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1881",
+        "OWNER": "Gannet; USA TODAY NETWORK",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/LCSUNNEWS",
+        "Social_Media_Instagram": "https://www.instagram.com/crucessunnews/",
+        "Social_Media_YouTube": "https://www.youtube.com/user/CrucesSunNews",
+        "Social_Media_X": "https://x.com/CrucesSunNews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Last remaining Gannett paper in the state, serving Las Cruces with crime, sports and government coverage.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "256 W. Las Cruces Ave.",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM",
+        "Address_Zip": 88001,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.22429,
+            35.5937792
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Las Vegas Optic",
+        "WEBSITE": "https://lasvegasoptic.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Las Vegas",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "O'Rourke Media Group",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/LasVegasOptic/",
+        "Social_Media_Instagram": "https://www.instagram.com/lasvegasoptic/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/lasvegasoptic",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small newspaper serving Las Vegas NM area with local news, obituaries, weather, and community events.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "106 Bridge St",
+        "Address_City": "Las Vegas",
+        "Address_County": "San Miguel",
+        "Address_State": "NM",
+        "Address_Zip": 87701,
+        "COUNTIES_SERVED": "San Miguel"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.29727,
+            35.8810022
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Los Alamos Daily Post",
+        "WEBSITE": "https://www.ladailypost.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Los Alamos",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2012",
+        "OWNER": "Carol A. Clark",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/LADailyPost",
+        "Social_Media_Instagram": "https://www.instagram.com/losalamosdailypost/",
+        "Social_Media_YouTube": "https://www.youtube.com/ladailypost",
+        "Social_Media_X": "https://x.com/ladailypost",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Newspaper of record for Los Alamos, with some original reporting supplemented by announcements and press releases.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1247 Central Avenue",
+        "Address_City": "Los Alamos",
+        "Address_County": "Los Alamos",
+        "Address_State": "NM",
+        "Address_Zip": 87544,
+        "COUNTIES_SERVED": "Los Alamos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.34938,
+            32.9461927
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Lovington Leader",
+        "WEBSITE": "https://www.lovingtonleaderonline.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Lovington",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1984",
+        "OWNER": "John and Jeanine Graham",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/lovingtonleader/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly newspaper with no online access.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "14 W. Avenue B",
+        "Address_City": "Lovington",
+        "Address_County": "Lea",
+        "Address_State": "NM",
+        "Address_Zip": 88260,
+        "COUNTIES_SERVED": "Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.23554,
+            34.5214768
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Mountainair Dispatch",
+        "WEBSITE": "https://www.mountainairdispatch.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Mountainair",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2022",
+        "OWNER": "Todd Brogowski",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/people/Mountainair-Dispatch/100087660970272/",
+        "Social_Media_Instagram": "https://www.instagram.com/mountainairdispatch/ ",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCWxertr8vRGLS8RWTseb5Hw ",
+        "Social_Media_X": "https://x.com/mtnairdispatch",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Community news site by a former reporter with weather, events and some coverage of local government.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "221 W Broadway",
+        "Address_City": "Mountainair",
+        "Address_County": "Torrance",
+        "Address_State": "NM",
+        "Address_Zip": 87036,
+        "COUNTIES_SERVED": "Torrance"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.61911,
+            35.2211811
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico Jewish Journal",
+        "WEBSITE": "https://www.nmjewishjournal.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Corrales",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2024",
+        "OWNER": "Diane Joy Schmidt",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "An online startup covering the Jewish community with history, events, interviews, analysis, commentary and reviews. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4101 Corrales Rd.",
+        "Address_City": "Corrales",
+        "Address_County": "Sandoval",
+        "Address_State": "NM",
+        "Address_Zip": 87048,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93786,
+            35.6831158
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico Magazine",
+        "WEBSITE": "https://www.newmexicomagazine.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Santa Fe",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1923",
+        "OWNER": "New Mexico Tourism Department",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/NewMexicoMagazine",
+        "Social_Media_Instagram": "https://www.instagram.com/newmexicomag/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/NMMagazine",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Monthly state tourism magazine with strong coverage of events, outdoor recreation, history, arts and culture.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "491 Old Santa Fe Trail",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87501,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico News Port",
+        "WEBSITE": "https://newmexiconewsport.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2014",
+        "OWNER": "UNM C&J Dept",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/nmnewsport",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Student-powered digital multimedia coverage of state and local issues and events, publishing during the school year.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2101 Central Ave, 1 Univ of New Mexico",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87131,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico Political Report",
+        "WEBSITE": "https://nmpoliticalreport.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2014",
+        "OWNER": "Citizen Media Group",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/NMpoliticalReport/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Statewide political news site and newsletter; a nonprofit member of the extended nm.news family.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "317 Commercial St NE Box 2",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.63442,
+            35.0836752
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Nob Hill News",
+        "WEBSITE": "https://www.abqnobhillnews.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2025",
+        "OWNER": "Lindsay Wood",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Hyperlocal startup covering neighborhood news, city council, development, business, etc. in an Albuquerque neighborhood.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "200 Mulberry Street Northeast",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87106,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77981,
+            32.3140354
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Organ Mountain News",
+        "WEBSITE": "https://www.organmountainnews.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Las Cruces",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2024",
+        "OWNER": "Damien Willis / Organ Mountain News, LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/OrganMountainNews",
+        "Social_Media_Instagram": "https://www.instagram.com/organmountainnews/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/OrganMtnNews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Digital news startup led by a former Las Cruces Sun-News reporter, covering Doña Ana County and southern NM.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "444 East Griggs Avenue, Unit 1",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM",
+        "Address_Zip": 88001,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.5949,
+            36.7042198
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Questa del Rio News",
+        "WEBSITE": "https://questanews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Questa",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Questa Economic Development Fund",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/QuestaNews",
+        "Social_Media_Instagram": "https://www.instagram.com/questadelrionews/",
+        "Social_Media_YouTube": "https://www.youtube.com/@Qnews2015",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Monthly print newspaper and Website with community columnists and some coverage of local news.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1 Highway 38",
+        "Address_City": "Questa",
+        "Address_County": "Taos",
+        "Address_State": "NM",
+        "Address_Zip": 87556,
+        "COUNTIES_SERVED": "Taos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.65412,
+            33.3240737
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Ruidoso News",
+        "WEBSITE": "https://ruidosonews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Ruidoso",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2024",
+        "OWNER": "El Rito Media",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Former Gannett paper covering Ruidoso with El Rito Media team resources.  ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "720 Sudderth Drive",
+        "Address_City": "Ruidoso",
+        "Address_County": "Lincoln",
+        "Address_State": "NM",
+        "Address_Zip": 88345,
+        "COUNTIES_SERVED": "Lincoln"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Sandoval Signpost",
+        "WEBSITE": "https://sandovalsignpost.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1988",
+        "OWNER": "Ctrl+P Publishing",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Monthly free paper mailed to every house in Bernalillo and Placitas, updated more Frequently online, plus newsletter; news by the shared nm.news team. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "317 Commercial St NE #2",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Sandoval"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93877,
+            35.6877047
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Santa Fe Reporter",
+        "WEBSITE": "https://sfreporter.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Santa Fe",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1974",
+        "OWNER": "Ctrl+P Publishing",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/SFReporter/",
+        "Social_Media_Instagram": "https://www.instagram.com/sfreporter/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCe8tis_ntIEdDbdwT_3A0GQ",
+        "Social_Media_X": "https://x.com/SantaFeReporter/",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Free alt weekly, Website and newseltter covering the Santa Fe area with news by the shared nm.news team. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "63 Lincoln Ave.",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87502,
+        "COUNTIES_SERVED": "Santa Fe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -107.29336,
+            33.1162568
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Sierra County Citizen",
+        "WEBSITE": "https://sierracountycitizen.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Williamsburg",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2019",
+        "OWNER": "Sierra County Public-Interest Journalism Project",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A community news site with a select group of contibutors, including some newspaper veterans.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "105 S. Central St.",
+        "Address_City": "Williamsburg",
+        "Address_County": "Sierra",
+        "Address_State": "NM",
+        "Address_Zip": 87942,
+        "COUNTIES_SERVED": "Sierra"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -107.24839,
+            33.1328953
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Sierra County Sentinel",
+        "WEBSITE": "https://www.gpkmedia.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Truth or Consequences",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1967",
+        "OWNER": "GPK Media",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/SierraCountySentinel.KCHSRadio/",
+        "Social_Media_Instagram": "https://www.instagram.com/sierra_county_news/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UC0eojn0l4DaP0_lRiZfZtJQ",
+        "Social_Media_X": "https://x.com/Sierraco_News",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly paper and Website based in Truth or Consequences, covering public afairs and culture.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "217 E 3rd Ave",
+        "Address_City": "Truth or Consequences",
+        "Address_County": "Sierra",
+        "Address_State": "NM",
+        "Address_Zip": 87901,
+        "COUNTIES_SERVED": "Sierra"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.04028,
+            34.3847177
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "State Line Tribune",
+        "WEBSITE": "https://statelinetribune.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Farwell",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1912",
+        "OWNER": "Rob and Rebecca Pomper",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Print-only paper with some schools, events and government coverage of border town Texico and Curry County.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "404 3rd St",
+        "Address_City": "Farwell",
+        "Address_County": "Parmer",
+        "Address_State": "TX",
+        "Address_Zip": 79325,
+        "COUNTIES_SERVED": "Curry"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.33734,
+            34.1859636
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "The Chase",
+        "WEBSITE": "https://enmuthechaseonline.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Portales",
+        "FREQ": "Occasionally or Sporadically",
+        "LANGUAGE": "English",
+        "Year_Founded": "1934",
+        "OWNER": "Eastern New Mexico University",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/ENMUTheChase/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/BytesEnmu",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "ENMU student newspaper with reporting during the schoolyear.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1500 S. Ave. K, Station 27",
+        "Address_City": "Portales",
+        "Address_County": "Roosevelt",
+        "Address_State": "NM",
+        "Address_Zip": 88130,
+        "COUNTIES_SERVED": "Roosevelt"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "The Independent News",
+        "WEBSITE": "https://nm.news/edgewood",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1999",
+        "OWNER": "Ctrl+P Publishing",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Monthly free paper mailed to every East Mtns. household, updated more Frequently online, plus newsletter; news by the shared nm.news team. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "317 Commercial St NE Box 2",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM ",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo, Santa Fe, Torrance"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "The Paper.",
+        "WEBSITE": "https://abq.news",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2020",
+        "OWNER": "Ctrl+P Publishing Inc.",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Free alt weekly, Website and newseltter covering the ABQ metro area with news by the shared nm.news team. ",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "120 Dartmouth Dr SE 87106",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87106,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.17603,
+            36.4364797
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Union County Leader",
+        "WEBSITE": "https://www.easternnewmexiconews.com/author/union_county_leader",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Clayton",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1928",
+        "OWNER": "Terry L Martin",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/pages/Union-County-Leader/1664102353847473 ",
+        "Social_Media_Instagram": "https://www.instagram.com/sucasamagazine/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly print-only newspaper covering Clayton, with no digital presence.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "15 N. First Street",
+        "Address_City": "Clayton",
+        "Address_County": "Union",
+        "Address_State": "NM",
+        "Address_Zip": 88415,
+        "COUNTIES_SERVED": "Colfax, Harding, Quay, Roosevelt, Union"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.58415,
+            35.0598091
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "UpLift Chronicles ",
+        "WEBSITE": "https://www.upliftnewmexico.org",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Albuquerque",
+        "FREQ": "Monthly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2022",
+        "OWNER": "New Mexico Black Leadership Council ",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Project of the NM Black Leadership Council with coverage of arts and culture, food, local businesses and government.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1314 Madeira Dr SE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87108,
+        "COUNTIES_SERVED": "Bernalillo, Santa Fe, Torrance, Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.7762,
+            34.6627495
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Valencia County News-Bulletin",
+        "WEBSITE": "https://www.news-bulletin.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Belen",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1910",
+        "OWNER": "Journal Publishing Company",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/valenciacountynewsbulletin",
+        "Social_Media_Instagram": "https://www.instagram.com/vcnewsbulletin/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/VCNewsBulletin",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly paper in Belen covering community events, public safety, government and human interest stories; same Ownership as ABQ Journal.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "221 S. Main St., Suite B",
+        "Address_City": "Belen",
+        "Address_County": "Valencia",
+        "Address_State": "NM",
+        "Address_Zip": 87002,
+        "COUNTIES_SERVED": "Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.78122,
+            37.6245417
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "World Journal newspaper",
+        "WEBSITE": "https://worldjournalnewspaper.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Walsenburg",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2007",
+        "OWNER": "Animas Del Oeste, LLC",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Colorado-based weekly with some coverage of Colfax County, including local government, events and historical features.",
+        "COMMUNITY_IMPACT_LVL": 2,
+        "IMPACT_LVL_DESCRIPTION": "Notable Contributor - Provides core coverage, limited depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "504 MAIN ST",
+        "Address_City": "WALSENBURG",
+        "Address_County": "Huerfano",
+        "Address_State": "CO",
+        "Address_Zip": 81089,
+        "COUNTIES_SERVED": "Colfax"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.96089,
+            32.9030085
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Alamogordo Daily News",
+        "WEBSITE": "https://alamogordonews.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Alamogordo ",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1898",
+        "OWNER": "El Rito Media",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/p/Alamogordo-Daily-News-100063480493287/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/alamogordonews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small paper covering local government, sports and culture, plus shared regional content from other El Rito Mediapapers.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1301 N White Sands Blvd",
+        "Address_City": "Alamogordo ",
+        "Address_County": "Otero",
+        "Address_State": "NM",
+        "Address_Zip": 88012,
+        "COUNTIES_SERVED": "Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Albuquerque Business First",
+        "WEBSITE": "https://www.bizjournals.com/albuquerque",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1982",
+        "OWNER": "American City Business Journals",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/AlbuquerqueBusinessFirst",
+        "Social_Media_Instagram": "https://www.instagram.com/abqbusinessjournal/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/ABQBizFirst",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "American City Business Journals outlet covering business, real estate and tech online and in print, with regular special issues and events.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "6565 Americas Parkway, Suite 770",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87110,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.40248,
+            32.842122
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Artesia Daily Press",
+        "WEBSITE": "https://artesianews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Artesia",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2023",
+        "OWNER": "El Rito Media, LLC",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/artesianews/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/artesianews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Local newspaper with local sports plus government and events; with shared content from other El Rito Media papers.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "503 W. Main Street",
+        "Address_City": "Artesia",
+        "Address_County": "Eddy",
+        "Address_State": "NM ",
+        "Address_Zip": 88210,
+        "COUNTIES_SERVED": "Eddy"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.30845,
+            35.9030078
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Boomtown Los Alamos",
+        "WEBSITE": "https://www.boomtownlosalamos.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Los Alamos",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2023",
+        "OWNER": "Founders/partners: Minesh Bacrania and Stephanie Nakhleh",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/p/Boomtown-Los-Alamos-61559018636903/",
+        "Social_Media_Instagram": "https://www.instagram.com/boomtownlosalamos/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://www.boomtownlosalamos.org/|Substack",
+        "SUMMARY": "A Substack startup Website and newsletter covering local government, events and culture.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2902 Woodland",
+        "Address_City": "Los Alamos",
+        "Address_County": "Los ALamos",
+        "Address_State": "NM ",
+        "Address_Zip": 87544,
+        "COUNTIES_SERVED": "Los Alamos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.23761,
+            32.4257456
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Carlsbad Current-Argus",
+        "WEBSITE": "https://www.currentargus.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Carlsbad",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1889",
+        "OWNER": "El Rito Media, LLC",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/CarlsbadCurrentArgus/",
+        "Social_Media_Instagram": "https://www.instagram.com/currentargus/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/ccurrentargus",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small paper covering local government, sports and culture, plus shared regional content from other El Rito Media papers.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "400-2 Cascades Ave., Suite 101",
+        "Address_City": "Carlsbad",
+        "Address_County": "Eddy",
+        "Address_State": "NM ",
+        "Address_Zip": 88220,
+        "COUNTIES_SERVED": "Eddy"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "City Desk ABQ",
+        "WEBSITE": "https://citydesk.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "2024",
+        "OWNER": "Citizen Media Group",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/citydeskabq/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/citydeskabq",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Albuquerque news site and newsletter; a nonprofit member of the extended nm.news family.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "317 Commercial St NE, #2",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.631,
+            35.0696042
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Daily Lobo",
+        "WEBSITE": "https://www.dailylobo.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1895",
+        "OWNER": "UNM Student Publications",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/DailyLobo/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/user/dailylobo",
+        "Social_Media_X": "https://x.com/dailylobo",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Univeristy of New Mexico's indepedent student paper, focusing on campus government,  events, arts and culture, plus some Albuquerque news.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1155 University Blvd. SE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87106,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.24355,
+            34.471049
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "De Baca County News",
+        "WEBSITE": "https://debacacountynews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Fort Sumner",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1900",
+        "OWNER": "Marshall Scot Stinnett ",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/debacanews/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Weekly newspaper with strong reporting on government, schools and industry in DeBaca County (pop. 1,600).",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "181 E. Sumner Ave.",
+        "Address_City": "Fort Sumner",
+        "Address_County": "De Baca",
+        "Address_State": "NM",
+        "Address_Zip": 88119,
+        "COUNTIES_SERVED": "De Baca"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65765,
+            35.0802164
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Downtown Albuquerque News",
+        "WEBSITE": "https://downtownalbuquerquenews.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2019",
+        "OWNER": "Peter Rice",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/downtownalbuquerquenews/",
+        "Social_Media_Instagram": "https://www.instagram.com/downtownalbuquerquenews/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Hyperlocal newsletter and site covering downtown Albuquerque neighborhoods, development, events and business.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "824 Iron Ave SW",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.20392,
+            34.4031499
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Eastern New Mexico News",
+        "WEBSITE": "https://www.easternnewmexiconews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Clovis",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1907",
+        "OWNER": "Stevenson Newspaper Group",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/@theeasternnewmexiconews/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A consolidation of the Clovis News Journal, Portales News-Tribune and Quay County Sun newspapers that covers a wide swath of Eastern NM from Clovis and Tucumcari.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "521 Pile St.",
+        "Address_City": "Clovis",
+        "Address_County": "Curry",
+        "Address_State": "NM ",
+        "Address_Zip": 88102,
+        "COUNTIES_SERVED": "Curry, De Baca, Roosevelt"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.89308,
+            34.0572858
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "El Defensor Chieftain",
+        "WEBSITE": "https://www.dchieftain.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Socorro",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1868",
+        "OWNER": "Number 9 Media",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/eldefensorchieftain",
+        "Social_Media_Instagram": "https://www.instagram.com/edchieftain/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/EDChieftain",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A small but strong weekly paper covering government, sports, crime and culture in Socorro; same Ownership as ABQ Journal.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "200 Winkler Street",
+        "Address_City": "Socorro",
+        "Address_County": "Socorro",
+        "Address_State": "NM",
+        "Address_Zip": 87801,
+        "COUNTIES_SERVED": "Catron, Sierra, Socorro, Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.74391,
+            35.5283506
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Gallup Sun",
+        "WEBSITE": "https://gallupsunweekly.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Gallup",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2015",
+        "OWNER": "Babette Herrmann",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/Gallupsun/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/gallupsun",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": " A weekly newspaper covering Gallup and the Navajo Nation, publishing some original reporting plus press releases and announcements.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1983 State Road 602",
+        "Address_City": "Gallup",
+        "Address_County": "McKinley",
+        "Address_State": "NM",
+        "Address_Zip": 87301,
+        "COUNTIES_SERVED": "McKinley, Cibola"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.27417,
+            32.7715929
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Grant County Beat",
+        "WEBSITE": "https://www.grantcountybeat.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Silver City",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2010",
+        "OWNER": "MAry Alice Murphy",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/GrantCountyBeat/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Online reporting from Silver City and environs, covering local government, environment and culture.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "500 N. Hudson St.",
+        "Address_City": "Silver City",
+        "Address_County": "Grant",
+        "Address_State": "NM",
+        "Address_Zip": 88062,
+        "COUNTIES_SERVED": "Catron, Grant, Hidalgo, Luna"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.19323,
+            32.1109772
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Jal Record",
+        "WEBSITE": "https://jalrecord.net",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Jal",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Cheryl Chance",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/JalRecordNewspaper/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A weekly paper covering schools, government, sports and crime for a town of 2,000.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "101 E Panther Ave.",
+        "Address_City": "Jal",
+        "Address_County": "Lea",
+        "Address_State": "NM",
+        "Address_Zip": 88252,
+        "COUNTIES_SERVED": "Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.59073,
+            35.105686
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KASA-TV",
+        "WEBSITE": "https://www.telemundonuevomexico.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "Spanish",
+        "Year_Founded": "*",
+        "OWNER": "NBC Telemundo License",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/TelemundoNM/",
+        "Social_Media_Instagram": "https://www.instagram.com/telemundonm",
+        "Social_Media_YouTube": "https://www.youtube.com/@TelemundoNM",
+        "Social_Media_X": "https://x.com/telemundonm",
+        "Social_Media_TikTok": "https://www.tiktok.com/@telemundonm",
+        "Social_Media_Other": "",
+        "SUMMARY": "ABQ-based Telemundo, Spanish-Language TV station producing a daily NM newscast. Also programs KTEL-TV.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2024,
+        "Address_Street": "2400 Monroe Street NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87110,
+        "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe, Torrance, Valencia, Los Alamos "
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.54249,
+            31.833286
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KFOX-TV",
+        "WEBSITE": "https://kfoxtv.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "El Paso",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Sinclair Broadcasting",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KFOXTV/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UC73LU2udy27QFNIgurlBvXg",
+        "Social_Media_X": "https://x.com/kfox14",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "El Paso TV station with sizeable newsroom that includes regular coverage of Doña Ana County and Southern New Mexico.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "200 S. Alto Mesa Dr",
+        "Address_City": "El Paso",
+        "Address_County": "El Paso",
+        "Address_State": "TX",
+        "Address_Zip": 79912,
+        "COUNTIES_SERVED": "Doña Ana, Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KLUZ-TV",
+        "WEBSITE": "https://noticiasnewmexico.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "Spanish",
+        "Year_Founded": "1998",
+        "OWNER": "Brenda Reyes ",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/UnivisionNuevoMexico/",
+        "Social_Media_Instagram": "https://www.instagram.com/noticiasnuevomexico/",
+        "Social_Media_YouTube": "http://www.youtube.com/noticiasya",
+        "Social_Media_X": "https://x.com/univisionnm",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Entravision/ Univision Spanish-Language television channel with local newscasts and digital presence.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "5411 Jefferon St NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87109,
+        "COUNTIES_SERVED": "Bernalillo, Sandoval, Santa Fe, Torrance, Valencia, Los Alamos "
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.44265,
+            36.8859991
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KRTN-AM/FM",
+        "WEBSITE": "https://krtnradio.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Raton",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Enchanted Air ",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KRTNEnchantedAirRadio",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCO3Nms0GxXwE_ko5ykbWyKg",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small Raton radio station with a wide variety of original reporting on community issues.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "1128 State St",
+        "Address_City": "Raton",
+        "Address_County": "Colfax",
+        "Address_State": "NM",
+        "Address_Zip": 87740,
+        "COUNTIES_SERVED": "Colfax"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77981,
+            32.3140354
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KRWG-FM/TV",
+        "WEBSITE": "https://www.krwg.org",
+        "PRIMARY_MEDIA": "Multiplatform",
+        "City_Based": "Las Cruces",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1964",
+        "OWNER": "KRWG Public Media is licensed to the Board of Regents of New Mexico State University.",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/krwg.publicmedia",
+        "Social_Media_Instagram": "https://www.instagram.com/krwg.publicmedia/",
+        "Social_Media_YouTube": "https://www.youtube.com/@krwg.publicmedia",
+        "Social_Media_X": "https://x.com/krwg",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "NPR and PBS public radio and television covering airs student-produced content and news from a small team.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2915 McFie Circle",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana ",
+        "Address_State": "NM",
+        "Address_Zip": 88003,
+        "COUNTIES_SERVED": "Doña Ana, Grant, Hidalgo, Luna, Otero, Sierra"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.61369,
+            35.0844715
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KUNM-FM",
+        "WEBSITE": "https://www.kunm.org",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1966",
+        "OWNER": "The University of New Mexico holds our broadcast license",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/KUNMRadio/",
+        "Social_Media_Instagram": "https://www.instagram.com/KUNMradio/",
+        "Social_Media_YouTube": "https://www.youtube.com/@KUNMradio/videos",
+        "Social_Media_X": "https://x.com/kunmnews",
+        "Social_Media_TikTok": "https://www.tiktok.com/@kunmnews",
+        "Social_Media_Other": "",
+        "SUMMARY": "The state's largest NPR affiliate, based at UNM, airs original news reporting and produces a call-in show.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "303 Girard Blvd. NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87106,
+        "COUNTIES_SERVED": "Bernalillo, Cibola, Colfax, Guadalupe, Harding, Los Alamos, McKinley, Mora, Rio Arriba, San Juan, San Miguel, Sandoval, Santa Fe, Sierra, Socorro, Taos, Torrance, Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.5139,
+            31.7939545
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KVIA-TV",
+        "WEBSITE": "https://kvia.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "El Paso",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1956",
+        "OWNER": "News-Press & Gazette",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "ABC affliliate in El Paso, Texas provides some daily coverage of events in Southern New Mexico.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4140 Rio Bravo",
+        "Address_City": "El Paso",
+        "Address_County": "El Paso ",
+        "Address_State": "TX",
+        "Address_Zip": 79902,
+        "COUNTIES_SERVED": "Doña Ana, Lincoln, Luna, Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.30103,
+            35.8816827
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Los Alamos Reporter",
+        "WEBSITE": "https://losalamosreporter.com/",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Los Alamos",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "2018",
+        "OWNER": "Maire O'Neill",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/LosAlamosReporter/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A digital community news site with original reporting by an experienced journalist.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "199 Central Park Square",
+        "Address_City": "Los Alamos",
+        "Address_County": "Los Alamos",
+        "Address_State": "NM",
+        "Address_Zip": 87544,
+        "COUNTIES_SERVED": "Los Alamos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.59551,
+            35.0875084
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Native America Calling / National Native News",
+        "WEBSITE": "https://nativeamericacalling.com",
+        "PRIMARY_MEDIA": "Radio",
+        "City_Based": "Albuquerque",
+        "FREQ": "Occasionally or Sporadically",
+        "LANGUAGE": "English",
+        "Year_Founded": "1995",
+        "OWNER": "Koahnic Broadcast Corporation",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/nativeamericacalling",
+        "Social_Media_Instagram": "https://www.instagram.com/nativeamericacalling/",
+        "Social_Media_YouTube": "https://www.youtube.com/@nativevoiceone",
+        "Social_Media_X": " https://x.com/180099native",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Two national radio programs produced in ABQ, with some significant coverage of New Mexico issues.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4401 Lomas Blvd NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87110,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65136,
+            35.0877578
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "New Mexico In Depth",
+        "WEBSITE": "https://nmindepth.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2012",
+        "OWNER": "New Mexico InDepth",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/NMInDepth",
+        "Social_Media_Instagram": "https://www.instagram.com/nmindepth/",
+        "Social_Media_YouTube": "https://www.youtube.com/user/NMInDepth",
+        "Social_Media_X": "https://x.com/NMInDepth",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Online outfit providing explanatory and accountability reporting around indigenous affairs, state government and politics, healthcare etc.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1 Civic Plaza",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo, Cibola, Doña Ana, McKinley, San Juan, Santa Fe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.07987,
+            35.9907734
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Rio Grande Sun",
+        "WEBSITE": "https://riograndesun.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Espanola",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1950",
+        "OWNER": "El Rito Media",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "http://www.facebook.com/Rio-Grande-Sun-116326938388116/",
+        "Social_Media_Instagram": "https://www.instagram.com/riograndesun/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/rgsun",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small weekly paper with coverage of Española Valley crime, politics, schools and sports, with some content from other El Rito Media papers.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "530 Paseo De Onate",
+        "Address_City": "Espanola",
+        "Address_County": "Rio Arriba",
+        "Address_State": "NM",
+        "Address_Zip": 87532,
+        "COUNTIES_SERVED": "Rio Arriba"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -104.52324,
+            33.4197212
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Roswell Daily Record",
+        "WEBSITE": "https://rdrnews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Roswell",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1897",
+        "OWNER": "Roswell Daily Record, Inc",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/RoswellDailyRecord/",
+        "Social_Media_Instagram": "https://www.instagram.com/rdrnews/",
+        "Social_Media_YouTube": "https://www.youtube.com/c/roswelldailyrecord/featured",
+        "Social_Media_X": "https://x.com/RDRNews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Small paper providing primary coverage for Roswell and Chaves County.",
+        "COMMUNITY_IMPACT_LVL": 2.25,
+        "IMPACT_LVL_DESCRIPTION": "Solid Contributor - Regularly covers key issues, with selective reach and depth.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2301 N Main Street",
+        "Address_City": "Roswell",
+        "Address_County": "Chaves",
+        "Address_State": "NM",
+        "Address_Zip": 88201,
+        "COUNTIES_SERVED": "Chaves"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -107.84809,
+            35.149823
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Cibola Citizen",
+        "WEBSITE": "https://cibolacitizen.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Grants",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2017",
+        "OWNER": "Brett Wesner",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/CibolaCitizen/",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/cibolacitizen",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A weekly newspaper of notable depth for its size, with strong coverage of local schools, sports and government; includes content from Grants High School student journalists.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "200 Santa Fe Ave.",
+        "Address_City": "Grants",
+        "Address_County": "Cibola",
+        "Address_State": "NM",
+        "Address_Zip": 87020,
+        "COUNTIES_SERVED": "Cibola"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.74417,
+            32.9583425
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Cloudcroft Reader",
+        "WEBSITE": "https://www.cloudcroftreader.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Cloudcroft ",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2023",
+        "OWNER": "Sacramento Mountain News LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "https://www.instagram.com/cloudcroftreader/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://www.cloudcroftreader.com/|Substack",
+        "SUMMARY": "A small, independent startup doing original reporting on government and lifestyle issues via Substack in Cloudcroft (pop. 750).",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "20 Curlew Place",
+        "Address_City": "Cloudcroft ",
+        "Address_County": "Otero",
+        "Address_State": "NM",
+        "Address_Zip": 88317,
+        "COUNTIES_SERVED": "Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77981,
+            32.3140354
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "CrimsonWire",
+        "WEBSITE": "https://crimsonwire.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Las Cruces",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "2024",
+        "OWNER": "New Mexico State University Department of Journalism and Media Studies",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/CrimsonWireNMSU/",
+        "Social_Media_Instagram": "https://www.instagram.com/crimsonwirenmsu/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Digital, multiplatform, original reporting by student journalists at NMSU, focused on campus and Las Cruces. ",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2915 McFie Circle",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana ",
+        "Address_State": "NM",
+        "Address_Zip": 88003,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.74391,
+            35.5283506
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Gallup Independent",
+        "WEBSITE": "https://gallupindependent.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Gallup",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Gallup Independent Newspapers Inc",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/GallupIndependent",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/gallupind",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Daily paper with watchdog coverage of the Gallup area, plus arts and culture. No online presence outside of E-edition, Facebook.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "500 N. Ninth Street",
+        "Address_City": "Gallup",
+        "Address_County": "McKinley",
+        "Address_State": "NM",
+        "Address_Zip": 87301,
+        "COUNTIES_SERVED": "McKinley"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -103.13954,
+            32.7132792
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Hobbs News-Sun",
+        "WEBSITE": "https://www.hobbsnews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Hobbs",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1932",
+        "OWNER": "Sunrise Publishing",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/hobbsnewssun",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCfW8lClCfjT6o64yyhRy8pw",
+        "Social_Media_X": "https://x.com/HobbsNewsSun",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Daily newspaper with digital presence, covers Hobbs and Lea County with original reporting on government, sports, business and education.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "201 N. Thorp",
+        "Address_City": "Hobbs",
+        "Address_County": "Lea",
+        "Address_State": "NM",
+        "Address_Zip": 88240,
+        "COUNTIES_SERVED": "Lea"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.77862,
+            32.3052744
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Las Cruces Bulletin",
+        "WEBSITE": "https://www.lascrucesbulletin.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Las Cruces",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1969",
+        "OWNER": "Osteen Media Group",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/lcbulletin",
+        "Social_Media_Instagram": "https://www.instagram.com/lascrucesbulletin/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/LCBulletin/",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "https://linktr.ee/lascrucesbulletin|Linktree",
+        "SUMMARY": "Weekly newspaper and site serving Las Cruces with local coverage of issues and events.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "506 S. Main Street",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM ",
+        "Address_Zip": 88001,
+        "COUNTIES_SERVED": "Doña Ana"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -109.05815,
+            35.6763274
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Navajo Times",
+        "WEBSITE": "https://www.navajotimes.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Window Rock",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1960",
+        "OWNER": "Navajo Times Publishing Co. Inc. ",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://facebook.com/navajotimes",
+        "Social_Media_Instagram": "https://instagram.com/navajotimes",
+        "Social_Media_YouTube": "https://www.youtube.com/c/NavajotimesAZ",
+        "Social_Media_X": "https://x.com/navajotimes",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Newspaper serving Navajo Nation with original reporting independent of tribal government.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "NE Corner of State route 264 and Navajo, Route 12 Suite 13-A",
+        "Address_City": "Window Rock",
+        "Address_County": "Apache",
+        "Address_State": "AZ",
+        "Address_Zip": 86515,
+        "COUNTIES_SERVED": "McKinley"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.62454,
+            35.0943167
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "NMPBS/KNME-TV",
+        "WEBSITE": "https://www.nmpbs.org",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Albuquerque",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1958",
+        "OWNER": "Board of Regents for the University of New Mexico and the Board of Education for Albuquerque Public Schools",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/NewMexicoPBS/",
+        "Social_Media_Instagram": "https://www.instagram.com/nmpbs/",
+        "Social_Media_YouTube": "https://www.youtube.com/user/newmexicopbs",
+        "Social_Media_X": "https://x.com/NMPBS",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "PBS station with a weekly local public affairs show and other local programming on arts and culture, including indigenous issues.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "1130 University Blvd. NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87102,
+        "COUNTIES_SERVED": "Bernalillo, Catron, Chaves, Cibola, Colfax, De Baca, Grant, Guadalupe, Harding, Hidalgo, Lincoln, Los Alamos, Luna, McKinley, Mora, Otero, Rio Arriba, San Juan, San Miguel, Sandoval, Santa Fe, Sierra, Socorro, Taos, Torrance, Union, Valencia"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.63298,
+            35.2702448
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Rio Rancho Observer",
+        "WEBSITE": "https://rrobserver.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Rio Rancho",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "1926",
+        "OWNER": "Albuquerque Publishing Company",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/RioRanchoObserver/",
+        "Social_Media_Instagram": "https://www.instagram.com/rrobserver/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCzWHAWlju33r4fGN0tXvxNw",
+        "Social_Media_X": "https://x.com/rrobserver",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Suburban ABQ weekly paper covering crime, government, sports and lifestyle; same Ownership as ABQ Journal.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2316 Southern Blvd., Suite B",
+        "Address_City": "Rio  Rancho",
+        "Address_County": "Sandoval",
+        "Address_State": "NM ",
+        "Address_Zip": 87124,
+        "COUNTIES_SERVED": "Sandoval"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.27791,
+            32.7714554
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Silver City Daily Press and Independent",
+        "WEBSITE": "https://scdailypress.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Silver City",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1896",
+        "OWNER": "Silver City Independent Publishing Co LLC",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/SCDailyPress",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Strong coverage of Grant County public affairs, sports, business, arts and culture.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "300 W Market St",
+        "Address_City": "Silver City",
+        "Address_County": "Grant",
+        "Address_State": "NM",
+        "Address_Zip": 88061,
+        "COUNTIES_SERVED": "Catron, Grant"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.74716,
+            32.2847228
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "The Round Up",
+        "WEBSITE": "https://nmsuroundup.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Las Cruces",
+        "FREQ": "Semi-Daily (fewer than 7 days a week)",
+        "LANGUAGE": "English",
+        "Year_Founded": "1907",
+        "OWNER": "NMSU Journalism Department",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/NMSUroundup/",
+        "Social_Media_Instagram": "https://www.instagram.com/nmsuroundup/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UCzD7WkZZMQoGB2iG27oN7Xw",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "The Independent student newspaper at NMSU with strong coverage of campus and Las Cruces. Publishes during the school year.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "2795 S Locust St.",
+        "Address_City": "Las Cruces",
+        "Address_County": "Doña Ana",
+        "Address_State": "NM",
+        "Address_Zip": 88003,
+        "COUNTIES_SERVED": "Doña Ana, Otero"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -108.20498,
+            36.729175
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Tri-City Record",
+        "WEBSITE": "https://tricityrecordnm.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Farmington",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Ballantine Communications",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "A regional paper and Website with wide coverage of Four Corners communities and significant NM-related content from media partners.",
+        "COMMUNITY_IMPACT_LVL": 2.5,
+        "IMPACT_LVL_DESCRIPTION": "Strong Resource - Provides well-rounded, reliable coverage to meet community needs.",
+        "LAST_UPDATE": 2023,
+        "Address_Street": "108 Main St",
+        "Address_City": "Farmington",
+        "Address_County": "San Juan",
+        "Address_State": "NM",
+        "Address_Zip": 87401,
+        "COUNTIES_SERVED": "San Juan"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.65099,
+            35.0841034
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KOAT-TV",
+        "WEBSITE": "https://www.koat.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Hearst Properties Inc. ",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/koat7",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "https://www.youtube.com/user/koattv",
+        "Social_Media_X": "https://x.com/koat7news",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "ABC affiliate produces strong ABQ-area news and some statewide coverage, plus app and alerts.",
+        "COMMUNITY_IMPACT_LVL": 2.75,
+        "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "3801 Carlise Blvd NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87107,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.66567,
+            35.0814625
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KOB-TV",
+        "WEBSITE": "https://kob.com",
+        "PRIMARY_MEDIA": "Multiplatform",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1948",
+        "OWNER": "Hubbard Broadcasting Inc.",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/KOBTV",
+        "Social_Media_Instagram": "https://www.instagram.com/kobtv4/",
+        "Social_Media_YouTube": "https://www.youtube.com/user/kobtv4",
+        "Social_Media_X": "https://x.com/KOB4",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "NBC affiliate produces strong ABQ-area news and some statewide coverage, plus app and alerts. Also airs on KOBF-TV.",
+        "COMMUNITY_IMPACT_LVL": 2.75,
+        "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "4 Broadcast Plz SW",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87104,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.66537,
+            35.0820751
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "KRQE-TV",
+        "WEBSITE": "https://www.krqe.com",
+        "PRIMARY_MEDIA": "Television",
+        "City_Based": "Albuquerque",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "*",
+        "OWNER": "Nextstar Media Grp",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/krqenews",
+        "Social_Media_Instagram": "https://www.instagram.com/krqe/",
+        "Social_Media_YouTube": "https://www.youtube.com/user/KRQE",
+        "Social_Media_X": "https://x.com/krqe",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "CBS affiliate's large newsroom produces strong ABQ-area news and some statewide coverage, plus app and alerts. Newscasts also air on KASY-TV, KREZ-TV, KBIM-TV and KWBQ-TV.",
+        "COMMUNITY_IMPACT_LVL": 2.75,
+        "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
+        "LAST_UPDATE": 2022,
+        "Address_Street": "13 Broadcast Pl SW",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87104,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93877,
+            35.6877047
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Source New Mexico",
+        "WEBSITE": "https://sourcenm.com",
+        "PRIMARY_MEDIA": "Multiplatform",
+        "City_Based": "Santa Fe",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "2021",
+        "OWNER": "States Newsroom",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Online-only States Newsroom member with aggressive coverage of state government and politics, environment and health.",
+        "COMMUNITY_IMPACT_LVL": 2.75,
+        "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "63 Lincoln Ave.",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87501,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.57328,
+            36.4072377
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Taos News",
+        "WEBSITE": "https://www.taosnews.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Taos",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1959",
+        "OWNER": "Robin Martin",
+        "OWNER_TYPE": "For profit organization",
+        "Social_Media_Facebook": "",
+        "Social_Media_Instagram": "",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/taosnews",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Deep coverage of arts and culture, plus government, public safety, sports and Frequent special issues.",
+        "COMMUNITY_IMPACT_LVL": 2.75,
+        "IMPACT_LVL_DESCRIPTION": "Trusted Anchor - Consistent primary source for comprehensive local information.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "226 Albright Steet",
+        "Address_City": "Taos",
+        "Address_County": "Taos",
+        "Address_State": "NM",
+        "Address_Zip": 87571,
+        "COUNTIES_SERVED": "Colfax, Rio Arriba, Taos"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.59017,
+            35.1688953
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Albuquerque Journal",
+        "WEBSITE": "https://www.abqjournal.com",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1882",
+        "OWNER": "Lang family (local ABQ)",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/TheAlbuquerqueJournal",
+        "Social_Media_Instagram": "https://www.instagram.com/abqjournal/",
+        "Social_Media_YouTube": "https://www.youtube.com/channel/UClfbSj-gmJ5J02lAbMYAFkQ",
+        "Social_Media_X": "https://x.com/abqjournal",
+        "Social_Media_TikTok": "https://www.tiktok.com/@abqjournal",
+        "Social_Media_Other": "https://apps.apple.com/us/app/albuquerque-journal-newspaper/id452844819|App",
+        "SUMMARY": "The state's largest daily newspaper, now digital-first, with original reporting on crime, business, sports, government, arts and entertainment.",
+        "COMMUNITY_IMPACT_LVL": 3,
+        "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "7777 Jefferson NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87109,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -106.58893,
+            35.1674074
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Associated Press",
+        "WEBSITE": "https://apnews.com",
+        "PRIMARY_MEDIA": "Multiplatform",
+        "City_Based": "Albuquerque",
+        "FREQ": "More than once a day",
+        "LANGUAGE": "English",
+        "Year_Founded": "1846",
+        "OWNER": "Associated Press Inc",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/APNews",
+        "Social_Media_Instagram": "https://www.instagram.com/apnews/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/ap",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "An experienced team covering state government, elections, natural disasters and other local news of national interest to member outlets.",
+        "COMMUNITY_IMPACT_LVL": 3,
+        "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "5130 San Francisco Rd NE",
+        "Address_City": "Albuquerque",
+        "Address_County": "Bernalillo",
+        "Address_State": "NM",
+        "Address_Zip": 87108,
+        "COUNTIES_SERVED": "All"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93756,
+            35.6887721
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Santa Fe New Mexican",
+        "WEBSITE": "https://www.santafenewmexican.com",
+        "PRIMARY_MEDIA": "Print",
+        "City_Based": "Santa Fe",
+        "FREQ": "Daily",
+        "LANGUAGE": "English",
+        "Year_Founded": "1849",
+        "OWNER": "Robin Martin",
+        "OWNER_TYPE": "Private individual or family",
+        "Social_Media_Facebook": "https://www.facebook.com/santafenewmexican/",
+        "Social_Media_Instagram": "https://www.instagram.com/sfnewmexican/",
+        "Social_Media_YouTube": "http://www.youtube.com/user/sfnmwebed/videos",
+        "Social_Media_X": "https://x.com/thenewmexican/",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "The capital city's daily newspaper with comprehensive state and local coverage.",
+        "COMMUNITY_IMPACT_LVL": 3,
+        "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "150 Washington Ave",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87501,
+        "COUNTIES_SERVED": "Los Alamos, Rio Arriba, San Miguel, Sandoval, Santa Fe"
+        }
+    },
+    {
+        "type": "Feature",
+        "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -105.93846,
+            35.6876096
+        ]
+        },
+        "properties": {
+        "OUTLET_NAME": "Searchlight New Mexico",
+        "WEBSITE": "https://searchlightnm.org",
+        "PRIMARY_MEDIA": "Digital",
+        "City_Based": "Santa Fe",
+        "FREQ": "Weekly",
+        "LANGUAGE": "English",
+        "Year_Founded": "2018",
+        "OWNER": "Searchlight NM News 501c3",
+        "OWNER_TYPE": "Nonprofit organization",
+        "Social_Media_Facebook": "https://www.facebook.com/SearchlightNewMexico/",
+        "Social_Media_Instagram": "https://www.instagram.com/searchlightnm/",
+        "Social_Media_YouTube": "",
+        "Social_Media_X": "https://x.com/SearchlightNM",
+        "Social_Media_TikTok": "",
+        "Social_Media_Other": "",
+        "SUMMARY": "Nonprofit investigative digital news service offering richly reported stories republished by partners.",
+        "COMMUNITY_IMPACT_LVL": 3,
+        "IMPACT_LVL_DESCRIPTION": "Model for Service - Demonstrates outstanding breadth and depth in community coverage.",
+        "LAST_UPDATE": 2025,
+        "Address_Street": "441 Greg Ave, Ste. 100",
+        "Address_City": "Santa Fe",
+        "Address_County": "Santa Fe",
+        "Address_State": "NM",
+        "Address_Zip": 87501,
+        "COUNTIES_SERVED": "All"
+        }
+    }
+  ]
+}
