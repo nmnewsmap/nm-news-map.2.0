@@ -237,6 +237,10 @@ border-radius: 5px;
 border-top: 5px solid var(--color-ocean);
 }
 
+.menu-container[data-container="layers"] {
+border-top: 5px solid var(--color-deepblue);
+}
+
 .mc-header {
 float: left;
 width: 100%;
@@ -400,6 +404,10 @@ transition: padding ease 500ms;
 cursor: pointer;
 box-sizing: border-box;
 z-index: 10;
+}
+
+.map-marker[data-cluster="true"] {
+border-color: #515151 !important;
 }
 
 .map-marker:hover {
