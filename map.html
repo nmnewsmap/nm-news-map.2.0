@@ -4,20 +4,20 @@
 
     <title>New Mexico News Media Map</title>
 
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="New Mexico News Media Map" />
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="New Mexico News Media Map">
 
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet" />
-    <link href="assets/css/map.css" rel="stylesheet" />
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css" rel="stylesheet">
+    <link href="assets/css/map.css" rel="stylesheet">
 
-    <link href="assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
-    <link href="assets/fonts/fontawesome/css/brands.min.css" rel="stylesheet" />
-    <link href="assets/fonts/fontawesome/css/solid.min.css" rel="stylesheet" />
+    <link href="assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="assets/fonts/fontawesome/css/brands.min.css" rel="stylesheet">
+    <link href="assets/fonts/fontawesome/css/solid.min.css" rel="stylesheet">
 
 </head>
 
@@ -35,8 +35,8 @@
                 </div>
                 <div id="menu-logo">
                     <a href="https://www.nmnewsmap.org/" title="New Mexico News Map" target="_parent">
-                        <img id="menu-logo-brandmark" src="assets/media/logo-nmmap-brandmark.png" alt="NM News Map Brand Mark" data-visible="false" />
-                        <img id="menu-logo-full" src="assets/media/logo-nmmap-full.png" alt="NM News Map Logo" data-visible="true" />
+                        <img id="menu-logo-brandmark" src="assets/media/logo-nmmap-brandmark.png" alt="NM News Map Brand Mark" data-visible="false">
+                        <img id="menu-logo-full" src="assets/media/logo-nmmap-full.png" alt="NM News Map Logo" data-visible="true">
                     </a>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="mp-header">
-                        <h4 data-mp-property="outlet_name"></h4>
+                        <h4 data-mp-property="outlet_name">&nbsp;</h4>
                         <p data-mp-property="summary"></p>
                     </div>
 
@@ -192,6 +192,31 @@
 
             </div>
 
+        </div>
+
+        <div data-template="popup-cluster">
+
+            <div class="map-popup-wrapper">
+
+                <div class="mp-container">
+
+                    <a href="javascript:;" class="mp-close" title="Close popup"><i class="fa-solid fa-xmark"></i></a>
+
+                    <div class="mp-top"></div>
+
+                    <div class="mp-header">
+                        <h4>Nearby Outlets</h4>
+                        <p>Select an outlet to see its information</p>
+                    </div>
+
+                    <div class="mp-body">
+                        <div class="mp-body-row" data-type="template">
+                            <div class="mp-row-title" data-mp-property="outlet_name"></div>
+                            <p class="mp-row-description">Based in <span data-mp-property="city_based"></span> in <span data-mp-property="county_based"></span> County</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -3,10 +3,12 @@ const base_dir = 'assets/data/';
 
 const config = {
     data: {
+        markers: window.outletsGeojsonFeatures,
         counties: base_dir + 'nm_counties_wgs84.geojson', // General county geographic data
         census: base_dir + 'nm_counties_with_census.geojson', // County-based census data
     },
     operations: {
+        sort_column: 'outlet_name', // The column for sorting markers by
         county_delimiter: ',', // The delimiter for multiple counties in the county column
         county_all_term: 'all', // The term used in marker county data for all-encompassing county coverage
         counties_column: 'counties_served', // The column that includes the marker's county data
@@ -128,6 +130,11 @@ const schema = {
         label: 'City Based',
         description: "The city of the outlet's office headquarters",
     },
+    'county_based': {
+        id: 'county_based',
+        column: 'Address_County',
+        label: 'County Based',
+    },
     'frequency': {
         id: 'frequency',
         column: 'FREQ',
@@ -213,6 +220,7 @@ const schema = {
         id: 'counties_served',
         column: 'COUNTIES_SERVED',
         label: 'Counties Served',
+        format: 'csv',
     },
     'updated_at': {
         id: 'updated_at',
@@ -236,7 +244,8 @@ const map = new mapboxgl.Map({
     center: [-106.2485, 34.5199], // New Mexico
     zoom: 5, // State level
     minZoom: 5,
-    maxZoom: 10,
+    maxZoom: 9,
+    hash: true,
     attributionControl: false,
     maxBounds: [
         [-110.301, 29.741],
@@ -252,13 +261,14 @@ map.fitBounds([[-102.999,31.415], [-108.601,36.902]], {
         left: 50,
         right: 50
     },
+    duration: 500,
 });
 
 // Map controls
 const nav = new mapboxgl.NavigationControl({
     showCompass: false,
 });
-map.addControl(nav, 'top-right');
+map.addControl(nav, 'bottom-right');
 
 // disable map rotation using right click + drag
 map.dragRotate.disable();
@@ -279,11 +289,8 @@ map.addControl(new mapboxgl.AttributionControl({
  */
 map.on('load', function() {
 
-    // Initialize feature collection for outlet data
-    const outletData = {
-        type: 'FeatureCollection',
-        features: window.outletsGeojsonFeatures,
-    };
+    // Initialize marker data
+    const markerData = config.data.markers;
 
     // Load counties boundary source
     map.addSource('counties', {
@@ -471,11 +478,14 @@ map.on('load', function() {
         }//normalizeCountyName
 
         // Filter and update data
-        outletData.features.filter((feature) => 
+        markerData.features.filter((feature) => 
                 // Ignore if invalid GeoJSON properties
                 (feature.geometry && feature.geometry.coordinates)
             )
-            .map((feature) => {
+            .map((feature, index) => {
+                // Set marker index
+                feature.properties.index = index;
+
                 // Get list of counties served
                 let countiesServed = feature.properties[schema[config.operations.counties_column].column];
 
@@ -512,7 +522,7 @@ map.on('load', function() {
         ];
 
         // Populate categories with unique values from each data record
-        window.outletsGeojsonFeatures.forEach((record) => {
+        markerData.features.forEach((record) => {
 
             // Popuplate the template based on the schema's definition and the given data
             Object.values(schema).forEach((property) => {
@@ -751,7 +761,7 @@ map.on('load', function() {
     
     /**
      * drawMarkers
-     * Update marker clusters
+     * Update markers
      */
     function drawMarkers() {
         // Clear existing markers and popups
@@ -759,27 +769,28 @@ map.on('load', function() {
         allMarkers = [];
         closeAllPopups();
 
+        // Check if marker data exists
+        if (! markerData || ! markerData.features) return;
+
         // Get current zoom level for adaptive behavior
         const currentZoom = map.getZoom();
+        const maxZoom = map.getMaxZoom();
       
         // Dynamic proximity threshold based on zoom level
         // Higher zoom = smaller threshold (less clustering)
         // Lower zoom = larger threshold (more clustering)
-        const baseThreshold = 0.003;
+        const baseThreshold = 0.2; // 0.003
         const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
       
         // Dynamic marker size based on zoom level
-        const baseSize = 18;
+        const baseSize = 28; //18
         const markerSize = Math.max(12, Math.min(28, baseSize + (currentZoom - 7) * 2));
 
         // Dynamic offset distance with minimum threshold for visibility
-        const baseOffset = 0.004; // ~440m base offset
+        const baseOffset = 0.014; // ~440m base offset
         const dynamicOffset = baseOffset * Math.pow(0.75, currentZoom - 7);
         const minimumOffset = 0.002; // Minimum 220m offset for visibility
         const offsetDistance = Math.max(dynamicOffset, minimumOffset);
-
-        // Check if outletData exists
-        if (! outletData || ! outletData.features) return;
 
         // Update active filters cache
         let filterCategoryActive = $('.menu-container[data-container="filters"]  .mc-category.active');
@@ -802,8 +813,8 @@ map.on('load', function() {
         // Initialize marker clusters
         const clusters = [];
 
-        // Group nearby outlets into clusters (with filtering)
-        outletData.features.forEach(function(feature) {
+        // Group nearby markers into clusters with filtering
+        markerData.features.forEach(function(feature) {
             // Ignore if invalid GeoJSON properties
             if (!feature.geometry || !feature.geometry.coordinates) return;
 
@@ -815,6 +826,7 @@ map.on('load', function() {
                 if (! filterPropertyValue || ! activeFilters.includes(filterPropertyValue)) return;
             }
 
+            // Get coordinates
             const lng = feature.geometry.coordinates[0];
             const lat = feature.geometry.coordinates[1];
 
@@ -831,102 +843,53 @@ map.on('load', function() {
                 }
             }
 
-            if (foundCluster) {
+            if (foundCluster) {// && currentZoom < (maxZoom - 2)) {
                 // Add to existing cluster
-                foundCluster.outlets.push(feature);
+                foundCluster.markers.push(feature);
                 // Update cluster center to be more central
-                const totalOutlets = foundCluster.outlets.length;
-                foundCluster.centerLng = foundCluster.outlets.reduce((sum, o) => sum + o.geometry.coordinates[0], 0) / totalOutlets;
-                foundCluster.centerLat = foundCluster.outlets.reduce((sum, o) => sum + o.geometry.coordinates[1], 0) / totalOutlets;
+                const totalMarkers = foundCluster.markers.length;
+                foundCluster.centerLng = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[0], 0) / totalMarkers;
+                foundCluster.centerLat = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[1], 0) / totalMarkers;
             } else {
                 // Create new cluster
                 clusters.push({
                     centerLng: lng,
                     centerLat: lat,
-                    outlets: [feature]
+                    markers: [feature]
                 });
             }
-        });
+        }); // foreach marker data
 
         // Create markers with zoom-adaptive offsets
-        let clusteredCount = 0;
-        clusters.forEach(function(cluster, clusterIndex) {
-            if (cluster.outlets.length > 1) {
-                clusteredCount += cluster.outlets.length;
-                //console.log(`🔗 Cluster ${clusterIndex + 1}: ${cluster.outlets.length} outlets at [${cluster.centerLng.toFixed(4)}, ${cluster.centerLat.toFixed(4)}]`);
-                cluster.outlets.forEach((outlet, idx) => {
-                    //console.log(`   - ${outlet.properties["Outlet Name"]}`);
-                });
-            }
-
-            cluster.outlets.forEach(function(feature, index) {
-                // Get original coordinates
-                const originalLng = feature.geometry.coordinates[0];
-                const originalLat = feature.geometry.coordinates[1];
-
-                // Calculate offset for clustered markers
-                let offsetLng = originalLng;
-                let offsetLat = originalLat;
-
-                if (cluster.outlets.length > 1) {
-                    // Check if outlets have identical coordinates (same address)
-                    const hasIdenticalCoords = cluster.outlets.every(outlet => 
-                        Math.abs(outlet.geometry.coordinates[0] - cluster.outlets[0].geometry.coordinates[0]) < 0.0001 &&
-                        Math.abs(outlet.geometry.coordinates[1] - cluster.outlets[0].geometry.coordinates[1]) < 0.0001
-                    );
-
-                    // Use larger offset for identical coordinates
-                    const actualOffset = hasIdenticalCoords ? Math.max(offsetDistance, 0.003) : offsetDistance; // Minimum 330m for identical coords
-
-                    if (index === 0) {
-                        // First outlet stays at cluster center
-                        offsetLng = cluster.centerLng;
-                        offsetLat = cluster.centerLat;
-                        //console.log(`   📍 ${feature.properties["Outlet Name"]}: CENTER [${offsetLng.toFixed(4)}, ${offsetLat.toFixed(4)}]`);
-                    } else {
-                        // Smart urban clustering: Use different patterns based on cluster size
-                        let finalOffsetLng, finalOffsetLat, patternInfo;
-
-                        if (cluster.outlets.length <= 4) {
-                            // Small clusters: Simple circular pattern
-                            const angle = ((index - 1) * (360 / (cluster.outlets.length - 1))) * (Math.PI / 180);
-                            finalOffsetLng = cluster.centerLng + (actualOffset * Math.cos(angle));
-                            finalOffsetLat = cluster.centerLat + (actualOffset * Math.sin(angle));
-                            patternInfo = `circular-${((index - 1) * (360 / (cluster.outlets.length - 1))).toFixed(0)}°`;
-                        } else {
-                            // Large clusters: Multi-ring spiral pattern for better separation
-                            const ringSize = 3; // Outlets per ring
-                            const ringNumber = Math.floor((index - 1) / ringSize);
-                            const positionInRing = (index - 1) % ringSize;
-                            const ringRadius = actualOffset * (1 + ringNumber * 0.7); // Each ring 70% larger
-                            const angleStep = 360 / Math.min(ringSize, cluster.outlets.length - 1 - (ringNumber * ringSize));
-                            const angle = (positionInRing * angleStep) * (Math.PI / 180);
-
-                            finalOffsetLng = cluster.centerLng + (ringRadius * Math.cos(angle));
-                            finalOffsetLat = cluster.centerLat + (ringRadius * Math.sin(angle));
-                            patternInfo = `ring-${ringNumber + 1}-pos-${positionInRing + 1}`;
-                        }
-
-                        offsetLng = finalOffsetLng;
-                        offsetLat = finalOffsetLat;
-                        //console.log(`   📍 ${feature.properties["Outlet Name"]}: OFFSET [${offsetLng.toFixed(4)}, ${offsetLat.toFixed(4)}] (${patternInfo}, ${hasIdenticalCoords ? 'IDENTICAL COORDS' : 'NEARBY'})`);
-                    }
+        clusters.forEach(function(cluster) {
+            // Add marker
+            addMarker(
+                cluster.markers[0], // Use first marker as dummy marker
+                cluster.centerLng,
+                cluster.centerLat,
+                markerSize, 
+                {
+                    is: cluster.markers.length > 1 ? true : false,
+                    count: cluster.markers.length,
+                    coordinates: {
+                        lng: cluster.centerLng,
+                        lat: cluster.centerLat,
+                    },
+                    markers: cluster.markers,
                 }
+            );
+        });// foreach clusters
 
-                // Add marker
-                addMarker(feature, offsetLng, offsetLat, markerSize);
-            });
-        });
     }// drawMarkers
-    
+
     /**
      * addMarker
      * Add a marker on the map
      */
-    function addMarker(feature, offsetLng, offsetLat, markerSize) {
+    function addMarker(feature, coordLng, coordLat, markerSize, cluster) {
         // Get HTML template for popups
         let html = $('#map-templates div[data-template="marker"]').clone();
-        html.attr('id', btoa(feature.geometry.coordinates[0] + '-' + feature.geometry.coordinates[1]));
+        html.find('.map-marker').attr('data-index', feature.properties.index);
         html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
 
         // Get property for coloring
@@ -934,71 +897,102 @@ map.on('load', function() {
         const colorPropertyValue = feature.properties[colorProperty.column];
 
         // Add marker color
-        html.find('.map-marker').css('background-color', colorProperty.options[colorPropertyValue].color);
+        html.find('.map-marker').css('border-color', colorProperty.options[colorPropertyValue].color);
 
         // Add marker icon
-        if (markerSize > 20) {
-            html.find('.map-marker-icon').html(`<i class="fa-solid fa-${colorProperty.options[colorPropertyValue].icon}"></i>`);
+        if (cluster.is) {
+            html.find('.map-marker').attr('data-cluster', 'true');
+            html.find('.map-marker-icon').html(`<span style="line-height:calc(${markerSize}px - 4px);">${cluster.count}</span>`);
+        } else {
+            html.find('.map-marker-icon').html(`<i class="fa-solid fa-${colorProperty.options[colorPropertyValue].icon}" style="line-height:calc(${markerSize}px - 4px);"></i>`);
         }
 
-        // Generate popup HTML
-        let popupHtml = fillPopup(feature.properties);
+        // Add event listeners
+        html.on('click', '.map-marker', () => {
+            if (isPopupOpen($(this).attr('data-index'))) {
+                closeAllPopups();
+            } else {
+                handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
+            }
+        });
 
+        //el.addEventListener('mouseenter', handleMarkerMouseEnter);
+        //el.addEventListener('mouseleave', handleMarkerMouseLeave);
+
+        // Create and add marker to map, store reference for zoom updates
+        const marker = new mapboxgl.Marker(html.get(0))
+            .setLngLat([coordLng, coordLat])
+            .addTo(map);
+
+        allMarkers.push(marker);
+    }//addMarker
+
+    /**
+     * handleMarkerOpen
+    * Highlight counties and show popup
+    */
+    function handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
+        // Close all other popups
+        closeAllPopups();
+
+        // Respond to cluster click
+        if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
+            // Fly and zoom into cluster location
+            map.flyTo({
+                center: cluster.coordinates,
+                zoom: map.getZoom() + 1,
+                duration: 200,
+                essential: true,
+            });   
+
+            return true;             
+        } else {
+            // Determine if current zoom level is too large to view counties
+            let zoomLevel = map.getZoom();
+            if (action != 'cluster-click' && zoomLevel > 7) {
+                zoomLevel = 7;
+            }
+
+            // Fly and zoom into marker location
+            map.flyTo({
+                center: [
+                    coordLng,
+                    coordLat,
+                ],
+                zoom: zoomLevel,
+                duration: 500,
+                essential: true,
+            });  
+        }
+
+        // Create popup
         const popup = new mapboxgl.Popup({ 
             offset: 18,
             closeButton: true,
             closeOnClick: false,
             closeOnMove: false
-        }).setHTML(popupHtml);
-      
-        // Track popup state
-        let isPopupOpen = false;
-      
-        /**
-         * handleMarkerOpen
-         * Highlight counties and show popup
-         */
-        function handleMarkerOpen(action) {
-            // Close all other popups
-            closeAllPopups()
+        }).setHTML(
+            fillPopup(properties, cluster)
+        );
 
+        // Add popup to map
+        popup.setLngLat([coordLng, coordLat]).addTo(map);
+
+        // Paint map if not a marker cluster
+        if (! cluster || ! cluster.is) {
             // Get list of counties served
-            let countiesServed = feature.properties[schema.counties_served.column];
+            let countiesServed = properties[schema.counties_served.column];
 
             // Apply county highlighting
-            const type = feature.properties[schema[config.operations.counties_color_column].column];
-
+            const type = properties[schema[config.operations.counties_color_column].column];
             map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
             map.setFilter('counties-fill', ['in', 'NAME', ...countiesServed]);
             map.setFilter('counties-border-highlight', ['in', 'NAME', ...countiesServed]);
+        }
+    }// handleMarkerOpen
 
-            // Add popup to map if not already open
-            if (! isPopupOpen) {
-                popup.setLngLat([offsetLng, offsetLat]).addTo(map);
-                isPopupOpen = true;
-            }
-        }// handleMarkerOpen
-
-        function closePopup() {
-            // Close popup
-            popup.remove();
-            isPopupOpen = false;
-
-            // Reset county filters
-            resetCountyFilters();
-        }// closePopup
-
-        function handleMarkerClick() {
-            // Click toggles popup persistence
-            if (isPopupOpen) {
-                closePopup();
-            } else {
-                handleMarkerOpen('click');
-            }
-        }//handleMarkerClick
-
-      /*
-      function handleMarkerMouseEnter() {
+    /*
+    function handleMarkerMouseEnter() {
         handleMarkerOpen('hover');
 
         // Add popup interaction handlers
@@ -1021,40 +1015,65 @@ map.on('load', function() {
                 });
             }
         }, 50);
-      }//handleMarkerMouseEnter
-      */
+    }//handleMarkerMouseEnter
+    */
 
-      /*
-      function handleMarkerMouseLeave() {
+    /*
+    function handleMarkerMouseLeave() {
         // Set timeout to close popup after leaving marker
         popupTimeout = setTimeout(() => {
           handlePopupClose();
         }, 300); // 300ms delay before closing
-      }//handleMarkerMouseLeave
-      */
-
-        // Add event listeners
-        html.on('click', '.map-marker', handleMarkerClick);
-        //el.addEventListener('mouseenter', handleMarkerMouseEnter);
-        //el.addEventListener('mouseleave', handleMarkerMouseLeave);
-
-        // Create and add marker to map, store reference for zoom updates
-        const marker = new mapboxgl.Marker(html.get(0))
-            .setLngLat([offsetLng, offsetLat])
-            .addTo(map);
-
-        allMarkers.push(marker);
-    }//addMarker
+    }//handleMarkerMouseLeave
+    */
 
     /**
      * fillPopup
      * Fill the popup template with data
      */
-    function fillPopup(data) {
+    function fillPopup(data, cluster) {
         // Get HTML template for popups
-        let html = $('#map-templates div[data-template="popup"]').clone();
+        let template = cluster && cluster.is ? 'popup-cluster' : 'popup';
+        let html = $('#map-templates div[data-template="' + template + '"]').clone();
 
-        let propertyTitle = '';
+        // Populate HTML with data
+        html.find('.map-popup-wrapper')
+            .attr('data-template', template)
+            .attr('data-index', data.index);
+        html = populateHtmlData(html, data);
+
+        // Handle cluster-specific components
+        if (cluster && cluster.is) {
+            // Sort list in cluster popup
+            cluster.markers.sort((a,b) => {
+                let a_name = a.properties[schema[config.operations.sort_column].column];
+                let b_name = b.properties[schema[config.operations.sort_column].column];
+                return (a_name > b_name) ? 1 : ((b_name > a_name) ? -1 : 0)
+            });
+
+            // Generate and append list HTML
+            cluster.markers.forEach((item) => {
+                // Get cluster list item
+                let list_item = html.find('.mp-body-row[data-type="template"]').clone();
+                list_item.removeAttr('data-type');
+
+                // Populate HTML with data
+                list_item = populateHtmlData(list_item, item.properties);
+
+                // Append to HTML template
+                html.find('.mp-body').append(list_item);
+            });
+        }
+
+        // Remove templates
+        html.find('[data-type="template"]').remove();
+
+        return html.html();
+    }// fillPopup
+
+    function populateHtmlData(html, data) {
+        // Add data index to root container
+        html.attr('data-index', data.index);
 
         // Popuplate the template based on the schema's definition and the given data
         Object.values(schema).forEach((property) => {
@@ -1084,6 +1103,10 @@ map.on('load', function() {
                         propertyValue = propertyValue.toFixed(2);
                         break;
 
+                    case 'csv':
+                        // Comma-separated format for arrays
+                        propertyValue = propertyValue.join(', ');
+                        break;
                 }
 
             }
@@ -1150,13 +1173,11 @@ map.on('load', function() {
                 }
 
             }
+
         });
 
-        // Remove templates
-        html.find('[data-type="template"]').remove();
-
-        return html.html();
-    }// fillPopup
+        return html;
+    }//populateHtmlData
 
     /**
      * getIcon
@@ -1165,7 +1186,6 @@ map.on('load', function() {
     function getIcon (type) {
         // Initialize
         let icon = '';
-
 
         if (config.icons[type]) {
             icon = config.icons[type];
@@ -1186,7 +1206,7 @@ map.on('load', function() {
         map.setFilter('counties-border-highlight', ['in', 'NAME', '']);
     }// resetCountyFilters
 
-    function closeAllPopups() {
+    function closeAllPopups(manual) {
         // Reset county filters
         resetCountyFilters();
 
@@ -1194,15 +1214,48 @@ map.on('load', function() {
         $('.mapboxgl-popup').each(function(){
             $(this).remove();
         });
+
+        // Zoom out if manually closed
+        if (manual) {
+            let zoomLevel = map.getZoom();
+            if (zoomLevel > 7) {
+                zoomLevel = 7;
+            }
+
+            map.flyTo({
+                zoom: zoomLevel
+            });
+        }
     }// closeAllPopups
+
+    function isPopupOpen(id) {
+        return ($('.mapboxgl-popup .map-popup-wrapper[data-index="' + id + '"]').length > 0);
+    }// isPopupOpen
 
     /**
      * Define Map Listeners
      */
 
     // Handle popup close request
-    $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', closeAllPopups);
-    $('#map').on('keyup', closeAllPopups);
+    $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', () => {
+        closeAllPopups(true);
+    });
+    $('#map').on('keyup', function(e) {
+        if (e.keyCode === 27) {
+            closeAllPopups(true);
+        }
+    });
+
+    $(document).on('click', '.map-popup-wrapper .mp-body-row', function() {
+        let id = $(this).attr('data-index');
+
+        handleMarkerOpen(
+            'cluster-click',
+            config.data.markers.features[id].properties,
+            config.data.markers.features[id].geometry.coordinates[0],
+            config.data.markers.features[id].geometry.coordinates[1],
+        );
+    });
 
     /**
      * Map Zoom
@@ -1211,10 +1264,12 @@ map.on('load', function() {
 
       clearTimeout(window.zoomUpdateTimeout);
 
+/*
       window.zoomUpdateTimeout = setTimeout(() => {
         // Update markers
         drawMarkers();
       }, 150);
+      */
     });
 
     /**
