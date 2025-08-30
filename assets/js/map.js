@@ -268,7 +268,7 @@ map.fitBounds([[-102.999,31.415], [-108.601,36.902]], {
 const nav = new mapboxgl.NavigationControl({
     showCompass: false,
 });
-map.addControl(nav, 'top-right');
+map.addControl(nav, 'bottom-right');
 
 // disable map rotation using right click + drag
 map.dragRotate.disable();
@@ -779,7 +779,7 @@ map.on('load', function() {
         // Dynamic proximity threshold based on zoom level
         // Higher zoom = smaller threshold (less clustering)
         // Lower zoom = larger threshold (more clustering)
-        const baseThreshold = 0.183; // 0.003
+        const baseThreshold = 0.2; // 0.003
         const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
       
         // Dynamic marker size based on zoom level
@@ -889,7 +889,7 @@ map.on('load', function() {
     function addMarker(feature, coordLng, coordLat, markerSize, cluster) {
         // Get HTML template for popups
         let html = $('#map-templates div[data-template="marker"]').clone();
-        html.attr('id', btoa(feature.geometry.coordinates[0] + '-' + feature.geometry.coordinates[1]));
+        html.find('.map-marker').attr('data-index', feature.properties.index);
         html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
 
         // Get property for coloring
@@ -900,7 +900,6 @@ map.on('load', function() {
         html.find('.map-marker').css('border-color', colorProperty.options[colorPropertyValue].color);
 
         // Add marker icon
-        let popupHtml = '';
         if (cluster.is) {
             html.find('.map-marker').attr('data-cluster', 'true');
             html.find('.map-marker-icon').html(`<span style="line-height:calc(${markerSize}px - 4px);">${cluster.count}</span>`);
@@ -910,7 +909,7 @@ map.on('load', function() {
 
         // Add event listeners
         html.on('click', '.map-marker', () => {
-            if (isPopupOpen()) {
+            if (isPopupOpen($(this).attr('data-index'))) {
                 closeAllPopups();
             } else {
                 handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
@@ -933,9 +932,12 @@ map.on('load', function() {
     * Highlight counties and show popup
     */
     function handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
+        // Close all other popups
+        closeAllPopups();
+
         // Respond to cluster click
         if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
-            // Zoom into cluster location
+            // Fly and zoom into cluster location
             map.flyTo({
                 center: cluster.coordinates,
                 zoom: map.getZoom() + 1,
@@ -944,25 +946,39 @@ map.on('load', function() {
             });   
 
             return true;             
+        } else {
+            // Determine if current zoom level is too large to view counties
+            let zoomLevel = map.getZoom();
+            if (action != 'cluster-click' && zoomLevel > 7) {
+                zoomLevel = 7;
+            }
+
+            // Fly and zoom into marker location
+            map.flyTo({
+                center: [
+                    coordLng,
+                    coordLat,
+                ],
+                zoom: zoomLevel,
+                duration: 500,
+                essential: true,
+            });  
         }
 
-        // Close all other popups
-        closeAllPopups()
-            
-        // Generate popup HTML
-        popupHtml = fillPopup(properties, cluster);
-
+        // Create popup
         const popup = new mapboxgl.Popup({ 
             offset: 18,
             closeButton: true,
             closeOnClick: false,
             closeOnMove: false
-        }).setHTML(popupHtml);
+        }).setHTML(
+            fillPopup(properties, cluster)
+        );
 
-        // Add popup to map if not already open
+        // Add popup to map
         popup.setLngLat([coordLng, coordLat]).addTo(map);
 
-        // Paint map if not cluster marker
+        // Paint map if not a marker cluster
         if (! cluster || ! cluster.is) {
             // Get list of counties served
             let countiesServed = properties[schema.counties_served.column];
@@ -1021,7 +1037,9 @@ map.on('load', function() {
         let html = $('#map-templates div[data-template="' + template + '"]').clone();
 
         // Populate HTML with data
-        html.find('.map-popup-wrapper').attr('data-template', template);
+        html.find('.map-popup-wrapper')
+            .attr('data-template', template)
+            .attr('data-index', data.index);
         html = populateHtmlData(html, data);
 
         // Handle cluster-specific components
@@ -1188,7 +1206,7 @@ map.on('load', function() {
         map.setFilter('counties-border-highlight', ['in', 'NAME', '']);
     }// resetCountyFilters
 
-    function closeAllPopups() {
+    function closeAllPopups(manual) {
         // Reset county filters
         resetCountyFilters();
 
@@ -1196,10 +1214,22 @@ map.on('load', function() {
         $('.mapboxgl-popup').each(function(){
             $(this).remove();
         });
+
+        // Zoom out if manually closed
+        if (manual) {
+            let zoomLevel = map.getZoom();
+            if (zoomLevel > 7) {
+                zoomLevel = 7;
+            }
+
+            map.flyTo({
+                zoom: zoomLevel
+            });
+        }
     }// closeAllPopups
 
-    function isPopupOpen() {
-        return ($('.mapboxgl-popup').length > 0);
+    function isPopupOpen(id) {
+        return ($('.mapboxgl-popup .map-popup-wrapper[data-index="' + id + '"]').length > 0);
     }// isPopupOpen
 
     /**
@@ -1207,10 +1237,12 @@ map.on('load', function() {
      */
 
     // Handle popup close request
-    $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', closeAllPopups);
+    $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', () => {
+        closeAllPopups(true);
+    });
     $('#map').on('keyup', function(e) {
         if (e.keyCode === 27) {
-            closeAllPopups();
+            closeAllPopups(true);
         }
     });
 
@@ -1218,7 +1250,7 @@ map.on('load', function() {
         let id = $(this).attr('data-index');
 
         handleMarkerOpen(
-            'click',
+            'cluster-click',
             config.data.markers.features[id].properties,
             config.data.markers.features[id].geometry.coordinates[0],
             config.data.markers.features[id].geometry.coordinates[1],
@@ -1232,10 +1264,12 @@ map.on('load', function() {
 
       clearTimeout(window.zoomUpdateTimeout);
 
+/*
       window.zoomUpdateTimeout = setTimeout(() => {
         // Update markers
         drawMarkers();
       }, 150);
+      */
     });
 
     /**
