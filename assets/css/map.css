@@ -479,11 +479,11 @@ background-color: var(--color-rose);
 
 .mp-cil-container {
 position: absolute;
-top: -30px;
+top: -35px;
 left: calc(50% - 30px);
 }
 
-.mp-cil-container span {
+.mp-cil-container span.score {
 position: relative;
 display: inline-block;
 width: 60px;
@@ -497,6 +497,17 @@ border: 5px solid #fff;
 background-color: var(--color-deepblue);
 text-align: center;
 z-index: 20;
+}
+
+.mp-cil-container span.progress {
+position: absolute;
+top: -5px;
+left: -5px;
+width: calc(100% + 10px);
+height: calc(100% + 10px);
+border-radius: 50%;
+background: radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) 0%, #e1e1e1 0);
+z-index: 5;
 }
 
 .mp-header {

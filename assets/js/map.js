@@ -9,6 +9,7 @@ const config = {
     },
     operations: {
         sort_column: 'outlet_name', // The column for sorting markers by
+        cil_max: 3.00,
         county_delimiter: ',', // The delimiter for multiple counties in the county column
         county_all_term: 'all', // The term used in marker county data for all-encompassing county coverage
         counties_column: 'counties_served', // The column that includes the marker's county data
@@ -205,6 +206,12 @@ const schema = {
         label: 'Community Impact Level',
         format: 'float',
         filter: true,
+    },
+    'cil_percent': {
+        id: 'cil_percent',
+        column: 'COMMUNITY_IMPACT_LVL',
+        label: 'Community Impact Level Percentage',
+        type: 'cil_percent',
     },
     'cil_description': {
         id: 'cil_description',
@@ -1141,6 +1148,15 @@ map.on('load', function() {
                             socialLink.html(socialIcon.html);
 
                             html.find('.mp-footer-icons').append(socialLink);
+                        }
+
+                        break;
+
+                    case 'cil_percent':
+
+                        if (propertyValue) {
+                            propertyValue = Math.round((propertyValue / config.operations.cil_max) * 100);
+                            html.find(`[data-mp-property="${property.id}"]`).css('background', `radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) ${propertyValue}%, #e1e1e1 0)`);
                         }
 
                         break;
