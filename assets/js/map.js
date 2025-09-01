@@ -524,10 +524,10 @@ map.on('load', function() {
                 feature.properties[schema[config.operations.counties_column].column] = countiesServed;
 
                 // Split CIL label and description
-                let cil_description_parts = feature.properties[schema['cil_description'].column].split(config.operations.cil_label_delimiter, 2);
-                if (cil_description_parts.length == 2) {
-                    feature.properties[schema['cil_label'].column] = cil_description_parts[0].trim();
-                    feature.properties[schema['cil_description'].column] = cil_description_parts[1].trim();
+                let cil_description_parts = feature.properties[schema['cil_description'].column].split(config.operations.cil_label_delimiter);
+                if (cil_description_parts.length > 1) {
+                    feature.properties[schema['cil_label'].column] = cil_description_parts.shift().trim();
+                    feature.properties[schema['cil_description'].column] = cil_description_parts.join(config.operations.cil_label_delimiter).trim();
                 }
             });
     }// cleanData
