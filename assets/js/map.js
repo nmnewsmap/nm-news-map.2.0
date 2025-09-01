@@ -262,7 +262,6 @@ const map = new mapboxgl.Map({
     zoom: 5, // State level
     minZoom: 5,
     maxZoom: 9,
-    hash: true,
     attributionControl: false,
     maxBounds: [
         [-110.301, 29.741],
@@ -791,7 +790,6 @@ map.on('load', function() {
         // Clear existing markers and popups
         allMarkers.forEach(marker => marker.remove());
         allMarkers = [];
-        closeAllPopups();
 
         // Check if marker data exists
         if (! markerData || ! markerData.features) return;
@@ -805,9 +803,9 @@ map.on('load', function() {
         // Lower zoom = larger threshold (more clustering)
         const baseThreshold = 0.2; // 0.003
         const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
-      
+
         // Dynamic marker size based on zoom level
-        const baseSize = 28; //18
+        const baseSize = 30;
         const markerSize = Math.max(12, Math.min(28, baseSize + (currentZoom - 7) * 2));
 
         // Dynamic offset distance with minimum threshold for visibility
@@ -903,7 +901,6 @@ map.on('load', function() {
                 }
             );
         });// foreach clusters
-
     }// drawMarkers
 
     /**
@@ -959,63 +956,67 @@ map.on('load', function() {
     * Highlight counties and show popup
     */
     function handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
-        // Ignore hover on clusters
-        if (action == 'hover' && cluster && cluster.is) {
-            return false;
-        }
-
         // Close all other popups
         closeAllPopups();
 
-        // Respond to cluster click
-        if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
-            // Fly and zoom into cluster location
-            map.flyTo({
-                center: cluster.coordinates,
-                zoom: map.getZoom() + 1,
-                duration: 200,
-                essential: true,
-            });   
+        if (action != 'hover') {
+            // Respond to cluster click
+            if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
+console.log(1);
+                // Fly and zoom into cluster location
+                map.flyTo({
+                    center: cluster.coordinates,
+                    zoom: map.getZoom() + 1,
+                    duration: 200,
+                    essential: true,
+                });
 
-            return true;             
-        } else {
-            // Determine if current zoom level is too large to view counties
-            let zoomLevel = map.getZoom();
-            if (action != 'cluster-click' && zoomLevel > 7) {
-                zoomLevel = 7;
-            }
+                return true;             
+            } else if (! cluster || ! cluster.is) {
+                // Determine if current zoom level is too large to view counties
+                let zoomLevel = map.getZoom();
+                let offsetLat = 0;
+                if (action != 'cluster-click') {
+                    offsetLat = 2.1;
 
-            // Fly and zoom into marker location
-            if (action != 'hover') {
+                    if (zoomLevel > 7) {
+                        zoomLevel = 7;
+                    }
+                }
+
+                // Fly and zoom into marker location
                 map.flyTo({
                     center: [
                         coordLng,
-                        coordLat - 2.1, // Offset latitude to make room for popup
+                        coordLat - offsetLat, // Offset latitude to make room for popup
                     ],
                     zoom: zoomLevel,
                     duration: 500,
                     essential: true,
                 });
             }
+
+            // Create popup
+            const popup = new mapboxgl.Popup({ 
+                offset: 18,
+                closeButton: true,
+                closeOnClick: false,
+                closeOnMove: false
+            }).setHTML(
+                fillPopup(action, properties, cluster)
+            );
+
+            // Add popup to map
+            popup.setLngLat([coordLng, coordLat]).addTo(map);
         }
 
-        // Create popup
-        const popup = new mapboxgl.Popup({ 
-            offset: 18,
-            closeButton: true,
-            closeOnClick: false,
-            closeOnMove: false
-        }).setHTML(
-            fillPopup(action, properties, cluster)
-        );
-
-        // Add popup to map
-        popup.setLngLat([coordLng, coordLat]).addTo(map);
-
-        // Paint map if not a marker cluster
-        if (! cluster || ! cluster.is) {
-            // Get list of counties served
-            let countiesServed = properties[schema.counties_served.column];
+        // Paint map regions
+        if (action == 'hover' || ! cluster || ! cluster.is) {
+            // Get list of counties served, return empty array if cluster
+            let countiesServed = [];
+            if (! cluster || ! cluster.is) {
+                countiesServed = properties[schema.counties_served.column];
+            }
 
             // Apply county highlighting
             const type = properties[schema[config.operations.counties_color_column].column];
@@ -1308,12 +1309,10 @@ map.on('load', function() {
 
       clearTimeout(window.zoomUpdateTimeout);
 
-/*
       window.zoomUpdateTimeout = setTimeout(() => {
         // Update markers
         drawMarkers();
       }, 150);
-      */
     });
 
     /**

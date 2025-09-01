@@ -425,10 +425,6 @@ z-index: 10;
 border-color: #515151 !important;
 }
 
-.map-marker:hover {
-
-}
-
 .map-marker-icon {
 display: block;
 width: 100%;
@@ -513,7 +509,6 @@ border: 5px solid #fff;
 background-color: var(--color-deepblue);
 text-align: center;
 user-select: none;
-cursor: help;
 z-index: 20;
 }
 
@@ -805,13 +800,6 @@ margin: 3px;
 .mp-footer-icons a:last-child {
 margin-right: 0;
 }
-
-.map-popup-wrapper[data-action="hover"] .mp-close,
-.map-popup-wrapper[data-action="hover"] .mp-body,
-.map-popup-wrapper[data-action="hover"] .mp-footer {
-display: none;
-}
-
 
 [data-mp-property-template] {
 display: none !important;
