@@ -940,8 +940,11 @@ map.on('load', function() {
             }
         });
 
-        //el.addEventListener('mouseenter', handleMarkerMouseEnter);
-        //el.addEventListener('mouseleave', handleMarkerMouseLeave);
+        html.on('mouseenter', '.map-marker', () => {
+            handleMarkerOpen('hover', feature.properties, coordLng, coordLat, cluster);
+        });
+//        el.addEventListener('mouseenter', handleMarkerMouseEnter);
+ //       el.addEventListener('mouseleave', handleMarkerMouseLeave);
 
         // Create and add marker to map, store reference for zoom updates
         const marker = new mapboxgl.Marker(html.get(0))
@@ -956,6 +959,11 @@ map.on('load', function() {
     * Highlight counties and show popup
     */
     function handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
+        // Ignore hover on clusters
+        if (action == 'hover' && cluster && cluster.is) {
+            return false;
+        }
+
         // Close all other popups
         closeAllPopups();
 
@@ -978,15 +986,17 @@ map.on('load', function() {
             }
 
             // Fly and zoom into marker location
-            map.flyTo({
-                center: [
-                    coordLng,
-                    coordLat - 2.1, // Offset latitude to make room for popup
-                ],
-                zoom: zoomLevel,
-                duration: 500,
-                essential: true,
-            });  
+            if (action != 'hover') {
+                map.flyTo({
+                    center: [
+                        coordLng,
+                        coordLat - 2.1, // Offset latitude to make room for popup
+                    ],
+                    zoom: zoomLevel,
+                    duration: 500,
+                    essential: true,
+                });
+            }
         }
 
         // Create popup
@@ -996,7 +1006,7 @@ map.on('load', function() {
             closeOnClick: false,
             closeOnMove: false
         }).setHTML(
-            fillPopup(properties, cluster)
+            fillPopup(action, properties, cluster)
         );
 
         // Add popup to map
@@ -1055,7 +1065,7 @@ map.on('load', function() {
      * fillPopup
      * Fill the popup template with data
      */
-    function fillPopup(data, cluster) {
+    function fillPopup(action, data, cluster) {
         // Get HTML template for popups
         let template = cluster && cluster.is ? 'popup-cluster' : 'popup';
         let html = $('#map-templates div[data-template="' + template + '"]').clone();
@@ -1063,7 +1073,8 @@ map.on('load', function() {
         // Populate HTML with data
         html.find('.map-popup-wrapper')
             .attr('data-template', template)
-            .attr('data-index', data.index);
+            .attr('data-index', data.index)
+            .attr('data-action', action);
         html = populateHtmlData(html, data);
 
         // Handle cluster-specific components
