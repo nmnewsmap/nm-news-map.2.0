@@ -9,6 +9,8 @@ const config = {
     },
     operations: {
         sort_column: 'outlet_name', // The column for sorting markers by
+        cil_max: 3.00, // The maximum Community Impact Level number
+        cil_label_delimiter: '-', // The delimiter for the CIL label in the CIL description
         county_delimiter: ',', // The delimiter for multiple counties in the county column
         county_all_term: 'all', // The term used in marker county data for all-encompassing county coverage
         counties_column: 'counties_served', // The column that includes the marker's county data
@@ -99,7 +101,8 @@ const schema = {
     'medium_primary': {
         id: 'medium_primary',
         column: 'PRIMARY_MEDIA',
-        label: 'Primary Media',
+        label: 'Primary Medium',
+        description: "The platform that delivers 50% or more of the outlet's audience",
         filter: true,
         options: {
             'Digital': {
@@ -122,13 +125,13 @@ const schema = {
                 icon: 'cubes',
                 color: '#9c27b0' //Purple
             },
-        }
+        },
     },
     'city_based': {
         id: 'city_based',
         column: 'City_Based',
         label: 'City Based',
-        description: "The city of the outlet's office headquarters",
+        description: "The city of the outlet's headquarters",
     },
     'county_based': {
         id: 'county_based',
@@ -139,12 +142,14 @@ const schema = {
         id: 'frequency',
         column: 'FREQ',
         label: 'Frequency',
+        description: "The rate that coverage is typically published",
         filter: true,
     },
     'language': {
         id: 'language',
         column: 'LANGUAGE',
         label: 'Language',
+        description: "The languages that coverage is written in or translated to",
         filter: true,
     },
     'year_founded': {
@@ -206,6 +211,17 @@ const schema = {
         format: 'float',
         filter: true,
     },
+    'cil_percent': {
+        id: 'cil_percent',
+        column: 'COMMUNITY_IMPACT_LVL',
+        label: 'Community Impact Level Percentage',
+        type: 'cil_percent',
+    },
+    'cil_label': {
+        id: 'cil_label',
+        column: 'IMPACT_LVL_LABEL',
+        label: 'Community Impact Level Label',
+    },
     'cil_description': {
         id: 'cil_description',
         column: 'IMPACT_LVL_DESCRIPTION',
@@ -220,6 +236,7 @@ const schema = {
         id: 'counties_served',
         column: 'COUNTIES_SERVED',
         label: 'Counties Served',
+        description: "The county(s) that coverage is provided about",
         format: 'csv',
     },
     'updated_at': {
@@ -489,7 +506,7 @@ map.on('load', function() {
                 // Get list of counties served
                 let countiesServed = feature.properties[schema[config.operations.counties_column].column];
 
-                // Turn into array and clean up
+                // Turn county list into array and clean up
                 countiesServed = countiesServed
                     .split(config.operations.county_delimiter)
                     .map(s => s.trim());
@@ -505,7 +522,14 @@ map.on('load', function() {
                 }
 
                 feature.properties[schema[config.operations.counties_column].column] = countiesServed;
-        });
+
+                // Split CIL label and description
+                let cil_description_parts = feature.properties[schema['cil_description'].column].split(config.operations.cil_label_delimiter, 2);
+                if (cil_description_parts.length == 2) {
+                    feature.properties[schema['cil_label'].column] = cil_description_parts[0].trim();
+                    feature.properties[schema['cil_description'].column] = cil_description_parts[1].trim();
+                }
+            });
     }// cleanData
 
     /**
@@ -1141,6 +1165,15 @@ map.on('load', function() {
                             socialLink.html(socialIcon.html);
 
                             html.find('.mp-footer-icons').append(socialLink);
+                        }
+
+                        break;
+
+                    case 'cil_percent':
+
+                        if (propertyValue) {
+                            propertyValue = Math.round((propertyValue / config.operations.cil_max) * 100);
+                            html.find(`[data-mp-property="${property.id}"]`).css('background', `radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) ${propertyValue}%, #e1e1e1 0)`);
                         }
 
                         break;
