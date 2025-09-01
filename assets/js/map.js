@@ -981,7 +981,7 @@ map.on('load', function() {
             map.flyTo({
                 center: [
                     coordLng,
-                    coordLat,
+                    coordLat - 2.1, // Offset latitude to make room for popup
                 ],
                 zoom: zoomLevel,
                 duration: 500,
