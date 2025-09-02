@@ -943,6 +943,11 @@ map.on('load', function() {
         });
 
         html.on('mouseenter', '.map-marker', () => {
+            // Ignore if popup open
+            if (isPopupOpen()) {
+                return true;
+            }
+
             if (cluster && cluster.is) {
                 updateRegionHighlight(feature.properties, []);
             } else {
@@ -951,6 +956,11 @@ map.on('load', function() {
         });
 
         html.on('mouseleave', '.map-marker', () => {
+            // Ignore if popup open
+            if (isPopupOpen()) {
+                return true;
+            }
+
             updateRegionHighlight(feature.properties, []);
         });
 
@@ -1253,7 +1263,13 @@ map.on('load', function() {
     }// closeAllPopups
 
     function isPopupOpen(id) {
-        return ($('.mapboxgl-popup .map-popup-wrapper[data-index="' + id + '"]').length > 0);
+        let popupElements = '.mapboxgl-popup';
+
+        if (id) {
+            popupElements += '.map-popup-wrapper[data-index="' + id + '"]';
+        }
+        
+        return ($(popupElements).length > 0);
     }// isPopupOpen
 
     /**
