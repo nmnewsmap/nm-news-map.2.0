@@ -307,7 +307,7 @@ display: inline-block;
 padding: 0;
 }
 
-.mc-category.active > .mc-item-input button {
+.mc-category.active > .mc-category-title > .mc-item-input button {
 background: #000;
 }
 
