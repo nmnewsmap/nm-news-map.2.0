@@ -262,7 +262,6 @@ const map = new mapboxgl.Map({
     zoom: 5, // State level
     minZoom: 5,
     maxZoom: 9,
-    hash: true,
     attributionControl: false,
     maxBounds: [
         [-110.301, 29.741],
@@ -293,13 +292,14 @@ map.dragRotate.disable();
 // disable map rotation using touch rotation gesture
 map.touchZoomRotate.disableRotation();
 
-/*
 // Map attribution
 map.addControl(new mapboxgl.AttributionControl({
     compact: true,
     customAttribution: 'Map design by Bloom Labs'
 }));
-*/
+
+// Disable map zoom when using scroll
+map.scrollZoom.disable();
 
 /**
  * Load Map
@@ -542,6 +542,7 @@ map.on('load', function() {
             {
                 id: 'none',
                 title: 'No filters',
+                active: true,
             }
         ];
 
@@ -603,6 +604,10 @@ map.on('load', function() {
             categoryHtml.removeAttr('data-type');
             categoryHtml.find('.mc-category').attr('data-id', category.id);
 
+            if (category.active) {
+                categoryHtml.find('.mc-category').addClass('active');
+            }
+
             // Add category title
             categoryHtml.find('.mc-category-title .mc-item-label').text(category.title);
             categoryHtml.find('.mc-category-title .mc-item-input button').val(category.id);
@@ -619,12 +624,6 @@ map.on('load', function() {
                     optionHtml.find('.mc-item-input button')
                         .val(option.value)
                         .css('background-color', option.color);
-                    
-                    /*
-                    if (option.icon) {
-                        optionHtml.find('.mc-item-input button').html(`<i class="fa-solid fa-${option.icon}"></i>`);
-                    }
-                    */
 
                     categoryHtml.find('.mc-category-options').append(optionHtml.html());
                 });
@@ -686,6 +685,7 @@ map.on('load', function() {
         layers.unshift({
             id: 'none',
             title: 'No Layer',
+            active: true,
         });
 
         // Populate filters with each layer category
@@ -695,6 +695,10 @@ map.on('load', function() {
             let categoryHtml = $('.menu-container[data-container="layers"] .mc-category-wrapper[data-type="template"]').clone();
             categoryHtml.removeAttr('data-type');
             categoryHtml.find('.mc-category').attr('data-id', layer.id);
+
+            if (layer.active) {
+                categoryHtml.find('.mc-category').addClass('active');
+            }
 
             // Add category title
             categoryHtml.find('.mc-category-title .mc-item-label').text(layer.title);
@@ -741,7 +745,7 @@ map.on('load', function() {
             }
 
             // Deactivate active categories
-            $('#menu .mc-category.active').removeClass('active');
+            $('#menu .menu-container[data-container="layers"] .mc-category.active').removeClass('active');
 
             // Activate requested category
             parent.addClass('active');
@@ -791,7 +795,6 @@ map.on('load', function() {
         // Clear existing markers and popups
         allMarkers.forEach(marker => marker.remove());
         allMarkers = [];
-        closeAllPopups();
 
         // Check if marker data exists
         if (! markerData || ! markerData.features) return;
@@ -805,9 +808,9 @@ map.on('load', function() {
         // Lower zoom = larger threshold (more clustering)
         const baseThreshold = 0.2; // 0.003
         const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
-      
+
         // Dynamic marker size based on zoom level
-        const baseSize = 28; //18
+        const baseSize = 30;
         const markerSize = Math.max(12, Math.min(28, baseSize + (currentZoom - 7) * 2));
 
         // Dynamic offset distance with minimum threshold for visibility
@@ -903,7 +906,6 @@ map.on('load', function() {
                 }
             );
         });// foreach clusters
-
     }// drawMarkers
 
     /**
@@ -940,8 +942,27 @@ map.on('load', function() {
             }
         });
 
-        //el.addEventListener('mouseenter', handleMarkerMouseEnter);
-        //el.addEventListener('mouseleave', handleMarkerMouseLeave);
+        html.on('mouseenter', '.map-marker', () => {
+            // Ignore if popup open
+            if (isPopupOpen()) {
+                return true;
+            }
+
+            if (cluster && cluster.is) {
+                updateRegionHighlight(feature.properties, []);
+            } else {
+                updateRegionHighlight(feature.properties);
+            }
+        });
+
+        html.on('mouseleave', '.map-marker', () => {
+            // Ignore if popup open
+            if (isPopupOpen()) {
+                return true;
+            }
+
+            updateRegionHighlight(feature.properties, []);
+        });
 
         // Create and add marker to map, store reference for zoom updates
         const marker = new mapboxgl.Marker(html.get(0))
@@ -961,32 +982,38 @@ map.on('load', function() {
 
         // Respond to cluster click
         if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
+
             // Fly and zoom into cluster location
             map.flyTo({
                 center: cluster.coordinates,
                 zoom: map.getZoom() + 1,
                 duration: 200,
                 essential: true,
-            });   
+            });
 
             return true;             
-        } else {
+        } else if (! cluster || ! cluster.is) {
             // Determine if current zoom level is too large to view counties
             let zoomLevel = map.getZoom();
-            if (action != 'cluster-click' && zoomLevel > 7) {
-                zoomLevel = 7;
+            let offsetLat = 0;
+            if (action != 'cluster-click') {
+                offsetLat = (zoomLevel > 6 ? 1: 2.1);
+
+                if (zoomLevel > 7) {
+                    zoomLevel = 7;
+                }
             }
 
             // Fly and zoom into marker location
             map.flyTo({
                 center: [
                     coordLng,
-                    coordLat,
+                    coordLat - offsetLat, // Offset latitude to make room for popup
                 ],
                 zoom: zoomLevel,
                 duration: 500,
                 essential: true,
-            });  
+            });
         }
 
         // Create popup
@@ -996,66 +1023,39 @@ map.on('load', function() {
             closeOnClick: false,
             closeOnMove: false
         }).setHTML(
-            fillPopup(properties, cluster)
+            fillPopup(action, properties, cluster)
         );
 
         // Add popup to map
         popup.setLngLat([coordLng, coordLat]).addTo(map);
 
-        // Paint map if not a marker cluster
+        // Paint map regions, not for cluster markers
         if (! cluster || ! cluster.is) {
-            // Get list of counties served
-            let countiesServed = properties[schema.counties_served.column];
-
-            // Apply county highlighting
-            const type = properties[schema[config.operations.counties_color_column].column];
-            map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
-            map.setFilter('counties-fill', ['in', 'NAME', ...countiesServed]);
-            map.setFilter('counties-border-highlight', ['in', 'NAME', ...countiesServed]);
+            updateRegionHighlight(properties);
+        } else {
+            updateRegionHighlight(properties, []);
         }
     }// handleMarkerOpen
 
-    /*
-    function handleMarkerMouseEnter() {
-        handleMarkerOpen('hover');
+    function updateRegionHighlight(properties, regions) {
+        // Get list of regions served, get marker counties if not provided
+        let regionsServed = regions;
+        if (typeof regions == 'undefined') {
+            regionsServed = properties[schema.counties_served.column];
+        }
 
-        // Add popup interaction handlers
-        setTimeout(() => {
-            const popupElement = popup.getElement();
-            if (popupElement) {
-                // Keep popup open when hovering over it
-                popupElement.addEventListener('mouseenter', () => {
-                    if (popupTimeout) {
-                    clearTimeout(popupTimeout);
-                    popupTimeout = null;
-                    }
-                });
-
-                // Set timeout to close when leaving popup
-                popupElement.addEventListener('mouseleave', () => {
-                    popupTimeout = setTimeout(() => {
-                    handlePopupClose();
-                    }, 300); // 300ms delay before closing
-                });
-            }
-        }, 50);
-    }//handleMarkerMouseEnter
-    */
-
-    /*
-    function handleMarkerMouseLeave() {
-        // Set timeout to close popup after leaving marker
-        popupTimeout = setTimeout(() => {
-          handlePopupClose();
-        }, 300); // 300ms delay before closing
-    }//handleMarkerMouseLeave
-    */
+        // Apply county highlighting
+        const type = properties[schema[config.operations.counties_color_column].column];
+        map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
+        map.setFilter('counties-fill', ['in', 'NAME', ...regionsServed]);
+        map.setFilter('counties-border-highlight', ['in', 'NAME', ...regionsServed]);
+    }// updateRegionHighlight
 
     /**
      * fillPopup
      * Fill the popup template with data
      */
-    function fillPopup(data, cluster) {
+    function fillPopup(action, data, cluster) {
         // Get HTML template for popups
         let template = cluster && cluster.is ? 'popup-cluster' : 'popup';
         let html = $('#map-templates div[data-template="' + template + '"]').clone();
@@ -1063,7 +1063,8 @@ map.on('load', function() {
         // Populate HTML with data
         html.find('.map-popup-wrapper')
             .attr('data-template', template)
-            .attr('data-index', data.index);
+            .attr('data-index', data.index)
+            .attr('data-action', action);
         html = populateHtmlData(html, data);
 
         // Handle cluster-specific components
@@ -1262,7 +1263,13 @@ map.on('load', function() {
     }// closeAllPopups
 
     function isPopupOpen(id) {
-        return ($('.mapboxgl-popup .map-popup-wrapper[data-index="' + id + '"]').length > 0);
+        let popupElements = '.mapboxgl-popup';
+
+        if (id) {
+            popupElements += '.map-popup-wrapper[data-index="' + id + '"]';
+        }
+        
+        return ($(popupElements).length > 0);
     }// isPopupOpen
 
     /**
@@ -1297,19 +1304,10 @@ map.on('load', function() {
 
       clearTimeout(window.zoomUpdateTimeout);
 
-/*
       window.zoomUpdateTimeout = setTimeout(() => {
         // Update markers
         drawMarkers();
       }, 150);
-      */
-    });
-
-    /**
-     * Map Click
-     */
-    map.on('click', function() {
-        //
     });
 
     /**
