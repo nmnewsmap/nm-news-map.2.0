@@ -292,13 +292,11 @@ map.dragRotate.disable();
 // disable map rotation using touch rotation gesture
 map.touchZoomRotate.disableRotation();
 
-/*
 // Map attribution
 map.addControl(new mapboxgl.AttributionControl({
     compact: true,
     customAttribution: 'Map design by Bloom Labs'
 }));
-*/
 
 /**
  * Load Map
@@ -541,6 +539,7 @@ map.on('load', function() {
             {
                 id: 'none',
                 title: 'No filters',
+                active: true,
             }
         ];
 
@@ -602,6 +601,10 @@ map.on('load', function() {
             categoryHtml.removeAttr('data-type');
             categoryHtml.find('.mc-category').attr('data-id', category.id);
 
+            if (category.active) {
+                categoryHtml.find('.mc-category').addClass('active');
+            }
+
             // Add category title
             categoryHtml.find('.mc-category-title .mc-item-label').text(category.title);
             categoryHtml.find('.mc-category-title .mc-item-input button').val(category.id);
@@ -618,12 +621,6 @@ map.on('load', function() {
                     optionHtml.find('.mc-item-input button')
                         .val(option.value)
                         .css('background-color', option.color);
-                    
-                    /*
-                    if (option.icon) {
-                        optionHtml.find('.mc-item-input button').html(`<i class="fa-solid fa-${option.icon}"></i>`);
-                    }
-                    */
 
                     categoryHtml.find('.mc-category-options').append(optionHtml.html());
                 });
@@ -685,6 +682,7 @@ map.on('load', function() {
         layers.unshift({
             id: 'none',
             title: 'No Layer',
+            active: true,
         });
 
         // Populate filters with each layer category
@@ -694,6 +692,10 @@ map.on('load', function() {
             let categoryHtml = $('.menu-container[data-container="layers"] .mc-category-wrapper[data-type="template"]').clone();
             categoryHtml.removeAttr('data-type');
             categoryHtml.find('.mc-category').attr('data-id', layer.id);
+
+            if (layer.active) {
+                categoryHtml.find('.mc-category').addClass('active');
+            }
 
             // Add category title
             categoryHtml.find('.mc-category-title .mc-item-label').text(layer.title);
@@ -740,7 +742,7 @@ map.on('load', function() {
             }
 
             // Deactivate active categories
-            $('#menu .mc-category.active').removeClass('active');
+            $('#menu .menu-container[data-container="layers"] .mc-category.active').removeClass('active');
 
             // Activate requested category
             parent.addClass('active');
@@ -938,10 +940,16 @@ map.on('load', function() {
         });
 
         html.on('mouseenter', '.map-marker', () => {
-            handleMarkerOpen('hover', feature.properties, coordLng, coordLat, cluster);
+            if (cluster && cluster.is) {
+                updateRegionHighlight(feature.properties, []);
+            } else {
+                updateRegionHighlight(feature.properties);
+            }
         });
-//        el.addEventListener('mouseenter', handleMarkerMouseEnter);
- //       el.addEventListener('mouseleave', handleMarkerMouseLeave);
+
+        html.on('mouseleave', '.map-marker', () => {
+            updateRegionHighlight(feature.properties, []);
+        });
 
         // Create and add marker to map, store reference for zoom updates
         const marker = new mapboxgl.Marker(html.get(0))
@@ -959,108 +967,76 @@ map.on('load', function() {
         // Close all other popups
         closeAllPopups();
 
-        if (action != 'hover') {
-            // Respond to cluster click
-            if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
-console.log(1);
-                // Fly and zoom into cluster location
-                map.flyTo({
-                    center: cluster.coordinates,
-                    zoom: map.getZoom() + 1,
-                    duration: 200,
-                    essential: true,
-                });
+        // Respond to cluster click
+        if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
 
-                return true;             
-            } else if (! cluster || ! cluster.is) {
-                // Determine if current zoom level is too large to view counties
-                let zoomLevel = map.getZoom();
-                let offsetLat = 0;
-                if (action != 'cluster-click') {
-                    offsetLat = 2.1;
+            // Fly and zoom into cluster location
+            map.flyTo({
+                center: cluster.coordinates,
+                zoom: map.getZoom() + 1,
+                duration: 200,
+                essential: true,
+            });
 
-                    if (zoomLevel > 7) {
-                        zoomLevel = 7;
-                    }
+            return true;             
+        } else if (! cluster || ! cluster.is) {
+            // Determine if current zoom level is too large to view counties
+            let zoomLevel = map.getZoom();
+            let offsetLat = 0;
+            if (action != 'cluster-click') {
+                offsetLat = (zoomLevel > 6 ? 1: 2.1);
+
+                if (zoomLevel > 7) {
+                    zoomLevel = 7;
                 }
-
-                // Fly and zoom into marker location
-                map.flyTo({
-                    center: [
-                        coordLng,
-                        coordLat - offsetLat, // Offset latitude to make room for popup
-                    ],
-                    zoom: zoomLevel,
-                    duration: 500,
-                    essential: true,
-                });
             }
 
-            // Create popup
-            const popup = new mapboxgl.Popup({ 
-                offset: 18,
-                closeButton: true,
-                closeOnClick: false,
-                closeOnMove: false
-            }).setHTML(
-                fillPopup(action, properties, cluster)
-            );
-
-            // Add popup to map
-            popup.setLngLat([coordLng, coordLat]).addTo(map);
+            // Fly and zoom into marker location
+            map.flyTo({
+                center: [
+                    coordLng,
+                    coordLat - offsetLat, // Offset latitude to make room for popup
+                ],
+                zoom: zoomLevel,
+                duration: 500,
+                essential: true,
+            });
         }
 
-        // Paint map regions
-        if (action == 'hover' || ! cluster || ! cluster.is) {
-            // Get list of counties served, return empty array if cluster
-            let countiesServed = [];
-            if (! cluster || ! cluster.is) {
-                countiesServed = properties[schema.counties_served.column];
-            }
+        // Create popup
+        const popup = new mapboxgl.Popup({ 
+            offset: 18,
+            closeButton: true,
+            closeOnClick: false,
+            closeOnMove: false
+        }).setHTML(
+            fillPopup(action, properties, cluster)
+        );
 
-            // Apply county highlighting
-            const type = properties[schema[config.operations.counties_color_column].column];
-            map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
-            map.setFilter('counties-fill', ['in', 'NAME', ...countiesServed]);
-            map.setFilter('counties-border-highlight', ['in', 'NAME', ...countiesServed]);
+        // Add popup to map
+        popup.setLngLat([coordLng, coordLat]).addTo(map);
+
+        // Paint map regions, not for cluster markers
+        if (! cluster || ! cluster.is) {
+            updateRegionHighlight(properties);
+        } else {
+            updateRegionHighlight(properties, []);
         }
     }// handleMarkerOpen
 
-    /*
-    function handleMarkerMouseEnter() {
-        handleMarkerOpen('hover');
+    function updateRegionHighlight(properties, regions) {
+        // Get list of regions served, get marker counties if not provided
+        let regionsServed = regions;
+        if (typeof regions == 'undefined') {
+            regionsServed = properties[schema.counties_served.column];
+        }
 
-        // Add popup interaction handlers
-        setTimeout(() => {
-            const popupElement = popup.getElement();
-            if (popupElement) {
-                // Keep popup open when hovering over it
-                popupElement.addEventListener('mouseenter', () => {
-                    if (popupTimeout) {
-                    clearTimeout(popupTimeout);
-                    popupTimeout = null;
-                    }
-                });
-
-                // Set timeout to close when leaving popup
-                popupElement.addEventListener('mouseleave', () => {
-                    popupTimeout = setTimeout(() => {
-                    handlePopupClose();
-                    }, 300); // 300ms delay before closing
-                });
-            }
-        }, 50);
-    }//handleMarkerMouseEnter
-    */
-
-    /*
-    function handleMarkerMouseLeave() {
-        // Set timeout to close popup after leaving marker
-        popupTimeout = setTimeout(() => {
-          handlePopupClose();
-        }, 300); // 300ms delay before closing
-    }//handleMarkerMouseLeave
-    */
+        // Apply county highlighting
+        const type = properties[schema[config.operations.counties_color_column].column];
+        map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
+        map.setFilter('counties-fill', ['in', 'NAME', ...regionsServed]);
+        map.setFilter('counties-border-highlight', ['in', 'NAME', ...regionsServed]);
+    }// updateRegionHighlight
 
     /**
      * fillPopup
@@ -1313,13 +1289,6 @@ console.log(1);
         // Update markers
         drawMarkers();
       }, 150);
-    });
-
-    /**
-     * Map Click
-     */
-    map.on('click', function() {
-        //
     });
 
     /**
