@@ -298,6 +298,9 @@ map.addControl(new mapboxgl.AttributionControl({
     customAttribution: 'Map design by Bloom Labs'
 }));
 
+// Disable map zoom when using scroll
+map.scrollZoom.disable();
+
 /**
  * Load Map
  */
