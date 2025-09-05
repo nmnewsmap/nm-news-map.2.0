@@ -143,7 +143,6 @@ const schema = {
         column: 'FREQ',
         label: 'Frequency',
         description: "The rate that coverage is typically published",
-        filter: true,
     },
     'language': {
         id: 'language',
