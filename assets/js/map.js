@@ -143,7 +143,6 @@ const schema = {
         column: 'FREQ',
         label: 'Frequency',
         description: "The rate that coverage is typically published",
-        filter: true,
     },
     'language': {
         id: 'language',
@@ -164,7 +163,7 @@ const schema = {
     },
     'owner_type': {
         id: 'owner_type',
-        county: 'OWNER_TYPE',
+        column: 'OWNER_TYPE',
         label: 'Owner Type',
         filter: true,
     },
@@ -297,9 +296,6 @@ map.addControl(new mapboxgl.AttributionControl({
     compact: true,
     customAttribution: 'Map design by Bloom Labs'
 }));
-
-// Disable map zoom when using scroll
-map.scrollZoom.disable();
 
 /**
  * Load Map
@@ -528,6 +524,13 @@ map.on('load', function() {
                 if (cil_description_parts.length > 1) {
                     feature.properties[schema['cil_label'].column] = cil_description_parts.shift().trim();
                     feature.properties[schema['cil_description'].column] = cil_description_parts.join(config.operations.cil_label_delimiter).trim();
+                }
+
+                // Owner Type: Capitalize the first letter and lowercase everything else
+                let owner_type = feature.properties[schema['owner_type'].column];
+                if (owner_type) {
+                    owner_type = owner_type.charAt(0).toUpperCase() + owner_type.substring(1).toLowerCase();
+                    feature.properties[schema['owner_type'].column] = owner_type;
                 }
             });
     }// cleanData
