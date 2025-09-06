@@ -27,6 +27,11 @@ const config = {
         },
     },
     icons: {
+        app:  {
+            id: 'app-store',
+            color: '#515151',
+            group: 'brands',
+        },
         facebook: {
             id: 'facebook',
             color: '#1778f2',
@@ -42,10 +47,35 @@ const config = {
             color: '#e1306c',
             group: 'brands',
         },
+        linktree: {
+            id: 'linktree',
+            color: '#42e661',
+            group: 'brands',
+        },
         pinterest: {
             id: 'pinterest',
             color: '#e60023',
             group: 'brands',
+        },
+        podcast: {
+            id: 'microphone-lines',
+            color: '#515151',
+            group: 'solid',
+        },
+        reddit: {
+            id: 'reddit',
+            color: '#ff4500',
+            group: 'brands',
+        },
+        spotify: {
+            id: 'spotify',
+            color: '#1db954',
+            group: 'brands',
+        },
+        substack: {
+            id: 'bookmark',
+            color: '#ff6719',
+            group: 'solid',
         },
         tiktok: {
             id: 'tiktok',
@@ -1151,10 +1181,21 @@ map.on('load', function() {
                         if (propertyValue) {
                             let socialLink = html.find('.mp-footer-icons [data-type="template"]').clone();
                             socialLink.removeAttr('data-type');
-                            socialLink.attr('href', propertyValue);
-                            socialLink.attr('title', property.label);
 
-                            let socialIcon = getIcon(property.id);
+                            // Get custom social title
+                            let propertyValueTitle = property.label;
+                            let propertyValueIcon = property.id;
+                            if (propertyValue.includes('|')) {
+                                propertyValueParts = propertyValue.split('|');
+                                propertyValue = propertyValueParts[0];
+                                propertyValueTitle = propertyValueParts[1];
+                                propertyValueIcon = propertyValueTitle.toLowerCase();
+                            }
+
+                            socialLink.attr('href', propertyValue);
+                            socialLink.attr('title', propertyValueTitle);
+
+                            let socialIcon = getIcon(propertyValueIcon);
                             socialLink.css('background-color', socialIcon.color);
                             socialLink.html(socialIcon.html);
 
