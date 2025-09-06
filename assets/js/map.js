@@ -949,11 +949,7 @@ map.on('load', function() {
 
         // Add event listeners
         html.on('click', '.map-marker', () => {
-            if (isPopupOpen($(this).attr('data-index'))) {
-                closeAllPopups();
-            } else {
-                handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
-            }
+            handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
         });
 
         html.on('mouseenter', '.map-marker', () => {
@@ -994,27 +990,24 @@ map.on('load', function() {
         // Close all other popups
         closeAllPopups();
 
-        // Respond to cluster click
-        if (! cluster || ! cluster.is) {
-            // Determine if current zoom level is too large to view counties
-            let zoomLevel = map.getZoom();
-            let offsetLat = (zoomLevel > 6 ? 1: 2.5);
+        // Determine if current zoom level is too large to view counties
+        let zoomLevel = map.getZoom();
+        let offsetLat = (zoomLevel > 6 ? 1: 2.6);
 
-            if (zoomLevel > 7) {
-                zoomLevel = 7;
-            }
-
-            // Fly and zoom into marker location
-            map.flyTo({
-                center: [
-                    coordLng,
-                    coordLat - offsetLat, // Offset latitude to make room for popup
-                ],
-                zoom: zoomLevel,
-                duration: 500,
-                essential: true,
-            });
+        if (zoomLevel > 7) {
+            zoomLevel = 7;
         }
+
+        // Fly and zoom into marker location
+        map.flyTo({
+            center: [
+                coordLng,
+                coordLat - offsetLat, // Offset latitude to make room for popup
+            ],
+            zoom: zoomLevel,
+            duration: 500,
+            essential: true,
+        });
 
         // Create popup
         const popup = new mapboxgl.Popup({ 
@@ -1252,8 +1245,9 @@ map.on('load', function() {
         // Zoom out if manually closed
         if (manual) {
             let zoomLevel = map.getZoom();
-            if (zoomLevel > 7) {
-                zoomLevel = 7;
+
+            if (zoomLevel > 6) {
+                zoomLevel = 6;
             }
 
             map.flyTo({
@@ -1262,14 +1256,8 @@ map.on('load', function() {
         }
     }// closeAllPopups
 
-    function isPopupOpen(id) {
-        let popupElements = '.mapboxgl-popup';
-
-        if (id) {
-            popupElements += '.map-popup-wrapper[data-index="' + id + '"]';
-        }
-        
-        return ($(popupElements).length > 0);
+    function isPopupOpen() {
+        return ($('.mapboxgl-popup').length > 0);
     }// isPopupOpen
 
     /**
