@@ -771,8 +771,15 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 position: relative;
 float: left;
 display: inline-block;
-width: 50%;
 box-sizing: border-box;
+}
+
+.mp-footer-column:first-child {
+width: 40%;
+}
+
+.mp-footer-column:last-child {
+width: 60%;
 }
 
 .mp-footer-column div {
@@ -827,17 +834,22 @@ text-align: left;
 display: inline-block;
 border-radius: 50%;
 background-color: #515151;
-width: 27px;
-height: 27px;
+width: 26px;
+height: 26px;
 text-align: center;
+text-decoration: none;
 color: #fff;
 font-size: 17px;
-line-height: 27px;
-margin: 3px;
+line-height: 26px;
+margin: 3px 2px;
 }
 
 .mp-footer-icons a:last-child {
 margin-right: 0;
+}
+
+.mp-footer-icons a span {
+text-transform: uppercase;
 }
 
 [data-mp-property-template] {
