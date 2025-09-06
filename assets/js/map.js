@@ -47,16 +47,36 @@ const config = {
             color: '#e1306c',
             group: 'brands',
         },
+        linktree: {
+            id: 'linktree',
+            color: '#42e661',
+            group: 'brands',
+        },
         pinterest: {
             id: 'pinterest',
             color: '#e60023',
             group: 'brands',
         },
+        podcast: {
+            id: 'microphone-lines',
+            color: '#515151',
+            group: 'solid',
+        },
         reddit: {
             id: 'reddit',
             color: '#ff4500',
-            group
-            
+            group: 'brands',
+        },
+        spotify: {
+            id: 'spotify',
+            color: '#1db954',
+            group: 'brands',
+        },
+        substack: {
+            id: 'bookmark',
+            color: '#ff6719',
+            group: 'solid',
+        },
         tiktok: {
             id: 'tiktok',
             color: '#fe2c55',
