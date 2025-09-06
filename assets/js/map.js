@@ -164,7 +164,7 @@ const schema = {
     'owner_type': {
         id: 'owner_type',
         column: 'OWNER_TYPE',
-        label: 'Owner Type',
+        label: 'Business Model',
         filter: true,
     },
     'facebook': {
