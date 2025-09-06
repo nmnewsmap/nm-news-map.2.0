@@ -47,6 +47,11 @@ const config = {
             color: '#e60023',
             group: 'brands',
         },
+        reddit: {
+            id: 'reddit',
+            color: '#ff4500',
+            group
+            
         tiktok: {
             id: 'tiktok',
             color: '#fe2c55',
