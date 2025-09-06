@@ -27,6 +27,11 @@ const config = {
         },
     },
     icons: {
+        app:  {
+            id: 'app-store',
+            color: '#515151',
+            group: 'brands',
+        },
         facebook: {
             id: 'facebook',
             color: '#1778f2',
