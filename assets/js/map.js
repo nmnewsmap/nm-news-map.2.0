@@ -987,13 +987,10 @@ map.on('load', function() {
         if (! cluster || ! cluster.is) {
             // Determine if current zoom level is too large to view counties
             let zoomLevel = map.getZoom();
-            let offsetLat = 0;
-            if (action != 'cluster-click') {
-                offsetLat = (zoomLevel > 6 ? 1: 2.1);
+            let offsetLat = (zoomLevel > 6 ? 1: 2.1);
 
-                if (zoomLevel > 7) {
-                    zoomLevel = 7;
-                }
+            if (zoomLevel > 7) {
+                zoomLevel = 7;
             }
 
             // Fly and zoom into marker location
