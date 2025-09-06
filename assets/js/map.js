@@ -164,7 +164,7 @@ const schema = {
     'owner_type': {
         id: 'owner_type',
         column: 'OWNER_TYPE',
-        label: 'Owner Type',
+        label: 'Business Model',
         filter: true,
     },
     'facebook': {
@@ -984,18 +984,7 @@ map.on('load', function() {
         closeAllPopups();
 
         // Respond to cluster click
-        if (cluster && cluster.is && map.getZoom() < map.getMaxZoom()) {
-
-            // Fly and zoom into cluster location
-            map.flyTo({
-                center: cluster.coordinates,
-                zoom: map.getZoom() + 1,
-                duration: 200,
-                essential: true,
-            });
-
-            return true;             
-        } else if (! cluster || ! cluster.is) {
+        if (! cluster || ! cluster.is) {
             // Determine if current zoom level is too large to view counties
             let zoomLevel = map.getZoom();
             let offsetLat = 0;
