@@ -496,11 +496,12 @@ z-index: 100;
 
 .mp-top {
 position: absolute;
-top: 5px;
+top: 0;
 left: 0;
 width: 100%;
 height: 5px;
 background-color: var(--color-rose);
+box-radius: 5px;
 cursor: default;
 }
 
@@ -550,7 +551,7 @@ border: 5px solid var(--color-ocean);
 border-radius: 10px;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 opacity: 0;
-transition: all 500ms ease 500ms;
+transition: all ease 500ms;
 visibility: hidden;
 z-index: 100;
 }
@@ -644,22 +645,9 @@ position: relative;
 float: left;
 width: 100%;
 height: auto;
-padding: 0 5% 50px 5%;
+padding: 0 5%;
 max-height: 60vh;
 overflow-y: auto;
-overflow-x: hidden;
-}
-
-.map-popup-wrapper[data-template="popup"] .mp-body:after {
-content: "";
-position: absolute;
-bottom: 30px;
-left: -325px;
-width: 1000px;
-height: 500px;
-border-radius: 50%;
-box-shadow: 0 1px 4px rgba(0,0,0,0.3);
-z-index: 1;
 }
 
 .mp-body-column {
@@ -684,12 +672,39 @@ margin-bottom: 0;
 }
 
 .mp-column-item label {
+position: relative;
 display: block;
 font-size: 12px;
 line-height: 12px;
 font-weight: 600;
 text-transform: uppercase;
 margin-bottom: 2px;
+}
+
+.mp-column-item label i:hover:after {
+content: attr(title);
+position: absolute;
+top: 20px;
+left: 0;
+width: 150px;
+height: auto;
+background: var(--color-cream);
+padding: 8px;
+font-family: 'Helvetica', Arial, Sans-Serif;
+font-size: 11px;
+line-height: 13px;
+font-weight: 400;
+text-transform: none;
+color: #000;
+text-align: left;
+border-radius: 5px;
+box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+z-index: 100;
+}
+
+.mp-column-item:last-child label i:hover:after {
+top: auto;
+bottom: 25px;
 }
 
 .mp-column-item label i {
@@ -734,9 +749,22 @@ line-height: 14px;
 }
 
 .mp-footer {
+position: relative;
 float: left;
 width: 100%;
-padding: 0 5% 20px 5%;
+padding: 50px 5% 20px 5%;
+overflow-x: hidden;
+}
+
+.map-popup-wrapper[data-template="popup"] .mp-footer:before {
+content: "";
+position: absolute;
+top: -475px;
+left: -325px;
+width: 1000px;
+height: 500px;
+border-radius: 50%;
+box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
 .mp-footer-column {
