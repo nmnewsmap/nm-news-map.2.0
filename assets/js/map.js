@@ -1181,10 +1181,21 @@ map.on('load', function() {
                         if (propertyValue) {
                             let socialLink = html.find('.mp-footer-icons [data-type="template"]').clone();
                             socialLink.removeAttr('data-type');
-                            socialLink.attr('href', propertyValue);
-                            socialLink.attr('title', property.label);
 
-                            let socialIcon = getIcon(property.id);
+                            // Get custom social title
+                            let propertyValueTitle = property.label;
+                            let propertyValueIcon = property.id;
+                            if (propertyValue.includes('|')) {
+                                propertyValueParts = propertyValue.split('|');
+                                propertyValue = propertyValueParts[0];
+                                propertyValueTitle = propertyValueParts[1];
+                                propertyValueIcon = propertyValueTitle.toLowerCase();
+                            }
+
+                            socialLink.attr('href', propertyValue);
+                            socialLink.attr('title', propertyValueTitle);
+
+                            let socialIcon = getIcon(propertyValueIcon);
                             socialLink.css('background-color', socialIcon.color);
                             socialLink.html(socialIcon.html);
 
