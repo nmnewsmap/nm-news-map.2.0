@@ -551,7 +551,7 @@ border: 5px solid var(--color-ocean);
 border-radius: 10px;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 opacity: 0;
-transition: all 500ms ease 500ms;
+transition: all ease 500ms;
 visibility: hidden;
 z-index: 100;
 }
@@ -647,6 +647,7 @@ width: 100%;
 height: auto;
 padding: 0 5%;
 max-height: 60vh;
+overflow-y: auto;
 }
 
 .mp-body-column {
@@ -680,20 +681,30 @@ text-transform: uppercase;
 margin-bottom: 2px;
 }
 
-.mp-column-item label[title]:hover:before {
+.mp-column-item label i:hover:after {
 content: attr(title);
 position: absolute;
-bottom: 20px;
+top: 20px;
 left: 0;
+width: 150px;
+height: auto;
 background: var(--color-cream);
 padding: 8px;
+font-family: 'Helvetica', Arial, Sans-Serif;
 font-size: 11px;
 line-height: 13px;
-text-transform: none;
 font-weight: 400;
+text-transform: none;
+color: #000;
+text-align: left;
 border-radius: 5px;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 z-index: 100;
+}
+
+.mp-column-item:last-child label i:hover:after {
+top: auto;
+bottom: 25px;
 }
 
 .mp-column-item label i {

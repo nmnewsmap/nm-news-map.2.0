@@ -218,7 +218,7 @@ const schema = {
     },
     'cil_label': {
         id: 'cil_label',
-        column: 'IMPACT_LVL_LABEL',
+        column: 'IMPACT_LVL_LABEL', //Dynamic column, populated in cleanData()
         label: 'Community Impact Level Label',
     },
     'cil_description': {
@@ -237,6 +237,12 @@ const schema = {
         label: 'Counties Served',
         description: "The county(s) that coverage is provided about",
         format: 'csv',
+    },
+    'counties_served_label': {
+        id: 'counties_served_label',
+        column: 'COUNTIES_SERVED_label', //Dynamic column, populated in cleanData()
+        label: 'Counties Served',
+        description: "The county(s) that coverage is provided about",
     },
     'updated_at': {
         id: 'updated_at',
@@ -507,17 +513,22 @@ map.on('load', function() {
                     .split(config.operations.county_delimiter)
                     .map(s => s.trim());
 
+                let countiesServedLabel = 'None';
+
                 if (countiesServed.map(s => s.toLowerCase()).includes(config.operations.county_all_term)) {
                     if (! countiesLoaded || allCountyNames.length === 0) {
                         countiesServed = [];
                     } else {
                         countiesServed = [...allCountyNames];
                     }
+                    countiesServedLabel = config.operations.county_all_term.charAt(0).toUpperCase() + config.operations.county_all_term.substring(1);
                 } else {
                     countiesServed = countiesServed.map(s => normalizeCountyName(s));
+                    countiesServedLabel = countiesServed.join(', ');
                 }
 
                 feature.properties[schema[config.operations.counties_column].column] = countiesServed;
+                feature.properties[schema[config.operations.counties_column].column + '_label'] = countiesServedLabel;
 
                 // Split CIL label and description
                 let cil_description_parts = feature.properties[schema['cil_description'].column].split(config.operations.cil_label_delimiter);
@@ -987,7 +998,7 @@ map.on('load', function() {
         if (! cluster || ! cluster.is) {
             // Determine if current zoom level is too large to view counties
             let zoomLevel = map.getZoom();
-            let offsetLat = (zoomLevel > 6 ? 1: 2.1);
+            let offsetLat = (zoomLevel > 6 ? 1: 2.5);
 
             if (zoomLevel > 7) {
                 zoomLevel = 7;
@@ -1187,7 +1198,7 @@ map.on('load', function() {
                     if (property.description) {
                         let info_icon = getIcon('info');
                         html.find(`[data-mp-property-pair="${property.id}"] label`).append(info_icon.html);
-                        html.find(`[data-mp-property-pair="${property.id}"] label`).attr('title', property.description);
+                        html.find(`[data-mp-property-pair="${property.id}"] label i`).attr('title', property.description);
                     }
                 } else {
                     html.find(`[data-mp-property-label="${property.id}"]`).remove();
