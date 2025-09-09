@@ -560,6 +560,9 @@ map.on('load', function() {
                 feature.properties[schema[config.operations.counties_column].column] = countiesServed;
                 feature.properties[schema[config.operations.counties_column].column + '_label'] = countiesServedLabel;
 
+                // Update CIL value to float
+                feature.properties[schema['cil_number'].column] = parseFloat(feature.properties[schema['cil_number'].column]).toFixed(2);
+
                 // Split CIL label and description
                 let cil_description_parts = feature.properties[schema['cil_description'].column].split(config.operations.cil_label_delimiter);
                 if (cil_description_parts.length > 1) {
@@ -658,7 +661,15 @@ map.on('load', function() {
 
             // Add category options
             if (category.options_data) {
-                Object.values(category.options_data).forEach((option) => {
+
+                category.options_data = Object.values(category.options_data);
+
+                // Sort category options
+                category.options_data.sort((a,b) => {
+                    return (a.value > b.value) ? 1 : ((b.value > a.value) ? -1 : 0)
+                });
+
+                category.options_data.forEach((option) => {
 
                     let optionHtml = $('.menu-container[data-container="filters"] .mc-category-option-wrapper[data-type="template"]').clone();
                     optionHtml.removeAttr('data-type');
@@ -1145,12 +1156,6 @@ map.on('load', function() {
             if (property.format) {
 
                 switch (property.format) {
-
-                    case 'float':
-                        // Float format to two decimal places
-                        propertyValue = propertyValue.toFixed(2);
-                        break;
-
                     case 'csv':
                         // Comma-separated format for arrays
                         propertyValue = propertyValue.join(', ');
