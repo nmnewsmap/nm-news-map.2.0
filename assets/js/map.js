@@ -132,7 +132,7 @@ const schema = {
         id: 'medium_primary',
         column: 'PRIMARY_MEDIA',
         label: 'Primary Medium',
-        description: "The platform that delivers 50% or more of the outlet's audience",
+        description: "Platform that delivers 50% or more of the outlet's audience",
         filter: true,
         options: {
             'Digital': {
@@ -161,7 +161,7 @@ const schema = {
         id: 'city_based',
         column: 'City_Based',
         label: 'City Based',
-        description: "The city of the outlet's headquarters",
+        description: "City where outlet is located",
     },
     'county_based': {
         id: 'county_based',
@@ -172,13 +172,13 @@ const schema = {
         id: 'frequency',
         column: 'FREQ',
         label: 'Frequency',
-        description: "The rate that coverage is typically published",
+        description: "Rate that coverage is typically published",
     },
     'language': {
         id: 'language',
         column: 'LANGUAGE',
         label: 'Language',
-        description: "The languages that coverage is written in or translated to",
+        description: "Primary language in which coverage is presented or translated",
         filter: true,
     },
     'year_founded': {
@@ -265,14 +265,14 @@ const schema = {
         id: 'counties_served',
         column: 'COUNTIES_SERVED',
         label: 'Counties Served',
-        description: "The county(s) that coverage is provided about",
+        description: "Approximate geographic reach. Some outlets are more localized",
         format: 'csv',
     },
     'counties_served_label': {
         id: 'counties_served_label',
         column: 'COUNTIES_SERVED_label', //Dynamic column, populated in cleanData()
         label: 'Counties Served',
-        description: "The county(s) that coverage is provided about",
+        description: "County(s) that coverage is provided about",
     },
     'updated_at': {
         id: 'updated_at',
@@ -330,7 +330,7 @@ map.touchZoomRotate.disableRotation();
 // Map attribution
 map.addControl(new mapboxgl.AttributionControl({
     compact: true,
-    customAttribution: 'Map design by Bloom Labs'
+    customAttribution: 'Map design by <a href="https://bloom.li" target="_blank" title="Bloom Labs">Bloom Labs</a>'
 }));
 
 /**
@@ -588,7 +588,7 @@ map.on('load', function() {
         let categories = [
             {
                 id: 'none',
-                title: 'No filters',
+                title: 'No Filters',
                 active: true,
             }
         ];
@@ -705,14 +705,9 @@ map.on('load', function() {
             // Deactivate active categories
             $('.menu-container[data-container="filters"] .mc-category.active').removeClass('active');
 
-            // Activate requested category
+            // Activate requested category and its options
             parent.addClass('active');
-
-            // Select all category options upon initial selection
-            if (! parent.attr('data-has-selected')) {
-                parent.find('.mc-category-option').addClass('active');
-            }
-
+            parent.find('.mc-category-option').addClass('active');
             parent.attr('data-has-selected', 'true');
             activeFilterCategory = parent.attr('data-id');
 

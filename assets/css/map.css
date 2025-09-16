@@ -108,6 +108,27 @@ font-family: Arial, sans-serif;
 font-size: 14px;
 }
 
+.mapboxgl-ctrl-group button {
+width: 35px;
+height: 35px;
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact {
+margin: 12px;
+min-height: 30px;
+padding-right: 30px;
+}
+
+.mapboxgl-ctrl-attrib-button {
+width: 30px;
+height: 30px;
+}
+
+.mapboxgl-ctrl-attrib.mapboxgl-compact-show .mapboxgl-ctrl-attrib-inner {
+margin-right: 5px;
+line-height: 26px;
+}
+
 /**
  * Menu
  */
