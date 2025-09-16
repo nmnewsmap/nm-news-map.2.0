@@ -705,14 +705,9 @@ map.on('load', function() {
             // Deactivate active categories
             $('.menu-container[data-container="filters"] .mc-category.active').removeClass('active');
 
-            // Activate requested category
+            // Activate requested category and its options
             parent.addClass('active');
-
-            // Select all category options upon initial selection
-            if (! parent.attr('data-has-selected')) {
-                parent.find('.mc-category-option').addClass('active');
-            }
-
+            parent.find('.mc-category-option').addClass('active');
             parent.attr('data-has-selected', 'true');
             activeFilterCategory = parent.attr('data-id');
 
