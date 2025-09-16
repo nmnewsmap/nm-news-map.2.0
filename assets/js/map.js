@@ -330,7 +330,7 @@ map.touchZoomRotate.disableRotation();
 // Map attribution
 map.addControl(new mapboxgl.AttributionControl({
     compact: true,
-    customAttribution: 'Map design by Bloom Labs'
+    customAttribution: 'Map design by <a href="https://bloom.li" target="_blank" title="Bloom Labs">Bloom Labs</a>'
 }));
 
 /**
