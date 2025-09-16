@@ -588,7 +588,7 @@ map.on('load', function() {
         let categories = [
             {
                 id: 'none',
-                title: 'No filters',
+                title: 'No Filters',
                 active: true,
             }
         ];
