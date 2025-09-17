@@ -136,7 +136,7 @@ line-height: 26px;
 /* Menu: Header */
 
 #map #menu {
-position: absolute;
+position: fixed;
 top: 20px;
 left: 20px;
 width: 275px;
