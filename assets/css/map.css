@@ -71,7 +71,8 @@ width: 100vw;
 height: 100vh;
 }
 
-[data-type="template"] {
+[data-type="template"],
+.warning-screen {
 display: none;
 }
 
@@ -879,4 +880,29 @@ text-transform: uppercase;
 
 [data-mp-property-template] {
 display: none !important;
+}
+
+@media all and (max-width: 350px) {
+
+#warning-reason-smallscreen {
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.8);
+text-align: center;
+z-index: 99999;
+}
+
+#warning-reason-smallscreen a {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+font-size: 30px;
+line-height: 30px;
+color: #fff;
+}
+
 }
