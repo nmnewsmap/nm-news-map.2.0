@@ -244,7 +244,7 @@ position: relative;
 float: left;
 width: 100%;
 height: auto;
-max-height: calc(100vh - 160px);
+max-height: calc(100vh - 120px);
 overflow-y: auto;
 overflow-x: visible;
 padding: 0 5px 10px 5px;
