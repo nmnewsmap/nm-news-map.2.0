@@ -255,7 +255,7 @@ display: none;
 @media all and (max-width: 600px) {
 
 .menu-containers {
-max-height: calc(100vh - 200px);
+max-height: calc(100vh - 240px);
 }
 
 }
