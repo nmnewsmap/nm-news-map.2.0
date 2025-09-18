@@ -1350,4 +1350,11 @@ map.on('load', function() {
             $('#menu').attr('data-visible', 'true');
         }
     });
+
+    /**
+     * Responsive Effects
+     * Fill URL for small-screen popout link
+     */
+    let page_url = window.location.href;
+    $('#warning-reason-smallscreen a').attr('href', page_url);
 });
