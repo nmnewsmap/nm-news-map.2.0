@@ -253,7 +253,11 @@ display: none;
 }
 
 @media all and (max-width: 600px) {
+
+.menu-containers {
 max-height: calc(100vh - 200px);
+}
+
 }
 
 #menu[data-visible="true"] .menu-containers {
