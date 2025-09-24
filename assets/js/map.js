@@ -751,8 +751,9 @@ map.on('load', function() {
                 categoryHtml.find('.mc-category').addClass('active');
             }
 
-            // Add category title
-            categoryHtml.find('.mc-category-title .mc-item-label').text(layer.title);
+            // Add category title and description
+            categoryHtml.find('.mc-category-title .mc-item-label span:first-child').text(layer.title);
+            categoryHtml.find('.mc-category-title .mc-item-label span:last-child').text(layer.source);
             categoryHtml.find('.mc-category-title .mc-item-input button').val(layer.id);
 
             // Add category options
@@ -819,7 +820,6 @@ map.on('load', function() {
                     const condition = i === 0 
                         ? ['<', ['get', layer.property], layer.breaks[i]]
                         : ['<', ['get', layer.property], layer.breaks[i]];
-
 
                     expression.push(condition, layer.colors[i]);
                 }
