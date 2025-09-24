@@ -576,7 +576,8 @@ map.on('load', function() {
                     owner_type = owner_type.charAt(0).toUpperCase() + owner_type.substring(1).toLowerCase();
                     feature.properties[schema['owner_type'].column] = owner_type;
                 }
-            });
+            }
+        );
     }// cleanData
 
     /**
@@ -818,7 +819,9 @@ map.on('load', function() {
                     const condition = i === 0 
                         ? ['<', ['get', layer.property], layer.breaks[i]]
                         : ['<', ['get', layer.property], layer.breaks[i]];
-                        expression.push(condition, layer.colors[i]);
+
+
+                    expression.push(condition, layer.colors[i]);
                 }
 
                 // Default color for highest values
