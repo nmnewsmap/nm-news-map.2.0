@@ -272,7 +272,7 @@ const schema = {
         id: 'counties_served_label',
         column: 'COUNTIES_SERVED_label', //Dynamic column, populated in cleanData()
         label: 'Counties Served',
-        description: "County(s) that coverage is provided about",
+        description: "Approximate geographic reach. Some outlets are more localized",
     },
     'updated_at': {
         id: 'updated_at',
