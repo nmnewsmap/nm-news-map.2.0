@@ -903,7 +903,7 @@ text-transform: uppercase;
 display: none !important;
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 300px) {
 
 #warning-reason-smallscreen {
 display: block;
