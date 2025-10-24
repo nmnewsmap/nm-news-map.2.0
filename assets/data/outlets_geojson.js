@@ -1981,7 +1981,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Guadalupe County Communicator",
-    "WEBSITE":"https://www.route66news.com/tag/guadalupe-county-communicator/",
+    "WEBSITE":"https://www.facebook.com/GuadalupeCountyCommunicator",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Santa Rosa",
     "FREQ":"Weekly",
@@ -1989,7 +1989,7 @@ window.outletsGeojsonFeatures = {
     "Year_Founded":"*",
     "OWNER":"Tom McDonald",
     "OWNER_TYPE":"Private individual or family",
-    "Social_Media_Facebook":"",
+    "Social_Media_Facebook":"https://www.facebook.com/GuadalupeCountyCommunicator",
     "Social_Media_Instagram":"",
     "Social_Media_YouTube":"",
     "Social_Media_X":"",
