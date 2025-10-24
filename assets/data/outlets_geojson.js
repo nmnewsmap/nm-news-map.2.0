@@ -2004,7 +2004,7 @@ window.outletsGeojsonFeatures = {
     "Address_County":"Guadalupe",
     "Address_State":"NM",
     "Address_Zip":88435,
-    "COUNTIES_SERVED":"Guadelupe"
+    "COUNTIES_SERVED":"Guadalupe"
     }
   },
   {
