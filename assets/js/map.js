@@ -1351,7 +1351,7 @@ map.on('load', function() {
      * Menu
      */
 
-    $('#menu #menu-toggle a').on('click', function() {
+    $('#menu #menu-toggle a#menu-toggle-open').on('click', function() {
         if ($('#menu').attr('data-visible') == 'true') {
             $('#menu').attr('data-visible', 'false');
         } else {

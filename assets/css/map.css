@@ -161,7 +161,7 @@ float: left;
 }
 
 #menu-toggle a {
-display: inline-block;
+display: block;
 width: 50px;
 height: 50px;
 background-color: var(--color-rose);
@@ -175,13 +175,18 @@ text-align: center;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 
-#menu-toggle a i {
+#menu[data-visible="false"] #menu-toggle a#menu-toggle-external,
+#menu-toggle a#menu-toggle-open i {
 display: none;
 }
 
-#menu[data-visible="false"] #menu-toggle a i[data-visible="false"],
-#menu[data-visible="true"] #menu-toggle a i[data-visible="true"] {
+#menu[data-visible="false"] #menu-toggle a#menu-toggle-open i[data-visible="false"],
+#menu[data-visible="true"] #menu-toggle a#menu-toggle-open i[data-visible="true"] {
 display: inline-block;
+}
+
+#menu[data-visible="true"] #menu-toggle a#menu-toggle-external {
+display: block;
 }
 
 #menu-logo {
