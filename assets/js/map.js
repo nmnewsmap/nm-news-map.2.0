@@ -497,6 +497,11 @@ map.on('load', function() {
 
             // Add markers
             drawMarkers();
+
+            // Open menu on desktop
+            if(! isMobile()) {
+                $('#menu').attr('data-visible', 'true');
+            }
         } catch (error) {
             console.error('Error in initial build process:', error);
         }
@@ -1361,3 +1366,13 @@ map.on('load', function() {
     let page_url = window.location.href;
     $('#warning-reason-smallscreen a').attr('href', page_url);
 });
+
+function isMobile()
+{
+    // Check sensor
+    if(($('#sensor-mobile').css('display') == 'none')) {
+        return true;
+    }
+
+    return false;
+}//isMobile

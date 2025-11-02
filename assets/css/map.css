@@ -452,10 +452,6 @@ font-size: 13px;
 line-height: 16px;
 }
 
-#census-controls {
-display: none;
-}
-
 /* Templates */
 
 #map-templates {
@@ -903,7 +899,15 @@ text-transform: uppercase;
 display: none !important;
 }
 
-@media all and (max-width: 300px) {
+@media all and (max-width: 500px) {
+
+#sensor-mobile {
+display: none;
+}
+
+}
+
+@media all and (max-width: 250px) {
 
 #warning-reason-smallscreen {
 display: block;
