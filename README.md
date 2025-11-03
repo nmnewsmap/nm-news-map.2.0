@@ -2,8 +2,11 @@
 
 A comprehensive interactive map displaying 139 local news outlets across New Mexico with advanced demographic analysis capabilities.
 
+## Full Report
+**https://www.nmnewsmap.org/**
+
 ## 🌐 Live Map
-**https://nmnewsmap.github.io/nm-news-map.2.0/nm_news_map_interactive.html**
+**https://nmnewsmap.github.io/nm-news-map.2.0/map.html**
 
 ## 📂 GitHub Repository
 **https://github.com/nmnewsmap/nm-news-map.2.0**
@@ -11,19 +14,17 @@ A comprehensive interactive map displaying 139 local news outlets across New Mex
 ## ✨ Features
 
 ### 📍 Interactive News Outlet Mapping
-- **139 Accurately Geocoded Outlets** - Street-level precision using Google Geocoding API
-- **Color-Coded by Media Type** - Digital (Blue), Print (Green), Radio (Orange), Television (Red), Multiplatform (Purple)
+- **139 Geocoded Outlets** - Positioned based on their central office location
 - **Smart Marker Clustering** - Dynamic offset system prevents overlapping markers
-- **Zoom-Adaptive Sizing** - Markers scale appropriately at all zoom levels
-
-### 🎛️ Interactive Legend & Filtering
-- **Click-to-Filter** - Filter markers by media type (Digital, Print, Radio, TV, Multiplatform)
-- **Show All Option** - Display all 139 outlets with counts
-- **Professional Styling** - Transparent panels with glass effect
-- **Real-time Updates** - Instant marker visibility changes
+- **Data Filtering** to search outlets by:
+  - Primary Medium
+  - Language
+  - Business Model
+  - Community Impact Level
 
 ### 📊 Census Data Overlays
-- **7 Demographic Layers** with professional choropleth mapping:
+- **8 Demographic Layers** from the 2023 American Community Survey (ACS) dataset
+  - News Outlet Density
   - Population Size
   - Median Household Income  
   - Private Business (Workers)
@@ -31,116 +32,15 @@ A comprehensive interactive map displaying 139 local news outlets across New Mex
   - Median Age
   - Nonwhite Population (%)
   - Homes with Broadband (%)
-- **2022 American Community Survey Data** - Latest available census statistics
-- **Dynamic Color Legends** - Professional 8-color gradients with value ranges
-- **Proper Attribution** - U.S. Census Bureau citation included
 
-### 💬 Enhanced Popups
+### 💬 Detailed Popups
 - **Comprehensive Information** - Outlet name, website, media type, location, staffing, demographics
 - **Clickable Links** - Direct access to outlet websites and social media
-- **Persistent Interaction** - Popups remain open for link clicking
-- **Clean Data Formatting** - No decimal places in years, proper currency formatting
 
 ### 🗺️ County Integration
 - **Boundary Visualization** - Dark county outlines for geographic context
 - **Coverage Highlighting** - Counties served by each outlet highlighted in matching colors
 - **33 New Mexico Counties** - Complete statewide coverage
-
-### 🎨 Professional Interface
-- **Cohesive Design** - Stacked panels in upper right with consistent styling
-- **50% Transparency** - Map markers visible through control panels
-- **Backdrop Blur Effect** - Modern glass aesthetic
-- **Mobile Responsive** - Works on desktop, tablet, and mobile devices
-
-## 📁 Project Structure
-
-### Essential Files:
-- `nm_news_map_interactive.html` - Main interactive map application
-- `outlets_geojson.js` - News outlet data in GeoJSON format
-- `nm_counties_wgs84.geojson` - New Mexico county boundaries (WGS84)
-- `nm_counties_with_census.geojson` - Counties with embedded census data
-- `NM_NEWS_OUTLETS_GEOCODED_2025_GOOGLE_FIXED.csv` - Final geocoded outlet data
-
-### Data Processing Scripts:
-- `run_update.py` - Convert Excel data to GeoJSON format
-- `fetch_census_data.py` - Download and process U.S. Census data
-- `google_geocoder_fix.py` - Improve geocoding accuracy using Google API
-- `improve_geocoding.py` - Street-level geocoding enhancement
-- `fix_failed_geocoding.py` - Address geocoding failures
-
-### Configuration:
-- `requirements.txt` - Python dependencies
-- `netlify.toml` - Netlify deployment configuration
-- `.gitignore` - Version control exclusions
-- `windsurf_deployment.yaml` - Deployment settings
-
-## 🚀 Quick Start
-
-### View the Live Map:
-Visit **https://nm-news-outlets-map.windsurf.build**
-
-### Local Development:
-1. **Start local server**: `python3 -m http.server 8000`
-2. **Open browser**: `http://localhost:8000/nm_news_map_interactive.html`
-3. **Explore features**: Try legend filtering and census overlays
-
-### Update Data:
-1. **Place new Excel file** in project directory
-2. **Run conversion**: `python3 run_update.py`
-3. **Commit and push changes**: `git add . && git commit -m "Update data" && git push`
-4. **Live map updates automatically** via GitHub Pages
-
-## 🤝 Collaboration
-
-### Contributing to the Project:
-1. **Fork the repository** on GitHub
-2. **Clone your fork**: `git clone https://github.com/YOUR_USERNAME/nm-news-map.2.0.git`
-3. **Create a feature branch**: `git checkout -b feature-name`
-4. **Make your changes** and test locally
-5. **Commit changes**: `git add . && git commit -m "Description of changes"`
-6. **Push to your fork**: `git push origin feature-name`
-7. **Create a Pull Request** on GitHub
-
-### For Direct Collaborators:
-1. **Clone the repository**: `git clone https://github.com/nmnewsmap/nm-news-map.2.0.git`
-2. **Make changes** and test locally
-3. **Push to main branch**: Changes automatically deploy to live map
-
-## 🔧 Technical Details
-
-### Dependencies:
-- **Mapbox GL JS** - Interactive mapping library
-- **Python 3.x** - Data processing scripts
-- **Pandas** - Data manipulation
-- **Requests** - API interactions
-
-### APIs Used:
-- **Mapbox API** - Base map tiles and styling
-- **Google Geocoding API** - Street-level address geocoding
-- **U.S. Census Bureau API** - Demographic data (2022 ACS 5-Year Estimates)
-
-### Browser Compatibility:
-- Chrome, Firefox, Safari, Edge (modern versions)
-- Mobile browsers (iOS Safari, Chrome Mobile)
-- Requires JavaScript enabled
-
-## 📈 Data Sources
-
-### News Outlets:
-- **Primary Source**: New Mexico news outlet database (2025)
-- **Geocoding**: Google Geocoding API for street-level accuracy
-- **Verification**: Manual review and correction of failed geocodes
-
-### Census Data:
-- **Source**: U.S. Census Bureau
-- **Dataset**: 2022 American Community Survey 5-Year Estimates
-- **Coverage**: All 33 New Mexico counties
-- **Variables**: Population, income, education, age, race, broadband access
-
-### Geographic Data:
-- **County Boundaries**: U.S. Census Bureau TIGER/Line Shapefiles
-- **Coordinate System**: WGS84 (EPSG:4326)
-- **Format**: GeoJSON for web compatibility
 
 ## 🎯 Use Cases
 
@@ -156,19 +56,6 @@ Visit **https://nm-news-outlets-map.windsurf.build**
 - **Grant Applications** - Supporting funding requests with demographic data
 - **Community Planning** - Understanding local information ecosystems
 
-## 🔄 Deployment
-
-The map is hosted on **GitHub Pages** at **https://nmnewsmap.github.io/nm-news-map.2.0/nm_news_map_interactive.html**
-
-### Automatic Updates:
-- **GitHub Pages** automatically rebuilds and deploys when changes are pushed to the `main` branch
-- **Live updates** typically appear within 1-2 minutes of pushing changes
-- **Version control** ensures all changes are tracked and reversible
-
-### Manual Deployment Options:
-- **Netlify**: Drag and drop the project folder for instant deployment
-- **Vercel**: Connect GitHub repository for automatic deployments
-- **Local hosting**: Run `python3 -m http.server 8000` for local development
 
 ## 📞 Support
 
