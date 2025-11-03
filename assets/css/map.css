@@ -912,6 +912,21 @@ display: none;
 
 }
 
+@media all and (max-width: 350px) {
+
+.mapboxgl-popup {
+transform: translate(-50%, 0px) !important;
+margin-top: 100px;
+margin-left: 52%;
+width: 96%;
+}
+
+.mp-container {
+width: 96%;
+}
+
+}
+
 @media all and (max-width: 250px) {
 
 #warning-reason-smallscreen {
