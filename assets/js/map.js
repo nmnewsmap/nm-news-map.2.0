@@ -5,7 +5,6 @@ const config = {
     data: {
         markers: window.outletsGeojsonFeatures,
         counties: base_dir + 'nm_counties_wgs84.geojson', // General county geographic data
-        census: base_dir + 'nm_counties_with_census.geojson', // County-based census data
     },
     operations: {
         sort_column: 'outlet_name', // The column for sorting markers by
@@ -339,19 +338,7 @@ map.addControl(new mapboxgl.AttributionControl({
 map.on('load', function() {
 
     // Initialize marker data
-    const markerData = config.data.markers;
-
-    // Load counties boundary source
-    map.addSource('counties', {
-        type: 'geojson',
-        data: config.data.counties
-    });
-
-    // Load census-enhanced counties source
-    map.addSource('census-counties', {
-        type: 'geojson',
-        data: config.data.census
-    });
+    var markerData = config.data.markers;
 
     // Fetch counties GeoJSON
     fetch(config.data.counties)
@@ -373,112 +360,8 @@ map.on('load', function() {
             console.error('Error loading county GeoJSON:', error);
         });
 
-    /**
-     * Load Map Source Data
-     * Once the county GeoJSON is loaded, store all county names
-     */
-    map.on('sourcedata', function(e) {
-        if (e.sourceId !== 'counties' || ! e.isSourceLoaded || countiesLoaded) return;
 
-        // Extract all county names when source is loaded
-        try {
-            const source = map.getSource('counties');
-            if (source._data && source._data.features) {
-                allCountyNames = source._data.features
-                    .map(feature => feature.properties.NAME)
-                    .filter(name => name); // filter out any undefined/null
 
-                // Mark counties as loaded
-                countiesLoaded = true;
-            }
-        } catch (err) {
-            console.error('Error extracting county names:', err);
-        }
-    }); // on.sourcedata
-
-    /**
-     * County & Census Highlights
-     */
-    map.addLayer({
-        id: 'counties-fill',
-        type: 'fill',
-        source: 'counties',
-        paint: {
-            'fill-color': '#b3d8f6', // Default: light blue
-            'fill-opacity': 0.35
-        },
-        filter: ['in', 'NAME', '']
-    });
-
-    map.addLayer({
-        id: 'census-overlay',
-        type: 'fill',
-        source: 'census-counties',
-        paint: {
-            'fill-color': [
-                'case',
-                ['==', ['get', 'Population Size'], null], '#f0f0f0', // Default for missing data
-                '#f0f0f0' // Default color when no overlay is active
-            ],
-            'fill-opacity': 0.7
-        },
-        layout: {
-            'visibility': 'none'
-        }
-    });
-
-    // Add error handling for the county source
-    map.on('error', function(e) {
-        console.error('Map error:', e);
-    });
-
-    // Add county boundary outlines
-    try {
-        map.addLayer({
-            id: 'counties-border',
-            type: 'line',
-            source: 'counties',
-            paint: {
-                'line-color': '#333',
-                'line-width': 2,
-                'line-opacity': 0.4
-            }
-        });
-
-        map.addLayer({
-            id: 'counties-border-highlight',
-            type: 'line',
-            source: 'counties',
-            paint: {
-                'line-color': '#333',
-                'line-width': 2,
-                'line-opacity': 0.8
-            },
-            filter: ['in', 'NAME', ''] // No counties highlighted initially
-        });
-    } catch (error) {
-        console.error('Error adding county boundary layers:', error);
-    }
-
-    // Add county labels
-    try {
-        map.addLayer({
-            id: 'counties-labels',
-            type: 'symbol',
-            source: 'counties',
-            layout: {
-                'text-field': ['get', 'NAME'],
-                'text-size': 13
-            },
-            paint: {
-                'text-color': '#333',
-                'text-halo-color': '#fff',
-                'text-halo-width': 1.5
-            }
-        });
-    } catch (error) {
-        console.error('Error adding county labels layer:', error);
-    }
 
     /**
      * initializeBuildProcess
@@ -489,6 +372,9 @@ map.on('load', function() {
             // Clean the data
             cleanData();
 
+            // Add layer data
+            addLayerData();
+
             // Add filter options
             buildFilterOptions();
 
@@ -497,6 +383,11 @@ map.on('load', function() {
 
             // Add markers
             drawMarkers();
+
+            // Open menu on desktop
+            if(! isMobile()) {
+                $('#menu').attr('data-visible', 'true');
+            }
         } catch (error) {
             console.error('Error in initial build process:', error);
         }
@@ -579,6 +470,137 @@ map.on('load', function() {
             }
         );
     }// cleanData
+
+    /**
+     * addLayerData
+     * Add layer data to the map
+     */
+    function addLayerData()
+    {
+
+        // Add density layer to map layer list
+        addDensityLayer();
+
+        // Load counties boundary source
+        map.addSource('counties', {
+            type: 'geojson',
+            data: config.data.counties
+        });
+
+        // Load census-enhanced counties source
+        map.addSource('census-counties', {
+            type: 'geojson',
+            data: window.countiesCensusGeojson
+        });
+
+        /**
+         * Load Map Source Data
+         * Once the county GeoJSON is loaded, store all county names
+         */
+        map.on('sourcedata', function(e) {
+            if (e.sourceId !== 'counties' || ! e.isSourceLoaded || countiesLoaded) return;
+
+            // Extract all county names when source is loaded
+            try {
+                const source = map.getSource('counties');
+                if (source._data && source._data.features) {
+                    allCountyNames = source._data.features
+                        .map(feature => feature.properties.NAME)
+                        .filter(name => name); // filter out any undefined/null
+
+                    // Mark counties as loaded
+                    countiesLoaded = true;
+                }
+            } catch (err) {
+                console.error('Error extracting county names:', err);
+            }
+        }); // on.sourcedata
+
+        /**
+         * County & Census Highlights
+         */
+        map.addLayer({
+            id: 'counties-fill',
+            type: 'fill',
+            source: 'counties',
+            paint: {
+                'fill-color': '#b3d8f6', // Default: light blue
+                'fill-opacity': 0.35
+            },
+            filter: ['in', 'NAME', '']
+        });
+
+        map.addLayer({
+            id: 'census-overlay',
+            type: 'fill',
+            source: 'census-counties',
+            paint: {
+                'fill-color': [
+                    'case',
+                    ['==', ['get', 'Population Size'], null], '#f0f0f0', // Default for missing data
+                    '#f0f0f0' // Default color when no overlay is active
+                ],
+                'fill-opacity': 0.7
+            },
+            layout: {
+                'visibility': 'none'
+            }
+        });
+
+        // Add error handling for the county source
+        map.on('error', function(e) {
+            console.error('Map error:', e);
+        });
+
+        // Add county boundary outlines
+        try {
+            map.addLayer({
+                id: 'counties-border',
+                type: 'line',
+                source: 'counties',
+                paint: {
+                    'line-color': '#333',
+                    'line-width': 2,
+                    'line-opacity': 0.4
+                }
+            });
+
+            map.addLayer({
+                id: 'counties-border-highlight',
+                type: 'line',
+                source: 'counties',
+                paint: {
+                    'line-color': '#333',
+                    'line-width': 2,
+                    'line-opacity': 0.8
+                },
+                filter: ['in', 'NAME', ''] // No counties highlighted initially
+            });
+        } catch (error) {
+            console.error('Error adding county boundary layers:', error);
+        }
+
+        // Add county labels
+        try {
+            map.addLayer({
+                id: 'counties-labels',
+                type: 'symbol',
+                source: 'counties',
+                layout: {
+                    'text-field': ['get', 'NAME'],
+                    'text-size': 13
+                },
+                paint: {
+                    'text-color': '#333',
+                    'text-halo-color': '#fff',
+                    'text-halo-width': 1.5
+                }
+            });
+        } catch (error) {
+            console.error('Error adding county labels layer:', error);
+        }
+
+    }//addLayerData
 
     /**
      * buildFilterOptions
@@ -812,7 +834,7 @@ map.on('load', function() {
 
             // Get layer
             const layer = censusLayers[parent.attr('data-id')];
-      
+
             if (layer) {
                 // Collect layer colors
                 const expression = ['case'];
@@ -1304,6 +1326,42 @@ map.on('load', function() {
         return ($('.mapboxgl-popup').length > 0);
     }// isPopupOpen
 
+    function addDensityLayer()
+    {
+        // Initialize
+        let countiesDensity = {};
+
+        markerData.features.forEach((outlet) => {
+            // Get counties served value
+            let countiesServed = outlet.properties[schema.counties_served.column];
+
+            if (countiesServed.map(s => s.toLowerCase()).includes(config.operations.county_all_term)) {
+                countiesServed = [...allCountyNames];
+            }
+
+            // Tally each county served
+            countiesServed.forEach((c) => {
+                c = c.trim();
+
+                if (! countiesDensity[c]) {
+                    countiesDensity[c] = 0;
+                }
+
+                countiesDensity[c]++;
+            });
+        });
+
+        window.countiesCensusGeojson.features.forEach((county, i) =>  {
+            let index = county.properties.NAME;
+            county.properties['Outlet Density'] = 0;
+
+            if (countiesDensity[index]) {
+                window.countiesCensusGeojson.features[i].properties['Outlet Density'] = countiesDensity[index];
+
+            }
+        });
+    }//addDensityLayer
+
     /**
      * Define Map Listeners
      */
@@ -1346,7 +1404,7 @@ map.on('load', function() {
      * Menu
      */
 
-    $('#menu #menu-toggle a').on('click', function() {
+    $('#menu #menu-toggle a#menu-toggle-open').on('click', function() {
         if ($('#menu').attr('data-visible') == 'true') {
             $('#menu').attr('data-visible', 'false');
         } else {
@@ -1361,3 +1419,13 @@ map.on('load', function() {
     let page_url = window.location.href;
     $('#warning-reason-smallscreen a').attr('href', page_url);
 });
+
+function isMobile()
+{
+    // Check sensor
+    if(($('#sensor-mobile').css('display') == 'none')) {
+        return true;
+    }
+
+    return false;
+}//isMobile

@@ -1,4 +1,4 @@
-{
+window.countiesCensusGeojson = {
   "type": "FeatureCollection",
   "features": [
     {
@@ -3430,4 +3430,4 @@
       }
     }
   ]
-}
+};

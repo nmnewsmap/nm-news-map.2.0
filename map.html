@@ -26,12 +26,15 @@
 
     <div id="map">
 
-        <div id="menu" data-visible="true">
+        <div id="menu" data-visible="false">
             <div id="menu-header">
                 <div id="menu-toggle">
-                    <a href="javascript:;" title="Toggle Menu">
+                    <a href="javascript:;" title="Toggle menu" id="menu-toggle-open">
                         <i class="fa-solid fa-bars" data-visible="false"></i>
                         <i class="fa-solid fa-xmark" data-visible="true"></i>
+                    </a>
+                    <a href="https://nmnewsmap.github.io/nm-news-map.2.0/map.html" title="Open in new window" target="_blank" id="menu-toggle-external" data-visible="true">
+                        <i class="fa-solid fa-up-right-from-square"></i>
                     </a>
                 </div>
                 <div id="menu-logo">
@@ -234,7 +237,10 @@
         </a>
     </div>
 
+    <div id="sensor-mobile"></div>
+
     <script src="assets/data/outlets_geojson.js"></script>
+    <script src="assets/data/counties_census.js"></script>
     <script src="assets/data/census_json.js"></script>
     <script src="assets/js/map.js"></script>
 
