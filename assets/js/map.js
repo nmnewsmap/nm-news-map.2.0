@@ -478,7 +478,7 @@ map.on('load', function() {
     function addLayerData()
     {
 
-        // Add density layer to map layer list
+        // Dynamically add density layer to map layer list
         addDensityLayer();
 
         // Load counties boundary source
@@ -782,7 +782,7 @@ map.on('load', function() {
             if (layer.breaks && layer.breaks.length > 0) {
                 for (let i = 0; i < layer.breaks.length; i++) {
                     // Get option values
-                    const minVal = i === 0 ? 0 : layer.breaks[i - 1];
+                    const minVal = i === 0 ? 0 : layer.breaks[i - 1] + 1;
                     const maxVal = i < layer.breaks.length ? layer.breaks[i] : '∞';
 
                     // Populate option HTML
@@ -790,7 +790,13 @@ map.on('load', function() {
                     optionHtml.removeAttr('data-type');
                     optionHtml.find('.mc-category-option').attr('data-id', i);
 
-                    optionHtml.find('.mc-item-label').text(layer.format(minVal) + ' - ' + (maxVal === '∞' ? '∞' : layer.format(maxVal)));
+                    if (minVal == maxVal) {
+                        var breaksLabel = minVal;
+                    } else {
+                        var breaksLabel = layer.format(minVal) + ' - ' + (maxVal === '∞' ? '∞' : layer.format(maxVal));
+                    }
+
+                    optionHtml.find('.mc-item-label').text(breaksLabel);
                     optionHtml.find('.mc-item-input button')
                         .val(i)
                         .css('background-color', layer.colors[i]);
@@ -840,7 +846,7 @@ map.on('load', function() {
                 const expression = ['case'];
                 for (let i = 0; i < layer.breaks.length; i++) {
                     const condition = i === 0 
-                        ? ['<', ['get', layer.property], layer.breaks[i]]
+                        ? ['==', ['get', layer.property], layer.breaks[i]]
                         : ['<', ['get', layer.property], layer.breaks[i]];
 
                     expression.push(condition, layer.colors[i]);
@@ -1332,23 +1338,16 @@ map.on('load', function() {
         let countiesDensity = {};
 
         markerData.features.forEach((outlet) => {
-            // Get counties served value
-            let countiesServed = outlet.properties[schema.counties_served.column];
+            // Get county the outlet resides in
+            let countyResides = outlet.properties[schema['county_based'].column];
 
-            if (countiesServed.map(s => s.toLowerCase()).includes(config.operations.county_all_term)) {
-                countiesServed = [...allCountyNames];
+            // Initialize county tally
+            if (! countiesDensity[countyResides]) {
+                countiesDensity[countyResides] = 0;
             }
 
-            // Tally each county served
-            countiesServed.forEach((c) => {
-                c = c.trim();
-
-                if (! countiesDensity[c]) {
-                    countiesDensity[c] = 0;
-                }
-
-                countiesDensity[c]++;
-            });
+            // Tally county
+            countiesDensity[countyResides]++;
         });
 
         window.countiesCensusGeojson.features.forEach((county, i) =>  {
