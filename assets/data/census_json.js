@@ -6,8 +6,8 @@ const censusLayers = {
         property: 'Outlet Density',
         title: 'News Outlet Density',
         source: 'New Mexico News Map Researchers',
-        colors: ['#cadff0', '#a6cde4', '#75b4d8', '#4b98c9', '#2877b8', '#0f569d'],
-        breaks: [15, 20, 25, 30, 25],
+        colors: ['#ffffff', '#cadff0', '#a6cde4', '#75b4d8', '#4b98c9', '#2877b8', '#0f569d'],
+        breaks: [0, 5, 10, 15, 20, 25, 30],
         format: (val) => val ? val.toLocaleString() : '0'
     },
     'population': {
