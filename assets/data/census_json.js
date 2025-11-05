@@ -77,7 +77,8 @@ function layerFormat(layer, value, simple) {
     var value = value.toLocaleString();
 
     // Return number only
-    if (simple) {
+    // Ignore simplicity for currency
+    if (simple && (! censusLayers[layer].hasOwnProperty('prefix') || censusLayers[layer].prefix != '$')) {
         return value;
     }
 
