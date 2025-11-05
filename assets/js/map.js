@@ -360,9 +360,6 @@ map.on('load', function() {
             console.error('Error loading county GeoJSON:', error);
         });
 
-
-
-
     /**
      * initializeBuildProcess
      * Conduct the initial build of map components
@@ -792,8 +789,10 @@ map.on('load', function() {
 
                     if (minVal == maxVal) {
                         var breaksLabel = minVal;
+                    } else if (maxVal === '∞') {
+                        var breaksLabel = layerFormat(layer.id, minVal, true) + '+' + (layer.hasOwnProperty('suffix') ? layer.suffix : '');
                     } else {
-                        var breaksLabel = layer.format(minVal) + ' - ' + (maxVal === '∞' ? '∞' : layer.format(maxVal));
+                        var breaksLabel = layerFormat(layer.id, minVal, true) + ' - ' + layerFormat(layer.id, maxVal);
                     }
 
                     optionHtml.find('.mc-item-label').text(breaksLabel);
@@ -844,10 +843,25 @@ map.on('load', function() {
             if (layer) {
                 // Collect layer colors
                 const expression = ['case'];
+
                 for (let i = 0; i < layer.breaks.length; i++) {
-                    const condition = i === 0 
-                        ? ['==', ['get', layer.property], layer.breaks[i]]
-                        : ['<', ['get', layer.property], layer.breaks[i]];
+                   
+                    let conditionOperation = '';
+
+                    switch(layer.breaks[i]) {
+                        case 0:
+                            conditionOperation = ['==', ['get', layer.property], layer.breaks[i]];
+                            break;
+
+                        case '∞':
+                            conditionOperation = ['>', ['get', layer.property], layer.breaks[i-1]]
+                            break;
+
+                        default:
+                            conditionOperation = ['<=', ['get', layer.property], layer.breaks[i]];
+                    }
+
+                    const condition = conditionOperation;
 
                     expression.push(condition, layer.colors[i]);
                 }
