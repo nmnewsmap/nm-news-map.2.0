@@ -158,6 +158,7 @@ height: auto;
 #menu-header #menu-toggle {
 display: inline-block;
 float: left;
+width: 50px;
 }
 
 #menu-toggle a {
@@ -204,7 +205,7 @@ height: 50px;
 }
 
 #menu[data-visible="true"] #menu-logo {
-width: 200px;
+width: calc(100% - 50px);
 height: 100px;
 border-radius: 0 5px 5px 5px;
 }
@@ -222,18 +223,18 @@ max-width: 100%;
 max-height: 100%;
 height: auto;
 transition: width ease 500ms;
-box-sizing: content-box;
+box-sizing: border-box;
 }
 
 #menu-logo img#menu-logo-brandmark {
-width: 35px;
-max-width: 70%;
+width: 100%;
 padding: 15%;
 }
 
 #menu-logo img#menu-logo-full {
-width: 80%;
+width: auto;
 padding: 10%;
+height: 100%;
 }
 
 #menu[data-visible="false"] #menu-logo img[data-visible="false"],
@@ -549,7 +550,7 @@ left: 0;
 width: 100%;
 height: 5px;
 background-color: var(--color-rose);
-box-radius: 5px;
+border-radius: 5px;
 cursor: default;
 }
 
@@ -764,7 +765,7 @@ margin-left: 3px;
 display: block;
 font-size: 13px;
 line-height: 15px;
-word-break: break-word;
+overflow-wrap: break-word;
 }
 
 .mp-body-row {
