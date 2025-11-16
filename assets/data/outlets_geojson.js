@@ -77,7 +77,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Abiquiu News",
-    "WEBSITE":"www.abiquiunews.com",
+    "WEBSITE":"http://www.abiquiunews.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Abiquiu",
     "FREQ":"Weekly",
@@ -111,7 +111,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"ABQ RAW",
-    "WEBSITE":"abqraw.com",
+    "WEBSITE":"http://abqraw.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Albuquerque",
     "FREQ":"More than once a day",
@@ -179,7 +179,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Alamogordo Daily News",
-    "WEBSITE":"alamogordonews.com",
+    "WEBSITE":"http://alamogordonews.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Alamogordo ",
     "FREQ":"Daily",
@@ -315,7 +315,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Albuquerque Journal",
-    "WEBSITE":"www.abqjournal.com",
+    "WEBSITE":"http://www.abqjournal.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Albuquerque",
     "FREQ":"More than once a day",
@@ -349,7 +349,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Albuquerque The Magazine",
-    "WEBSITE":"abqthemag.com",
+    "WEBSITE":"http://abqthemag.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Albuquerque",
     "FREQ":"Monthly",
@@ -383,7 +383,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Artesia Daily Press",
-    "WEBSITE":"artesianews.com",
+    "WEBSITE":"http://artesianews.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Artesia",
     "FREQ":"Weekly",
@@ -451,7 +451,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Boomtown Los Alamos",
-    "WEBSITE":"www.boomtownlosalamos.org",
+    "WEBSITE":"http://www.boomtownlosalamos.org/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Los Alamos",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -485,7 +485,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Camino Real Media",
-    "WEBSITE":"www.caminorealmedia.com",
+    "WEBSITE":"http://www.caminorealmedia.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"El Paso",
     "FREQ":"Bi-Weekly (every other week)",
@@ -519,7 +519,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Carlsbad Current-Argus",
-    "WEBSITE":"www.currentargus.com",
+    "WEBSITE":"http://www.currentargus.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Carlsbad",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -587,7 +587,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"CATS-TV",
-    "WEBSITE":"catsilver.org",
+    "WEBSITE":"http://catsilver.org/",
     "PRIMARY_MEDIA":"Television",
     "City_Based":"Silver City",
     "FREQ":"Occasionally or Sporadically",
@@ -621,7 +621,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Cibola Citizen",
-    "WEBSITE":"cibolacitizen.com",
+    "WEBSITE":"http://cibolacitizen.com",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Grants",
     "FREQ":"Weekly",
@@ -689,7 +689,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Cloudcroft Reader",
-    "WEBSITE":"Www.Cloudcroftreader.com",
+    "WEBSITE":"http://www.cloudcroftreader.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Cloudcroft ",
     "FREQ":"Weekly",
@@ -723,7 +723,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Clovis Livestock Market News",
-    "WEBSITE":"debacacountynews.com",
+    "WEBSITE":"http://debacacountynews.com",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Fort Sumner",
     "FREQ":"Weekly",
@@ -859,7 +859,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"De Baca County News",
-    "WEBSITE":"debacacountynews.com",
+    "WEBSITE":"http://debacacountynews.com",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Fort Sumner",
     "FREQ":"Weekly",
@@ -961,7 +961,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Downtown Albuquerque News",
-    "WEBSITE":"downtownalbuquerquenews.com",
+    "WEBSITE":"http://downtownalbuquerquenews.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Albuquerque",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -995,7 +995,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Eastern New Mexico News",
-    "WEBSITE":"www.easternnewmexiconews.com",
+    "WEBSITE":"http://www.easternnewmexiconews.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Clovis",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -1063,7 +1063,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"El Defensor Chieftain",
-    "WEBSITE":"www.dchieftain.com",
+    "WEBSITE":"http://www.dchieftain.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Socorro",
     "FREQ":"Weekly",
@@ -1097,7 +1097,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"El Paso Matters",
-    "WEBSITE":"www.elpasomatters.org",
+    "WEBSITE":"http://www.elpasomatters.org/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"El Paso",
     "FREQ":"More than once a day",
@@ -1165,7 +1165,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Gallup Journey",
-    "WEBSITE":"gallupjourney.com",
+    "WEBSITE":"http://gallupjourney.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Gallup",
     "FREQ":"Monthly",
@@ -1199,7 +1199,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Gallup Sun",
-    "WEBSITE":"gallupsunweekly.com",
+    "WEBSITE":"http://gallupsunweekly.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Gallup",
     "FREQ":"Weekly",
@@ -1335,7 +1335,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Hidalgo County Herald",
-    "WEBSITE":"hidalgoherald.com",
+    "WEBSITE":"http://hidalgoherald.com",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Lordsburg",
     "FREQ":"Weekly",
@@ -1369,7 +1369,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Hobbs News-Sun",
-    "WEBSITE":"www.hobbsnews.com",
+    "WEBSITE":"http://www.hobbsnews.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Hobbs",
     "FREQ":"Daily",
@@ -1393,6 +1393,40 @@ window.outletsGeojsonFeatures = {
     "Address_County":"Lea",
     "Address_State":"NM",
     "Address_Zip":88240
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -108.27096,32.7815841 ]
+    },
+    "properties": {
+    "OUTLET_NAME":"http://silvercityradio.com/",
+    "WEBSITE":"http://silvercityradio.com/",
+    "PRIMARY_MEDIA":"Radio",
+    "City_Based":"Silver City",
+    "FREQ":"More than once a day",
+    "LANGUAGE":"English",
+    "Year_Founded":"2005",
+    "OWNER":"SkyWest Media, LLC (Ted Tucker)",
+    "OWNER_TYPE":"Private individual or family",
+    "Social_Media_Facebook":"",
+    "Social_Media_Instagram":"",
+    "Social_Media_YouTube":"",
+    "Social_Media_X":"",
+    "Social_Media_TikTok":"",
+    "Social_Media_Other":"",
+    "SUMMARY":"Lordsburg classic rock station airs a daily 3-minute news roundup from Sky West Media Group.",
+    "COMMUNITY_IMPACT_LVL":1,
+    "IMPACT_LVL_DESCRIPTION":"Nominal Presence - A sparse source of announcements, events or headlines.",
+    "LAST_UPDATE":2025,
+    "COUNTIES_SERVED":"Catron, Grant, Hidalgo, Luna",
+    "Address_Street":"1561 North Corbin",
+    "Address_City":"Silver City",
+    "Address_County":"Grant",
+    "Address_State":"NM",
+    "Address_Zip":88061
     }
   },
   {
@@ -1675,7 +1709,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KCBD-TV",
-    "WEBSITE":"www.kcbd.com",
+    "WEBSITE":"http://www.kcbd.com/",
     "PRIMARY_MEDIA":"Television",
     "City_Based":"Lubbock",
     "FREQ":"More than once a day",
@@ -1709,7 +1743,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KCCC-AM ",
-    "WEBSITE":"kccc930am.com",
+    "WEBSITE":"http://kccc930am.com/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Carlsbad",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -1743,7 +1777,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KEJL-AM",
-    "WEBSITE":"hobbsamerica.com",
+    "WEBSITE":"http://hobbsamerica.com/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Hobbs",
     "FREQ":"More than once a day",
@@ -2083,7 +2117,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KKOB-AM/FM",
-    "WEBSITE":"Www.newsradiokkob.com",
+    "WEBSITE":"http://www.newsradiokkob.com/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Albuquerque",
     "FREQ":"More than once a day",
@@ -2151,7 +2185,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KLMX-AM",
-    "WEBSITE":"Klmx.us",
+    "WEBSITE":"http://klmx.us/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Clayton",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -2287,7 +2321,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KNFT-AM/FM",
-    "WEBSITE":"silvercityradio.com",
+    "WEBSITE":"http://silvercityradio.com/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Silver City",
     "FREQ":"More than once a day",
@@ -2321,7 +2355,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KOAT-TV",
-    "WEBSITE":"www.koat.com ",
+    "WEBSITE":"http://www.koat.com/",
     "PRIMARY_MEDIA":"Television",
     "City_Based":"Albuquerque",
     "FREQ":"Daily",
@@ -2355,7 +2389,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KOB-TV",
-    "WEBSITE":"kob.com",
+    "WEBSITE":"http://kob.com/",
     "PRIMARY_MEDIA":"Multiplatform",
     "City_Based":"Albuquerque",
     "FREQ":"More than once a day",
@@ -2389,7 +2423,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KOTS-AM",
-    "WEBSITE":"www.kotsam.com",
+    "WEBSITE":"http://www.kotsam.com/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Deming",
     "FREQ":"More than once a day",
@@ -2413,40 +2447,6 @@ window.outletsGeojsonFeatures = {
     "Address_County":"Luna",
     "Address_State":"NM",
     "Address_Zip":88030
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-       "type": "Point",
-       "coordinates":  [ -108.27096,32.7815841 ]
-    },
-    "properties": {
-    "OUTLET_NAME":"KPSA-FM",
-    "WEBSITE":"silvercityradio.com",
-    "PRIMARY_MEDIA":"Radio",
-    "City_Based":"Silver City",
-    "FREQ":"More than once a day",
-    "LANGUAGE":"English",
-    "Year_Founded":"2005",
-    "OWNER":"SkyWest Media, LLC (Ted Tucker)",
-    "OWNER_TYPE":"Private individual or family",
-    "Social_Media_Facebook":"",
-    "Social_Media_Instagram":"",
-    "Social_Media_YouTube":"",
-    "Social_Media_X":"",
-    "Social_Media_TikTok":"",
-    "Social_Media_Other":"",
-    "SUMMARY":"Lordsburg classic rock station airs a daily 3-minute news roundup from Sky West Media Group.",
-    "COMMUNITY_IMPACT_LVL":1,
-    "IMPACT_LVL_DESCRIPTION":"Nominal Presence - A sparse source of announcements, events or headlines.",
-    "LAST_UPDATE":2025,
-    "COUNTIES_SERVED":"Catron, Grant, Hidalgo, Luna",
-    "Address_Street":"1561 North Corbin",
-    "Address_City":"Silver City",
-    "Address_County":"Grant",
-    "Address_State":"NM",
-    "Address_Zip":88061
     }
   },
   {
@@ -2593,7 +2593,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KRWG-FM/TV",
-    "WEBSITE":"www.krwg.org",
+    "WEBSITE":"http://www.krwg.org/",
     "PRIMARY_MEDIA":"Multiplatform",
     "City_Based":"Las Cruces",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -2627,7 +2627,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KSFR-FM",
-    "WEBSITE":"www.ksfr.org",
+    "WEBSITE":"http://www.ksfr.org/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Santa Fe",
     "FREQ":"More than once a day",
@@ -2661,7 +2661,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KSJE-FM",
-    "WEBSITE":"www.KSJE.com",
+    "WEBSITE":"http://www.ksje.com/",
     "PRIMARY_MEDIA":"Multiplatform",
     "City_Based":"Farmington",
     "FREQ":"Daily",
@@ -2729,7 +2729,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KTAL-LPFM",
-    "WEBSITE":"www.lccommunityradio.org",
+    "WEBSITE":"http://www.lccommunityradio.org/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Las Cruces",
     "FREQ":"Weekly",
@@ -2797,7 +2797,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KTDB-FM",
-    "WEBSITE":" https://www.rnsb.k12.nm.us/ktdb",
+    "WEBSITE":"https://www.rnsb.k12.nm.us/ktdb",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Pine Hill",
     "FREQ":"Daily",
@@ -2831,7 +2831,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KTNN-AM/FM",
-    "WEBSITE":"ktnnonline.com",
+    "WEBSITE":"http://ktnnonline.com/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Window Rock",
     "FREQ":"Weekly",
@@ -2933,7 +2933,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KUNM-FM",
-    "WEBSITE":"www.kunm.org",
+    "WEBSITE":"http://www.kunm.org/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Albuquerque",
     "FREQ":"More than once a day",
@@ -2967,7 +2967,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KUPR-FM",
-    "WEBSITE":"www.kupr.org",
+    "WEBSITE":"http://www.kupr.org/",
     "PRIMARY_MEDIA":"Radio",
     "City_Based":"Placitas",
     "FREQ":"Weekly",
@@ -3035,7 +3035,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"KVIA-TV",
-    "WEBSITE":"kvia.com",
+    "WEBSITE":"http://kvia.com/",
     "PRIMARY_MEDIA":"Television",
     "City_Based":"El Paso",
     "FREQ":"More than once a day",
@@ -3103,7 +3103,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Las Cruces Bulletin",
-    "WEBSITE":"www.lascrucesbulletin.com",
+    "WEBSITE":"http://www.lascrucesbulletin.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Las Cruces",
     "FREQ":"Weekly",
@@ -3137,7 +3137,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Las Cruces Sun-News",
-    "WEBSITE":"lcsun-news.com",
+    "WEBSITE":"http://lcsun-news.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Las Cruces",
     "FREQ":"Daily",
@@ -3205,7 +3205,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Los Alamos Daily Post",
-    "WEBSITE":"www.ladailypost.com",
+    "WEBSITE":"http://www.ladailypost.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Los Alamos",
     "FREQ":"More than once a day",
@@ -3273,7 +3273,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Lovington Leader",
-    "WEBSITE":"lovingtonleaderonline.com",
+    "WEBSITE":"http://lovingtonleaderonline.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Lovington",
     "FREQ":"Weekly",
@@ -3307,7 +3307,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Mountainair Dispatch",
-    "WEBSITE":"www.mountainairdispatch.com",
+    "WEBSITE":"http://www.mountainairdispatch.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Mountainair",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -3341,7 +3341,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Navajo Times",
-    "WEBSITE":"www.navajotimes.com",
+    "WEBSITE":"http://www.navajotimes.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Window Rock",
     "FREQ":"Daily",
@@ -3375,7 +3375,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"New Mexico In Depth",
-    "WEBSITE":"nmindepth.com",
+    "WEBSITE":"http://nmindepth.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Albuquerque",
     "FREQ":"Weekly",
@@ -3613,7 +3613,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"NMPBS/KNME-TV",
-    "WEBSITE":"www.nmpbs.org",
+    "WEBSITE":"http://www.nmpbs.org/",
     "PRIMARY_MEDIA":"Television",
     "City_Based":"Albuquerque",
     "FREQ":"Weekly",
@@ -3647,7 +3647,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Nob Hill News",
-    "WEBSITE":"www.abqnobhillnews.com",
+    "WEBSITE":"http://www.abqnobhillnews.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Albuquerque",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -3783,7 +3783,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Rio Grande Sun",
-    "WEBSITE":"Riograndesun.com",
+    "WEBSITE":"http://riograndesun.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Espanola",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -3817,7 +3817,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Rio Rancho Observer",
-    "WEBSITE":"rrobserver.com",
+    "WEBSITE":"http://rrobserver.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Rio Rancho",
     "FREQ":"Weekly",
@@ -3885,7 +3885,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Roswell Daily Record",
-    "WEBSITE":"rdrnews.com",
+    "WEBSITE":"http://rdrnews.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Roswell",
     "FREQ":"Daily",
@@ -3919,7 +3919,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Round The Roundhouse",
-    "WEBSITE":"roundtheroundhouse.com",
+    "WEBSITE":"http://roundtheroundhouse.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Santa Fe",
     "FREQ":"Monthly",
@@ -4021,7 +4021,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Santa Fe New Mexican",
-    "WEBSITE":"www.santafenewmexican.com",
+    "WEBSITE":"http://www.santafenewmexican.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Santa Fe",
     "FREQ":"Daily",
@@ -4123,7 +4123,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Sierra County Citizen",
-    "WEBSITE":"sierracountycitizen.org",
+    "WEBSITE":"http://sierracountycitizen.org/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Williamsburg",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -4191,7 +4191,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Silver City Daily Press and Independent",
-    "WEBSITE":"scdailypress.com",
+    "WEBSITE":"http://scdailypress.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Silver City",
     "FREQ":"Semi-Daily (fewer than 7 days a week)",
@@ -4225,7 +4225,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Source New Mexico",
-    "WEBSITE":"sourcenm.com",
+    "WEBSITE":"http://sourcenm.com/",
     "PRIMARY_MEDIA":"Multiplatform",
     "City_Based":"Santa Fe",
     "FREQ":"Daily",
@@ -4327,7 +4327,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"Taos News",
-    "WEBSITE":"www.taosnews.com",
+    "WEBSITE":"http://www.taosnews.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Taos",
     "FREQ":"More than once a day",
@@ -4463,13 +4463,13 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"The Ratonian",
-    "WEBSITE":"www.theratonian.com",
+    "WEBSITE":"http://www.theratonian.com/",
     "PRIMARY_MEDIA":"Digital",
     "City_Based":"Raton",
     "FREQ":"Daily",
     "LANGUAGE":"English",
     "Year_Founded":"2023",
-    "OWNER":" Raton Community Development Collaborative",
+    "OWNER":"Raton Community Development Collaborative",
     "OWNER_TYPE":"Noncommercial/Nonprofit",
     "Social_Media_Facebook":"https://www.facebook.com/RatonCDC/",
     "Social_Media_Instagram":"",
@@ -4667,7 +4667,7 @@ window.outletsGeojsonFeatures = {
     },
     "properties": {
     "OUTLET_NAME":"World Journal newspaper",
-    "WEBSITE":"www.worldjournalnewspaper.com",
+    "WEBSITE":"http://www.worldjournalnewspaper.com/",
     "PRIMARY_MEDIA":"Print",
     "City_Based":"Walsenburg",
     "FREQ":"Weekly",
