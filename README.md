@@ -1,6 +1,6 @@
 # New Mexico Local News Map
 
-A comprehensive interactive map displaying 139 local news outlets across New Mexico with advanced demographic analysis capabilities.
+A comprehensive interactive map displaying local news outlets across New Mexico with advanced demographic analysis capabilities.
 
 ## Full Report
 **https://www.nmnewsmap.org/**
