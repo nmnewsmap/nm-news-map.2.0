@@ -2793,7 +2793,7 @@ window.outletsGeojsonFeatures = {
     "type": "Feature",
     "geometry": {
        "type": "Point",
-       "coordinates":  [ -105.67083,34.2036837 ]
+       "coordinates":  [ -108.4140208,34.8907776 ]
     },
     "properties": {
     "OUTLET_NAME":"KTDB-FM",
