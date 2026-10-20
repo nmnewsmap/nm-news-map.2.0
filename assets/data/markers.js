@@ -1,4 +1,4 @@
-window.outletsGeojsonFeatures = {
+export const layerMarkers = {
    "type": "FeatureCollection",
    "features": [
   {

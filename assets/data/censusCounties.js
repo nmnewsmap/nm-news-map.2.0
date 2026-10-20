@@ -1,4 +1,4 @@
-window.countiesCensusGeojson = {
+export const layerCensusCounties = {
   "type": "FeatureCollection",
   "features": [
     {

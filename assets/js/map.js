@@ -1,392 +1,183 @@
-// Initialize map configuration
-const base_dir = 'assets/data/';
+import { isMobile } from './utils.js';
+import { layerCensusCounties } from '/assets/data/censusCounties.js';
+import { layerMarkers } from '/assets/data/markers.js';
 
-const config = {
-    data: {
-        markers: window.outletsGeojsonFeatures,
-        counties: base_dir + 'nm_counties_wgs84.geojson', // General county geographic data
-    },
-    operations: {
-        sort_column: 'outlet_name', // The column for sorting markers by
-        cil_max: 3.00, // The maximum Community Impact Level number
-        cil_label_delimiter: '-', // The delimiter for the CIL label in the CIL description
-        county_delimiter: ',', // The delimiter for multiple counties in the county column
-        county_all_term: 'all', // The term used in marker county data for all-encompassing county coverage
-        counties_column: 'counties_served', // The column that includes the marker's county data
-        counties_color_column: 'medium_primary', // The column that controls the marker colors
-        counties_color_default: '#e0e0e0', // The default color for highlighting counties 
-        county_name_exceptions: { // County name normalization mapping
-            "dona ana": "Doña Ana",
-            "doña ana": "Doña Ana",
-            "dona ana ": "Doña Ana",
-            "do\u00f1a ana": "Doña Ana",
-            "de baca": "De Baca",
-            "guadelupe": "Guadalupe", // Common misspelling
-            "mckinley": "McKinley", // Handle lowercase variations
+export class Map_ECO {
+
+    constructor(config, config_system) {
+        this.debug = config.debug;
+        this.config = {
+            icons: config_system.icons,
+            map: config.map,
+            mapOperations: config.mapOperations,
+            schema: config.schema,
+            layerCensusCategories: config_system.layerCensusCategories,
         },
-    },
-    icons: {
-        app:  {
-            id: 'app-store',
-            color: '#515151',
-            group: 'brands',
-        },
-        facebook: {
-            id: 'facebook',
-            color: '#1778f2',
-            group: 'brands',
-        },
-        info: {
-            id: 'info-circle',
-            color: '#000000',
-            group: 'solid',
-        },
-        instagram: {
-            id: 'instagram',
-            color: '#e1306c',
-            group: 'brands',
-        },
-        linktree: {
-            id: 'linktree',
-            color: '#42e661',
-            group: 'brands',
-        },
-        pinterest: {
-            id: 'pinterest',
-            color: '#e60023',
-            group: 'brands',
-        },
-        podcast: {
-            id: 'microphone-lines',
-            color: '#515151',
-            group: 'solid',
-        },
-        reddit: {
-            id: 'reddit',
-            color: '#ff4500',
-            group: 'brands',
-        },
-        spotify: {
-            id: 'spotify',
-            color: '#1db954',
-            group: 'brands',
-        },
-        substack: {
-            id: 'bookmark',
-            color: '#ff6719',
-            group: 'solid',
-        },
-        tiktok: {
-            id: 'tiktok',
-            color: '#fe2c55',
-            group: 'brands',
-        },
-        youtube: {
-            id: 'youtube',
-            color: '#ff0000',
-            group: 'brands',
-        },
-        x: {
-            id: 'x-twitter',
-            color: '#000000',
-            group: 'brands',
-        },
-        default: {
-            id: '',
-            color: '#515151',
-            group: 'initial',
-        }
-    }
-};
+        this.map = null;
+        this.markerData = null;
+        this.allMarkers = []; // Current, filtered markers
+        this.clusters = []; // Marker clusters
 
-/**
- * Data Schema Definitions
- * 
- * Each schema is an array of sections.
- * Each section includes:
- * -- id: The unique ID of the section.
- * -- title: Optional; The title for the section.
- * -- properties: An array of properties for the section.
- * 
- * Each property includes:
- * -- id: The unique ID or slug for the property.
- * -- column: The column name of the property in the data file.
- * -- type: Optional; The formatting type to apply to the property value; Options: "text" (default), "int", "url", "index"
- * -- description: Optional; The explainer for the property; Displays as a tooltip.
- */
+        this.allCountyNames = []; // Stores all county names
+        this.countiesLoaded = false; // Store loaded counties
+        this.activeFilters = [];
+        this.activeFilterCategory = '';
 
-const schema = {
-    'outlet_name': {
-        id: 'outlet_name',
-        column: 'OUTLET_NAME',
-        label: 'Outlet Name',
-    },
-    'website': {
-        id: 'website',
-        column: 'WEBSITE',
-        label: 'Website',
-        type: 'website',
-    },
-    'medium_primary': {
-        id: 'medium_primary',
-        column: 'PRIMARY_MEDIA',
-        label: 'Primary Medium',
-        description: "Platform that delivers 50% or more of the outlet's audience",
-        filter: true,
-        options: {
-            'Digital': {
-                icon: 'mobile-screen',
-                color: '#2196f3', //Bright blue
-            },
-            'Radio': {
-                icon: 'headphones',
-                color: '#ff9800', //Orange
-            },
-            'Print': {
-                icon: 'newspaper',
-                color: '#4caf50', //Green
-            },
-            'Television': {
-                icon: 'tv',
-                color: '#f44336', //Red
-            },
-            'Multiplatform': {
-                icon: 'cubes',
-                color: '#9c27b0' //Purple
-            },
-        },
-    },
-    'city_based': {
-        id: 'city_based',
-        column: 'City_Based',
-        label: 'City Based',
-        description: "City where outlet is located",
-    },
-    'county_based': {
-        id: 'county_based',
-        column: 'Address_County',
-        label: 'County Based',
-    },
-    'frequency': {
-        id: 'frequency',
-        column: 'FREQ',
-        label: 'Frequency',
-        description: "Rate that coverage is typically published",
-    },
-    'language': {
-        id: 'language',
-        column: 'LANGUAGE',
-        label: 'Language',
-        description: "Primary language in which coverage is presented or translated",
-        filter: true,
-    },
-    'year_founded': {
-        id: 'year_founded',
-        column: 'Year_Founded',
-        label: 'Year Founded',
-    },
-    'owner_name': {
-        id: 'owner_name',
-        column: 'OWNER',
-        label: 'Owner',
-    },
-    'owner_type': {
-        id: 'owner_type',
-        column: 'OWNER_TYPE',
-        label: 'Business Model',
-        filter: true,
-    },
-    'facebook': {
-        id: 'facebook',
-        column: 'Social_Media_Facebook',
-        label: 'Facebook',
-        type: 'social',
-    },
-    'instagram': {
-        id: 'instagram',
-        column: 'Social_Media_Instagram',
-        label: 'Instagram',
-        type: 'social',
-    },
-    'youtube': {
-        id: 'youtube',
-        column: 'Social_Media_YouTube',
-        label: 'YouTube',
-        type: 'social',
-    },
-    'x': {
-        id: 'x',
-        column: 'Social_Media_X',
-        label: 'X',
-        type: 'social',
-    },
-    'tiktok': {
-        id: 'tiktok',
-        column: 'Social_Media_TikTok',
-        label: 'TikTok',
-        type: 'social',
-    },
-    'social_other': {
-        id: 'social_other',
-        column: 'Social_Media_Other',
-        label: 'Other',
-        type: 'social',
-    },
-    'cil_number': {
-        id: 'cil_number',
-        column: 'COMMUNITY_IMPACT_LVL',
-        label: 'Community Impact Level',
-        format: 'float',
-        filter: true,
-    },
-    'cil_percent': {
-        id: 'cil_percent',
-        column: 'COMMUNITY_IMPACT_LVL',
-        label: 'Community Impact Level Percentage',
-        type: 'cil_percent',
-    },
-    'cil_label': {
-        id: 'cil_label',
-        column: 'IMPACT_LVL_LABEL', //Dynamic column, populated in cleanData()
-        label: 'Community Impact Level Label',
-    },
-    'cil_description': {
-        id: 'cil_description',
-        column: 'IMPACT_LVL_DESCRIPTION',
-        label: 'Community Impact Level Description',
-    },
-    'summary': {
-        id: 'summary',
-        column: 'SUMMARY',
-        label: 'Summary',
-    },
-    'counties_served': {
-        id: 'counties_served',
-        column: 'COUNTIES_SERVED',
-        label: 'Counties Served',
-        description: "Approximate geographic reach. Some outlets are more localized",
-        format: 'csv',
-    },
-    'counties_served_label': {
-        id: 'counties_served_label',
-        column: 'COUNTIES_SERVED_label', //Dynamic column, populated in cleanData()
-        label: 'Counties Served',
-        description: "Approximate geographic reach. Some outlets are more localized",
-    },
-    'updated_at': {
-        id: 'updated_at',
-        column: 'LAST_UPDATE',
-        label: 'Updated:',
-    },
-};
-
-// Initialize
-let allCountyNames = []; // Stores all county names
-let countiesLoaded = false; // Store loaded counties
-let activeFilters = [];
-let activeFilterCategory = '';
-
-// Initialize map
-mapboxgl.accessToken = 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A';
-
-const map = new mapboxgl.Map({
-    container: 'map-canvas',
-    style: 'mapbox://styles/mapbox/light-v11',
-    center: [-106.2485, 34.5199], // New Mexico
-    zoom: 5, // State level
-    minZoom: 5,
-    maxZoom: 9,
-    attributionControl: false,
-    maxBounds: [
-        [-110.301, 29.741],
-        [-101.205, 37.828]
-    ],
-});
-
-// Animate initial map view to show entire state
-map.fitBounds([[-102.999,31.415], [-108.601,36.902]], {
-    padding: {
-        top: 50,
-        bottom: 50,
-        left: 50,
-        right: 50
-    },
-    duration: 500,
-});
-
-// Map controls
-const nav = new mapboxgl.NavigationControl({
-    showCompass: false,
-});
-map.addControl(nav, 'bottom-right');
-
-// disable map rotation using right click + drag
-map.dragRotate.disable();
-
-// disable map rotation using touch rotation gesture
-map.touchZoomRotate.disableRotation();
-
-// Map attribution
-map.addControl(new mapboxgl.AttributionControl({
-    compact: true,
-    customAttribution: 'Map design by <a href="https://bloom.li" target="_blank" title="Bloom Labs">Bloom Labs</a>'
-}));
-
-/**
- * Load Map
- */
-map.on('load', function() {
-
-    // Initialize marker data
-    var markerData = config.data.markers;
-
-    // Fetch counties GeoJSON
-    fetch(config.data.counties)
-        .then(response => response.json())
-        .then(data => {
-            if (! data || ! data.features && data.features.length > 0) return;
-
-            // Store all county names
-            allCountyNames = data.features
-                .map(feature => feature.properties.NAME)
-                .filter(name => name);
-
-            countiesLoaded = true;
-
-            // Begin build process
-            initializeBuildProcess();
-        })
-        .catch(error => {
-            console.error('Error loading county GeoJSON:', error);
-        });
+        this.timeouts = {
+            zoomUpdate: null
+        };
+    }// constructor
 
     /**
-     * initializeBuildProcess
-     * Conduct the initial build of map components
+     * init
+     * Initialize the map
      */
-    function initializeBuildProcess() {
+    init() {
+
+        // Initialize map
+        this.map = new mapboxgl.Map({
+            accessToken: this.config.map.access_token,
+            container: this.config.map.canvas_id,
+            style: this.config.map.style,
+            center: this.config.map.center,
+            zoom: this.config.map.zoom.default,
+            minZoom: this.config.map.zoom.min,
+            maxZoom: this.config.map.zoom.max,
+            attributionControl: false,
+            maxBounds: this.config.map.bounds.max,
+        });
+
+        // Animate initial map view
+        this.map.fitBounds(this.config.map.bounds.fit.bbox, {
+            padding: this.config.map.bounds.fit.padding,
+            duration: this.config.map.bounds.fit.duration,
+        });
+
+        // Map controls
+        const nav = new mapboxgl.NavigationControl({
+            showCompass: false,
+        });
+        this.map.addControl(nav, 'bottom-right');
+
+        // disable map rotation using right click + drag
+        this.map.dragRotate.disable();
+
+        // disable map rotation using touch rotation gesture
+        this.map.touchZoomRotate.disableRotation();
+
+        // Map attribution
+        this.map.addControl(new mapboxgl.AttributionControl({
+            compact: true,
+            customAttribution: 'Map design by <a href="https://bloom.li" target="_blank" title="Bloom Labs">Bloom Labs</a>'
+        }));
+
+        // Load the map
+        this.map.on('load', () => {
+
+            // Initialize marker data
+            this.markerData = layerMarkers;
+
+            // Fetch counties GeoJSON
+            if (layerCensusCounties && layerCensusCounties.features.length > 0) {
+                // Store all county names
+                this.allCountyNames = layerCensusCounties.features
+                    .map(feature => feature.properties.NAME)
+                    .filter(name => name);
+
+                this.countiesLoaded = true;
+            }
+
+            // Conduct the initial build of map components
+            this.initializeBuildProcess();
+        });// map load
+
+        /**
+         * Define Map Listeners
+         */
+
+        // Handle popup close request
+        $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', () => {
+            this.closeAllPopups(true);
+        });
+        $('#map').on('keyup', (e) => {
+            if (e.keyCode === 27) {
+                this.closeAllPopups(true);
+            }
+        });
+
+        // Map Marker Open
+        $(document).on('click', '.map-popup-wrapper .mp-body-row', (e) => {
+            let id = $(e.currentTarget).attr('data-index');
+
+            this.handleMarkerOpen(
+                'cluster-click',
+                layerMarkers.features[id].properties,
+                layerMarkers.features[id].geometry.coordinates[0],
+                layerMarkers.features[id].geometry.coordinates[1],
+            );
+        });
+
+        // Map Zoom
+        this.map.on('zoomend', () => {
+            // Check if map animation is initializing
+            const zoomInit = (! this.timeouts.zoomUpdate);
+
+            clearTimeout(this.timeouts.zoomUpdate);
+
+            this.timeouts.zoomUpdate = setTimeout(() => {
+                // Update markers if not initializing the map
+                if (! zoomInit) {
+                    this.drawMarkers();
+                }
+            }, 150);
+        });
+
+        // Menu
+        $('#menu #menu-toggle a#menu-toggle-open').on('click', () => {
+            if ($('#menu').attr('data-visible') == 'true') {
+                $('#menu').attr('data-visible', 'false');
+            } else {
+                $('#menu').attr('data-visible', 'true');
+            }
+        });
+
+        /**
+        * Responsive Effects
+        * Fill URL for small-screen popout link
+        */
+        let page_url = window.location.href;
+        $('#warning-reason-smallscreen a').attr('href', page_url);
+    }// init
+
+    /**
+    * initializeBuildProcess
+    * Conduct the initial build of map components
+    */
+    initializeBuildProcess() {
         try {
             // Clean the data
-            cleanData();
+            this.cleanData();
 
             // Add layer data
-            addLayerData();
+            this.addLayerData();
 
             // Add filter options
-            buildFilterOptions();
+            this.buildFilterOptions();
 
             // Add layer options
-            buildLayerOptions();
+            this.buildLayerOptions();
 
             // Add markers
-            drawMarkers();
+            this.drawMarkers();
 
             // Open menu on desktop
             if(! isMobile()) {
                 $('#menu').attr('data-visible', 'true');
             }
         } catch (error) {
-            console.error('Error in initial build process:', error);
+            if (this.debug) {
+                console.error('Error in initial build process:', error);
+            }
         }
     }// initializeBuildProcess
 
@@ -394,129 +185,138 @@ map.on('load', function() {
      * cleanData
      * Clean up incoming data
      */
-    function cleanData() {
+    cleanData() {
 
         // Initialize
         let cleaned = [];
-      
-        // County name normalization function
-        function normalizeCountyName(name) {
-            name = name.trim().toLowerCase();
-
-            // Check special cases first
-            if (config.operations.county_name_exceptions[name]) {
-                return config.operations.county_name_exceptions[name];
-            }
-
-            // Title case for normal county names (first letter of each word capitalized)
-            return name.split(' ').map(word => 
-                word.charAt(0).toUpperCase() + word.slice(1)
-            ).join(' ');
-        }//normalizeCountyName
 
         // Filter and update data
-        markerData.features.filter((feature) => 
+        this.markerData.features.filter((feature) => 
                 // Ignore if invalid GeoJSON properties
                 (feature.geometry && feature.geometry.coordinates)
             )
             .map((feature, index) => {
+
                 // Set marker index
                 feature.properties.index = index;
 
                 // Get list of counties served
-                let countiesServed = feature.properties[schema[config.operations.counties_column].column];
+                let countiesServed = feature.properties[
+                    this.config.schema[
+                        this.config.mapOperations.counties_column
+                    ].column
+                ];
 
                 // Turn county list into array and clean up
                 countiesServed = countiesServed
-                    .split(config.operations.county_delimiter)
+                    .split(this.config.mapOperations.county_delimiter)
                     .map(s => s.trim());
 
                 let countiesServedLabel = 'None';
 
-                if (countiesServed.map(s => s.toLowerCase()).includes(config.operations.county_all_term)) {
-                    if (! countiesLoaded || allCountyNames.length === 0) {
+                if (countiesServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.county_all_term)) {
+                    if (! this.countiesLoaded || this.allCountyNames.length === 0) {
                         countiesServed = [];
                     } else {
-                        countiesServed = [...allCountyNames];
+                        countiesServed = [...this.allCountyNames];
                     }
-                    countiesServedLabel = config.operations.county_all_term.charAt(0).toUpperCase() + config.operations.county_all_term.substring(1);
+                    countiesServedLabel = this.config.mapOperations.county_all_term.charAt(0).toUpperCase() + this.config.mapOperations.county_all_term.substring(1);
                 } else {
-                    countiesServed = countiesServed.map(s => normalizeCountyName(s));
+                    countiesServed = countiesServed.map(s => this.normalizeCountyName(s));
                     countiesServedLabel = countiesServed.join(', ');
                 }
 
-                feature.properties[schema[config.operations.counties_column].column] = countiesServed;
-                feature.properties[schema[config.operations.counties_column].column + '_label'] = countiesServedLabel;
+                feature.properties[this.config.schema[this.config.mapOperations.counties_column].column] = countiesServed;
+                feature.properties[this.config.schema[this.config.mapOperations.counties_column].column + '_label'] = countiesServedLabel;
 
                 // Update CIL value to float
-                feature.properties[schema['cil_number'].column] = parseFloat(feature.properties[schema['cil_number'].column]).toFixed(2);
+                feature.properties[this.config.schema['cil_number'].column] = parseFloat(feature.properties[this.config.schema['cil_number'].column]).toFixed(2);
 
                 // Split CIL label and description
-                let cil_description_parts = feature.properties[schema['cil_description'].column].split(config.operations.cil_label_delimiter);
+                let cil_description_parts = feature.properties[this.config.schema['cil_description'].column].split(this.config.mapOperations.cil_label_delimiter);
                 if (cil_description_parts.length > 1) {
-                    feature.properties[schema['cil_label'].column] = cil_description_parts.shift().trim();
-                    feature.properties[schema['cil_description'].column] = cil_description_parts.join(config.operations.cil_label_delimiter).trim();
+                    feature.properties[this.config.schema['cil_label'].column] = cil_description_parts.shift().trim();
+                    feature.properties[this.config.schema['cil_description'].column] = cil_description_parts.join(this.config.mapOperations.cil_label_delimiter).trim();
                 }
 
                 // Owner Type: Capitalize the first letter and lowercase everything else
-                let owner_type = feature.properties[schema['owner_type'].column];
+                let owner_type = feature.properties[this.config.schema['owner_type'].column];
                 if (owner_type) {
                     owner_type = owner_type.charAt(0).toUpperCase() + owner_type.substring(1).toLowerCase();
-                    feature.properties[schema['owner_type'].column] = owner_type;
+                    feature.properties[this.config.schema['owner_type'].column] = owner_type;
                 }
             }
         );
     }// cleanData
 
     /**
+     * normalizeCountyName
+     * County name normalization function
+     */
+    normalizeCountyName(name) {
+        name = name.trim().toLowerCase();
+
+        // Check special cases first
+        if (this.config.mapOperations.county_name_exceptions[name]) {
+            return this.config.mapOperations.county_name_exceptions[name];
+        }
+
+        // Title case for normal county names (first letter of each word capitalized)
+        return name.split(' ').map(word => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+    }//normalizeCountyName
+
+    /**
      * addLayerData
      * Add layer data to the map
      */
-    function addLayerData()
-    {
+    addLayerData() {
 
-        // Dynamically add density layer to map layer list
-        addDensityLayer();
+        // Add density layer to map layer list
+        this.addDensityLayer();
 
         // Load counties boundary source
-        map.addSource('counties', {
+        this.map.addSource('counties', {
             type: 'geojson',
-            data: config.data.counties
+            data: layerCensusCounties
         });
 
         // Load census-enhanced counties source
-        map.addSource('census-counties', {
+        this.map.addSource('census-counties', {
             type: 'geojson',
-            data: window.countiesCensusGeojson
+            data: layerCensusCounties
         });
 
         /**
          * Load Map Source Data
          * Once the county GeoJSON is loaded, store all county names
          */
-        map.on('sourcedata', function(e) {
-            if (e.sourceId !== 'counties' || ! e.isSourceLoaded || countiesLoaded) return;
+        this.map.on('sourcedata', (e) => {
+            if (e.sourceId !== 'counties' || ! e.isSourceLoaded || this.countiesLoaded) return;
 
             // Extract all county names when source is loaded
             try {
-                const source = map.getSource('counties');
+                const source = this.map.getSource('counties');
                 if (source._data && source._data.features) {
-                    allCountyNames = source._data.features
+                    this.allCountyNames = source._data.features
                         .map(feature => feature.properties.NAME)
                         .filter(name => name); // filter out any undefined/null
 
                     // Mark counties as loaded
-                    countiesLoaded = true;
+                    this.countiesLoaded = true;
                 }
             } catch (err) {
-                console.error('Error extracting county names:', err);
+                if (this.debug) {
+                    console.error('Error extracting county names:', err);
+                }
             }
         }); // on.sourcedata
 
         /**
          * County & Census Highlights
          */
-        map.addLayer({
+        this.map.addLayer({
             id: 'counties-fill',
             type: 'fill',
             source: 'counties',
@@ -527,7 +327,7 @@ map.on('load', function() {
             filter: ['in', 'NAME', '']
         });
 
-        map.addLayer({
+        this.map.addLayer({
             id: 'census-overlay',
             type: 'fill',
             source: 'census-counties',
@@ -545,13 +345,15 @@ map.on('load', function() {
         });
 
         // Add error handling for the county source
-        map.on('error', function(e) {
-            console.error('Map error:', e);
+        this.map.on('error', (e) => {
+            if (this.debug) {
+                console.error('Map error:', e);
+            }
         });
 
         // Add county boundary outlines
         try {
-            map.addLayer({
+            this.map.addLayer({
                 id: 'counties-border',
                 type: 'line',
                 source: 'counties',
@@ -562,7 +364,7 @@ map.on('load', function() {
                 }
             });
 
-            map.addLayer({
+            this.map.addLayer({
                 id: 'counties-border-highlight',
                 type: 'line',
                 source: 'counties',
@@ -574,12 +376,14 @@ map.on('load', function() {
                 filter: ['in', 'NAME', ''] // No counties highlighted initially
             });
         } catch (error) {
-            console.error('Error adding county boundary layers:', error);
+            if (this.debug) {
+                console.error('Error adding county boundary layers:', error);
+            }
         }
 
         // Add county labels
         try {
-            map.addLayer({
+            this.map.addLayer({
                 id: 'counties-labels',
                 type: 'symbol',
                 source: 'counties',
@@ -594,7 +398,9 @@ map.on('load', function() {
                 }
             });
         } catch (error) {
-            console.error('Error adding county labels layer:', error);
+            if (this.debug) {
+                console.error('Error adding county labels layer:', error);
+            }
         }
 
     }//addLayerData
@@ -603,7 +409,7 @@ map.on('load', function() {
      * buildFilterOptions
      * Gather categories for filtering
      */
-    function buildFilterOptions() {
+    buildFilterOptions() {
         // Initialize with no filter option
         let categories = [
             {
@@ -614,10 +420,10 @@ map.on('load', function() {
         ];
 
         // Populate categories with unique values from each data record
-        markerData.features.forEach((record) => {
+        this.markerData.features.forEach((record) => {
 
             // Popuplate the template based on the schema's definition and the given data
-            Object.values(schema).forEach((property) => {
+            Object.values(this.config.schema).forEach((property) => {
 
                 // Ignore if property category isn't applicable for filters
                 if (! property.filter) return false;
@@ -714,8 +520,8 @@ map.on('load', function() {
         $('.menu-container[data-container="filters"] .mc-categories [data-type]').remove();
 
         // Filter category listener
-        $('#menu').on('click', '.menu-container[data-container="filters"] .mc-category-title', function(){
-            let parent = $(this).parent('.mc-category');
+        $('#menu').on('click', '.menu-container[data-container="filters"] .mc-category-title', (e) => {
+            let parent = $(e.currentTarget).parent('.mc-category');
 
             // Ignore if already active
             if (parent.hasClass('active')) {
@@ -729,19 +535,19 @@ map.on('load', function() {
             parent.addClass('active');
             parent.find('.mc-category-option').addClass('active');
             parent.attr('data-has-selected', 'true');
-            activeFilterCategory = parent.attr('data-id');
+            this.activeFilterCategory = parent.attr('data-id');
 
             // Update markers
-            drawMarkers();
+            this.drawMarkers();
         });
 
-        // Filter category listener
-        $('#menu').on('click', '.menu-container[data-container="filters"] .mc-category-option', function(){
+        // Filter category option listener
+        $('#menu').on('click', '.menu-container[data-container="filters"] .mc-category-option', (e) => {
             // Activate or deactivate requested category
-            $(this).toggleClass('active');
+            $(e.currentTarget).toggleClass('active');
 
             // Update markers
-            drawMarkers();
+            this.drawMarkers();
         });
     }//buildFilterOptions
 
@@ -749,9 +555,9 @@ map.on('load', function() {
      * buildLayerOptions
      * Gather categories for layering
      */
-    function buildLayerOptions() {
+    buildLayerOptions() {
         // Initialize with no layer option
-        let layers = Object.values(censusLayers);
+        let layers = Object.values(this.config.layerCensusCategories);
         layers.unshift({
             id: 'none',
             title: 'No Layer',
@@ -779,7 +585,7 @@ map.on('load', function() {
             if (layer.breaks && layer.breaks.length > 0) {
                 for (let i = 0; i < layer.breaks.length; i++) {
                     // Get option values
-                    const minVal = i === 0 ? 0 : layer.breaks[i - 1] + 1;
+                    const minVal = i === 0 ? 0 : layer.breaks[i - 1];
                     const maxVal = i < layer.breaks.length ? layer.breaks[i] : '∞';
 
                     // Populate option HTML
@@ -787,15 +593,7 @@ map.on('load', function() {
                     optionHtml.removeAttr('data-type');
                     optionHtml.find('.mc-category-option').attr('data-id', i);
 
-                    if (minVal == maxVal) {
-                        var breaksLabel = minVal;
-                    } else if (maxVal === '∞') {
-                        var breaksLabel = layerFormat(layer.id, minVal, true) + '+' + (layer.hasOwnProperty('suffix') ? layer.suffix : '');
-                    } else {
-                        var breaksLabel = layerFormat(layer.id, minVal, true) + ' - ' + layerFormat(layer.id, maxVal);
-                    }
-
-                    optionHtml.find('.mc-item-label').text(breaksLabel);
+                    optionHtml.find('.mc-item-label').text(layer.format(minVal) + ' - ' + (maxVal === '∞' ? '∞' : layer.format(maxVal)));
                     optionHtml.find('.mc-item-input button')
                         .val(i)
                         .css('background-color', layer.colors[i]);
@@ -815,8 +613,8 @@ map.on('load', function() {
         $('.mc-categories [data-type]').remove();
 
         // Filter category listener
-        $('#menu').on('click', '.menu-container[data-container="layers"] .mc-category-title', function(){
-            let parent = $(this).parent('.mc-category');
+        $('#menu').on('click', '.menu-container[data-container="layers"] .mc-category-title', (e) => {
+            let parent = $(e.currentTarget).parent('.mc-category');
 
             // Ignore if already active
             if (parent.hasClass('active')) {
@@ -835,33 +633,17 @@ map.on('load', function() {
             }
 
             parent.attr('data-has-selected', 'true');
-            activeLayerCategory = parent.attr('data-id');
 
             // Get layer
-            const layer = censusLayers[parent.attr('data-id')];
+            const layer = this.config.layerCensusCategories[parent.attr('data-id')];
 
             if (layer) {
                 // Collect layer colors
                 const expression = ['case'];
-
                 for (let i = 0; i < layer.breaks.length; i++) {
-                   
-                    let conditionOperation = '';
-
-                    switch(layer.breaks[i]) {
-                        case 0:
-                            conditionOperation = ['==', ['get', layer.property], layer.breaks[i]];
-                            break;
-
-                        case '∞':
-                            conditionOperation = ['>', ['get', layer.property], layer.breaks[i-1]]
-                            break;
-
-                        default:
-                            conditionOperation = ['<=', ['get', layer.property], layer.breaks[i]];
-                    }
-
-                    const condition = conditionOperation;
+                    const condition = i === 0 
+                        ? ['<', ['get', layer.property], layer.breaks[i]]
+                        : ['<', ['get', layer.property], layer.breaks[i]];
 
                     expression.push(condition, layer.colors[i]);
                 }
@@ -870,33 +652,31 @@ map.on('load', function() {
                 expression.push(layer.colors[layer.colors.length - 1]);
 
                 // Paint and display layer
-                map.setPaintProperty('census-overlay', 'fill-color', expression);
-                map.setLayoutProperty('census-overlay', 'visibility', 'visible');
+                this.map.setPaintProperty('census-overlay', 'fill-color', expression);
+                this.map.setLayoutProperty('census-overlay', 'visibility', 'visible');
             } else {
                 // Hide layer
-                map.setLayoutProperty('census-overlay', 'visibility', 'none');
+                this.map.setLayoutProperty('census-overlay', 'visibility', 'none');
             }
         });
     }//buildLayerOptions
-
-    // Store current, filtered markers
-    let allMarkers = [];
     
     /**
      * drawMarkers
      * Update markers
      */
-    function drawMarkers() {
+    drawMarkers() {
         // Clear existing markers and popups
-        allMarkers.forEach(marker => marker.remove());
-        allMarkers = [];
+        this.allMarkers.forEach(marker => marker.remove());
+        this.allMarkers = [];
+        this.clusters = [];
 
         // Check if marker data exists
-        if (! markerData || ! markerData.features) return;
+        if (! this.markerData || ! this.markerData.features) return;
 
         // Get current zoom level for adaptive behavior
-        const currentZoom = map.getZoom();
-        const maxZoom = map.getMaxZoom();
+        const currentZoom = this.map.getZoom();
+        const maxZoom = this.map.getMaxZoom();
       
         // Dynamic proximity threshold based on zoom level
         // Higher zoom = smaller threshold (less clustering)
@@ -918,34 +698,31 @@ map.on('load', function() {
         let filterCategoryActive = $('.menu-container[data-container="filters"]  .mc-category.active');
 
         if (filterCategoryActive.length == 0 || filterCategoryActive.find('.mc-category-option').length == 0) {
-            activeFilters = ['all'];
+            this.activeFilters = ['all'];
         } else {
             let filterOptionsActive = filterCategoryActive.find('.mc-category-option.active');
 
             if (filterOptionsActive.length > 0) {
-                activeFilters = [];
-                filterOptionsActive.each(function() {
-                    activeFilters.push($(this).attr('data-id'));
+                this.activeFilters = [];
+                filterOptionsActive.each((e, i) => {
+                    this.activeFilters.push($(i).attr('data-id'));
                 });
             } else {
-                activeFilters = [''];
+                this.activeFilters = [''];
             }
         }
 
-        // Initialize marker clusters
-        const clusters = [];
-
         // Group nearby markers into clusters with filtering
-        markerData.features.forEach(function(feature) {
+        this.markerData.features.forEach((feature) => {
             // Ignore if invalid GeoJSON properties
             if (!feature.geometry || !feature.geometry.coordinates) return;
 
             // Apply filter
-            if (activeFilterCategory && ! activeFilters.includes('all')) {
-                let filterPropertyValue = feature.properties[schema[activeFilterCategory].column];
+            if (this.activeFilterCategory && ! this.activeFilters.includes('all')) {
+                let filterPropertyValue = feature.properties[this.config.schema[this.activeFilterCategory].column];
                 if (! filterPropertyValue) return;
                 filterPropertyValue = filterPropertyValue.toString().trim();
-                if (! filterPropertyValue || ! activeFilters.includes(filterPropertyValue)) return;
+                if (! filterPropertyValue || ! this.activeFilters.includes(filterPropertyValue)) return;
             }
 
             // Get coordinates
@@ -954,7 +731,7 @@ map.on('load', function() {
 
             // Find existing cluster within proximity threshold
             let foundCluster = null;
-            for (let cluster of clusters) {
+            for (let cluster of this.clusters) {
                 const distance = Math.sqrt(
                     Math.pow(lng - cluster.centerLng, 2) + 
                     Math.pow(lat - cluster.centerLat, 2)
@@ -974,7 +751,7 @@ map.on('load', function() {
                 foundCluster.centerLat = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[1], 0) / totalMarkers;
             } else {
                 // Create new cluster
-                clusters.push({
+                this.clusters.push({
                     centerLng: lng,
                     centerLat: lat,
                     markers: [feature]
@@ -983,9 +760,9 @@ map.on('load', function() {
         }); // foreach marker data
 
         // Create markers with zoom-adaptive offsets
-        clusters.forEach(function(cluster) {
+        this.clusters.forEach((cluster) => {
             // Add marker
-            addMarker(
+            this.addMarker(
                 cluster.markers[0], // Use first marker as dummy marker
                 cluster.centerLng,
                 cluster.centerLat,
@@ -1007,14 +784,14 @@ map.on('load', function() {
      * addMarker
      * Add a marker on the map
      */
-    function addMarker(feature, coordLng, coordLat, markerSize, cluster) {
+    addMarker(feature, coordLng, coordLat, markerSize, cluster) {
         // Get HTML template for popups
         let html = $('#map-templates div[data-template="marker"]').clone();
         html.find('.map-marker').attr('data-index', feature.properties.index);
         html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
 
         // Get property for coloring
-        const colorProperty = schema[config.operations.counties_color_column];
+        const colorProperty = this.config.schema[this.config.mapOperations.counties_color_column];
         const colorPropertyValue = feature.properties[colorProperty.column];
 
         // Add marker color
@@ -1030,49 +807,49 @@ map.on('load', function() {
 
         // Add event listeners
         html.on('click', '.map-marker', () => {
-            handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
+            this.handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
         });
 
         html.on('mouseenter', '.map-marker', () => {
             // Ignore if popup open
-            if (isPopupOpen()) {
+            if (this.isPopupOpen()) {
                 return true;
             }
 
             if (cluster && cluster.is) {
-                updateRegionHighlight(feature.properties, []);
+                this.updateRegionHighlight(feature.properties, []);
             } else {
-                updateRegionHighlight(feature.properties);
+                this.updateRegionHighlight(feature.properties);
             }
         });
 
         html.on('mouseleave', '.map-marker', () => {
             // Ignore if popup open
-            if (isPopupOpen()) {
+            if (this.isPopupOpen()) {
                 return true;
             }
 
-            updateRegionHighlight(feature.properties, []);
+            this.updateRegionHighlight(feature.properties, []);
         });
 
         // Create and add marker to map, store reference for zoom updates
         const marker = new mapboxgl.Marker(html.get(0))
             .setLngLat([coordLng, coordLat])
-            .addTo(map);
+            .addTo(this.map);
 
-        allMarkers.push(marker);
+        this.allMarkers.push(marker);
     }//addMarker
 
     /**
      * handleMarkerOpen
     * Highlight counties and show popup
     */
-    function handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
+    handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
         // Close all other popups
-        closeAllPopups();
+        this.closeAllPopups();
 
         // Determine if current zoom level is too large to view counties
-        let zoomLevel = map.getZoom();
+        let zoomLevel = this.map.getZoom();
         let offsetLat = (zoomLevel > 6 ? 1: 2.6);
 
         if (zoomLevel > 7) {
@@ -1080,7 +857,7 @@ map.on('load', function() {
         }
 
         // Fly and zoom into marker location
-        map.flyTo({
+        this.map.flyTo({
             center: [
                 coordLng,
                 coordLat - offsetLat, // Offset latitude to make room for popup
@@ -1097,39 +874,39 @@ map.on('load', function() {
             closeOnClick: false,
             closeOnMove: false
         }).setHTML(
-            fillPopup(action, properties, cluster)
+            this.fillPopup(action, properties, cluster)
         );
 
         // Add popup to map
-        popup.setLngLat([coordLng, coordLat]).addTo(map);
+        popup.setLngLat([coordLng, coordLat]).addTo(this.map);
 
         // Paint map regions, not for cluster markers
         if (! cluster || ! cluster.is) {
-            updateRegionHighlight(properties);
+            this.updateRegionHighlight(properties);
         } else {
-            updateRegionHighlight(properties, []);
+            this.updateRegionHighlight(properties, []);
         }
     }// handleMarkerOpen
 
-    function updateRegionHighlight(properties, regions) {
+    updateRegionHighlight(properties, regions) {
         // Get list of regions served, get marker counties if not provided
         let regionsServed = regions;
         if (typeof regions == 'undefined') {
-            regionsServed = properties[schema.counties_served.column];
+            regionsServed = properties[this.config.schema.counties_served.column];
         }
 
         // Apply county highlighting
-        const type = properties[schema[config.operations.counties_color_column].column];
-        map.setPaintProperty('counties-fill', 'fill-color', schema[config.operations.counties_color_column].options[type].color ?? config.operations.counties_color_default);
-        map.setFilter('counties-fill', ['in', 'NAME', ...regionsServed]);
-        map.setFilter('counties-border-highlight', ['in', 'NAME', ...regionsServed]);
+        const type = properties[this.config.schema[this.config.mapOperations.counties_color_column].column];
+        this.map.setPaintProperty('counties-fill', 'fill-color', this.config.schema[this.config.mapOperations.counties_color_column].options[type].color ?? this.config.mapOperations.counties_color_default);
+        this.map.setFilter('counties-fill', ['in', 'NAME', ...regionsServed]);
+        this.map.setFilter('counties-border-highlight', ['in', 'NAME', ...regionsServed]);
     }// updateRegionHighlight
 
     /**
      * fillPopup
      * Fill the popup template with data
      */
-    function fillPopup(action, data, cluster) {
+    fillPopup(action, data, cluster) {
         // Get HTML template for popups
         let template = cluster && cluster.is ? 'popup-cluster' : 'popup';
         let html = $('#map-templates div[data-template="' + template + '"]').clone();
@@ -1139,14 +916,14 @@ map.on('load', function() {
             .attr('data-template', template)
             .attr('data-index', data.index)
             .attr('data-action', action);
-        html = populateHtmlData(html, data);
+        html = this.populateHtmlData(html, data);
 
         // Handle cluster-specific components
         if (cluster && cluster.is) {
             // Sort list in cluster popup
             cluster.markers.sort((a,b) => {
-                let a_name = a.properties[schema[config.operations.sort_column].column];
-                let b_name = b.properties[schema[config.operations.sort_column].column];
+                let a_name = a.properties[this.config.schema[this.config.mapOperations.sort_column].column];
+                let b_name = b.properties[this.config.schema[this.config.mapOperations.sort_column].column];
                 return (a_name > b_name) ? 1 : ((b_name > a_name) ? -1 : 0)
             });
 
@@ -1157,7 +934,7 @@ map.on('load', function() {
                 list_item.removeAttr('data-type');
 
                 // Populate HTML with data
-                list_item = populateHtmlData(list_item, item.properties);
+                list_item = this.populateHtmlData(list_item, item.properties);
 
                 // Append to HTML template
                 html.find('.mp-body').append(list_item);
@@ -1170,12 +947,12 @@ map.on('load', function() {
         return html.html();
     }// fillPopup
 
-    function populateHtmlData(html, data) {
+    populateHtmlData(html, data) {
         // Add data index to root container
         html.attr('data-index', data.index);
 
         // Popuplate the template based on the schema's definition and the given data
-        Object.values(schema).forEach((property) => {
+        Object.values(this.config.schema).forEach((property) => {
 
             // Get property value
             let propertyValue = data[property.column];
@@ -1231,7 +1008,7 @@ map.on('load', function() {
                             let propertyValueTitle = property.label;
                             let propertyValueIcon = property.id;
                             if (propertyValue.includes('|')) {
-                                propertyValueParts = propertyValue.split('|');
+                                let propertyValueParts = propertyValue.split('|');
                                 propertyValue = propertyValueParts[0];
                                 propertyValueTitle = propertyValueParts[1];
                                 propertyValueIcon = propertyValueTitle.toLowerCase();
@@ -1240,7 +1017,7 @@ map.on('load', function() {
                             socialLink.attr('href', propertyValue);
                             socialLink.attr('title', propertyValueTitle);
 
-                            let socialIcon = getIcon(propertyValueIcon);
+                            let socialIcon = this.getIcon(propertyValueIcon);
                             socialLink.css('background-color', socialIcon.color);
                             socialLink.html(socialIcon.html);
 
@@ -1252,7 +1029,7 @@ map.on('load', function() {
                     case 'cil_percent':
 
                         if (propertyValue) {
-                            propertyValue = Math.round((propertyValue / config.operations.cil_max) * 100);
+                            propertyValue = Math.round((propertyValue / this.config.mapOperations.cil_max) * 100);
                             html.find(`[data-mp-property="${property.id}"]`).css('background', `radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) ${propertyValue}%, #e1e1e1 0)`);
                         }
 
@@ -1275,7 +1052,7 @@ map.on('load', function() {
 
                     // Apply property description tooltip
                     if (property.description) {
-                        let info_icon = getIcon('info');
+                        let info_icon = this.getIcon('info');
                         html.find(`[data-mp-property-pair="${property.id}"] label`).append(info_icon.html);
                         html.find(`[data-mp-property-pair="${property.id}"] label i`).attr('title', property.description);
                     }
@@ -1296,149 +1073,87 @@ map.on('load', function() {
      * getIcon
      * Get the icon HTML for the give type
      */
-    function getIcon (type) {
+    getIcon (type) {
         // Initialize
         let icon = '';
 
-        if (config.icons[type]) {
-            icon = config.icons[type];
+        if (this.config.icons[type]) {
+            icon = this.config.icons[type];
 
             // Format HTML to Font Awesome standards
             icon.html = `<i class="fa-${icon.group} fa-${icon.id}"></i>`;
         } else {
-            icon = config.icons.default;
+            icon = this.config.icons.default;
             icon.html = `<span>${type.charAt(0)}</span>`;
         }
 
         return icon;
     }// getIcon
 
-    function resetCountyFilters() {
+    resetCountyFilters() {
         // Remove county filter styles
-        map.setFilter('counties-fill', ['in', 'NAME', '']);
-        map.setFilter('counties-border-highlight', ['in', 'NAME', '']);
+        this.map.setFilter('counties-fill', ['in', 'NAME', '']);
+        this.map.setFilter('counties-border-highlight', ['in', 'NAME', '']);
     }// resetCountyFilters
 
-    function closeAllPopups(manual) {
+    closeAllPopups(manual) {
         // Reset county filters
-        resetCountyFilters();
+        this.resetCountyFilters();
 
         // Close all popups
-        $('.mapboxgl-popup').each(function(){
-            $(this).remove();
+        $('.mapboxgl-popup').each((e, i) => {
+            $(i).remove();
         });
 
         // Zoom out if manually closed
         if (manual) {
-            let zoomLevel = map.getZoom();
+            let zoomLevel = this.map.getZoom();
 
             if (zoomLevel > 6) {
                 zoomLevel = 6;
             }
 
-            map.flyTo({
+            this.map.flyTo({
                 zoom: zoomLevel
             });
         }
     }// closeAllPopups
 
-    function isPopupOpen() {
+    isPopupOpen() {
         return ($('.mapboxgl-popup').length > 0);
     }// isPopupOpen
 
-    function addDensityLayer()
-    {
+    addDensityLayer() {
         // Initialize
         let countiesDensity = {};
 
-        markerData.features.forEach((outlet) => {
-            // Get county the outlet resides in
-            let countyResides = outlet.properties[schema['county_based'].column];
+        this.markerData.features.forEach((outlet) => {
+            // Get counties served value
+            let countiesServed = outlet.properties[this.config.schema.counties_served.column];
 
-            // Initialize county tally
-            if (! countiesDensity[countyResides]) {
-                countiesDensity[countyResides] = 0;
+            if (countiesServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.county_all_term)) {
+                countiesServed = [...this.allCountyNames];
             }
 
-            // Tally county
-            countiesDensity[countyResides]++;
+            // Tally each county served
+            countiesServed.forEach((c) => {
+                c = c.trim();
+
+                if (! countiesDensity[c]) {
+                    countiesDensity[c] = 0;
+                }
+
+                countiesDensity[c]++;
+            });
         });
 
-        window.countiesCensusGeojson.features.forEach((county, i) =>  {
+        layerCensusCounties.features.forEach((county, i) =>  {
             let index = county.properties.NAME;
             county.properties['Outlet Density'] = 0;
 
             if (countiesDensity[index]) {
-                window.countiesCensusGeojson.features[i].properties['Outlet Density'] = countiesDensity[index];
-
+                layerCensusCounties.features[i].properties['Outlet Density'] = countiesDensity[index];
             }
         });
     }//addDensityLayer
-
-    /**
-     * Define Map Listeners
-     */
-
-    // Handle popup close request
-    $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', () => {
-        closeAllPopups(true);
-    });
-    $('#map').on('keyup', function(e) {
-        if (e.keyCode === 27) {
-            closeAllPopups(true);
-        }
-    });
-
-    $(document).on('click', '.map-popup-wrapper .mp-body-row', function() {
-        let id = $(this).attr('data-index');
-
-        handleMarkerOpen(
-            'cluster-click',
-            config.data.markers.features[id].properties,
-            config.data.markers.features[id].geometry.coordinates[0],
-            config.data.markers.features[id].geometry.coordinates[1],
-        );
-    });
-
-    /**
-     * Map Zoom
-     */
-    map.on('zoom', function() {
-
-      clearTimeout(window.zoomUpdateTimeout);
-
-      window.zoomUpdateTimeout = setTimeout(() => {
-        // Update markers
-        drawMarkers();
-      }, 150);
-    });
-
-    /**
-     * Menu
-     */
-
-    $('#menu #menu-toggle a#menu-toggle-open').on('click', function() {
-        if ($('#menu').attr('data-visible') == 'true') {
-            $('#menu').attr('data-visible', 'false');
-        } else {
-            $('#menu').attr('data-visible', 'true');
-        }
-    });
-
-    /**
-     * Responsive Effects
-     * Fill URL for small-screen popout link
-     */
-    let page_url = window.location.href;
-    $('#warning-reason-smallscreen a').attr('href', page_url);
-});
-
-function isMobile()
-{
-    // Check sensor
-    if(($('#sensor-mobile').css('display') == 'none')) {
-        return true;
-    }
-
-    return false;
-}//isMobile
+}; // Map_ECO
