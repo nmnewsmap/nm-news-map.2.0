@@ -12,7 +12,7 @@ export class Map_ECO {
             mapOperations: config.mapOperations,
             schema: config.schema,
             layerCensusCategories: config_system.layerCensusCategories,
-        },
+        };
         this.map = null;
         this.markerData = null;
         this.allMarkers = []; // Current, filtered markers
@@ -230,20 +230,20 @@ export class Map_ECO {
                 feature.properties[this.config.schema[this.config.mapOperations.counties_column].column + '_label'] = countiesServedLabel;
 
                 // Update CIL value to float
-                feature.properties[this.config.schema['cil_number'].column] = parseFloat(feature.properties[this.config.schema['cil_number'].column]).toFixed(2);
+                feature.properties[this.config.schema.cil_number.column] = parseFloat(feature.properties[this.config.schema.cil_number.column]).toFixed(2);
 
                 // Split CIL label and description
-                let cil_description_parts = feature.properties[this.config.schema['cil_description'].column].split(this.config.mapOperations.cil_label_delimiter);
+                let cil_description_parts = feature.properties[this.config.schema.cil_description.column].split(this.config.mapOperations.cil_label_delimiter);
                 if (cil_description_parts.length > 1) {
-                    feature.properties[this.config.schema['cil_label'].column] = cil_description_parts.shift().trim();
-                    feature.properties[this.config.schema['cil_description'].column] = cil_description_parts.join(this.config.mapOperations.cil_label_delimiter).trim();
+                    feature.properties[this.config.schema.cil_label.column] = cil_description_parts.shift().trim();
+                    feature.properties[this.config.schema.cil_description.column] = cil_description_parts.join(this.config.mapOperations.cil_label_delimiter).trim();
                 }
 
                 // Owner Type: Capitalize the first letter and lowercase everything else
-                let owner_type = feature.properties[this.config.schema['owner_type'].column];
+                let owner_type = feature.properties[this.config.schema.owner_type.column];
                 if (owner_type) {
                     owner_type = owner_type.charAt(0).toUpperCase() + owner_type.substring(1).toLowerCase();
-                    feature.properties[this.config.schema['owner_type'].column] = owner_type;
+                    feature.properties[this.config.schema.owner_type.column] = owner_type;
                 }
             }
         );
@@ -462,7 +462,7 @@ export class Map_ECO {
                 } else {
                     categories[property.label].options_data.map(option => {
                         if (option.value == propertyValue) option.count++;
-                    })
+                    });
                 }
 
             });
@@ -492,7 +492,7 @@ export class Map_ECO {
 
                 // Sort category options
                 category.options_data.sort((a,b) => {
-                    return (a.value > b.value) ? 1 : ((b.value > a.value) ? -1 : 0)
+                    return (a.value > b.value) ? 1 : ((b.value > a.value) ? -1 : 0);
                 });
 
                 category.options_data.forEach((option) => {
@@ -641,10 +641,7 @@ export class Map_ECO {
                 // Collect layer colors
                 const expression = ['case'];
                 for (let i = 0; i < layer.breaks.length; i++) {
-                    const condition = i === 0 
-                        ? ['<', ['get', layer.property], layer.breaks[i]]
-                        : ['<', ['get', layer.property], layer.breaks[i]];
-
+                    const condition = (i === 0 ? ['<', ['get', layer.property], layer.breaks[i]] : ['<', ['get', layer.property], layer.breaks[i]]);
                     expression.push(condition, layer.colors[i]);
                 }
 
@@ -924,7 +921,7 @@ export class Map_ECO {
             cluster.markers.sort((a,b) => {
                 let a_name = a.properties[this.config.schema[this.config.mapOperations.sort_column].column];
                 let b_name = b.properties[this.config.schema[this.config.mapOperations.sort_column].column];
-                return (a_name > b_name) ? 1 : ((b_name > a_name) ? -1 : 0)
+                return (a_name > b_name) ? 1 : ((b_name > a_name) ? -1 : 0);
             });
 
             // Generate and append list HTML
@@ -1155,5 +1152,5 @@ export class Map_ECO {
                 layerCensusCounties.features[i].properties['Outlet Density'] = countiesDensity[index];
             }
         });
-    }//addDensityLayer
-}; // Map_ECO
+    }// addDensityLayer
+}// Map_ECO
