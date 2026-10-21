@@ -310,40 +310,40 @@ export class Map {
                 // Get list of regions served
                 let regionsServed = feature.properties[
                     this.config.schema[
-                        this.config.mapOperations.regions_column
+                        this.config.mapOperations.regionsColumn
                     ].column
                 ];
 
                 // Turn region list into array and clean the string
                 regionsServed = regionsServed
-                    .split(this.config.mapOperations.region_delimiter)
+                    .split(this.config.mapOperations.regionDelimiter)
                     .map(s => s.trim());
 
                 let regionsServedLabel = 'None';
 
-                if (regionsServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.region_all_term)) {
+                if (regionsServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.regionAllTerm)) {
                     if (this.layers.regions.labels.length > 0) {
                         regionsServed = [...this.layers.regions.labels];
                     } else {
                         regionsServed = [];
                     }
-                    regionsServedLabel = this.config.mapOperations.region_all_term.charAt(0).toUpperCase() + this.config.mapOperations.region_all_term.substring(1);
+                    regionsServedLabel = this.config.mapOperations.regionAllTerm.charAt(0).toUpperCase() + this.config.mapOperations.regionAllTerm.substring(1);
                 } else {
                     regionsServed = regionsServed.map(s => this.normalizeRegionName(s));
                     regionsServedLabel = regionsServed.join(', ');
                 }
 
-                feature.properties[this.config.schema[this.config.mapOperations.regions_column].column] = regionsServed;
-                feature.properties[this.config.schema[this.config.mapOperations.regions_column].column + '_label'] = regionsServedLabel;
+                feature.properties[this.config.schema[this.config.mapOperations.regionsColumn].column] = regionsServed;
+                feature.properties[this.config.schema[this.config.mapOperations.regionsColumn].column + '_label'] = regionsServedLabel;
 
                 // Update CIL value to float
                 feature.properties[this.config.schema.cil_number.column] = parseFloat(feature.properties[this.config.schema.cil_number.column]).toFixed(2);
 
                 // Split CIL label and description
-                let cil_description_parts = feature.properties[this.config.schema.cil_description.column].split(this.config.mapOperations.cil_label_delimiter);
+                let cil_description_parts = feature.properties[this.config.schema.cil_description.column].split(this.config.mapOperations.cilLabelDelimiter);
                 if (cil_description_parts.length > 1) {
                     feature.properties[this.config.schema.cil_label.column] = cil_description_parts.shift().trim();
-                    feature.properties[this.config.schema.cil_description.column] = cil_description_parts.join(this.config.mapOperations.cil_label_delimiter).trim();
+                    feature.properties[this.config.schema.cil_description.column] = cil_description_parts.join(this.config.mapOperations.cilLabelDelimiter).trim();
                 }
 
                 // Owner Type: Capitalize the first letter and lowercase everything else
@@ -365,8 +365,8 @@ export class Map {
         name = name.trim().toLowerCase();
 
         // Check special cases first
-        if (this.config.mapOperations.region_name_exceptions[name]) {
-            return this.config.mapOperations.region_name_exceptions[name];
+        if (this.config.mapOperations.regionNameExceptions[name]) {
+            return this.config.mapOperations.regionNameExceptions[name];
         }
 
         // Title case for normal region names (first letter of each word capitalized)
@@ -522,7 +522,7 @@ export class Map {
         html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
 
         // Get property for coloring
-        const colorProperty = this.config.schema[this.config.mapOperations.regions_color_column];
+        const colorProperty = this.config.schema[this.config.mapOperations.regionsColorColumn];
         const colorPropertyValue = feature.properties[colorProperty.column];
 
         // Add marker color
@@ -629,8 +629,8 @@ export class Map {
                 type: 'fill',
                 source: 'regions',
                 paint: {
-                    'fill-color': this.system.layerFill.defaultColorNoLayer,
-                    'fill-opacity': this.system.layerFill.defaultFillOpacity
+                    'fill-color': '#f0f0f0',
+                    'fill-opacity': 0.7
                 },
                 layout: {
                     'visibility': 'none'
@@ -768,7 +768,7 @@ export class Map {
                 }
 
                 // Ignore if property value not applicable
-                if (! propertyValue || propertyValue == '*') return false;
+                if (! propertyValue || propertyValue == this.config.data.nullValue) return false;
 
                 // Add category item
                 if (! categories[property.label]) {
@@ -1062,8 +1062,8 @@ export class Map {
         }
 
         // Apply region highlighting
-        const type = properties[this.config.schema[this.config.mapOperations.regions_color_column].column];
-        this.map.setPaintProperty('regions-fill', 'fill-color', this.config.schema[this.config.mapOperations.regions_color_column].options[type].color ?? this.config.mapOperations.regions_color_default);
+        const type = properties[this.config.schema[this.config.mapOperations.regionsColorColumn].column];
+        this.map.setPaintProperty('regions-fill', 'fill-color', this.config.schema[this.config.mapOperations.regionsColorColumn].options[type].color ?? this.config.mapOperations.regionsColorDefault);
         this.map.setFilter('regions-fill', ['in', this.config.data.regionNameProperty, ...regionsServed]);
         this.map.setFilter('regions-border-highlight', ['in', this.config.data.regionNameProperty, ...regionsServed]);
     }// updateRegionHighlight
@@ -1146,8 +1146,8 @@ export class Map {
         if (cluster && cluster.is) {
             // Sort list in cluster popup
             cluster.markers.sort((a,b) => {
-                let a_name = a.properties[this.config.schema[this.config.mapOperations.sort_column].column];
-                let b_name = b.properties[this.config.schema[this.config.mapOperations.sort_column].column];
+                let a_name = a.properties[this.config.schema[this.config.mapOperations.sortColumn].column];
+                let b_name = b.properties[this.config.schema[this.config.mapOperations.sortColumn].column];
                 return (a_name > b_name) ? 1 : ((b_name > a_name) ? -1 : 0);
             });
 
@@ -1192,7 +1192,7 @@ export class Map {
                 }
 
                 // Ignore if property value not applicable
-                if (propertyValue == '*') {
+                if (propertyValue == this.config.data.nullValue) {
                     propertyValue = '';
                 }
             }
@@ -1257,7 +1257,7 @@ export class Map {
                     case 'cil_percent':
 
                         if (propertyValue) {
-                            propertyValue = Math.round((propertyValue / this.config.mapOperations.cil_max) * 100);
+                            propertyValue = Math.round((propertyValue / this.config.mapOperations.cilMax) * 100);
                             html.find(`[data-mp-property="${property.id}"]`).css('background', `radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) ${propertyValue}%, #e1e1e1 0)`);
                         }
 
