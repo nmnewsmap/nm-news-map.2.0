@@ -278,6 +278,7 @@ background: #f7f7f7;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 margin-top: 20px;
 border-radius: 5px;
+display: none;
 }
 
 .menu-container[data-container="filters"] {

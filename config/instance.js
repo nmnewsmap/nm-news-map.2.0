@@ -1,25 +1,24 @@
-const base_dir = 'assets/data';
-
-export const eco_config_instance = {
-    debug: false,
-    domain: 'nmnewsmap.org',
+export const CONFIG_INSTANCE = {
+    debug: true,
+    title: 'New Mexico News Ecosystem Map',
+    webpage: 'https://www.nmnewsmap.org',
     map: {
         source: 'mapbox',
-        access_token: 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A',
+        accessToken: 'pk.eyJ1Ijoibm1uZXdzbWFwIiwiYSI6ImNtYjVkbmEwZDFlOXIyam9sM21mcDZsbDgifQ.LDcxjUWCHp-XRBbD5IbL3A',
         style: 'mapbox://styles/mapbox/light-v11',
-        canvas_id: 'map-canvas',
+        canvasId: 'map-canvas',
         zoom: {
             min: 5,
             max: 9,
             default: 5, // State level
         },
-        center: [-106.2485, 34.5199],  // New Mexico
+        center: [-106.2485, 34.5199], // New Mexico
         bounds: {
-            max: [ // maxBounds (https://docs.mapbox.com/mapbox-gl-js/api/map/#map-class-parameters-options-maxbounds)
+            max: [ // Used for maxBounds (Reference: https://docs.mapbox.com/mapbox-gl-js/api/map/#map-class-parameters-options-maxbounds)
                 [-110.301, 29.741], // [south, west]
                 [-101.205, 37.828] // [north, east]
             ],
-            fit: { // fitBounds (https://docs.mapbox.com/mapbox-gl-js/api/map/#map#fitbounds)
+            fit: { // Used for fitBounds (Reference: https://docs.mapbox.com/mapbox-gl-js/api/map/#map#fitbounds)
                 bbox: [
                     [-102.999, 31.415], // [south, west]
                     [-108.601, 36.902] // [north, east]
@@ -33,12 +32,12 @@ export const eco_config_instance = {
         sort_column: 'outlet_name', // The column for sorting markers by
         cil_max: 3.00, // The maximum Community Impact Level number
         cil_label_delimiter: '-', // The delimiter for the CIL label in the CIL description
-        county_delimiter: ',', // The delimiter for multiple counties in the county column
-        county_all_term: 'all', // The term used in marker county data for all-encompassing county coverage
-        counties_column: 'counties_served', // The column that includes the marker's county data
-        counties_color_column: 'medium_primary', // The column that controls the marker colors
-        counties_color_default: '#e0e0e0', // The default color for highlighting counties 
-        county_name_exceptions: { // County name normalization mapping
+        region_delimiter: ',', // The delimiter for multiple regions in the region column
+        region_all_term: 'all', // The term used in marker region data for all-encompassing region coverage
+        regions_column: 'regions_served', // The column that includes the marker's region data
+        regions_color_column: 'medium_primary', // The column that controls the marker colors
+        regions_color_default: '#e0e0e0', // The default color for highlighting regions 
+        region_name_exceptions: { // Region name normalization mapping
             "dona ana": "Doña Ana",
             "doña ana": "Doña Ana",
             "dona ana ": "Doña Ana",
@@ -47,6 +46,11 @@ export const eco_config_instance = {
             "guadelupe": "Guadalupe", // Common misspelling
             "mckinley": "McKinley", // Handle lowercase variations
         },
+    },
+    data: {
+        markerDataFile: 'outlets.js',
+        regionDataFile: 'censusCounties.js',
+        regionNameProperty: 'NAME',
     },
 
 /**
@@ -113,8 +117,8 @@ export const eco_config_instance = {
         label: 'City Based',
         description: "City where outlet is located",
     },
-    'county_based': {
-        id: 'county_based',
+    'region_based': {
+        id: 'region_based',
         column: 'Address_County',
         label: 'County Based',
     },
@@ -211,15 +215,15 @@ export const eco_config_instance = {
         column: 'SUMMARY',
         label: 'Summary',
     },
-    'counties_served': {
-        id: 'counties_served',
+    'regions_served': {
+        id: 'regions_served',
         column: 'COUNTIES_SERVED',
         label: 'Counties Served',
         description: "Approximate geographic reach. Some outlets are more localized",
         format: 'csv',
     },
-    'counties_served_label': {
-        id: 'counties_served_label',
+    'regions_served_label': {
+        id: 'regions_served_label',
         column: 'COUNTIES_SERVED_label', //Dynamic column, populated in cleanData()
         label: 'Counties Served',
         description: "Approximate geographic reach. Some outlets are more localized",

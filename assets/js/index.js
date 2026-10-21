@@ -1,6 +1,6 @@
-import { eco_config_instance } from '/config/instance.js';
-import { eco_config_system } from '/config/system.js';
-import { App_ECO } from './App.js';
+import { CONFIG_INSTANCE } from '/config/instance.js';
+import { CONFIG_SYSTEM } from '/config/system.js';
+import { App } from './App.js';
 
 document.addEventListener( 'DOMContentLoaded', () => {
     // Enable jQuery $ assignment
@@ -9,9 +9,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     } catch (e) {}
 
     // Initialize application
-    let app = new App_ECO(
-        eco_config_instance,
-        eco_config_system
+    let app = new App(CONFIG_INSTANCE, CONFIG_SYSTEM
     );
 
     app.init();

@@ -1,20 +1,21 @@
-import { Map_ECO } from './map.js';
+import { Map } from './Map.js';
 
-export class App_ECO {
+export class App {
 
-    constructor(config, config_system) {
-        this.config = config;
-        this.config_system = config_system;
+    constructor(configInstance, configSystem) {
+        this.configInstance = configInstance;
+        this.configSystem = configSystem;
     }// constructor
 
     /**
      * init
-     * Initialize application
+     * Initialize an application
      */
     init() {
-        // Initialize the map
-        let map = new Map_ECO(this.config, this.config_system);
-        map.init();
+
+        // Initialize a new Map
+        new Map(this.configInstance, this.configSystem).init();
+
     }// init
 
-}// App_ECO
+}// App

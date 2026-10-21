@@ -1,4 +1,4 @@
-export const layerMarkers = {
+export const data = {
    "type": "FeatureCollection",
    "features": [
   {

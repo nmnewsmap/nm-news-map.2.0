@@ -1,4 +1,4 @@
-export const layerCensusCounties = {
+export const data = {
   "type": "FeatureCollection",
   "features": [
     {

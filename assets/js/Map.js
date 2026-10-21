@@ -1,43 +1,72 @@
-import { isMobile } from './utils.js';
-import { layerCensusCounties } from '/assets/data/censusCounties.js';
-import { layerMarkers } from '/assets/data/markers.js';
+import { isMobile, isValidGeoJSON } from './utils.js';
 
-export class Map_ECO {
+export class Map {
 
-    constructor(config, config_system) {
-        this.debug = config.debug;
+    constructor(configInstance, configSystem) {
+
+        // Enable error logging for debugging
+        this.debug = configInstance.debug;
+
+        // Apply system configuration settings
+        this.system = configSystem;
+
+        // Apply custom configuration settings
         this.config = {
-            icons: config_system.icons,
-            map: config.map,
-            mapOperations: config.mapOperations,
-            schema: config.schema,
-            layerCensusCategories: config_system.layerCensusCategories,
+            webpage: configInstance.webpage,
+            map: configInstance.map,
+            mapOperations: configInstance.mapOperations,
+            data: configInstance.data,
+            schema: configInstance.schema,
+            layerCategories: configSystem.layerCategories,
         };
+
+        // Map interface object
         this.map = null;
-        this.markerData = null;
-        this.allMarkers = []; // Current, filtered markers
-        this.clusters = []; // Marker clusters
 
-        this.allCountyNames = []; // Stores all county names
-        this.countiesLoaded = false; // Store loaded counties
-        this.activeFilters = [];
-        this.activeFilterCategory = '';
+        // Map layer configuration
+        this.layers = {
 
-        this.timeouts = {
-            zoomUpdate: null
+            // The marker layer
+            markers: {
+                geojson: null, // All marker data as GeoJSON
+                mapped: [], // Dynamic array of markers filtered and displayed on the map
+                status: {
+                    drawing: false, // If markers are currently being drawn
+                    filter: null, // Current active marker data filter
+                }
+            },
+
+            // The regions layer for map tile labeling and styling
+            regions: { // Data for regions on the map
+                geojson: [], // Data for regions, including boundary definitions and category values
+                labels: [], // Generated array of region labels for map labeling
+            }
         };
     }// constructor
 
     /**
      * init
-     * Initialize the map
+     * Initialize the Map application
      */
     init() {
 
-        // Initialize map
+        // Initialize the Map interface and layers
+        this.initMapInterface();
+
+        // Initialize the page template
+        this.initPageTemplate();
+    }// init
+
+    /**
+     * initMapInterface
+     * Initialize the mapping software interface
+     */
+    initMapInterface() {
+
+        // Initialize the map object with default settings
         this.map = new mapboxgl.Map({
-            accessToken: this.config.map.access_token,
-            container: this.config.map.canvas_id,
+            accessToken: this.config.map.accessToken,
+            container: this.config.map.canvasId,
             style: this.config.map.style,
             center: this.config.map.center,
             zoom: this.config.map.zoom.default,
@@ -47,92 +76,79 @@ export class Map_ECO {
             maxBounds: this.config.map.bounds.max,
         });
 
-        // Animate initial map view
+        // Add initial view animation
         this.map.fitBounds(this.config.map.bounds.fit.bbox, {
             padding: this.config.map.bounds.fit.padding,
             duration: this.config.map.bounds.fit.duration,
         });
 
-        // Map controls
-        const nav = new mapboxgl.NavigationControl({
+        // Add map controls
+        let nav = new mapboxgl.NavigationControl({
             showCompass: false,
         });
         this.map.addControl(nav, 'bottom-right');
 
-        // disable map rotation using right click + drag
-        this.map.dragRotate.disable();
-
-        // disable map rotation using touch rotation gesture
-        this.map.touchZoomRotate.disableRotation();
-
-        // Map attribution
+        // Customize map attribution
         this.map.addControl(new mapboxgl.AttributionControl({
             compact: true,
             customAttribution: 'Map design by <a href="https://bloom.li" target="_blank" title="Bloom Labs">Bloom Labs</a>'
         }));
 
-        // Load the map
-        this.map.on('load', () => {
-
-            // Initialize marker data
-            this.markerData = layerMarkers;
-
-            // Fetch counties GeoJSON
-            if (layerCensusCounties && layerCensusCounties.features.length > 0) {
-                // Store all county names
-                this.allCountyNames = layerCensusCounties.features
-                    .map(feature => feature.properties.NAME)
-                    .filter(name => name);
-
-                this.countiesLoaded = true;
-            }
-
-            // Conduct the initial build of map components
-            this.initializeBuildProcess();
-        });// map load
+        // Disable map rotation using mouse or touch gestures
+        this.map.dragRotate.disable();
+        this.map.touchZoomRotate.disableRotation();
 
         /**
-         * Define Map Listeners
+         * Apply Map Listeners
          */
 
-        // Handle popup close request
-        $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', () => {
-            this.closeAllPopups(true);
+        // Listener: Map loading completed
+        this.map.on('load', () => {
+            this.initMapLayers();
         });
-        $('#map').on('keyup', (e) => {
-            if (e.keyCode === 27) {
-                this.closeAllPopups(true);
+
+        // Listener: Error handling
+        if (this.debug) {
+            this.map.on('error', (e) => {
+                console.error('Map error:', e);
+            });
+        }
+    }// initMapInterface
+
+    /**
+    * initMapLayers
+    * Conduct the initial build of map layers, components, and functionality
+    */
+    async initMapLayers() {
+
+        try {
+            // Load Marker layer data and functionality
+            await this.loadMarkerLayer();
+
+            // Load Region layer data and functionality
+            await this.loadRegionLayer();
+
+        } catch (error) {
+            if (this.debug) {
+                console.error('Error in initMapLayers(): ', error);
             }
-        });
+        }
+    }// initMapLayers
 
-        // Map Marker Open
-        $(document).on('click', '.map-popup-wrapper .mp-body-row', (e) => {
-            let id = $(e.currentTarget).attr('data-index');
+    /**
+     * initPageTemplate
+     * Initialize the page template
+     */
+    initPageTemplate() {
 
-            this.handleMarkerOpen(
-                'cluster-click',
-                layerMarkers.features[id].properties,
-                layerMarkers.features[id].geometry.coordinates[0],
-                layerMarkers.features[id].geometry.coordinates[1],
-            );
-        });
+        // Set webpage URL to external links
+        $('.external-map-link').attr('href', this.config.webpage);
 
-        // Map Zoom
-        this.map.on('zoomend', () => {
-            // Check if map animation is initializing
-            const zoomInit = (! this.timeouts.zoomUpdate);
+        /**
+         * Activate listeners for menu
+         */
 
-            clearTimeout(this.timeouts.zoomUpdate);
-
-            this.timeouts.zoomUpdate = setTimeout(() => {
-                // Update markers if not initializing the map
-                if (! zoomInit) {
-                    this.drawMarkers();
-                }
-            }, 150);
-        });
-
-        // Menu
+        // Listener: Menu engagement
         $('#menu #menu-toggle a#menu-toggle-open').on('click', () => {
             if ($('#menu').attr('data-visible') == 'true') {
                 $('#menu').attr('data-visible', 'false');
@@ -141,57 +157,148 @@ export class Map_ECO {
             }
         });
 
-        /**
-        * Responsive Effects
-        * Fill URL for small-screen popout link
-        */
-        let page_url = window.location.href;
-        $('#warning-reason-smallscreen a').attr('href', page_url);
-    }// init
+        // Open menu on desktop
+        if(! isMobile()) {
+            $('#menu').attr('data-visible', 'true');
+        }
+    }// initPageTemplate
 
     /**
-    * initializeBuildProcess
-    * Conduct the initial build of map components
-    */
-    initializeBuildProcess() {
-        try {
-            // Clean the data
-            this.cleanData();
+     * loadMarkerLayer
+     * Load the marker layer
+     */
+    async loadMarkerLayer() {
 
-            // Add layer data
-            this.addLayerData();
+        // Load the layer data from the given file
+        let layerData = await this.loadFileData(this.config.data.markerDataFile);
 
-            // Add filter options
-            this.buildFilterOptions();
+        // Handle invalid layer data
+        if (! layerData) {
+            return false;
+        }
 
-            // Add layer options
-            this.buildLayerOptions();
+        // Save the layer data
+        this.layers.markers.geojson = layerData;
 
-            // Add markers
-            this.drawMarkers();
+        // Clean the data
+        this.cleanMarkerData();
 
-            // Open menu on desktop
-            if(! isMobile()) {
-                $('#menu').attr('data-visible', 'true');
+        // Add markers
+        this.setMarkerData();
+
+        // Add marker filter options
+        this.buildMarkerMenuOptions();
+
+        /**
+         * Activate marker listeners
+         */
+
+        // Listener: Map zoom completed
+        setTimeout(() => {
+            this.map.on('zoomend', () => {
+                this.setMarkerData();
+            });
+            // Initialize after fitBounds is complete
+        }, this.config.map.bounds.fit.duration);
+
+        // Listener: Map cluster popup open request
+        $(document).on('click', '.map-popup-wrapper .mp-body-row', (e) => {
+            let id = $(e.currentTarget).attr('data-index');
+
+            this.openPopup(
+                'cluster-click',
+                this.layers.markers.geojson.features[id].properties,
+                this.layers.markers.geojson.features[id].geometry.coordinates[0],
+                this.layers.markers.geojson.features[id].geometry.coordinates[1],
+            );
+        });
+
+        // Listener: Map popup close request
+        $(document).on('click', '.mapboxgl-popup-close-button, .mp-close', () => {
+            this.closeAllPopups(true);
+        });
+        $('#map').on('keyup', (e) => {
+            if (e.keyCode === 27) {
+                this.closeAllPopups(true);
             }
+        });
+    }// loadMarkerLayer
+
+    /**
+     * loadRegionLayer
+     * Load the data for the region layer
+     */
+    async loadRegionLayer() {
+
+        // Load the layer data from the given file
+        let layerData = await this.loadFileData(this.config.data.regionDataFile);
+
+        // Handle invalid layer data
+        if (! layerData) {
+            return false;
+        }
+
+        // Save the layer data
+        this.layers.regions.geojson = layerData;
+
+        // Extract labels for regions
+        this.layers.regions.labels = this.layers.regions.geojson.features
+            .map(feature => feature.properties[this.config.data.regionNameProperty])
+            .filter(name => name);
+
+        // Set layer data
+        this.setRegionData();
+
+        // Add layer options
+        this.buildRegionMenuOptions();
+    }// loadRegionLayer
+
+    /**
+     * loadFileData
+     * Load data from the given file
+     */
+    async loadFileData(file) {
+
+        // Check file requirements
+        if (! file) {
+            return false;
+        }
+
+        // Initialize data for the layer
+        let layerData = null;
+
+        // Load data from file
+        try {
+            let { data } = await import(this.system.dir_data + file);
+            layerData = data;
         } catch (error) {
             if (this.debug) {
-                console.error('Error in initial build process:', error);
+                console.error('Error loading file: ', error);
             }
+
+            return false;
         }
-    }// initializeBuildProcess
+
+        // Validate expected GeoJSON-formatted data
+        if (! layerData || ! isValidGeoJSON(layerData)) {
+            if (this.debug) {
+                console.error('Error loading GeoJSON for layer');
+            }
+
+            return false;
+        }
+
+        return layerData;
+    }// loadFileData
 
     /**
-     * cleanData
-     * Clean up incoming data
+     * cleanMarkerData
+     * Clean the marker data
      */
-    cleanData() {
-
-        // Initialize
-        let cleaned = [];
+    cleanMarkerData() {
 
         // Filter and update data
-        this.markerData.features.filter((feature) => 
+        this.layers.markers.geojson.features.filter((feature) => 
                 // Ignore if invalid GeoJSON properties
                 (feature.geometry && feature.geometry.coordinates)
             )
@@ -200,34 +307,34 @@ export class Map_ECO {
                 // Set marker index
                 feature.properties.index = index;
 
-                // Get list of counties served
-                let countiesServed = feature.properties[
+                // Get list of regions served
+                let regionsServed = feature.properties[
                     this.config.schema[
-                        this.config.mapOperations.counties_column
+                        this.config.mapOperations.regions_column
                     ].column
                 ];
 
-                // Turn county list into array and clean up
-                countiesServed = countiesServed
-                    .split(this.config.mapOperations.county_delimiter)
+                // Turn region list into array and clean the string
+                regionsServed = regionsServed
+                    .split(this.config.mapOperations.region_delimiter)
                     .map(s => s.trim());
 
-                let countiesServedLabel = 'None';
+                let regionsServedLabel = 'None';
 
-                if (countiesServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.county_all_term)) {
-                    if (! this.countiesLoaded || this.allCountyNames.length === 0) {
-                        countiesServed = [];
+                if (regionsServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.region_all_term)) {
+                    if (this.layers.regions.labels.length > 0) {
+                        regionsServed = [...this.layers.regions.labels];
                     } else {
-                        countiesServed = [...this.allCountyNames];
+                        regionsServed = [];
                     }
-                    countiesServedLabel = this.config.mapOperations.county_all_term.charAt(0).toUpperCase() + this.config.mapOperations.county_all_term.substring(1);
+                    regionsServedLabel = this.config.mapOperations.region_all_term.charAt(0).toUpperCase() + this.config.mapOperations.region_all_term.substring(1);
                 } else {
-                    countiesServed = countiesServed.map(s => this.normalizeCountyName(s));
-                    countiesServedLabel = countiesServed.join(', ');
+                    regionsServed = regionsServed.map(s => this.normalizeRegionName(s));
+                    regionsServedLabel = regionsServed.join(', ');
                 }
 
-                feature.properties[this.config.schema[this.config.mapOperations.counties_column].column] = countiesServed;
-                feature.properties[this.config.schema[this.config.mapOperations.counties_column].column + '_label'] = countiesServedLabel;
+                feature.properties[this.config.schema[this.config.mapOperations.regions_column].column] = regionsServed;
+                feature.properties[this.config.schema[this.config.mapOperations.regions_column].column + '_label'] = regionsServedLabel;
 
                 // Update CIL value to float
                 feature.properties[this.config.schema.cil_number.column] = parseFloat(feature.properties[this.config.schema.cil_number.column]).toFixed(2);
@@ -247,116 +354,294 @@ export class Map_ECO {
                 }
             }
         );
-    }// cleanData
+    }// cleanMarkerData
 
     /**
-     * normalizeCountyName
-     * County name normalization function
+     * normalizeRegionName
+     * Normalize the given region name
      */
-    normalizeCountyName(name) {
+    normalizeRegionName(name) {
+        // Transform name to lowercase
         name = name.trim().toLowerCase();
 
         // Check special cases first
-        if (this.config.mapOperations.county_name_exceptions[name]) {
-            return this.config.mapOperations.county_name_exceptions[name];
+        if (this.config.mapOperations.region_name_exceptions[name]) {
+            return this.config.mapOperations.region_name_exceptions[name];
         }
 
-        // Title case for normal county names (first letter of each word capitalized)
+        // Title case for normal region names (first letter of each word capitalized)
         return name.split(' ').map(word => 
             word.charAt(0).toUpperCase() + word.slice(1)
         ).join(' ');
-    }//normalizeCountyName
+    }// normalizeRegionName
 
     /**
-     * addLayerData
-     * Add layer data to the map
+     * setMarkerData
+     * Update marker data
      */
-    addLayerData() {
+    setMarkerData() {
+        // Ignore if drawing is currently active
+        if (this.layers.markers.status.drawing) {return false;}
 
-        // Add density layer to map layer list
-        this.addDensityLayer();
+        // Update drawing status
+        this.layers.markers.status.drawing = true;
 
-        // Load counties boundary source
-        this.map.addSource('counties', {
-            type: 'geojson',
-            data: layerCensusCounties
+        // Ignore if no marker layer
+        if (! this.layers.markers.geojson) {
+            this.layers.markers.status.drawing = false;
+            return false;
+        }
+
+        // Clear existing markers
+        while (this.layers.markers.mapped.length > 0) {
+            // Shift marker off the mapped array
+            let marker = this.layers.markers.mapped.shift();
+
+            // Remove marker off the map
+            marker.remove();
+        }
+
+        // Get current zoom level for adaptive behavior
+        const currentZoom = this.map.getZoom();
+        const maxZoom = this.map.getMaxZoom();
+      
+        // Dynamic proximity threshold based on zoom level
+        // Higher zoom = smaller threshold (less clustering)
+        // Lower zoom = larger threshold (more clustering)
+        const baseThreshold = 0.2;
+        const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
+
+        // Dynamic marker size based on zoom level
+        const baseSize = 30;
+        const markerSize = Math.max(12, Math.min(28, baseSize + (currentZoom - 7) * 2));
+
+        // Initialize arrays for cluster and filter processing
+        let clusters = [];
+        let activeFilters = [];
+
+        // Update active filters cache
+        let filterCategoryActive = $('.menu-container[data-container="filters"]  .mc-category.active');
+
+        if (filterCategoryActive.length == 0 || filterCategoryActive.find('.mc-category-option').length == 0) {
+            activeFilters = ['all'];
+        } else {
+            let filterOptionsActive = filterCategoryActive.find('.mc-category-option.active');
+
+            if (filterOptionsActive.length > 0) {
+                activeFilters = [];
+                filterOptionsActive.each((e, i) => {
+                    activeFilters.push($(i).attr('data-id'));
+                });
+            } else {
+                activeFilters = [''];
+            }
+        }
+
+        // Group nearby markers into clusters with filtering
+        this.layers.markers.geojson.features.forEach((feature) => {
+            // Ignore if invalid GeoJSON properties
+            if (!feature.geometry || !feature.geometry.coordinates) return;
+
+            // Apply filter
+            if (this.layers.markers.status.filter && ! activeFilters.includes('all')) {
+                let filterPropertyValue = feature.properties[this.config.schema[this.layers.markers.status.filter].column];
+                if (! filterPropertyValue) return;
+                filterPropertyValue = filterPropertyValue.toString().trim();
+                if (! filterPropertyValue || ! activeFilters.includes(filterPropertyValue)) return;
+            }
+
+            // Get coordinates
+            const lng = feature.geometry.coordinates[0];
+            const lat = feature.geometry.coordinates[1];
+
+            // Find existing cluster within proximity threshold
+            let foundCluster = null;
+            for (let cluster of clusters) {
+                const distance = Math.sqrt(
+                    Math.pow(lng - cluster.centerLng, 2) + 
+                    Math.pow(lat - cluster.centerLat, 2)
+                );
+                if (distance < proximityThreshold) {
+                    foundCluster = cluster;
+                    break;
+                }
+            }
+
+            if (foundCluster) {
+                // Add to existing cluster
+                foundCluster.markers.push(feature);
+                // Update cluster center to be more central
+                const totalMarkers = foundCluster.markers.length;
+                foundCluster.centerLng = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[0], 0) / totalMarkers;
+                foundCluster.centerLat = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[1], 0) / totalMarkers;
+            } else {
+                // Create new cluster
+                clusters.push({
+                    centerLng: lng,
+                    centerLat: lat,
+                    markers: [feature]
+                });
+            }
+        }); // foreach marker data
+
+        // Create markers with zoom-adaptive offsets
+        clusters.forEach((cluster) => {
+            // Add marker
+            this.addMarker(
+                cluster.markers[0], // Use first marker as dummy marker
+                cluster.centerLng,
+                cluster.centerLat,
+                markerSize, 
+                {
+                    is: cluster.markers.length > 1 ? true : false,
+                    count: cluster.markers.length,
+                    coordinates: {
+                        lng: cluster.centerLng,
+                        lat: cluster.centerLat,
+                    },
+                    markers: cluster.markers,
+                }
+            );
         });
 
-        // Load census-enhanced counties source
-        this.map.addSource('census-counties', {
+        // Update drawing status
+        this.layers.markers.status.drawing = false;
+
+        return true;
+    }// setMarkerData
+
+    /**
+     * addMarker
+     * Add a marker on the map
+     */
+    addMarker(feature, coordLng, coordLat, markerSize, cluster) {
+
+        // Get HTML template for popups
+        let html = $('#map-templates div[data-template="marker"]').clone();
+        html.find('.map-marker').attr('data-index', feature.properties.index);
+        html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
+
+        // Get property for coloring
+        const colorProperty = this.config.schema[this.config.mapOperations.regions_color_column];
+        const colorPropertyValue = feature.properties[colorProperty.column];
+
+        // Add marker color
+        html.find('.map-marker').css('border-color', colorProperty.options[colorPropertyValue].color);
+
+        // Add marker icon
+        if (cluster.is) {
+            html.find('.map-marker').attr('data-cluster', 'true');
+            html.find('.map-marker-icon').html(`<span style="line-height:calc(${markerSize}px - 4px);">${cluster.count}</span>`);
+        } else {
+            html.find('.map-marker-icon').html(`<i class="fa-solid fa-${colorProperty.options[colorPropertyValue].icon}" style="line-height:calc(${markerSize}px - 4px);"></i>`);
+        }
+
+        /**
+         * Add map marker listeners
+         */
+
+        // Listener: If marker is clicked
+        html.on('click', '.map-marker', () => {
+            this.openPopup('click', feature.properties, coordLng, coordLat, cluster);
+        });
+
+        // Listener: If cursor hovers over a marker
+        html.on('mouseenter', '.map-marker', () => {
+            // Ignore if popup open
+            if (this.isPopupOpen()) {
+                return true;
+            }
+
+            if (cluster && cluster.is) {
+                this.updateRegionHighlight(feature.properties, []);
+            } else {
+                this.updateRegionHighlight(feature.properties);
+            }
+        });
+
+        // Listener: If cursor stops hovering over a marker
+        html.on('mouseleave', '.map-marker', () => {
+            // Ignore if popup open
+            if (this.isPopupOpen()) {
+                return true;
+            }
+
+            this.updateRegionHighlight(feature.properties, []);
+        });
+
+        // Add the marker to the map
+        const marker = new mapboxgl.Marker(html.get(0))
+            .setLngLat([coordLng, coordLat])
+            .addTo(this.map);
+
+        this.layers.markers.mapped.push(marker);
+    }//addMarker
+
+    /**
+     * setRegionData
+     * Set layer data to the map
+     */
+    setRegionData() {
+
+        // Add data for 'internal' computed layers
+        let layers = Object.values(this.config.layerCategories);
+        Object.values(layers).forEach((layer) => {
+            if (layer.compiler != 'internal') return;
+
+            switch(layer.id) {
+                case 'density':
+                    let compiled = this.addDensityLayer();
+                    if (! compiled) {
+                        delete this.config.layerCategories[layer.id];
+                    }
+                    break;
+            }
+        });
+
+        // Add regions data to map as a source to be used for layers
+        this.map.addSource('regions', {
             type: 'geojson',
-            data: layerCensusCounties
+            data: this.layers.regions.geojson
         });
 
         /**
-         * Load Map Source Data
-         * Once the county GeoJSON is loaded, store all county names
+         * Region Highlighting
          */
-        this.map.on('sourcedata', (e) => {
-            if (e.sourceId !== 'counties' || ! e.isSourceLoaded || this.countiesLoaded) return;
 
-            // Extract all county names when source is loaded
-            try {
-                const source = this.map.getSource('counties');
-                if (source._data && source._data.features) {
-                    this.allCountyNames = source._data.features
-                        .map(feature => feature.properties.NAME)
-                        .filter(name => name); // filter out any undefined/null
-
-                    // Mark counties as loaded
-                    this.countiesLoaded = true;
-                }
-            } catch (err) {
-                if (this.debug) {
-                    console.error('Error extracting county names:', err);
-                }
-            }
-        }); // on.sourcedata
-
-        /**
-         * County & Census Highlights
-         */
-        this.map.addLayer({
-            id: 'counties-fill',
-            type: 'fill',
-            source: 'counties',
-            paint: {
-                'fill-color': '#b3d8f6', // Default: light blue
-                'fill-opacity': 0.35
-            },
-            filter: ['in', 'NAME', '']
-        });
-
-        this.map.addLayer({
-            id: 'census-overlay',
-            type: 'fill',
-            source: 'census-counties',
-            paint: {
-                'fill-color': [
-                    'case',
-                    ['==', ['get', 'Population Size'], null], '#f0f0f0', // Default for missing data
-                    '#f0f0f0' // Default color when no overlay is active
-                ],
-                'fill-opacity': 0.7
-            },
-            layout: {
-                'visibility': 'none'
-            }
-        });
-
-        // Add error handling for the county source
-        this.map.on('error', (e) => {
-            if (this.debug) {
-                console.error('Map error:', e);
-            }
-        });
-
-        // Add county boundary outlines
+        // Add region layers to the map
         try {
+
+            // Map Layer: For marker-region engagement
             this.map.addLayer({
-                id: 'counties-border',
+                id: 'regions-fill',
+                type: 'fill',
+                source: 'regions',
+                paint: {
+                    'fill-color': '#b3d8f6', // Default: light blue
+                    'fill-opacity': 0.35
+                },
+                filter: ['in', this.config.data.regionNameProperty, '']
+            });
+
+            // Map Layer: For menu-region engagement
+            this.map.addLayer({
+                id: 'regions-overlay',
+                type: 'fill',
+                source: 'regions',
+                paint: {
+                    'fill-color': this.system.layerFill.defaultColorNoLayer,
+                    'fill-opacity': this.system.layerFill.defaultFillOpacity
+                },
+                layout: {
+                    'visibility': 'none'
+                }
+            });
+
+            // Map Layer: Border for regions
+            this.map.addLayer({
+                id: 'regions-border',
                 type: 'line',
-                source: 'counties',
+                source: 'regions',
                 paint: {
                     'line-color': '#333',
                     'line-width': 2,
@@ -364,31 +649,26 @@ export class Map_ECO {
                 }
             });
 
+            // Map Layer: Border for highlighted regions
             this.map.addLayer({
-                id: 'counties-border-highlight',
+                id: 'regions-border-highlight',
                 type: 'line',
-                source: 'counties',
+                source: 'regions',
                 paint: {
                     'line-color': '#333',
                     'line-width': 2,
                     'line-opacity': 0.8
                 },
-                filter: ['in', 'NAME', ''] // No counties highlighted initially
+                filter: ['in', this.config.data.regionNameProperty, ''] // No regions highlighted initially
             });
-        } catch (error) {
-            if (this.debug) {
-                console.error('Error adding county boundary layers:', error);
-            }
-        }
 
-        // Add county labels
-        try {
+            // Map Layer: Region labels
             this.map.addLayer({
-                id: 'counties-labels',
+                id: 'regions-labels',
                 type: 'symbol',
-                source: 'counties',
+                source: 'regions',
                 layout: {
-                    'text-field': ['get', 'NAME'],
+                    'text-field': ['get', this.config.data.regionNameProperty],
                     'text-size': 13
                 },
                 paint: {
@@ -399,17 +679,61 @@ export class Map_ECO {
             });
         } catch (error) {
             if (this.debug) {
-                console.error('Error adding county labels layer:', error);
+                console.error('Error adding region layers to map:', error);
             }
         }
-
-    }//addLayerData
+    }// setRegionData
 
     /**
-     * buildFilterOptions
+     * addDensityLayer
+     * Generate and set a layer to measure marker density
+     */
+    addDensityLayer() {
+
+        // Ignore if no marker data available
+        if (! this.layers.markers.geojson) {
+            return false;
+        }
+
+        // Initialize
+        let regionsDensity = [];
+
+        this.layers.markers.geojson.features.forEach((item) => {
+            // Get regions the item is based
+            let regionBased = item.properties[this.config.schema.region_based.column];
+
+            // Initialize region tally
+            if (! regionsDensity[regionBased]) {
+                regionsDensity[regionBased] = 0;
+            }
+
+            // Tally region
+            regionsDensity[regionBased]++;
+        });
+
+        this.layers.regions.geojson.features.forEach((region, i) =>  {
+            let index = region.properties[this.config.data.regionNameProperty];
+            region.properties[this.config.layerCategories.density.property] = 0;
+
+            if (regionsDensity[index]) {
+                this.layers.regions.geojson.features[i].properties[this.config.layerCategories.density.property] = regionsDensity[index];
+            }
+        });
+
+        return true;
+    }// addDensityLayer
+
+    /**
+     * buildMarkerMenuOptions
      * Gather categories for filtering
      */
-    buildFilterOptions() {
+    buildMarkerMenuOptions() {
+
+        // Ignore if no data available
+        if (! this.layers.markers.geojson) {
+            return false;
+        }
+
         // Initialize with no filter option
         let categories = [
             {
@@ -420,7 +744,12 @@ export class Map_ECO {
         ];
 
         // Populate categories with unique values from each data record
-        this.markerData.features.forEach((record) => {
+        this.layers.markers.geojson.features.forEach((record) => {
+
+            // Validate GeoJSON-format for Feature
+            if (record.type != 'Feature' || record.properties.length === 0) {
+                return false;
+            }
 
             // Popuplate the template based on the schema's definition and the given data
             Object.values(this.config.schema).forEach((property) => {
@@ -516,6 +845,9 @@ export class Map_ECO {
             $('.menu-container[data-container="filters"] .mc-categories').append(categoryHtml.html());
         });
 
+        //Display menu
+        $('#menu .menu-container[data-container="filters"]').show();
+
         // Remove templates
         $('.menu-container[data-container="filters"] .mc-categories [data-type]').remove();
 
@@ -535,10 +867,10 @@ export class Map_ECO {
             parent.addClass('active');
             parent.find('.mc-category-option').addClass('active');
             parent.attr('data-has-selected', 'true');
-            this.activeFilterCategory = parent.attr('data-id');
+            this.layers.markers.status.filter = parent.attr('data-id');
 
             // Update markers
-            this.drawMarkers();
+            this.setMarkerData();
         });
 
         // Filter category option listener
@@ -547,17 +879,25 @@ export class Map_ECO {
             $(e.currentTarget).toggleClass('active');
 
             // Update markers
-            this.drawMarkers();
+            this.setMarkerData();
         });
-    }//buildFilterOptions
+    }// buildMarkerMenuOptions
 
     /**
-     * buildLayerOptions
+     * buildRegionMenuOptions
      * Gather categories for layering
      */
-    buildLayerOptions() {
-        // Initialize with no layer option
-        let layers = Object.values(this.config.layerCensusCategories);
+    buildRegionMenuOptions() {
+
+        // Get layers
+        let layers = Object.values(this.config.layerCategories);
+
+        // Ignore if no data available
+        if (layers.length === 0) {
+            return false;
+        }
+
+        // Add "No Layer" option first
         layers.unshift({
             id: 'none',
             title: 'No Layer',
@@ -585,7 +925,7 @@ export class Map_ECO {
             if (layer.breaks && layer.breaks.length > 0) {
                 for (let i = 0; i < layer.breaks.length; i++) {
                     // Get option values
-                    const minVal = i === 0 ? 0 : layer.breaks[i - 1];
+                    const minVal = i === 0 ? 0 : layer.breaks[i - 1] + 1;
                     const maxVal = i < layer.breaks.length ? layer.breaks[i] : '∞';
 
                     // Populate option HTML
@@ -593,7 +933,16 @@ export class Map_ECO {
                     optionHtml.removeAttr('data-type');
                     optionHtml.find('.mc-category-option').attr('data-id', i);
 
-                    optionHtml.find('.mc-item-label').text(layer.format(minVal) + ' - ' + (maxVal === '∞' ? '∞' : layer.format(maxVal)));
+                    let breaksLabel = null;
+                    if (minVal == maxVal) {
+                        breaksLabel = minVal;
+                    } else if (maxVal === '∞') {
+                        breaksLabel = this.formatRangeValue(this.config.layerCategories[layer.id], minVal, true) + '+' + (layer.hasOwnProperty('suffix') ? layer.suffix : '');
+                    } else {
+                        breaksLabel = this.formatRangeValue(this.config.layerCategories[layer.id], minVal, true) + ' - ' + this.formatRangeValue(this.config.layerCategories[layer.id], maxVal);
+                    }
+
+                    optionHtml.find('.mc-item-label').text(breaksLabel);
                     optionHtml.find('.mc-item-input button')
                         .val(i)
                         .css('background-color', layer.colors[i]);
@@ -608,6 +957,9 @@ export class Map_ECO {
             // Add category HTML to filter section
             $('.menu-container[data-container="layers"] .mc-categories').append(categoryHtml.html());
         });
+
+        //Display menu
+        $('#menu .menu-container[data-container="layers"]').show();
 
         // Remove templates
         $('.mc-categories [data-type]').remove();
@@ -635,13 +987,27 @@ export class Map_ECO {
             parent.attr('data-has-selected', 'true');
 
             // Get layer
-            const layer = this.config.layerCensusCategories[parent.attr('data-id')];
+            const layer = this.config.layerCategories[parent.attr('data-id')];
 
             if (layer) {
                 // Collect layer colors
-                const expression = ['case'];
+                let expression = ['case'];
                 for (let i = 0; i < layer.breaks.length; i++) {
-                    const condition = (i === 0 ? ['<', ['get', layer.property], layer.breaks[i]] : ['<', ['get', layer.property], layer.breaks[i]]);
+                    let condition = '';
+
+                    switch(layer.breaks[i]) {
+                        case 0:
+                            condition = ['==', ['get', layer.property], layer.breaks[i]];
+                            break;
+
+                        case '∞':
+                            condition = ['>', ['get', layer.property], layer.breaks[i-1]]
+                            break;
+
+                        default:
+                            condition = ['<=', ['get', layer.property], layer.breaks[i]];
+                    }
+
                     expression.push(condition, layer.colors[i]);
                 }
 
@@ -649,203 +1015,78 @@ export class Map_ECO {
                 expression.push(layer.colors[layer.colors.length - 1]);
 
                 // Paint and display layer
-                this.map.setPaintProperty('census-overlay', 'fill-color', expression);
-                this.map.setLayoutProperty('census-overlay', 'visibility', 'visible');
+                this.map.setPaintProperty('regions-overlay', 'fill-color', expression);
+                this.map.setLayoutProperty('regions-overlay', 'visibility', 'visible');
             } else {
                 // Hide layer
-                this.map.setLayoutProperty('census-overlay', 'visibility', 'none');
+                this.map.setLayoutProperty('regions-overlay', 'visibility', 'none');
             }
         });
-    }//buildLayerOptions
-    
+    }// buildRegionMenuOptions
+
     /**
-     * drawMarkers
-     * Update markers
+     * formatRangeValue
+     * Format the given value for a range/break
      */
-    drawMarkers() {
-        // Clear existing markers and popups
-        this.allMarkers.forEach(marker => marker.remove());
-        this.allMarkers = [];
-        this.clusters = [];
+    formatRangeValue(layer, value, simple) {
+        // Format numeric string
+        var value = value.toLocaleString();
 
-        // Check if marker data exists
-        if (! this.markerData || ! this.markerData.features) return;
-
-        // Get current zoom level for adaptive behavior
-        const currentZoom = this.map.getZoom();
-        const maxZoom = this.map.getMaxZoom();
-      
-        // Dynamic proximity threshold based on zoom level
-        // Higher zoom = smaller threshold (less clustering)
-        // Lower zoom = larger threshold (more clustering)
-        const baseThreshold = 0.2; // 0.003
-        const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
-
-        // Dynamic marker size based on zoom level
-        const baseSize = 30;
-        const markerSize = Math.max(12, Math.min(28, baseSize + (currentZoom - 7) * 2));
-
-        // Dynamic offset distance with minimum threshold for visibility
-        const baseOffset = 0.014; // ~440m base offset
-        const dynamicOffset = baseOffset * Math.pow(0.75, currentZoom - 7);
-        const minimumOffset = 0.002; // Minimum 220m offset for visibility
-        const offsetDistance = Math.max(dynamicOffset, minimumOffset);
-
-        // Update active filters cache
-        let filterCategoryActive = $('.menu-container[data-container="filters"]  .mc-category.active');
-
-        if (filterCategoryActive.length == 0 || filterCategoryActive.find('.mc-category-option').length == 0) {
-            this.activeFilters = ['all'];
-        } else {
-            let filterOptionsActive = filterCategoryActive.find('.mc-category-option.active');
-
-            if (filterOptionsActive.length > 0) {
-                this.activeFilters = [];
-                filterOptionsActive.each((e, i) => {
-                    this.activeFilters.push($(i).attr('data-id'));
-                });
-            } else {
-                this.activeFilters = [''];
-            }
+        // Return number only, except for currency
+        if (simple && (! layer.hasOwnProperty('prefix') || layer.prefix != '$')) {
+            return value;
         }
 
-        // Group nearby markers into clusters with filtering
-        this.markerData.features.forEach((feature) => {
-            // Ignore if invalid GeoJSON properties
-            if (!feature.geometry || !feature.geometry.coordinates) return;
-
-            // Apply filter
-            if (this.activeFilterCategory && ! this.activeFilters.includes('all')) {
-                let filterPropertyValue = feature.properties[this.config.schema[this.activeFilterCategory].column];
-                if (! filterPropertyValue) return;
-                filterPropertyValue = filterPropertyValue.toString().trim();
-                if (! filterPropertyValue || ! this.activeFilters.includes(filterPropertyValue)) return;
-            }
-
-            // Get coordinates
-            const lng = feature.geometry.coordinates[0];
-            const lat = feature.geometry.coordinates[1];
-
-            // Find existing cluster within proximity threshold
-            let foundCluster = null;
-            for (let cluster of this.clusters) {
-                const distance = Math.sqrt(
-                    Math.pow(lng - cluster.centerLng, 2) + 
-                    Math.pow(lat - cluster.centerLat, 2)
-                );
-                if (distance < proximityThreshold) {
-                    foundCluster = cluster;
-                    break;
-                }
-            }
-
-            if (foundCluster) {// && currentZoom < (maxZoom - 2)) {
-                // Add to existing cluster
-                foundCluster.markers.push(feature);
-                // Update cluster center to be more central
-                const totalMarkers = foundCluster.markers.length;
-                foundCluster.centerLng = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[0], 0) / totalMarkers;
-                foundCluster.centerLat = foundCluster.markers.reduce((sum, o) => sum + o.geometry.coordinates[1], 0) / totalMarkers;
-            } else {
-                // Create new cluster
-                this.clusters.push({
-                    centerLng: lng,
-                    centerLat: lat,
-                    markers: [feature]
-                });
-            }
-        }); // foreach marker data
-
-        // Create markers with zoom-adaptive offsets
-        this.clusters.forEach((cluster) => {
-            // Add marker
-            this.addMarker(
-                cluster.markers[0], // Use first marker as dummy marker
-                cluster.centerLng,
-                cluster.centerLat,
-                markerSize, 
-                {
-                    is: cluster.markers.length > 1 ? true : false,
-                    count: cluster.markers.length,
-                    coordinates: {
-                        lng: cluster.centerLng,
-                        lat: cluster.centerLat,
-                    },
-                    markers: cluster.markers,
-                }
-            );
-        });// foreach clusters
-    }// drawMarkers
-
-    /**
-     * addMarker
-     * Add a marker on the map
-     */
-    addMarker(feature, coordLng, coordLat, markerSize, cluster) {
-        // Get HTML template for popups
-        let html = $('#map-templates div[data-template="marker"]').clone();
-        html.find('.map-marker').attr('data-index', feature.properties.index);
-        html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
-
-        // Get property for coloring
-        const colorProperty = this.config.schema[this.config.mapOperations.counties_color_column];
-        const colorPropertyValue = feature.properties[colorProperty.column];
-
-        // Add marker color
-        html.find('.map-marker').css('border-color', colorProperty.options[colorPropertyValue].color);
-
-        // Add marker icon
-        if (cluster.is) {
-            html.find('.map-marker').attr('data-cluster', 'true');
-            html.find('.map-marker-icon').html(`<span style="line-height:calc(${markerSize}px - 4px);">${cluster.count}</span>`);
-        } else {
-            html.find('.map-marker-icon').html(`<i class="fa-solid fa-${colorProperty.options[colorPropertyValue].icon}" style="line-height:calc(${markerSize}px - 4px);"></i>`);
+        // Apply prefix if requested
+        if (layer.hasOwnProperty('prefix')) {
+            return layer.prefix + value;
         }
 
-        // Add event listeners
-        html.on('click', '.map-marker', () => {
-            this.handleMarkerOpen('click', feature.properties, coordLng, coordLat, cluster);
-        });
+        // Apply suffix if requested
+        if (layer.hasOwnProperty('suffix')) {
+            return value + layer.suffix;
+        }
 
-        html.on('mouseenter', '.map-marker', () => {
-            // Ignore if popup open
-            if (this.isPopupOpen()) {
-                return true;
-            }
-
-            if (cluster && cluster.is) {
-                this.updateRegionHighlight(feature.properties, []);
-            } else {
-                this.updateRegionHighlight(feature.properties);
-            }
-        });
-
-        html.on('mouseleave', '.map-marker', () => {
-            // Ignore if popup open
-            if (this.isPopupOpen()) {
-                return true;
-            }
-
-            this.updateRegionHighlight(feature.properties, []);
-        });
-
-        // Create and add marker to map, store reference for zoom updates
-        const marker = new mapboxgl.Marker(html.get(0))
-            .setLngLat([coordLng, coordLat])
-            .addTo(this.map);
-
-        this.allMarkers.push(marker);
-    }//addMarker
+        return value;
+    }// formatRangeValue
 
     /**
-     * handleMarkerOpen
-    * Highlight counties and show popup
+     * updateRegionHighlight
+     * Update the colored highlight for regions on the map
+     */
+    updateRegionHighlight(properties, regions) {
+        // Get list of regions served, get marker regions if not provided
+        let regionsServed = regions;
+        if (typeof regions == 'undefined') {
+            regionsServed = properties[this.config.schema.regions_served.column];
+        }
+
+        // Apply region highlighting
+        const type = properties[this.config.schema[this.config.mapOperations.regions_color_column].column];
+        this.map.setPaintProperty('regions-fill', 'fill-color', this.config.schema[this.config.mapOperations.regions_color_column].options[type].color ?? this.config.mapOperations.regions_color_default);
+        this.map.setFilter('regions-fill', ['in', this.config.data.regionNameProperty, ...regionsServed]);
+        this.map.setFilter('regions-border-highlight', ['in', this.config.data.regionNameProperty, ...regionsServed]);
+    }// updateRegionHighlight
+
+    /**
+     * resetRegionFilters
+     * Clear all active region highlighting on the map
+     */
+    resetRegionFilters() {
+        // Remove region filter styles
+        this.map.setFilter('regions-fill', ['in', this.config.data.regionNameProperty, '']);
+        this.map.setFilter('regions-border-highlight', ['in', this.config.data.regionNameProperty, '']);
+    }// resetRegionFilters
+
+    /**
+     * openPopup
+    * Highlight regions and show popup
     */
-    handleMarkerOpen(action, properties, coordLng, coordLat, cluster) {
+    openPopup(action, properties, coordLng, coordLat, cluster) {
         // Close all other popups
         this.closeAllPopups();
 
-        // Determine if current zoom level is too large to view counties
+        // Determine if current zoom level is too large to view regions
         let zoomLevel = this.map.getZoom();
         let offsetLat = (zoomLevel > 6 ? 1: 2.6);
 
@@ -865,13 +1106,13 @@ export class Map_ECO {
         });
 
         // Create popup
-        const popup = new mapboxgl.Popup({ 
+        let popup = new mapboxgl.Popup({ 
             offset: 18,
             closeButton: true,
             closeOnClick: false,
             closeOnMove: false
         }).setHTML(
-            this.fillPopup(action, properties, cluster)
+            this.createPopup(action, properties, cluster)
         );
 
         // Add popup to map
@@ -883,37 +1124,23 @@ export class Map_ECO {
         } else {
             this.updateRegionHighlight(properties, []);
         }
-    }// handleMarkerOpen
-
-    updateRegionHighlight(properties, regions) {
-        // Get list of regions served, get marker counties if not provided
-        let regionsServed = regions;
-        if (typeof regions == 'undefined') {
-            regionsServed = properties[this.config.schema.counties_served.column];
-        }
-
-        // Apply county highlighting
-        const type = properties[this.config.schema[this.config.mapOperations.counties_color_column].column];
-        this.map.setPaintProperty('counties-fill', 'fill-color', this.config.schema[this.config.mapOperations.counties_color_column].options[type].color ?? this.config.mapOperations.counties_color_default);
-        this.map.setFilter('counties-fill', ['in', 'NAME', ...regionsServed]);
-        this.map.setFilter('counties-border-highlight', ['in', 'NAME', ...regionsServed]);
-    }// updateRegionHighlight
+    }// openPopup
 
     /**
-     * fillPopup
-     * Fill the popup template with data
+     * createPopup
+     * Create a popup with the given data
      */
-    fillPopup(action, data, cluster) {
-        // Get HTML template for popups
+    createPopup(action, data, cluster) {
+        // Get HTML template for popup
         let template = cluster && cluster.is ? 'popup-cluster' : 'popup';
         let html = $('#map-templates div[data-template="' + template + '"]').clone();
 
-        // Populate HTML with data
+        // Populate popup HTML with data
         html.find('.map-popup-wrapper')
             .attr('data-template', template)
             .attr('data-index', data.index)
             .attr('data-action', action);
-        html = this.populateHtmlData(html, data);
+        html = this.populatePopupData(html, data);
 
         // Handle cluster-specific components
         if (cluster && cluster.is) {
@@ -931,7 +1158,7 @@ export class Map_ECO {
                 list_item.removeAttr('data-type');
 
                 // Populate HTML with data
-                list_item = this.populateHtmlData(list_item, item.properties);
+                list_item = this.populatePopupData(list_item, item.properties);
 
                 // Append to HTML template
                 html.find('.mp-body').append(list_item);
@@ -942,9 +1169,13 @@ export class Map_ECO {
         html.find('[data-type="template"]').remove();
 
         return html.html();
-    }// fillPopup
+    }// createPopup
 
-    populateHtmlData(html, data) {
+    /**
+     * populatePopupData
+     * Fill the given data into the popup template
+     */
+    populatePopupData(html, data) {
         // Add data index to root container
         html.attr('data-index', data.index);
 
@@ -1064,38 +1295,15 @@ export class Map_ECO {
         });
 
         return html;
-    }//populateHtmlData
+    }// populatePopupData
 
     /**
-     * getIcon
-     * Get the icon HTML for the give type
+     * closeAllPopups
+     * Close all active popups on the map
      */
-    getIcon (type) {
-        // Initialize
-        let icon = '';
-
-        if (this.config.icons[type]) {
-            icon = this.config.icons[type];
-
-            // Format HTML to Font Awesome standards
-            icon.html = `<i class="fa-${icon.group} fa-${icon.id}"></i>`;
-        } else {
-            icon = this.config.icons.default;
-            icon.html = `<span>${type.charAt(0)}</span>`;
-        }
-
-        return icon;
-    }// getIcon
-
-    resetCountyFilters() {
-        // Remove county filter styles
-        this.map.setFilter('counties-fill', ['in', 'NAME', '']);
-        this.map.setFilter('counties-border-highlight', ['in', 'NAME', '']);
-    }// resetCountyFilters
-
     closeAllPopups(manual) {
-        // Reset county filters
-        this.resetCountyFilters();
+        // Reset region filters
+        this.resetRegionFilters();
 
         // Close all popups
         $('.mapboxgl-popup').each((e, i) => {
@@ -1116,41 +1324,32 @@ export class Map_ECO {
         }
     }// closeAllPopups
 
+    /**
+     * isPopupOpen
+     * Check whether any popup is active on the map
+     */
     isPopupOpen() {
         return ($('.mapboxgl-popup').length > 0);
     }// isPopupOpen
 
-    addDensityLayer() {
+    /**
+     * getIcon
+     * Get the icon HTML for the give type
+     */
+    getIcon (type) {
         // Initialize
-        let countiesDensity = {};
+        let icon = '';
 
-        this.markerData.features.forEach((outlet) => {
-            // Get counties served value
-            let countiesServed = outlet.properties[this.config.schema.counties_served.column];
+        if (this.system.icons[type]) {
+            icon = this.system.icons[type];
 
-            if (countiesServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.county_all_term)) {
-                countiesServed = [...this.allCountyNames];
-            }
+            // Format HTML to Font Awesome standards
+            icon.html = `<i class="fa-${icon.group} fa-${icon.id}"></i>`;
+        } else {
+            icon = this.system.icons.default;
+            icon.html = `<span>${type.charAt(0)}</span>`;
+        }
 
-            // Tally each county served
-            countiesServed.forEach((c) => {
-                c = c.trim();
-
-                if (! countiesDensity[c]) {
-                    countiesDensity[c] = 0;
-                }
-
-                countiesDensity[c]++;
-            });
-        });
-
-        layerCensusCounties.features.forEach((county, i) =>  {
-            let index = county.properties.NAME;
-            county.properties['Outlet Density'] = 0;
-
-            if (countiesDensity[index]) {
-                layerCensusCounties.features[i].properties['Outlet Density'] = countiesDensity[index];
-            }
-        });
-    }// addDensityLayer
-}// Map_ECO
+        return icon;
+    }// getIcon
+}// Map
