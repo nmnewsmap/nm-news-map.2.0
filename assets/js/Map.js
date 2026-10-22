@@ -16,8 +16,8 @@ export class Map {
             map: configInstance.map,
             mapOperations: configInstance.mapOperations,
             data: configInstance.data,
-            schema: configInstance.schema,
-            layerCategories: configSystem.layerCategories,
+            schemaMarker: configInstance.schemaMarker,
+            layerOverlays: configInstance.layerOverlays,
         };
 
         // Map interface object
@@ -309,7 +309,7 @@ export class Map {
 
                 // Get list of regions served
                 let regionsServed = feature.properties[
-                    this.config.schema[
+                    this.config.schemaMarker[
                         this.config.mapOperations.regionsColumn
                     ].column
                 ];
@@ -333,24 +333,24 @@ export class Map {
                     regionsServedLabel = regionsServed.join(', ');
                 }
 
-                feature.properties[this.config.schema[this.config.mapOperations.regionsColumn].column] = regionsServed;
-                feature.properties[this.config.schema[this.config.mapOperations.regionsColumn].column + '_label'] = regionsServedLabel;
+                feature.properties[this.config.schemaMarker[this.config.mapOperations.regionsColumn].column] = regionsServed;
+                feature.properties[this.config.schemaMarker[this.config.mapOperations.regionsColumn].column + '_label'] = regionsServedLabel;
 
                 // Update CIL value to float
-                feature.properties[this.config.schema.cil_number.column] = parseFloat(feature.properties[this.config.schema.cil_number.column]).toFixed(2);
+                feature.properties[this.config.schemaMarker.cil_number.column] = parseFloat(feature.properties[this.config.schemaMarker.cil_number.column]).toFixed(2);
 
                 // Split CIL label and description
-                let cil_description_parts = feature.properties[this.config.schema.cil_description.column].split(this.config.mapOperations.cilLabelDelimiter);
+                let cil_description_parts = feature.properties[this.config.schemaMarker.cil_description.column].split(this.config.mapOperations.cilLabelDelimiter);
                 if (cil_description_parts.length > 1) {
-                    feature.properties[this.config.schema.cil_label.column] = cil_description_parts.shift().trim();
-                    feature.properties[this.config.schema.cil_description.column] = cil_description_parts.join(this.config.mapOperations.cilLabelDelimiter).trim();
+                    feature.properties[this.config.schemaMarker.cil_label.column] = cil_description_parts.shift().trim();
+                    feature.properties[this.config.schemaMarker.cil_description.column] = cil_description_parts.join(this.config.mapOperations.cilLabelDelimiter).trim();
                 }
 
                 // Owner Type: Capitalize the first letter and lowercase everything else
-                let owner_type = feature.properties[this.config.schema.owner_type.column];
+                let owner_type = feature.properties[this.config.schemaMarker.owner_type.column];
                 if (owner_type) {
                     owner_type = owner_type.charAt(0).toUpperCase() + owner_type.substring(1).toLowerCase();
-                    feature.properties[this.config.schema.owner_type.column] = owner_type;
+                    feature.properties[this.config.schemaMarker.owner_type.column] = owner_type;
                 }
             }
         );
@@ -365,8 +365,8 @@ export class Map {
         name = name.trim().toLowerCase();
 
         // Check special cases first
-        if (this.config.mapOperations.regionNameExceptions[name]) {
-            return this.config.mapOperations.regionNameExceptions[name];
+        if (this.config.data.regionNameExceptions[name]) {
+            return this.config.data.regionNameExceptions[name];
         }
 
         // Title case for normal region names (first letter of each word capitalized)
@@ -444,7 +444,7 @@ export class Map {
 
             // Apply filter
             if (this.layers.markers.status.filter && ! activeFilters.includes('all')) {
-                let filterPropertyValue = feature.properties[this.config.schema[this.layers.markers.status.filter].column];
+                let filterPropertyValue = feature.properties[this.config.schemaMarker[this.layers.markers.status.filter].column];
                 if (! filterPropertyValue) return;
                 filterPropertyValue = filterPropertyValue.toString().trim();
                 if (! filterPropertyValue || ! activeFilters.includes(filterPropertyValue)) return;
@@ -522,7 +522,7 @@ export class Map {
         html.find('.map-marker').css('width', `${markerSize}px`).css('height', `${markerSize}px`);
 
         // Get property for coloring
-        const colorProperty = this.config.schema[this.config.mapOperations.regionsColorColumn];
+        const colorProperty = this.config.schemaMarker[this.config.mapOperations.regionsColorColumn];
         const colorPropertyValue = feature.properties[colorProperty.column];
 
         // Add marker color
@@ -584,7 +584,7 @@ export class Map {
     setRegionData() {
 
         // Add data for 'internal' computed layers
-        let layers = Object.values(this.config.layerCategories);
+        let layers = Object.values(this.config.layerOverlays);
         Object.values(layers).forEach((layer) => {
             if (layer.compiler != 'internal') return;
 
@@ -592,7 +592,8 @@ export class Map {
                 case 'density':
                     let compiled = this.addDensityLayer();
                     if (! compiled) {
-                        delete this.config.layerCategories[layer.id];
+                        // If cannot be compiled, remove layer category so it is not displayed
+                        delete this.config.layerOverlays[layer.id];
                     }
                     break;
             }
@@ -695,12 +696,13 @@ export class Map {
             return false;
         }
 
-        // Initialize
+        // Initialize array of region density values
         let regionsDensity = [];
 
+        // Tally density of all regions
         this.layers.markers.geojson.features.forEach((item) => {
             // Get regions the item is based
-            let regionBased = item.properties[this.config.schema.region_based.column];
+            let regionBased = item.properties[this.config.schemaMarker.region_based.column];
 
             // Initialize region tally
             if (! regionsDensity[regionBased]) {
@@ -711,12 +713,13 @@ export class Map {
             regionsDensity[regionBased]++;
         });
 
+        // Add region density values to regions layer data
         this.layers.regions.geojson.features.forEach((region, i) =>  {
             let index = region.properties[this.config.data.regionNameProperty];
-            region.properties[this.config.layerCategories.density.property] = 0;
+            region.properties[this.config.layerOverlays.density.property] = 0;
 
             if (regionsDensity[index]) {
-                this.layers.regions.geojson.features[i].properties[this.config.layerCategories.density.property] = regionsDensity[index];
+                this.layers.regions.geojson.features[i].properties[this.config.layerOverlays.density.property] = regionsDensity[index];
             }
         });
 
@@ -752,7 +755,7 @@ export class Map {
             }
 
             // Popuplate the template based on the schema's definition and the given data
-            Object.values(this.config.schema).forEach((property) => {
+            Object.values(this.config.schemaMarker).forEach((property) => {
 
                 // Ignore if property category isn't applicable for filters
                 if (! property.filter) return false;
@@ -768,7 +771,7 @@ export class Map {
                 }
 
                 // Ignore if property value not applicable
-                if (! propertyValue || propertyValue == this.config.data.nullValue) return false;
+                if (! propertyValue || propertyValue == this.config.mapOperations.nullValue) return false;
 
                 // Add category item
                 if (! categories[property.label]) {
@@ -890,7 +893,7 @@ export class Map {
     buildRegionMenuOptions() {
 
         // Get layers
-        let layers = Object.values(this.config.layerCategories);
+        let layers = Object.values(this.config.layerOverlays);
 
         // Ignore if no data available
         if (layers.length === 0) {
@@ -933,15 +936,17 @@ export class Map {
                     optionHtml.removeAttr('data-type');
                     optionHtml.find('.mc-category-option').attr('data-id', i);
 
+                    // Format the break label value
                     let breaksLabel = null;
                     if (minVal == maxVal) {
                         breaksLabel = minVal;
                     } else if (maxVal === '∞') {
-                        breaksLabel = this.formatRangeValue(this.config.layerCategories[layer.id], minVal, true) + '+' + (layer.hasOwnProperty('suffix') ? layer.suffix : '');
+                        breaksLabel = this.formatRangeValue(this.config.layerOverlays[layer.id], minVal, true) + '+' + (layer.hasOwnProperty('suffix') ? layer.suffix : '');
                     } else {
-                        breaksLabel = this.formatRangeValue(this.config.layerCategories[layer.id], minVal, true) + ' - ' + this.formatRangeValue(this.config.layerCategories[layer.id], maxVal);
+                        breaksLabel = this.formatRangeValue(this.config.layerOverlays[layer.id], minVal, true) + ' - ' + this.formatRangeValue(this.config.layerOverlays[layer.id], maxVal);
                     }
 
+                    // Apply labels and styles to category option
                     optionHtml.find('.mc-item-label').text(breaksLabel);
                     optionHtml.find('.mc-item-input button')
                         .val(i)
@@ -987,7 +992,7 @@ export class Map {
             parent.attr('data-has-selected', 'true');
 
             // Get layer
-            const layer = this.config.layerCategories[parent.attr('data-id')];
+            const layer = this.config.layerOverlays[parent.attr('data-id')];
 
             if (layer) {
                 // Collect layer colors
@@ -1058,12 +1063,12 @@ export class Map {
         // Get list of regions served, get marker regions if not provided
         let regionsServed = regions;
         if (typeof regions == 'undefined') {
-            regionsServed = properties[this.config.schema.regions_served.column];
+            regionsServed = properties[this.config.schemaMarker.regions_served.column];
         }
 
         // Apply region highlighting
-        const type = properties[this.config.schema[this.config.mapOperations.regionsColorColumn].column];
-        this.map.setPaintProperty('regions-fill', 'fill-color', this.config.schema[this.config.mapOperations.regionsColorColumn].options[type].color ?? this.config.mapOperations.regionsColorDefault);
+        const type = properties[this.config.schemaMarker[this.config.mapOperations.regionsColorColumn].column];
+        this.map.setPaintProperty('regions-fill', 'fill-color', this.config.schemaMarker[this.config.mapOperations.regionsColorColumn].options[type].color ?? this.config.mapOperations.regionsColorDefault);
         this.map.setFilter('regions-fill', ['in', this.config.data.regionNameProperty, ...regionsServed]);
         this.map.setFilter('regions-border-highlight', ['in', this.config.data.regionNameProperty, ...regionsServed]);
     }// updateRegionHighlight
@@ -1146,8 +1151,8 @@ export class Map {
         if (cluster && cluster.is) {
             // Sort list in cluster popup
             cluster.markers.sort((a,b) => {
-                let a_name = a.properties[this.config.schema[this.config.mapOperations.sortColumn].column];
-                let b_name = b.properties[this.config.schema[this.config.mapOperations.sortColumn].column];
+                let a_name = a.properties[this.config.schemaMarker[this.config.mapOperations.sortColumn].column];
+                let b_name = b.properties[this.config.schemaMarker[this.config.mapOperations.sortColumn].column];
                 return (a_name > b_name) ? 1 : ((b_name > a_name) ? -1 : 0);
             });
 
@@ -1180,7 +1185,7 @@ export class Map {
         html.attr('data-index', data.index);
 
         // Popuplate the template based on the schema's definition and the given data
-        Object.values(this.config.schema).forEach((property) => {
+        Object.values(this.config.schemaMarker).forEach((property) => {
 
             // Get property value
             let propertyValue = data[property.column];
@@ -1192,7 +1197,7 @@ export class Map {
                 }
 
                 // Ignore if property value not applicable
-                if (propertyValue == this.config.data.nullValue) {
+                if (propertyValue == this.config.mapOperations.nullValue) {
                     propertyValue = '';
                 }
             }
