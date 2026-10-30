@@ -63,7 +63,9 @@ export const CONFIG_INSTANCE = {
     },
 
     /**
-     * Data Property Definitions
+     * Marker Property Definitions
+     * 
+     * Marker properties are individual properties with data for each each marker in the Markers Layer. Properties may be used within the marker popup window template and map menu filters.
      * 
      * Each property may include: (* is required)
      * -- id*: The unique ID or slug for the property.
@@ -241,7 +243,7 @@ export const CONFIG_INSTANCE = {
     },
 
     /**
-     * Map Layer Overlay Definitions
+     * Regions Layer Definitions
      *
      * A list of layer categories that will produce highlighted overlays on regions on the map.
      * The list will be displayed in the map menu and can be selected to activate the overlay.
@@ -262,7 +264,7 @@ export const CONFIG_INSTANCE = {
      * -- prefix: Optional; The prefix to be applied to the value.
      * 
      * Options for "internal" compilers:
-     * -- Marker Density (id/index = "density"): Dynamically calculate the density of markers across each region.
+     * -- Marker Density (id and key = "density"): Dynamically calculate the density of markers across each region.
      */
 
     layerOverlays: {
