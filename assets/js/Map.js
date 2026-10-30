@@ -30,6 +30,7 @@ export class Map {
             markers: {
                 geojson: null, // All marker data as GeoJSON
                 mapped: [], // Dynamic array of markers filtered and displayed on the map
+                names: [], // Names of markers with link to their mapped marker
                 status: {
                     drawing: false, // If markers are currently being drawn
                     filter: null, // Current active marker data filter
@@ -128,6 +129,8 @@ export class Map {
             // Load Region layer data and functionality
             await this.loadRegionLayer();
 
+            // Initialize events after layers have loaded
+            this.initMapLayerEvents();
         } catch (error) {
             if (this.debug) {
                 console.error('Error in initMapLayers(): ', error);
@@ -306,6 +309,10 @@ export class Map {
 
                 // Set marker index
                 feature.properties.index = index;
+
+                // Set marker name and index pair
+                let namePropertyColumn = this.config.schemaMarker[this.config.mapOperations.databasePageSearchProperty].column;
+                this.layers.markers.names[feature.properties[namePropertyColumn]] = index;
 
                 // Get list of regions served
                 let regionsServed = feature.properties[
@@ -1084,9 +1091,43 @@ export class Map {
     }// resetRegionFilters
 
     /**
+     * initMapLayerEvents
+     * Initialize events for the map after all layers have loaded
+     */
+    initMapLayerEvents() {
+
+        // Check for URL "search" parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const defaultName = urlParams.get('search');
+
+        // Ignore if no search parameter provided
+        if (! defaultName) {
+            return true;
+        }
+
+        // Locate marker data by name
+        let id = this.layers.markers.names[defaultName];
+
+        // Ignore if no marker ID found
+        if (id === null) {
+            return false;
+        }
+
+        // Open marker popup
+        this.openPopup(
+            'url-param',
+            this.layers.markers.geojson.features[id].properties,
+            this.layers.markers.geojson.features[id].geometry.coordinates[0],
+            this.layers.markers.geojson.features[id].geometry.coordinates[1],
+        );
+
+        return true;
+    }// initrMapLayerEvents
+
+    /**
      * openPopup
-    * Highlight regions and show popup
-    */
+     * Highlight regions and show popup
+     */
     openPopup(action, properties, coordLng, coordLat, cluster) {
         // Close all other popups
         this.closeAllPopups();

@@ -43,7 +43,9 @@ export const CONFIG_INSTANCE = {
         regionAllTerm: 'all', // The term used in marker region data for all-encompassing region coverage
         regionsColumn: 'regions_served', // The column that includes the marker's region data
         regionsColorColumn: 'medium_primary', // The column that controls the marker colors
-        regionsColorDefault: '#e0e0e0', // The default color for highlighting regions 
+        regionsColorDefault: '#e0e0e0', // The default color for highlighting regions
+        databasePage: 'https://www.nmnewsmap.org/search-database', // The URL that will be used for the 'database-link' URL that directs the user to a database page.
+        databasePageSearchProperty: 'outlet_name', // The marker property that will be appended to the 'database-link' URL as a "search" parameter to be used on the database page.
     },
 
     // The data that defines the markers and regions
