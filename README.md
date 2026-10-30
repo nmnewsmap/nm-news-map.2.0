@@ -1,51 +1,24 @@
 # New Mexico Local News Map
 
-A comprehensive interactive map displaying local news outlets across New Mexico with advanced demographic analysis capabilities.
+A comprehensive interactive map displaying local news outlets and demographic data across New Mexico.
 
-## Full Report
-**https://www.nmnewsmap.org/**
+**View the full report with live map at** https://www.nmnewsmap.org
 
-## 🌐 Live Map
-**https://nmnewsmap.github.io/nm-news-map.2.0/map.html**
+**View the original GitHub Repository and Guide at** https://github.com/nmnewsmap/nm-news-map.2.0
 
-## 📂 GitHub Repository
-**https://github.com/nmnewsmap/nm-news-map.2.0**
 
-## ✨ Features
+## Features
 
-### 📍 Interactive News Outlet Mapping
-- **139 Geocoded Outlets** - Positioned based on their central office location
-- **Smart Marker Clustering** - Dynamic offset system prevents overlapping markers
-- **Data Filtering** to search outlets by:
-  - Primary Medium
-  - Language
-  - Business Model
-  - Community Impact Level
+- **Map Markers** - Markers representing local entities can be positioned on the map based on their central location. Clicking on markers provides more in depth data about each entity.
+- **Dynamic Clustering** - To keep the map visually readable, markers are clustered together if they are within a specified proximity. Clusters dynamically update as the map zooms in and out. 
+- **Marker Filtering** - Filters can be added to the map's menu to give options for showing or hiding markers by category.
+- **Map Overlays** – Additional overlays can be applied to the map in addition to the markers to display demographic or regional data for specific regions, such as boundaries and census.
 
-### 📊 Census Data Overlays
-- **8 Demographic Layers** from the 2023 American Community Survey (ACS) dataset
-  - News Outlet Density
-  - Population Size
-  - Median Household Income  
-  - Private Business (Workers)
-  - College Education (%)
-  - Median Age
-  - Nonwhite Population (%)
-  - Homes with Broadband (%)
 
-### 💬 Detailed Popups
-- **Comprehensive Information** - Outlet name, website, media type, location, staffing, demographics
-- **Clickable Links** - Direct access to outlet websites and social media
-
-### 🗺️ County Integration
-- **Boundary Visualization** - Dark county outlines for geographic context
-- **Coverage Highlighting** - Counties served by each outlet highlighted in matching colors
-- **33 New Mexico Counties** - Complete statewide coverage
-
-## 🎯 Use Cases
+## Use Cases
 
 ### Research & Analysis:
-- **Media Landscape Studies** - Analyze outlet distribution and coverage patterns
+- **Media Landscape Studies** - Analyze news outlet distribution and coverage patterns
 - **Demographic Analysis** - Correlate media presence with community characteristics
 - **Digital Divide Research** - Compare digital outlets with broadband access
 - **Market Analysis** - Understand competitive media markets
@@ -57,10 +30,25 @@ A comprehensive interactive map displaying local news outlets across New Mexico 
 - **Community Planning** - Understanding local information ecosystems
 
 
-## 📞 Support
+## Technical Configuration
 
-For technical issues or feature requests, refer to the project documentation or contact the development team.
+### Configuration Files
+
+There are two configuration files that are used to customize the application:
+1. System Configuration (config/system.js): Contains core system settings that do not need to be modified for each implementation, but are available to provide deeper customization if needed.
+2. Instance Configuration (config/instance.js): Contains settings that may be modified per implementation to apply unique data and a custom user experience. Comments are provided within this file to describe each configuration setting in detail.
+
+### Data Layers
+
+This application supports two types of data layers, a Marker Layer and a Regions Layer, which may contain one or more sub-layers. Each layer is briefly described in the list below, and their technical schema and implementation guidelines are documented in the Instance Configuration file.
+1. Marker Layer: Specific geocoded markers to be positioned on the map. Markers can be clustered, controlled by filters, and have detailed popup windows to display additional information. This layer may be turned on or off by toggling the active filters on the map menu.
+2. Regions Layer: Layers for map tile labeling and styling. Layers may include boundary definitions, region names, and color overlays based on categories and values (e.g., population data). This layer may be turned on or off by toggling the active overlays on the map menu.
+
+Overall, each of the two layers has their own data file, which is contains valid GeoJSON, including "Feature Collection" type and an array of one or more features of "type": "Feature" and one or more items in the 'properties' array.
+
+
+## Contact Information & Support
+
+For technical issues or feature requests, contact the project team at https://www.nmnewsmap.org/contact
 
 ---
-
-**New Mexico Local News Map** - Comprehensive interactive mapping of local news outlets with demographic context for research and analysis.
