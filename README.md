@@ -2,9 +2,10 @@
 
 A comprehensive interactive map displaying local news outlets and demographic data across New Mexico.
 
-**View the full report with live map at** https://www.nmnewsmap.org
+**View the full report with live map:** https://www.nmnewsmap.org
+**Contact Information & Support:** https://www.nmnewsmap.org/contact
 
-**View the original GitHub Repository and Guide at** https://github.com/nmnewsmap/nm-news-map.2.0
+**Attribution:** This code was adapted from a map developed by Bloom Labs (https://www.bloom.li) for the New Mexico Local News Fund (https://www.nmlocalnews.org).
 
 **Version:** 2.0.0
 
@@ -47,10 +48,5 @@ This application supports two types of data layers, a Marker Layer and a Regions
 2. **Regions Layer:** Contains the regional properties for map overlays for tile labeling and styling. Layers may include boundary definitions, region names, and color overlays based on categories and values (e.g., population data). This layer may be turned on or off by toggling the active overlays on the map menu.
 
 Overall, each of the two layers has their own data file, which is contains valid GeoJSON, including "Feature Collection" type and an array of one or more features of (i.e., "type": "Feature") and one or more items in the "properties" array.
-
-
-## Contact Information & Support
-
-For questions and support, contact the project team at https://www.nmnewsmap.org/contact
 
 ---
