@@ -1107,7 +1107,7 @@ export class Map {
         );
 
         return true;
-    }// initrMapLayerEvents
+    }// initMapLayerEvents
 
     /**
      * openPopup
