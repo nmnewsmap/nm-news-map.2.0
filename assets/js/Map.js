@@ -1243,6 +1243,15 @@ export class Map {
                 }
             }
 
+            // Handle no property value
+            if (! propertyValue) {
+                html.find(`[data-mp-property-label="${property.id}"]`).remove();
+                html.find(`[data-mp-property="${property.id}"]`).remove();
+                html.find(`[data-mp-property-pair="${property.id}"]`).remove();
+
+                return true;
+            }
+
             // Format-specific values
             if (property.format) {
 
@@ -1262,83 +1271,105 @@ export class Map {
 
                     case 'website':
 
-                        if (propertyValue) {
-                            html.find(`[data-mp-property="${property.id}"]`).attr('href', propertyValue);
-                            html.find(`[data-mp-property="${property.id}"]`).attr('title', property.label);
-                            html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
-                        } else {
-                            html.find(`[data-mp-property="${property.id}"]`).remove();
-                        }
+                        html.find(`[data-mp-property="${property.id}"]`).attr('href', propertyValue);
+                        html.find(`[data-mp-property="${property.id}"]`).attr('title', property.label);
+                        html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
 
                         break;
                     
                     case 'social':
 
-                        if (propertyValue) {
-                            let socialLink = html.find('.mp-footer-icons [data-type="template"]').clone();
-                            socialLink.removeAttr('data-type');
+                        let socialLink = html.find('.mp-footer-icons [data-type="template"]').clone();
+                        socialLink.removeAttr('data-type');
 
-                            // Get custom social title
-                            let propertyValueTitle = property.label;
-                            let propertyValueIcon = property.id;
-                            if (propertyValue.includes('|')) {
-                                let propertyValueParts = propertyValue.split('|');
-                                propertyValue = propertyValueParts[0];
-                                propertyValueTitle = propertyValueParts[1];
-                                propertyValueIcon = propertyValueTitle.toLowerCase();
-                            }
-
-                            socialLink.attr('href', propertyValue);
-                            socialLink.attr('title', propertyValueTitle);
-
-                            let socialIcon = this.getIcon(propertyValueIcon);
-                            socialLink.css('background-color', socialIcon.color);
-                            socialLink.html(socialIcon.html);
-
-                            html.find('.mp-footer-icons').append(socialLink);
+                        // Get custom social title
+                        let propertyValueTitle = property.label;
+                        let propertyValueIcon = property.id;
+                        if (propertyValue.includes('|')) {
+                            let propertyValueParts = propertyValue.split('|');
+                            propertyValue = propertyValueParts[0];
+                            propertyValueTitle = propertyValueParts[1];
+                            propertyValueIcon = propertyValueTitle.toLowerCase();
                         }
+
+                        socialLink.attr('href', propertyValue);
+                        socialLink.attr('title', propertyValueTitle);
+
+                        let socialIcon = this.getIcon(propertyValueIcon);
+                        socialLink.css('background-color', socialIcon.color);
+                        socialLink.html(socialIcon.html);
+
+                        html.find('.mp-footer-icons').append(socialLink);
 
                         break;
 
-                    case 'cil_percent':
+                    case 'email':
 
-                        if (propertyValue) {
-                            propertyValue = Math.round((propertyValue / this.config.mapOperations.cilMax) * 100);
-                            html.find(`[data-mp-property="${property.id}"]`).css('background', `radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) ${propertyValue}%, #e1e1e1 0)`);
-                        }
+                        let propertyEmailLink = '<a href="mailto:' + propertyValue + '" title="Email">' + propertyValue + '</a>';
+
+                        html.find(`[data-mp-property-pair="${property.id}"] label`).text(property.label);
+                        html.find(`[data-mp-property-pair="${property.id}"] span`).html(propertyEmailLink);
 
                         break;
 
+                    case 'phone':
+
+                        let propertyPhoneLink = '<a href="tel:+1' + propertyValue.replace(/\D/g, "") + '" title="Call">' + propertyValue + '</a>';
+
+                        html.find(`[data-mp-property-pair="${property.id}"] label`).text(property.label);
+                        html.find(`[data-mp-property-pair="${property.id}"] span`).html(propertyPhoneLink);
+
+                        break;
                 }
     
             } else {
 
-                if (propertyValue) {
-                    // Apply property label
-                    html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
+                // Apply property label
+                html.find(`[data-mp-property-label="${property.id}"]`).text(property.label);
 
-                    // Apply property value
-                    html.find(`[data-mp-property="${property.id}"]`).text(propertyValue);
+                // Apply property value
+                html.find(`[data-mp-property="${property.id}"]`).text(propertyValue);
 
-                    // Apply property label and value together
-                    html.find(`[data-mp-property-pair="${property.id}"] label`).text(property.label);
-                    html.find(`[data-mp-property-pair="${property.id}"] span`).text(propertyValue);
+                // Apply property label and value together
+                html.find(`[data-mp-property-pair="${property.id}"] label`).text(property.label);
+                html.find(`[data-mp-property-pair="${property.id}"] span`).text(propertyValue);
 
-                    // Apply property description tooltip
-                    if (property.description) {
-                        let info_icon = this.getIcon('info');
-                        html.find(`[data-mp-property-pair="${property.id}"] label`).append(info_icon.html);
-                        html.find(`[data-mp-property-pair="${property.id}"] label i`).attr('title', property.description);
-                    }
-                } else {
-                    html.find(`[data-mp-property-label="${property.id}"]`).remove();
-                    html.find(`[data-mp-property="${property.id}"]`).remove();
-                    html.find(`[data-mp-property-pair="${property.id}"]`).remove();
+                // Apply property description tooltip
+                if (property.description) {
+                    let info_icon = this.getIcon('info');
+                    html.find(`[data-mp-property-pair="${property.id}"] label[data-has-icon!="false"]`).append(info_icon.html);
+                    html.find(`[data-mp-property-pair="${property.id}"] label[data-has-icon!="false"] i`).attr('title', property.description);
                 }
 
             }
 
         });
+
+        // Populate dynamic properties in the template
+        if (this.config.mapOperations.databasePageSearchProperty) {
+            let dynProperties = ['database-link'];
+            dynProperties.forEach((property) => {
+
+                // Get property value
+                let propertyColumn = this.config.schemaMarker[this.config.mapOperations.databasePageSearchProperty].column
+                let propertyValue = data[propertyColumn];
+
+                // Clean property value
+                if (propertyValue) {
+                    if (typeof propertyValue == 'string') {
+                        propertyValue = propertyValue.trim();
+                    }
+                }
+
+                if (! propertyValue) {
+                    return false;
+                }
+
+                propertyValue = encodeURIComponent(propertyValue);
+
+                html.find(`[data-mp-property="${property}"`).attr('href', this.config.mapOperations.databasePage + '?search=' + propertyValue);
+            });
+        }
 
         return html;
     }// populatePopupData

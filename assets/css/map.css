@@ -1,4 +1,50 @@
-/* Reset */
+/**
+Style: Map.css
+This stylesheet is the foundational style for the map application.
+A majority of the sections below are intended to work across many use cases.
+The only section that is encouraged to be updated is (1) Branding Palette to better match the project's brand.
+
+Contents: (as structured in comments below)
+1) Branding Palette: Color palette to use across the map application. May be customized.
+2) Reset: General resetting of styles to ensure browsers begin with consistent foundation.
+3) Layout: Structural components of the map application.
+4) Map: Mapping interface styles, including layers on top of the map tiles such as markers and attribution.
+5) Menu: Sidebar menu on top of the map that displays options for manipulating the map contents.
+6) Templates: Reusable templates used as needed within the JavaScript.
+7) Media Queries: Unique styles applied for specific user device thresholds.
+*/
+
+/**
+ * 1) Branding Palette
+ */
+
+ @property --color-deepblue {
+syntax: "<color>";
+inherits: false;
+initial-value: #2b1a45;
+}
+
+@property --color-ocean {
+syntax: "<color>";
+inherits: false;
+initial-value: #00b7cd;
+}
+
+@property --color-cream {
+syntax: "<color>";
+inherits: false;
+initial-value: #fad09b;
+}
+
+@property --color-rose {
+syntax: "<color>";
+inherits: false;
+initial-value: #c21c4a;
+}
+
+/**
+ * 2) Reset
+ */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, input, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;vertical-align: baseline;}
 :focus {outline: 0;}
@@ -23,33 +69,9 @@ border-radius: 0;
 box-sizing: border-box;
 }
 
-/* Brand Palette for NM Local News Fund */
-
-@property --color-deepblue {
-syntax: "<color>";
-inherits: false;
-initial-value: #2b1a45;
-}
-
-@property --color-ocean {
-syntax: "<color>";
-inherits: false;
-initial-value: #00b7cd;
-}
-
-@property --color-cream {
-syntax: "<color>";
-inherits: false;
-initial-value: #fad09b;
-}
-
-@property --color-rose {
-syntax: "<color>";
-inherits: false;
-initial-value: #c21c4a;
-}
-
-/* Layout */
+/**
+ * 3) Layout
+ */
 
 body {
 font-family: 'Helvetica', Arial, Sans-Serif;
@@ -77,7 +99,7 @@ display: none;
 }
 
 /**
- * Map
+ * 4) Map
  */
 
 #map-canvas {
@@ -100,6 +122,7 @@ border-top-width: 0 !important;
 }
 
 .mapboxgl-popup {
+left: 14px;
 font: 13px/1.5 'Open Sans', Arial, sans-serif;
 z-index: 9999 !important;
 }
@@ -135,7 +158,7 @@ line-height: 26px;
 }
 
 /**
- * Menu
+ * 5) Menu
  */
 
 /* Menu: Header */
@@ -242,9 +265,7 @@ height: 100%;
 display: block;
 }
 
-/**
- * Menu: Containers
- */
+/* Menu: Containers */
 
 .menu-containers {
 position: relative;
@@ -459,7 +480,9 @@ font-size: 13px;
 line-height: 16px;
 }
 
-/* Templates */
+/**
+ * 6) Templates
+ */
 
 #map-templates {
 display: none;
@@ -769,6 +792,11 @@ line-height: 15px;
 overflow-wrap: break-word;
 }
 
+.mp-column-item span a {
+color: #000;
+text-decoration: none;
+}
+
 .mp-body-row {
 position: relative;
 float: left;
@@ -906,6 +934,10 @@ text-transform: uppercase;
 [data-mp-property-template] {
 display: none !important;
 }
+
+/**
+ * 7) Media Queries
+ */
 
 @media all and (max-width: 500px) {
 
