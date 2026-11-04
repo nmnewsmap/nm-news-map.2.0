@@ -74,13 +74,13 @@ export class Map {
             minZoom: this.config.map.zoom.min,
             maxZoom: this.config.map.zoom.max,
             attributionControl: false,
-            maxBounds: this.config.map.bounds.max,
-        });
-
-        // Add initial view animation
-        this.map.fitBounds(this.config.map.bounds.fit.bbox, {
-            padding: this.config.map.bounds.fit.padding,
-            duration: this.config.map.bounds.fit.duration,
+            bounds: this.config.map.bounds.fit.bbox ?? null,
+            maxBounds: this.config.map.bounds.max ?? null,
+            fitBoundsOptions: {
+                padding: this.config.map.bounds.fit.padding ?? null,
+                duration: this.config.map.bounds.fit.duration ??  null,
+            },
+            hash: true,
         });
 
         // Add map controls
@@ -415,7 +415,7 @@ export class Map {
         // Dynamic proximity threshold based on zoom level
         // Higher zoom = smaller threshold (less clustering)
         // Lower zoom = larger threshold (more clustering)
-        const baseThreshold = 0.2;
+        const baseThreshold = this.config.mapOperations.clusterThreshold;
         const proximityThreshold = baseThreshold * Math.pow(0.7, currentZoom - 7);
 
         // Dynamic marker size based on zoom level
@@ -573,7 +573,8 @@ export class Map {
                 return true;
             }
 
-            this.updateRegionHighlight(feature.properties, []);
+            // Reset region filters
+            this.resetRegionFilters();
         });
 
         // Add the marker to the map
@@ -1132,31 +1133,23 @@ export class Map {
         // Close all other popups
         this.closeAllPopups();
 
-        // Determine if current zoom level is too large to view regions
-        let zoomLevel = this.map.getZoom();
-        let offsetLat = (zoomLevel > 6 ? 1: 2.6);
-
-        if (zoomLevel > 7) {
-            zoomLevel = 7;
-        }
-
         // Fly and zoom into marker location
         this.map.flyTo({
             center: [
                 coordLng,
-                coordLat - offsetLat, // Offset latitude to make room for popup
+                coordLat - this.config.mapOperations.popupOpenOffsetLat,
             ],
-            zoom: zoomLevel,
+            zoom: this.config.mapOperations.popupOpenZoom,
             duration: 500,
             essential: true,
         });
 
         // Create popup
         let popup = new mapboxgl.Popup({ 
-            offset: 18,
+            offset: 0,//18, // Vertical offset (in pixels) from the point location
             closeButton: true,
-            closeOnClick: false,
-            closeOnMove: false
+            closeOnClick: false, // Set to false for custom close listener
+            closeOnMove: false, // Set to false for custom close listener
         }).setHTML(
             this.createPopup(action, properties, cluster)
         );
@@ -1387,16 +1380,10 @@ export class Map {
             $(i).remove();
         });
 
-        // Zoom out if manually closed
-        if (manual) {
-            let zoomLevel = this.map.getZoom();
-
-            if (zoomLevel > 6) {
-                zoomLevel = 6;
-            }
-
+        // If popup is manually closed and zoom level is past default level, reset it
+        if (manual && this.map.getZoom() < this.config.map.zoom.default) {
             this.map.flyTo({
-                zoom: zoomLevel
+                zoom: this.config.map.zoom.default
             });
         }
     }// closeAllPopups

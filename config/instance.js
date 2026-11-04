@@ -44,6 +44,9 @@ export const CONFIG_INSTANCE = {
         regionsColumn: 'regions_served', // The column that includes the marker's region data
         regionsColorColumn: 'medium_primary', // The column that controls the marker colors
         regionsColorDefault: '#e0e0e0', // The default color for highlighting regions
+        clusterThreshold: 0.2, // Threshold based on zoom level; Smaller threshold, less clustering; Larger threshold, more clustering
+        popupOpenOffsetLat: 1, // Latitude offset when popup is opened, to make room
+        popupOpenZoom: 7, // Zoom level when popup is opened
         databasePage: 'https://www.nmnewsmap.org/search-database', // The URL that will be used for the 'database-link' URL that directs the user to a database page.
         databasePageSearchProperty: 'outlet_name', // The marker property that will be appended to the 'database-link' URL as a "search" parameter to be used on the database page.
     },
