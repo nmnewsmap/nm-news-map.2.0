@@ -272,25 +272,28 @@ export class Map {
         let layerData = null;
 
         // Load data from file
-        try {
-            let { data } = await import(this.system.dir_data + file);
-            layerData = data;
-        } catch (error) {
+        const fileResponse = await fetch(this.system.dir_data + file);
+
+        // Handle file issue
+        if (! fileResponse.ok) {
             if (this.debug) {
-                console.error('Error loading file: ', error);
+                console.error('Error loading GeoJSON file for layer');
             }
 
             return false;
         }
+
+        // Set data
+        layerData = await fileResponse.json();
 
         // Validate expected GeoJSON-formatted data
         if (! layerData || ! isValidGeoJSON(layerData)) {
             if (this.debug) {
-                console.error('Error loading GeoJSON for layer');
+                console.error('Error loading GeoJSON data for layer');
             }
 
             return false;
-        }
+        }  
 
         return layerData;
     }// loadFileData

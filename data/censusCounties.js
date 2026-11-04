@@ -1,4 +1,4 @@
-export const data = {
+{
   "type": "FeatureCollection",
   "features": [
     {
@@ -3430,4 +3430,4 @@ export const data = {
       }
     }
   ]
-};
+}
