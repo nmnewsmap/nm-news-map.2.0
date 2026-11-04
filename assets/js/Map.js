@@ -18,6 +18,7 @@ export class Map {
             data: configInstance.data,
             schemaMarker: configInstance.schemaMarker,
             layerOverlays: configInstance.layerOverlays,
+            layerStyle: configInstance.layerStyle,
         };
 
         // Map interface object
@@ -625,22 +626,16 @@ export class Map {
                 id: 'regions-fill',
                 type: 'fill',
                 source: 'regions',
-                paint: {
-                    'fill-color': '#b3d8f6', // Default: light blue
-                    'fill-opacity': 0.35
-                },
+                paint: this.config.layerStyle.regionFill,
                 filter: ['in', this.config.data.regionNameProperty, '']
             });
 
-            // Map Layer: For menu-region engagement
+            // Map Layer: For overlay-region engagement
             this.map.addLayer({
                 id: 'regions-overlay',
                 type: 'fill',
                 source: 'regions',
-                paint: {
-                    'fill-color': '#f0f0f0',
-                    'fill-opacity': 0.7
-                },
+                paint: this.config.layerStyle.regionOverlay,
                 layout: {
                     'visibility': 'none'
                 }
@@ -651,11 +646,7 @@ export class Map {
                 id: 'regions-border',
                 type: 'line',
                 source: 'regions',
-                paint: {
-                    'line-color': '#333',
-                    'line-width': 2,
-                    'line-opacity': 0.4
-                }
+                paint: this.config.layerStyle.regionBorder
             });
 
             // Map Layer: Border for highlighted regions
@@ -663,11 +654,7 @@ export class Map {
                 id: 'regions-border-highlight',
                 type: 'line',
                 source: 'regions',
-                paint: {
-                    'line-color': '#333',
-                    'line-width': 2,
-                    'line-opacity': 0.8
-                },
+                paint: this.config.layerStyle.regionHighlightBorder,
                 filter: ['in', this.config.data.regionNameProperty, ''] // No regions highlighted initially
             });
 
@@ -678,13 +665,9 @@ export class Map {
                 source: 'regions',
                 layout: {
                     'text-field': ['get', this.config.data.regionNameProperty],
-                    'text-size': 13
+                    'text-size': this.config.layerStyle.regionLabel.layout['text-size']
                 },
-                paint: {
-                    'text-color': '#333',
-                    'text-halo-color': '#fff',
-                    'text-halo-width': 1.5
-                }
+                paint: this.config.layerStyle.regionLabel.paint
             });
         } catch (error) {
             if (this.debug) {
@@ -1087,6 +1070,7 @@ export class Map {
      */
     resetRegionFilters() {
         // Remove region filter styles
+        this.map.setPaintProperty('regions-fill', 'fill-color', this.config.layerStyle.regionFill['fill-color']);
         this.map.setFilter('regions-fill', ['in', this.config.data.regionNameProperty, '']);
         this.map.setFilter('regions-border-highlight', ['in', this.config.data.regionNameProperty, '']);
     }// resetRegionFilters

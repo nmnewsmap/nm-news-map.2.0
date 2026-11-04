@@ -350,5 +350,53 @@ export const CONFIG_INSTANCE = {
             breaks: [49, 59, 69, 74, 79, 84, 89, 100],
             suffix: '%',
         }
+    },
+
+    /**
+     * Layer Styles
+     * Default map styles for layers
+     * 
+     * As defined by Mapbox's Style Spec: https://docs.mapbox.com/style-spec/reference/layers/
+     * The properties below are "paint" properties unless otherwise noted.
+     */
+    layerStyle: {
+
+        // Map Layer: For marker-region engagement
+        regionFill: {
+            'fill-color': '#ffffff',
+            'fill-opacity': 0.35
+        },
+
+        // Map Layer: For overlay-region engagement
+        regionOverlay: {
+            'fill-color': '#f0f0f0',
+            'fill-opacity': 0.7
+        },
+
+        // Map Layer: Border for regions
+        regionBorder: {
+            'line-color': '#333',
+            'line-width': 2,
+            'line-opacity': 0.4
+        },
+
+        // Map Layer: Border for highlighted regions
+        regionHighlightBorder: {
+            'line-color': '#333',
+            'line-width': 2,
+            'line-opacity': 0.8
+        },
+
+        // Map Layer: Region labels
+        regionLabel: {
+            layout: {
+                'text-size': 13
+            },
+            paint: {
+                'text-color': '#333',
+                'text-halo-color': '#fff',
+                'text-halo-width': 1.5
+            }
+        }
     }
 };
