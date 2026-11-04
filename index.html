@@ -27,9 +27,17 @@
 
 <body>
 
+    <!-- ============================== -->
+    <!-- MAP CONTAINER                  -->
+    <!-- ============================== -->
     <div id="map">
 
+        <!-- ============================== -->
+        <!-- MAIN MENU                      -->
+        <!-- ============================== -->
         <div id="menu" data-visible="false">
+
+            <!-- Menu Header -->
             <div id="menu-header">
                 <div id="menu-toggle">
                     <a href="javascript:;" title="Toggle menu" id="menu-toggle-open">
@@ -48,7 +56,10 @@
                 </div>
             </div>
 
+            <!-- Menu Sections -->
             <div class="menu-containers">
+
+                <!-- Section: Map Filter Options -->
                 <div class="menu-container" data-container="filters">
                     <div class="mc-header">
                         <h3>Filter Data</h3>
@@ -78,6 +89,7 @@
                     </div>
                 </div>
 
+                <!-- Section: Map Overlay Options -->
                 <div class="menu-container" data-container="layers">
                     <div class="mc-header">
                         <h3>Data Overlays</h3>
@@ -114,16 +126,25 @@
 
         </div>
 
+        <!-- ============================== -->
+        <!-- MAP CANVAS INTERFACE           -->
+        <!-- ============================== -->
         <div id="map-canvas"></div>
     </div>
 
+    <!-- ============================== -->
+    <!-- MAP TEMPLATES                  -->
+    <!-- ============================== -->
     <div id="map-templates">
+
+        <!-- Template: Map Marker -->
         <div data-template="marker">
             <div class="map-marker">
                 <div class="map-marker-icon"></div>
             </div>
         </div>
 
+        <!-- Template: Map Popup, Single Item -->
         <div data-template="popup">
 
             <div class="map-popup-wrapper">
@@ -210,6 +231,7 @@
 
         </div>
 
+        <!-- Template: Map Popup, Cluster -->
         <div data-template="popup-cluster">
 
             <div class="map-popup-wrapper">
@@ -236,6 +258,9 @@
         </div>
     </div>
 
+    <!-- ============================== -->
+    <!-- SYSTEM CONFIGURATIONS          -->
+    <!-- ============================== -->
     <div class="warning-screen" id="warning-reason-smallscreen">
         <a href="#" title="Open map in new window" target="_blank" class="external-map-link">
             <i class="fa-solid fa-up-right-from-square"></i>
@@ -244,6 +269,9 @@
 
     <div id="sensor-mobile"></div>
 
+    <!-- ============================== -->
+    <!-- FINAL SCRIPTS                  -->
+    <!-- ============================== -->
     <script src="assets/js/index.js" type="module"></script>
 
 </body>
