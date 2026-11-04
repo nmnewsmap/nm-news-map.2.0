@@ -14,23 +14,23 @@ export const CONFIG_INSTANCE = {
         zoom: {
             min: 5,
             max: 9,
-            default: 5, // State level
+            default: 6, // State level
         },
         center: [-106.2485, 34.5199], // New Mexico
         bounds: {
             max: [ // Used for maxBounds (Reference: https://docs.mapbox.com/mapbox-gl-js/api/map/#map-class-parameters-options-maxbounds)
-                [-110.301, 29.741], // [south, west]
-                [-101.205, 37.828] // [north, east]
+                [-114.301, 27.741], // [south, west]
+                [-97.205, 39.828] // [north, east]
             ],
             fit: { // Used for fitBounds (Reference: https://docs.mapbox.com/mapbox-gl-js/api/map/#map#fitbounds)
                 bbox: [
-                    [-102.999, 31.415], // [south, west]
-                    [-108.601, 36.902] // [north, east]
+                    [-109.050173, 31.332301], // [south, west]
+                    [-103.001964, 37.000232] // [north, east]
                 ],
                 padding: 50,
                 duration: 500 
             },
-        },
+        }
     },
 
     // Properties to assist the map functionality with given data 
