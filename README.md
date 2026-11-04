@@ -6,6 +6,8 @@ A comprehensive interactive map displaying local news outlets and demographic da
 
 **View the original GitHub Repository and Guide at** https://github.com/nmnewsmap/nm-news-map.2.0
 
+**Version:** 2.0.0
+
 
 ## Features
 
