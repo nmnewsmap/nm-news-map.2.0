@@ -18,28 +18,32 @@ Contents: (as structured in comments below)
  * 1) Branding Palette
  */
 
- @property --color-deepblue {
+/* Color Dark 1: Overlay border */
+@property --color-dark-01 {
 syntax: "<color>";
 inherits: false;
 initial-value: #2b1a45;
 }
 
-@property --color-ocean {
+/* Color Dark 2: Buttons, popup border */
+@property --color-dark-02 {
+syntax: "<color>";
+inherits: false;
+initial-value: #c21c4a;
+}
+
+/* Color Light 1: Filter border, score label */
+@property --color-light-01 {
 syntax: "<color>";
 inherits: false;
 initial-value: #00b7cd;
 }
 
-@property --color-cream {
+/* Color Light 2: Tooltip background */
+@property --color-light-02 {
 syntax: "<color>";
 inherits: false;
 initial-value: #fad09b;
-}
-
-@property --color-rose {
-syntax: "<color>";
-inherits: false;
-initial-value: #c21c4a;
 }
 
 /**
@@ -188,7 +192,7 @@ width: 50px;
 display: block;
 width: 50px;
 height: 50px;
-background-color: var(--color-rose);
+background-color: var(--color-dark-02);
 border-radius: 2px 0 0 5px;
 border: 3px solid #fff;
 border-right-width: 0;
@@ -303,11 +307,11 @@ display: none;
 }
 
 .menu-container[data-container="filters"] {
-border-top: 5px solid var(--color-ocean);
+border-top: 5px solid var(--color-light-01);
 }
 
 .menu-container[data-container="layers"] {
-border-top: 5px solid var(--color-deepblue);
+border-top: 5px solid var(--color-dark-01);
 }
 
 .mc-header {
@@ -573,7 +577,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 5px;
-background-color: var(--color-rose);
+background-color: var(--color-dark-02);
 border-radius: 5px;
 cursor: default;
 }
@@ -595,7 +599,7 @@ font-weight: 600;
 color: #fff;
 border-radius: 50%;
 border: 5px solid #fff;
-background-color: var(--color-deepblue);
+background-color: var(--color-dark-01);
 text-align: center;
 user-select: none;
 z-index: 20;
@@ -608,7 +612,7 @@ left: -5px;
 width: calc(100% + 10px);
 height: calc(100% + 10px);
 border-radius: 50%;
-background: radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) 0%, #e1e1e1 0);
+background: radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-light-01) 0%, #e1e1e1 0);
 z-index: 5;
 }
 
@@ -620,7 +624,7 @@ width: 80%;
 height: auto;
 background: #fff;
 padding: 20px;
-border: 5px solid var(--color-ocean);
+border: 5px solid var(--color-light-01);
 border-radius: 10px;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 opacity: 0;
@@ -654,7 +658,7 @@ top: -10px;
 left: calc(50% - 10px);
 width: 20px;
 height: 20px;
-background: var(--color-ocean);
+background: var(--color-light-01);
 border-radius: 3px;
 transform: rotate(45deg);
 z-index: -1;
@@ -701,7 +705,7 @@ display: inline-block;
 font-size: 18px;
 line-height: 27px;
 font-weight: 600;
-color: var(--color-deepblue);
+color: #000;
 margin-bottom: 3px;
 }
 
@@ -761,7 +765,7 @@ top: 20px;
 left: 0;
 width: 150px;
 height: auto;
-background: var(--color-cream);
+background: var(--color-light-02);
 padding: 8px;
 font-family: 'Helvetica', Arial, Sans-Serif;
 font-size: 11px;
@@ -871,7 +875,7 @@ margin-bottom: 0;
 
 .mp-footer-column a.mp-button {
 display: inline-block;
-background-color: var(--color-rose);
+background-color: var(--color-dark-02);
 border-radius: 5px;
 color: #fff;
 font-weight: 600;
