@@ -70,7 +70,7 @@ export const CONFIG_INSTANCE = {
     /**
      * Marker Property Definitions
      * 
-     * Marker properties are individual properties with data for each each marker in the Markers Layer. Properties may be used within the marker popup window template and map menu filters.
+     * Marker properties are individual properties with data for each marker in the Markers Layer. Properties may be used within the marker popup window template and map menu filters.
      * 
      * Each property may include: (* is required)
      * -- id*: The unique ID or slug for the property.
