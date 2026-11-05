@@ -40,7 +40,7 @@ export const CONFIG_INSTANCE = {
         cilMax: 3.00, // The maximum Community Impact Level number
         cilLabelDelimiter: '-', // The delimiter for the CIL label in the CIL description
         regionDelimiter: ',', // The delimiter for multiple regions in the region column
-        regionAllTerm: 'all', // The term used in marker region data for all-encompassing region coverage
+        regionAllTerm: 'all', // Lowercase-version of the term used in marker region data for all-encompassing region coverage
         regionsColumn: 'regions_served', // The column that includes the marker's region data
         regionsColorColumn: 'medium_primary', // The column that controls the marker colors
         regionsColorDefault: '#e0e0e0', // The default color for highlighting regions
