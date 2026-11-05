@@ -149,6 +149,8 @@ height: 35px;
 margin: 12px;
 min-height: 30px;
 padding-right: 30px;
+padding-top: 0;
+padding-bottom: 0;
 }
 
 .mapboxgl-ctrl-attrib-button {
