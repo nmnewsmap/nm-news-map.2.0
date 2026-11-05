@@ -701,7 +701,7 @@ text-align: center;
 }
 
 .mp-header h4 {
-display: inline-block;
+display: block;
 font-size: 18px;
 line-height: 27px;
 font-weight: 600;
@@ -710,7 +710,7 @@ margin-bottom: 3px;
 }
 
 .mp-header p {
-display: inline-block;
+display: block;
 font-size: 13px;
 line-height: 18px;
 color: #000;
@@ -853,6 +853,7 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 .mp-footer-column {
 position: relative;
 float: left;
+min-height: 1px;
 display: inline-block;
 box-sizing: border-box;
 }
