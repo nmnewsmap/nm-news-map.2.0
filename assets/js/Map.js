@@ -318,35 +318,6 @@ export class Map {
                 let namePropertyColumn = this.config.schemaMarker[this.config.mapOperations.databasePageSearchProperty].column;
                 this.layers.markers.names[feature.properties[namePropertyColumn]] = index;
 
-                // Get list of regions served
-                let regionsServed = feature.properties[
-                    this.config.schemaMarker[
-                        this.config.mapOperations.regionsColumn
-                    ].column
-                ];
-
-                // Turn region list into array and clean the string
-                regionsServed = regionsServed
-                    .split(this.config.mapOperations.regionDelimiter)
-                    .map(s => s.trim());
-
-                let regionsServedLabel = 'None';
-
-                if (regionsServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.regionAllTerm)) {
-                    if (this.layers.regions.labels.length > 0) {
-                        regionsServed = [...this.layers.regions.labels];
-                    } else {
-                        regionsServed = [];
-                    }
-                    regionsServedLabel = this.config.mapOperations.regionAllTerm.charAt(0).toUpperCase() + this.config.mapOperations.regionAllTerm.substring(1);
-                } else {
-                    regionsServed = regionsServed.map(s => this.normalizeRegionName(s));
-                    regionsServedLabel = regionsServed.join(', ');
-                }
-
-                feature.properties[this.config.schemaMarker[this.config.mapOperations.regionsColumn].column] = regionsServed;
-                feature.properties[this.config.schemaMarker[this.config.mapOperations.regionsColumn].column + '_label'] = regionsServedLabel;
-
                 // Update CIL value to float
                 feature.properties[this.config.schemaMarker.cil_number.column] = parseFloat(feature.properties[this.config.schemaMarker.cil_number.column]).toFixed(2);
 
@@ -609,6 +580,42 @@ export class Map {
                     }
                     break;
             }
+        });
+
+        // Add regional data to markers
+        this.layers.markers.geojson.features.filter((feature) => 
+            // Ignore if invalid GeoJSON properties
+            (feature.geometry && feature.geometry.coordinates)
+        ).map((feature, index) => {
+
+            // Get list of regions served
+            let regionsServed = feature.properties[
+                this.config.schemaMarker[
+                    this.config.mapOperations.regionsColumn
+                ].column
+            ];
+
+            // Turn region list into array and clean the string
+            regionsServed = regionsServed
+                .split(this.config.mapOperations.regionDelimiter)
+                .map(s => s.trim());
+
+            let regionsServedLabel = 'None';
+
+            if (regionsServed.map(s => s.toLowerCase()).includes(this.config.mapOperations.regionAllTerm)) {
+                if (this.layers.regions.labels.length > 0) {
+                    regionsServed = [...this.layers.regions.labels];
+                } else {
+                    regionsServed = [];
+                }
+                regionsServedLabel = this.config.mapOperations.regionAllTerm.charAt(0).toUpperCase() + this.config.mapOperations.regionAllTerm.substring(1);
+            } else {
+                regionsServed = regionsServed.map(s => this.normalizeRegionName(s));
+                regionsServedLabel = regionsServed.join(', ');
+            }
+
+            feature.properties[this.config.schemaMarker[this.config.mapOperations.regionsColumn].column] = regionsServed;
+            feature.properties[this.config.schemaMarker[this.config.mapOperations.regionsColumn].column + '_label'] = regionsServedLabel;
         });
 
         // Add regions data to map as a source to be used for layers
