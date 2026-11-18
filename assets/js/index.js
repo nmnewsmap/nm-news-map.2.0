@@ -1,5 +1,5 @@
-import { CONFIG_INSTANCE } from '/config/instance.js';
-import { CONFIG_SYSTEM } from '/config/system.js';
+import { CONFIG_INSTANCE } from '/nm-news-map.2.0/config/instance.js';
+import { CONFIG_SYSTEM } from '/nm-news-map.2.0/config/system.js';
 import { App } from './App.js';
 
 document.addEventListener( 'DOMContentLoaded', () => {
