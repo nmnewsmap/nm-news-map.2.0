@@ -80,8 +80,7 @@ export class Map {
             fitBoundsOptions: {
                 padding: this.config.map.bounds.fit.padding ?? null,
                 duration: this.config.map.bounds.fit.duration ??  null,
-            },
-            hash: true,
+            }
         });
 
         // Add map controls
