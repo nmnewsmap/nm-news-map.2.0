@@ -1,6 +1,6 @@
 export const CONFIG_SYSTEM = {
     // Directory for data files
-    dir_data: '/data/',
+    dir_data: '/nm-news-map.2.0/data/',
 
     /**
      * Icons
