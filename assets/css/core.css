@@ -861,11 +861,11 @@ box-sizing: border-box;
 }
 
 .mp-footer-column:first-child {
-width: 40%;
+width: 45%;
 }
 
 .mp-footer-column:last-child {
-width: 60%;
+width: 55%;
 }
 
 .mp-footer-column div {
@@ -887,6 +887,7 @@ user-select: none;
 padding: 5px 7px;
 margin-top: 3px;
 cursor: pointer;
+white-space: nowrap;
 }
 
 .mp-footer-column a.mp-button:first-child {
