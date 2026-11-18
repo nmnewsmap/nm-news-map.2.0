@@ -1,4 +1,4 @@
-window.outletsGeojsonFeatures = {
+{
    "type": "FeatureCollection",
    "features": [
   {

@@ -1,4 +1,54 @@
-/* Reset */
+/**
+Style: Map.css
+This stylesheet is the foundational style for the map application.
+A majority of the sections below are intended to work across many use cases.
+The only section that is encouraged to be updated is (1) Branding Palette to better match the project's brand.
+
+Contents: (as structured in comments below)
+1) Branding Palette: Color palette to use across the map application. May be customized.
+2) Reset: General resetting of styles to ensure browsers begin with consistent foundation.
+3) Layout: Structural components of the map application.
+4) Map: Mapping interface styles, including layers on top of the map tiles such as markers and attribution.
+5) Menu: Sidebar menu on top of the map that displays options for manipulating the map contents.
+6) Templates: Reusable templates used as needed within the JavaScript.
+7) Media Queries: Unique styles applied for specific user device thresholds.
+*/
+
+/**
+ * 1) Branding Palette
+ */
+
+/* Color Dark 1: Overlay border */
+@property --color-dark-01 {
+syntax: "<color>";
+inherits: false;
+initial-value: #2b1a45;
+}
+
+/* Color Dark 2: Buttons, popup border */
+@property --color-dark-02 {
+syntax: "<color>";
+inherits: false;
+initial-value: #c21c4a;
+}
+
+/* Color Light 1: Filter border, score label */
+@property --color-light-01 {
+syntax: "<color>";
+inherits: false;
+initial-value: #00b7cd;
+}
+
+/* Color Light 2: Tooltip background */
+@property --color-light-02 {
+syntax: "<color>";
+inherits: false;
+initial-value: #fad09b;
+}
+
+/**
+ * 2) Reset
+ */
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, input, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;vertical-align: baseline;}
 :focus {outline: 0;}
@@ -23,33 +73,9 @@ border-radius: 0;
 box-sizing: border-box;
 }
 
-/* Brand Palette for NM Local News Fund */
-
-@property --color-deepblue {
-syntax: "<color>";
-inherits: false;
-initial-value: #2b1a45;
-}
-
-@property --color-ocean {
-syntax: "<color>";
-inherits: false;
-initial-value: #00b7cd;
-}
-
-@property --color-cream {
-syntax: "<color>";
-inherits: false;
-initial-value: #fad09b;
-}
-
-@property --color-rose {
-syntax: "<color>";
-inherits: false;
-initial-value: #c21c4a;
-}
-
-/* Layout */
+/**
+ * 3) Layout
+ */
 
 body {
 font-family: 'Helvetica', Arial, Sans-Serif;
@@ -77,7 +103,7 @@ display: none;
 }
 
 /**
- * Map
+ * 4) Map
  */
 
 #map-canvas {
@@ -100,6 +126,7 @@ border-top-width: 0 !important;
 }
 
 .mapboxgl-popup {
+left: 14px;
 font: 13px/1.5 'Open Sans', Arial, sans-serif;
 z-index: 9999 !important;
 }
@@ -122,6 +149,8 @@ height: 35px;
 margin: 12px;
 min-height: 30px;
 padding-right: 30px;
+padding-top: 0;
+padding-bottom: 0;
 }
 
 .mapboxgl-ctrl-attrib-button {
@@ -135,7 +164,7 @@ line-height: 26px;
 }
 
 /**
- * Menu
+ * 5) Menu
  */
 
 /* Menu: Header */
@@ -165,7 +194,7 @@ width: 50px;
 display: block;
 width: 50px;
 height: 50px;
-background-color: var(--color-rose);
+background-color: var(--color-dark-02);
 border-radius: 2px 0 0 5px;
 border: 3px solid #fff;
 border-right-width: 0;
@@ -242,9 +271,7 @@ height: 100%;
 display: block;
 }
 
-/**
- * Menu: Containers
- */
+/* Menu: Containers */
 
 .menu-containers {
 position: relative;
@@ -278,14 +305,15 @@ background: #f7f7f7;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 margin-top: 20px;
 border-radius: 5px;
+display: none;
 }
 
 .menu-container[data-container="filters"] {
-border-top: 5px solid var(--color-ocean);
+border-top: 5px solid var(--color-light-01);
 }
 
 .menu-container[data-container="layers"] {
-border-top: 5px solid var(--color-deepblue);
+border-top: 5px solid var(--color-dark-01);
 }
 
 .mc-header {
@@ -458,7 +486,9 @@ font-size: 13px;
 line-height: 16px;
 }
 
-/* Templates */
+/**
+ * 6) Templates
+ */
 
 #map-templates {
 display: none;
@@ -549,7 +579,7 @@ top: 0;
 left: 0;
 width: 100%;
 height: 5px;
-background-color: var(--color-rose);
+background-color: var(--color-dark-02);
 border-radius: 5px;
 cursor: default;
 }
@@ -571,7 +601,7 @@ font-weight: 600;
 color: #fff;
 border-radius: 50%;
 border: 5px solid #fff;
-background-color: var(--color-deepblue);
+background-color: var(--color-dark-01);
 text-align: center;
 user-select: none;
 z-index: 20;
@@ -584,7 +614,7 @@ left: -5px;
 width: calc(100% + 10px);
 height: calc(100% + 10px);
 border-radius: 50%;
-background: radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-ocean) 0%, #e1e1e1 0);
+background: radial-gradient(closest-side, #fff 0%, transparent 80% 100%), conic-gradient(var(--color-light-01) 0%, #e1e1e1 0);
 z-index: 5;
 }
 
@@ -596,7 +626,7 @@ width: 80%;
 height: auto;
 background: #fff;
 padding: 20px;
-border: 5px solid var(--color-ocean);
+border: 5px solid var(--color-light-01);
 border-radius: 10px;
 box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 opacity: 0;
@@ -630,7 +660,7 @@ top: -10px;
 left: calc(50% - 10px);
 width: 20px;
 height: 20px;
-background: var(--color-ocean);
+background: var(--color-light-01);
 border-radius: 3px;
 transform: rotate(45deg);
 z-index: -1;
@@ -673,16 +703,16 @@ text-align: center;
 }
 
 .mp-header h4 {
-display: inline-block;
+display: block;
 font-size: 18px;
 line-height: 27px;
 font-weight: 600;
-color: var(--color-deepblue);
+color: #000;
 margin-bottom: 3px;
 }
 
 .mp-header p {
-display: inline-block;
+display: block;
 font-size: 13px;
 line-height: 18px;
 color: #000;
@@ -737,7 +767,7 @@ top: 20px;
 left: 0;
 width: 150px;
 height: auto;
-background: var(--color-cream);
+background: var(--color-light-02);
 padding: 8px;
 font-family: 'Helvetica', Arial, Sans-Serif;
 font-size: 11px;
@@ -766,6 +796,11 @@ display: block;
 font-size: 13px;
 line-height: 15px;
 overflow-wrap: break-word;
+}
+
+.mp-column-item span a {
+color: #000;
+text-decoration: none;
 }
 
 .mp-body-row {
@@ -820,6 +855,7 @@ box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 .mp-footer-column {
 position: relative;
 float: left;
+min-height: 1px;
 display: inline-block;
 box-sizing: border-box;
 }
@@ -842,14 +878,20 @@ margin-bottom: 0;
 
 .mp-footer-column a.mp-button {
 display: inline-block;
-background-color: var(--color-rose);
+background-color: var(--color-dark-01);
 border-radius: 5px;
 color: #fff;
 font-weight: 600;
 text-decoration: none;
 user-select: none;
 padding: 5px 7px;
+margin-top: 3px;
 cursor: pointer;
+}
+
+.mp-footer-column a.mp-button:first-child {
+margin-top: 0;
+background-color: var(--color-dark-02);
 }
 
 .mp-footer-column a.mp-button i {
@@ -905,6 +947,10 @@ text-transform: uppercase;
 [data-mp-property-template] {
 display: none !important;
 }
+
+/**
+ * 7) Media Queries
+ */
 
 @media all and (max-width: 500px) {
 
